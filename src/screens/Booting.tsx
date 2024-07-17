@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
 import '../style/Booting.scss'
 import bootLogo1 from '../assets/bootLogo1.jpg'
-import bootLogo2 from '../assets/bootLogo2.jpg'
 import { systemState } from '../store/useSystemStatus';
 import { useRecoilState } from 'recoil';
 
@@ -11,7 +10,7 @@ interface GPUInfo {
 }
 
 function Booting() {
-  const [systemStatus, setSystemStatus] = useRecoilState(systemState);
+  const [, setSystemStatus] = useRecoilState(systemState);
   const [showLines, setShowLines] = useState(false);
 
   useEffect(() => {
@@ -101,8 +100,21 @@ function Booting() {
   }
 
   function enterPress() {
+    document.documentElement.requestFullscreen()
     setSystemStatus('loading')
   }
+
+  useEffect(() => {
+    const handleKeyPress = (event: KeyboardEvent) => {
+      if (event.key === 'Enter') enterPress()
+    };
+
+    window.addEventListener('keydown', handleKeyPress);
+
+    return () => {
+      window.removeEventListener('keydown', handleKeyPress);
+    };
+  }, [setSystemStatus]);
 
   return (
     <section className='bootScreen'>
@@ -110,7 +122,6 @@ function Booting() {
       <div className='screenInner'>
         <div className='colheader'>
           <img src={bootLogo1} alt="american megatrends logo" />
-          {/* <img src={bootLogo2} alt="EPA logo" /> */}
         </div>
         <div className='colTop'>
           <p className='biosLine'>Copyright (c) 2024 GIRGIR PORTFOLIO, Released 16/7/2024</p>

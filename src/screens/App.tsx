@@ -11,7 +11,7 @@ const App = () => {
     <>
       {systemStatus === 'booting' && <Booting />}
       {systemStatus === 'loading' && <Loading />}
-      {systemStatus === 'done' && <DeskTop />}
+      {systemStatus === 'desktop' && <DeskTop />}
     </>
   );
 };

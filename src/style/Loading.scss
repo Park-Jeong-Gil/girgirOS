@@ -1,0 +1,61 @@
+// common
+@import './common/common';
+
+.loadingScreen{
+  &.loaded .screenInner{
+    opacity: 1;
+  }
+  .screenInner{
+    opacity: 0;
+    transition: opacity .5s ease-out;
+  
+  
+    .splash{
+      width: 100%; height: 100vh;
+      background: url('../assets/splashBg.jpg') no-repeat center / cover;
+      display: flex; justify-content: center; align-items: center;
+      position: relative; z-index: 2;
+
+      &.end{display: none;}
+      
+      .windowLogo{
+        width: 760px; height: 500px;
+        background: url('../assets/msLogo.png') no-repeat center / contain;
+      }
+
+      .loadingBar{
+        width: 100%;
+        height: 30px;
+        position: absolute; bottom: 0; left: 0;
+        background-color: #ddd;
+
+        &::after{
+          content: '';
+          display: block;
+          width: 100%;
+          height: 100%;
+          background: linear-gradient(90deg, rgba(0, 0, 0, 0) 0%, rgb(36 7 137) 30%, rgba(0, 0, 0, 0) 100%);
+          
+          animation: loadingBar 2s infinite;
+        }
+      }
+    }
+  
+    .flickBar{
+      position: absolute; top: 5%; left: 5%;
+      animation: flickBar 1s infinite;
+      font-size: 32px;
+      z-index: 1;
+    }
+  }
+}
+
+
+@keyframes loadingBar{
+  0%{
+    transform: translate3d(-100%, 0, 0);
+  }
+  100%{
+    transform: translate3d(100%, 0, 0);
+  }
+}
