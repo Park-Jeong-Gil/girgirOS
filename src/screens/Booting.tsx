@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import '../style/Booting.scss'
-import bootLogo1 from '../assets/bootLogo1.jpg'
+import bootLogo1 from '../assets/images/bootLogo1.png'
 import { systemState } from '../store/useSystemStatus';
 import { useRecoilState } from 'recoil';
 
@@ -19,7 +19,11 @@ function Booting() {
 
     const timer = setTimeout(() => {
       setShowLines(true);
-    }, 2500);
+    }, 1000);
+
+    setTimeout(()=>{
+      setSystemStatus('loading')
+    },15000)
 
     return () => clearTimeout(timer); // 컴포넌트가 언마운트될 때 타이머 클리어
   }, []);

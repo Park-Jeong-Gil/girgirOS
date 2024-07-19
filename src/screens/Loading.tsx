@@ -18,9 +18,9 @@ const loading = () => {
 
         setTimeout(() => {
           setSystemStatus('desktop')
-        }, 3000)
-      }, 4000)
-    }, 2500);
+        }, 2500)
+      }, 3800)
+    }, 1000);
 
     return () => clearTimeout(timer); 
   }, []);

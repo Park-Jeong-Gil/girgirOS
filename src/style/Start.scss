@@ -1,0 +1,118 @@
+.StartBar{
+  width: 100%;
+  height: 35px;
+  position: fixed;
+  bottom: 0; left: 0;
+  background-color: #bbc3c4;
+  z-index: 10;
+  box-shadow: 0px -2px 0px #ffffff;
+  padding: 3px 8px;
+  display: flex;
+  box-sizing: border-box;
+  justify-content: center;
+
+  @mixin startLine {
+    position: absolute;
+    top: 1px;
+    right: 0px;
+    height: calc(100% - 2px);
+    width: 1px;
+    background-color: #808088;
+    content: "";
+    box-shadow: 1px 0px 0px #ffffff;
+  }
+
+  @mixin startDivition {
+    position: absolute;
+    top: 3px;
+    right: -10px;
+    height: calc(100% - 6px);
+    width: 3px;
+    background-color: #bbc3c4;
+    content: "";
+    box-shadow: inset -1px -1px 0px #808088, inset 1px 1px 0px #ffffff;
+  }
+
+  .startWrap{
+    position: relative;
+    margin-right: 14px;
+    padding-right: 7px;
+
+    &:after {
+      @include startLine;
+    }
+              
+    &:before {
+      @include startDivition;
+    }
+
+    .StartButton {
+      width: 74px;
+      height: 30px;
+      display: flex;
+      align-content: center;
+      padding-right: 6px;
+      background-image: url(data:image/gif;base64,R0lGODlhNAATAPIFAAAAAAAA/wD/AP//AP8AAAAAAAAAAAAAACH5BAUAAAUALAAAAAA0ABMAAAOMWLrc/jDKSau9OF/Agf5RJ3ogRi4dwQkdI5aPJ6cqILAnp+j7KfGxEaF2AwJdvlBSQWhwaivjstCiVltVRnMLHR1fqKWOd2wMh50AZ5BFhsNYUlkRcAICasCAPZX2/mRTdYN5eGt8b1aJgYqND3iGdyKIcEmBcYkudl5zMBAyVm1tnhMjn6SoqaqrDwkAOw==);
+      background-size: auto 24px;
+      background-repeat: no-repeat;
+      background-position: 3px 3px;
+      // box-shadow: inset -2px -2px 0px #0c0c0c, 
+      //             inset 2px 2px 0px #ffffff, 
+      //             inset -3px -3px 0px #808088, 
+      //             inset 3px 3px 0px #bbc3c4;
+    }
+  }
+
+
+  .quickButtonWrap{
+    position: relative;
+    margin-right: 14px;
+    padding-right: 7px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &:after {
+      @include startLine;
+    }
+              
+    &:before {
+      @include startDivition;
+    }
+
+    .quickBtn{
+      width: 26px; height: 26px;
+      min-width: auto;
+      background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAnUExURUdwTFOoqf///wAAAMDHyIeIjxEA/6ipUf7/AKoAVwcAqwD///8AAC/f764AAAABdFJOUwBA5thmAAAAZUlEQVQY012O0RKAIAgEQQ4s6/+/N06trH3bnZsBkYV9lw/1ZFDipG7V3EQPDZSEHpGhO7o3MHQfezSGxYFm4vRSh8MZ0osV2BOMR7AuskxnUNrt8yxeV34auIm+yFd9EMrX7ccF27wDshZIPIoAAAAASUVORK5CYII=) no-repeat center / contain;
+    }
+  }
+
+  .appPanelWrap{
+    position: relative;
+    width: 100%;
+    margin-right: 7px;
+    padding-right: 7px;
+
+    &:after {
+      @include startLine;
+    }
+  }
+
+  .notiWrap{
+    position: relative;
+    background-color: #bbc3c4;
+    display: flex;
+    margin-left: auto;
+    align-items: center;
+    justify-content: center;
+    width: 120px;
+    height: 30px;
+    padding: 0px 8px 0px 8px;
+    box-shadow: inset -2px -2px 0px #ffffff, inset 2px 2px 0px #808088;
+    
+    time{
+      width: 100%;
+    }
+  }
+
+}
