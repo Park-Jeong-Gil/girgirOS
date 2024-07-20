@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
-import '../style/Desktop.scss'
+import { programStatus } from "../store/useProgramStatus"; 
+import { useRecoilState } from "recoil";
 
 interface StartProps {
 
@@ -7,6 +8,7 @@ interface StartProps {
 
 function Start({}: StartProps) {
   const [currentTime, setCurrentTime] = useState<string>(new Date().toLocaleTimeString());
+  const [programArr] = useRecoilState(programStatus)
 
   useEffect(() => {
     // 시간 업데이트 설정
@@ -14,7 +16,6 @@ function Start({}: StartProps) {
       setCurrentTime(new Date().toLocaleTimeString());
     }, 1000);
 
-    // 컴포넌트 언마운트 시 오디오 정지 및 타이머 클리어
     return () => {
       clearInterval(timer);
     };
@@ -24,12 +25,21 @@ function Start({}: StartProps) {
     <section className="StartBar">
       <div className="startWrap">
         <button className="StartButton"></button>
+        <ul className="start">
+          
+        </ul>
       </div>
       <div className="quickButtonWrap">
         <button className="quickBtn"></button>
       </div>
       <div className="appPanelWrap">
-
+        {
+          programArr.length > 0 && programArr.map((item, index) => (
+            <button className="runningProgram" key={index}>
+              {item}
+            </button>
+          ))
+        }
       </div>
       <div className="notiWrap">
         <time>{currentTime}</time>

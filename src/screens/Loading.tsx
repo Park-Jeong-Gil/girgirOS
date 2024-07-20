@@ -1,5 +1,4 @@
 import { useEffect } from "react";
-import '../style/Loading.scss'
 import { useRecoilState } from "recoil";
 import { systemState } from "../store/useSystemStatus";
 

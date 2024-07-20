@@ -1,9 +1,7 @@
-// common
-@import './common/common';
-
 .DeskTopScreen{
   font-family: 'W95','DosGothic', "Segoe UI", Tahoma, Verdana, sans-serif;
   color:#000;
+  * {cursor: url('data:image/gif;base64,R0lGODlhCwATAJEAAAAAAP///////wAAACH5BAEAAAIALAAAAAALABMAAAIrhI4JlhrcBAgvSlrbxPBs7mAU9IlMaV7mwo6jY2zk+Xphh8iWint1tDgUAAA7'), default !important;}
 
   &.loaded .screenInner{
     opacity: 1;

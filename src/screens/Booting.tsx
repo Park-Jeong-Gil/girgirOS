@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
-import '../style/Booting.scss'
 import bootLogo1 from '../assets/images/bootLogo1.png'
-import { systemState } from '../store/useSystemStatus';
+import { soundState, systemState } from '../store/useSystemStatus';
 import { useRecoilState } from 'recoil';
 
 interface GPUInfo {
@@ -11,7 +10,9 @@ interface GPUInfo {
 
 function Booting() {
   const [, setSystemStatus] = useRecoilState(systemState);
+  const [, setsoundState] = useRecoilState(soundState)
   const [showLines, setShowLines] = useState(false);
+  const [autoTimer, setAutoTimer] = useState(true)
 
   useEffect(() => {
     const $bootScreen = document.querySelector('.bootScreen');
@@ -21,12 +22,17 @@ function Booting() {
       setShowLines(true);
     }, 1000);
 
-    setTimeout(()=>{
-      setSystemStatus('loading')
+    const autoBootingTimer =  setTimeout(()=>{
+      autoTimer && setSystemStatus('loading')
     },15000)
 
-    return () => clearTimeout(timer); // 컴포넌트가 언마운트될 때 타이머 클리어
+    return () => {
+      clearTimeout(timer)
+      clearTimeout(autoBootingTimer)
+    };
   }, []);
+
+
 
   useEffect(() => {
     if (showLines) {
@@ -34,7 +40,7 @@ function Booting() {
     }
   }, [showLines]);
 
-  function linesShow() {
+  function linesShow():void {
     const $colMiddle = document.querySelector('.colMiddle');
     const $middlebiosLines = $colMiddle?.querySelectorAll('.biosLine');
 
@@ -105,7 +111,9 @@ function Booting() {
 
   function enterPress() {
     document.documentElement.requestFullscreen()
+    setAutoTimer(false)
     setSystemStatus('loading')
+    setsoundState(true)
   }
 
   useEffect(() => {

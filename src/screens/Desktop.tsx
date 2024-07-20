@@ -1,31 +1,35 @@
 import { useEffect } from "react";
+import { useRecoilState } from "recoil";
+
 import "98.css";
-import '../style/Desktop.scss'
-import '../style/Start.scss'
 import startUpSound from '../assets/sounds/startup.mp3'
+import { soundState } from "../store/useSystemStatus";
+
 import Start from "../components/Start";
+import Background from "../components/Background";
 
-interface DeskTopProps {
 
-}
 
-function DeskTop({}: DeskTopProps) {
+function DeskTop() {
+  const [soundActive] = useRecoilState(soundState)
+  
   useEffect(() => {
     const $DeskTopScreen = document.querySelector('.DeskTopScreen');
+    const startUpAudio = new Audio(startUpSound);
     
     const timer = setTimeout(() => {
       $DeskTopScreen?.classList.add('loaded');
-      const startUpAudio = new Audio(startUpSound)
-      // startUpAudio.play()
+      // soundActive && startUpAudio.play()
     }, 1000);
-
+    
     return () => clearTimeout(timer); 
   }, []);
 
   return (
     <section className="DeskTopScreen">
       <div className="screenInner">
-        <Start/>
+        <Background/>
+        <Start />
       </div>
     </section>
   )

@@ -1,0 +1,48 @@
+.desktopIcon{
+  display: flex;
+  flex-direction: column;
+  width: 80px; height: auto;
+  min-width: auto;
+  background-color: transparent;
+  margin: 14px 8px;
+  padding: 8px;
+  box-shadow: none;
+  font-size: 16px;
+  font-weight: 500;
+  color: #fff;
+  
+  span{
+    width: 100%;
+    text-align: center;
+  }
+
+  &::before{
+    content: '';
+    width: 80%;
+    height: 80px;
+    margin: 0 auto;
+    background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAMAAABEpIrGAAAAD1BMVEVHcEz////AwMAAAACAgIAnu+Y7AAAAAXRSTlMAQObYZgAAAE1JREFUOMvlkYEGwEAMQ9O+/v83b2puWDC2m3FPUFIRIu2AkwYVZcXwCaMiuf1gyXcfaA6H6PtBwpySf+jAhTUTPthi9pqqdJy+BJb2NgG9BdieCff+AAAAAElFTkSuQmCC");
+    background-repeat: no-repeat;
+    background-position: left;
+    background-size: contain;
+  }
+
+  &.myPc:before{
+    background-image: url("../assets/images/my-computer-48x48.png");
+  }
+  &.myDoc:before{
+    background-image: url("../assets/images/my-documents-48x48.png");
+  }
+  &.trashCan:before{
+    background-image: url("../assets/images/recycle-bin-full-48x48.png");
+  }
+  &.ie:before{
+    background-image: url("../assets/images/internet-explorer-48x48.png");
+  }
+  &.outlook:before{
+    background-image: url("../assets/images/outlook-express-48x48.png");
+  }
+  &.help:before{
+    background-image: url("../assets/images/help-48x48.png");
+  }
+}

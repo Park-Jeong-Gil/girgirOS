@@ -1,7 +1,6 @@
-// common
-@import './common/common';
-
 .loadingScreen{
+  color:#fff;
+  
   &.loaded .screenInner{
     opacity: 1;
   }
