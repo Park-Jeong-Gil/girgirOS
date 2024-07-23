@@ -9,7 +9,6 @@ import Start from "../components/Start";
 import Background from "../components/Background";
 
 
-
 function DeskTop() {
   const [soundActive] = useRecoilState(soundState)
   
@@ -29,6 +28,9 @@ function DeskTop() {
     <section className="DeskTopScreen">
       <div className="screenInner">
         <Background/>
+        {
+          
+        }
         <Start />
       </div>
     </section>
