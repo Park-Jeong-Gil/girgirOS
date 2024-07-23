@@ -18,10 +18,11 @@ function Background() {
       
       if (iconName && !programArr.some(prog => prog.name === iconName)) {
         setProgramArr([...programArr, { program: programKey, name: iconName }]);
-        setActiveProgram(programKey)
+        
       } else {
         // console.log("Program already exists or name is unknown:", iconName);
       }
+      setActiveProgram(programKey)
     };
 
     $desktopIcons.forEach((elem) => {
@@ -35,7 +36,7 @@ function Background() {
     };
   }, [programArr, setProgramArr]);
 
-  
+
   useEffect(() => {
     const $DeskTopScreen = document.querySelector('.DeskTopScreen');
     const $appPanel = $DeskTopScreen?.querySelector('.appPanelWrap');

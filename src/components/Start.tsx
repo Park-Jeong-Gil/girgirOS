@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { programStatus } from "../store/useProgramStatus"; 
+import { currentProgram, programStatus } from "../store/useProgramStatus"; 
 import { useRecoilState } from "recoil";
 
 interface StartProps {
@@ -9,9 +9,10 @@ interface StartProps {
 function Start({}: StartProps) {
   const [currentTime, setCurrentTime] = useState<string>(new Date().toLocaleTimeString());
   const [programArr] = useRecoilState(programStatus)
+  const [activeProgram, setActiveProgram] = useRecoilState(currentProgram)
 
+  // 시간 업데이트
   useEffect(() => {
-    // 시간 업데이트 설정
     const timer = setInterval(() => {
       setCurrentTime(new Date().toLocaleTimeString());
     }, 1000);
@@ -21,8 +22,32 @@ function Start({}: StartProps) {
     };
   }, []);
 
+
+  // 시작 바에서 프로그램 클릭 시
+  useEffect(()=>{
+    const $DeskTopScreen = document.querySelector('.DeskTopScreen');
+    const $appPanel = $DeskTopScreen?.querySelector('.appPanelWrap');
+    const $programs = $appPanel?.querySelectorAll('button');
+    
+    const handleActiveProgram = (e:Event)=>{
+      const target = e.currentTarget as HTMLElement;
+      const programKey = target.getAttribute('data-program-name') || '';
+      setActiveProgram(programKey)
+    }
+        
+    $programs?.forEach((elem) => {
+      elem.addEventListener('click', handleActiveProgram);
+    });
+    
+    return () => {
+      $programs?.forEach((elem) => {
+        elem.removeEventListener('click', handleActiveProgram);
+      });
+    };
+  },[activeProgram])
+
   return (
-    <section className="StartBar">
+    <div className="StartBar">
       <div className="startWrap">
         <button className="StartButton"></button>
         <ul className="start">
@@ -36,7 +61,7 @@ function Start({}: StartProps) {
         {
           programArr.length > 0 && programArr.map((item, index) => (
             <button className="runningProgram" key={index} data-program-name={item.program}>
-              {item.name}
+              <span>{item.name}</span>
             </button>
           ))
         }
@@ -44,7 +69,7 @@ function Start({}: StartProps) {
       <div className="notiWrap">
         <time>{currentTime}</time>
       </div>
-    </section>
+    </div>
   )
 }
 
