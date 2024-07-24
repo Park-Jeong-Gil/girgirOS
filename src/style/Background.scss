@@ -35,24 +35,23 @@
   }
 
   &.myPc .iconImage{
-    background-image: url("../assets/images/my-computer-48x48.png");
+    @include myPcImg
   }
   &.myDoc .iconImage{
-    background-image: url("../assets/images/my-documents-48x48.png");
+    @include myDocImg
   }
   &.trashCan .iconImage{
-    background-image: url("../assets/images/recycle-bin-full-48x48.png");
+    @include trashCanImg
   }
   &.ie .iconImage{
-    background-image: url("../assets/images/internet-explorer-48x48.png");
+    @include ieImg
   }
   &.outlook .iconImage{
-    background-image: url("../assets/images/outlook-express-48x48.png");
+    @include outlookImg
   }
   &.help .iconImage{
-    background-image: url("../assets/images/help-48x48.png");
+    @include helpImg
   }
-
 
   &:focus{
     outline: none;
