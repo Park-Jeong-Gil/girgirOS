@@ -118,11 +118,31 @@
 	pointer-events:none;
 }
 
+@function to-string($value) {
+  @if type-of($value) == "string" {
+    @return $value;
+  } @else if type-of($value) == "list" {
+    $str: "";
+    @each $item in $value {
+      $str: $str + $item + " ";
+    }
+    @return unquote($str);
+  } @else {
+    @return quote($value);
+  }
+}
+
+@function selector-replace($selector, $search, $replace) {
+  $selector-str: to-string($selector);
+  $search-str: to-string($search);
+  $replace-str: to-string($replace);
+  @return unquote(str-replace(quote($selector-str), quote($search-str), quote($replace-str)));
+}
 
 @mixin parent-selector($parent, $value) {
-	@at-root #{selector-replace(&, $parent, $parent+$value)} {
-		@content;
-	}
+  @at-root #{selector-replace(&, $parent, $parent + $value)} {
+    @content;
+  }
 }
 
 @function str-to-list($string, $separator: " ", $startAt: 1) {

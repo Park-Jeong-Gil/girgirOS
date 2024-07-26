@@ -1,75 +1,111 @@
 .ProgramWindow {
-  position: absolute;
+  position: absolute; top:25%; left: 25%;
   box-sizing: border-box;
   border: 1px solid #000;
+
+  .title-bar{
+    .title-bar-text{
+      font-size: 14px; padding-left: 4px;
+
+      &::before{
+        content: '';
+        display: inline-block;
+        width: 14px; height: 14px;
+        margin-right: 8px;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: contain;
+        vertical-align: middle;
+
+        @include parent-selector('.ProgramWindow', '#myPc') {
+          @include myPcImg
+        }
+        @include parent-selector('.ProgramWindow', '#myDoc') {
+          @include myDocImg
+        }
+        @include parent-selector('.ProgramWindow', '#trashCan') {
+          @include trashCanImg
+        }
+        @include parent-selector('.ProgramWindow', '#ie') {
+          @include ieImg
+        }
+        @include parent-selector('.ProgramWindow', '#outlook') {
+          @include outlookImg
+        }
+        @include parent-selector('.ProgramWindow', '#help') {
+          @include helpImg
+        }
+      }
+    }
+  }
 }
 
 .resize-handle {
   position: absolute;
   background: transparent;
   z-index: 10;
-}
-
-.resize-handle.right {
-  top: 0;
-  right: 0;
-  width: 10px;
-  height: 100%;
-  cursor: ew-resize;
-}
-
-.resize-handle.bottom {
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  height: 10px;
-  cursor: ns-resize !important;
-}
-
-.resize-handle.bottom-right {
-  right: 0;
-  bottom: 0;
-  width: 10px;
-  height: 10px;
-  cursor: nwse-resize !important;
-}
-
-.resize-handle.left {
-  top: 0;
-  left: 0;
-  width: 10px;
-  height: 100%;
-  cursor: ew-resize !important;
-}
-
-.resize-handle.top {
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 10px;
-  cursor: ns-resize !important;
-}
-
-.resize-handle.top-left {
-  top: 0;
-  left: 0;
-  width: 10px;
-  height: 10px;
-  cursor: nwse-resize !important;
-}
-
-.resize-handle.top-right {
-  top: 0;
-  right: 0;
-  width: 10px;
-  height: 10px;
-  cursor: nesw-resize !important;
-}
-
-.resize-handle.bottom-left {
-  bottom: 0;
-  left: 0;
-  width: 10px;
-  height: 10px;
-  cursor: nesw-resize !important;
+  
+  &.right {
+    top: 0;
+    right: 0;
+    width: 10px;
+    height: 100%;
+    cursor: ew-resize;
+  }
+  
+  &.bottom {
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 10px;
+    cursor: ns-resize !important;
+  }
+  
+  &.bottom-right {
+    right: 0;
+    bottom: 0;
+    width: 10px;
+    height: 10px;
+    cursor: nwse-resize !important;
+  }
+  
+  &.left {
+    top: 0;
+    left: 0;
+    width: 10px;
+    height: 100%;
+    cursor: ew-resize !important;
+  }
+  
+  &.top {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 10px;
+    cursor: ns-resize !important;
+  }
+  
+  &.top-left {
+    top: 0;
+    left: 0;
+    width: 10px;
+    height: 10px;
+    cursor: nwse-resize !important;
+  }
+  
+  &.top-right {
+    top: 0;
+    right: 0;
+    width: 10px;
+    height: 10px;
+    cursor: nesw-resize !important;
+  }
+  
+  &.bottom-left {
+    bottom: 0;
+    left: 0;
+    width: 10px;
+    height: 10px;
+    cursor: nesw-resize !important;
+  }
 }

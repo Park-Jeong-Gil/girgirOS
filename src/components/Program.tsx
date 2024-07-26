@@ -16,6 +16,7 @@ function Program({ name, programId }: ProgramProps) {
   const [size, setSize] = useState({ width: 400, height: 300 });
   const [isResizing, setIsResizing] = useState(false);
   const [resizeDirection, setResizeDirection] = useState<null | string>(null);
+  const [position, setPosition] = useState({ x: 0, y: 0 });
   const windowRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -49,11 +50,19 @@ function Program({ name, programId }: ProgramProps) {
         ...prevSize,
         width: Math.max(200, rect.right - e.clientX),
       }));
+      setPosition((prevPosition) => ({
+        ...prevPosition,
+        x: prevPosition.x + (e.clientX - rect.left),
+      }));
     }
     if (resizeDirection.includes('top')) {
       setSize((prevSize) => ({
         ...prevSize,
         height: Math.max(200, rect.bottom - e.clientY),
+      }));
+      setPosition((prevPosition) => ({
+        ...prevPosition,
+        y: prevPosition.y + (e.clientY - rect.top),
       }));
     }
   };
@@ -84,12 +93,21 @@ function Program({ name, programId }: ProgramProps) {
   }, [isResizing]);
 
   return (
-    <Draggable handle=".title-bar" bounds="parent">
+    <Draggable
+      handle=".title-bar"
+      bounds="parent"
+      position={position}
+      onDrag={(e, data) => setPosition({ x: data.x, y: data.y })}
+    >
       <div
         className="ProgramWindow window"
         id={programId || ""}
         ref={windowRef}
-        style={{ width: size.width, height: size.height }}
+        style={{
+          width: size.width,
+          height: size.height,
+          transform: `translate(${position.x}px, ${position.y}px)`,
+        }}
       >
         <div className="container">
           <div className="title-bar">
@@ -104,35 +122,35 @@ function Program({ name, programId }: ProgramProps) {
             <p>There's so much room for activities!</p>
           </div>
         </div>
-        <div
+        <span
           className="resize-handle right"
           onMouseDown={() => handleMouseDown("right")}
         />
-        <div
+        <span
           className="resize-handle bottom"
           onMouseDown={() => handleMouseDown("bottom")}
         />
-        <div
+        <span
           className="resize-handle bottom-right"
           onMouseDown={() => handleMouseDown("bottom-right")}
         />
-        <div
+        <span
           className="resize-handle left"
           onMouseDown={() => handleMouseDown("left")}
         />
-        <div
+        <span
           className="resize-handle top"
           onMouseDown={() => handleMouseDown("top")}
         />
-        <div
+        <span
           className="resize-handle top-left"
           onMouseDown={() => handleMouseDown("top-left")}
         />
-        <div
+        <span
           className="resize-handle top-right"
           onMouseDown={() => handleMouseDown("top-right")}
         />
-        <div
+        <span
           className="resize-handle bottom-left"
           onMouseDown={() => handleMouseDown("bottom-left")}
         />
