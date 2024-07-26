@@ -7,10 +7,13 @@ import { soundState } from "../store/useSystemStatus";
 
 import Start from "../components/Start";
 import Background from "../components/Background";
+import { programStatus } from "../store/useProgramStatus";
+import Program from "../components/Program";
 
 
 function DeskTop() {
   const [soundActive] = useRecoilState(soundState)
+  const [programArr] = useRecoilState(programStatus);
   
   useEffect(() => {
     const $DeskTopScreen = document.querySelector('.DeskTopScreen');
@@ -29,7 +32,9 @@ function DeskTop() {
       <div className="screenInner">
         <Background/>
         {
-          
+          programArr.length > 0 && programArr.map((item, index) => (
+            <Program key={index} name={item.name} programId={item.program}/>
+          ))
         }
         <Start />
       </div>

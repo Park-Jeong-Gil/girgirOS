@@ -7,7 +7,6 @@ function Background() {
   const [activeProgram, setActiveProgram] = useRecoilState(currentProgram)
 
   useEffect(() => {
-    // const $DeskTopScreen = document.querySelector('.DeskTopScreen')
     const $desktopIcons = document.querySelectorAll('.desktopIcon');
 
     const handleRunProgram = (e: Event) => {
