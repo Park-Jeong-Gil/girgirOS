@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { useRecoilState } from "recoil";
 import { currentProgram, programStatus } from "../store/useProgramStatus";
 import Draggable from "react-draggable";
+import About from "./About";
 
 interface ProgramProps {
   name: string;
@@ -20,12 +21,12 @@ function Program({ name, programId, layer }: ProgramProps) {
   const [isResizing, setIsResizing] = useState(false);
   const [resizeDirection, setResizeDirection] = useState<null | string>(null);
   const [isMaximized, setIsMaximized] = useState(false);
-  const [position, setPosition] = useState({ 
+  const [position, setPosition] = useState({
     x: (winW / 2) - (size.width / 2) + (layer * 25),
     y: (winH / 2) - (size.height / 2) + (layer * 25),
   });
+  const [prevPosition, setPrevPosition] = useState(position); // 이전 위치 저장
   const windowRef = useRef<HTMLDivElement>(null);
-
 
   useEffect(() => {
     const $ProgramWindows = document.querySelectorAll('.ProgramWindow');
@@ -108,18 +109,18 @@ function Program({ name, programId, layer }: ProgramProps) {
   const handleMinimize = (e: React.MouseEvent<HTMLButtonElement>) => {
     const target = e.currentTarget as HTMLElement;
     const $currentProgram = target.closest('.ProgramWindow') as HTMLElement;
-    
+
     $currentProgram?.classList.add('minimized');
-    
+
     const currentIndex = programArr.findIndex(prog => prog.program === programId);
-  
+
     if (currentIndex === 0) {
       // 가장 먼저 열린 프로그램일 때
       setActiveProgram('');
     } else {
       // 나머지 경우 (예: currentIndex > 1)
       const previousProgramId = currentIndex > 0 ? programArr[currentIndex - 1].program : null;
-  
+
       if (previousProgramId) {
         setActiveProgram(previousProgramId);
       }
@@ -127,7 +128,16 @@ function Program({ name, programId, layer }: ProgramProps) {
   };
 
   const handleMaximize = () => {
-    setIsMaximized(!isMaximized);
+    if (isMaximized) {
+      // 최대화 해제
+      setIsMaximized(false);
+      setPosition(prevPosition); // 이전 위치로 돌아가기
+    } else {
+      // 최대화
+      setPrevPosition(position); // 현재 위치 저장
+      setIsMaximized(true);
+      setPosition({ x: 0, y: 0 }); // 최대화 위치로 이동
+    }
   };
 
   const handleFocus = (e: React.SyntheticEvent<HTMLDivElement, Event>) => {
@@ -148,6 +158,7 @@ function Program({ name, programId, layer }: ProgramProps) {
       handle=".title-bar"
       position={position}
       onDrag={(e, data) => setPosition({ x: data.x, y: data.y })}
+      disabled={isMaximized}
     >
       <div
         className={`ProgramWindow window${isMaximized ? ' maximized' : ''}`}
@@ -158,7 +169,6 @@ function Program({ name, programId, layer }: ProgramProps) {
           height: isMaximized ? "100%" : size.height,
           top: isMaximized ? 0 : undefined,
           left: isMaximized ? 0 : undefined,
-          transform: `translate(${position.x}px, ${position.y}px)`,
           zIndex: layer,
         }}
         onClick={handleFocus}
@@ -175,7 +185,7 @@ function Program({ name, programId, layer }: ProgramProps) {
             </div>
           </div>
           <div className="window-body">
-            <p>There's so much room for activities!</p>
+            {programId == 'help' && <About />}
           </div>
         </div>
         {isMaximized === false && (

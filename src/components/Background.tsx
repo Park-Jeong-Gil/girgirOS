@@ -54,7 +54,14 @@ function Background() {
       });
     }
   }, [activeProgram]);
-  
+
+  useEffect(() => {
+    const firstProgramTime =  setTimeout(() => {
+      clearTimeout(firstProgramTime)
+      setActiveProgram('help')
+      setProgramArr([...programArr, { program: 'help', name: '도움말' }]);
+    }, 4000)
+  }, []);
 
   return (
     <div className="Background">

@@ -14,12 +14,11 @@ body{
   -webkit-user-select:none;
   -moz-user-select:none;
   -ms-user-select:none;
-  user-select:none
+  user-select:none;
 }
 button{background: none; border: none;}
 .blind{ @include blind }
 #root{
-  
   // flicker
   &:after{
     // @include flicker

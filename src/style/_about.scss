@@ -1,0 +1,14 @@
+.aboutContainer{
+  width: 100%; height: 100%;
+
+  .containerInner{
+    display: flex;
+    width: 100%; height: 100%;
+    box-sizing: border-box;
+  }
+
+  .imageBox{
+    width: 50%;
+    background: red;
+  }
+}
