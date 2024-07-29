@@ -2,6 +2,11 @@
   position: absolute; top:25%; left: 25%;
   box-sizing: border-box;
   border: 1px solid #000;
+  transform: none !important;
+
+  &.minimized{
+    display: none;
+  }
 
   .title-bar{
     .title-bar-text{
