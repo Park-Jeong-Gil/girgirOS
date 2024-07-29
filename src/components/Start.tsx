@@ -32,12 +32,23 @@ function Start({}: StartProps) {
     const handleActiveProgram = (e:Event)=>{
       const target = e.currentTarget as HTMLElement;
       const programKey = target.getAttribute('data-program-name') || '';
+      const $ProgramWindows = $DeskTopScreen?.querySelectorAll('.ProgramWindow')
+
       setActiveProgram(programKey)
+      
+      $ProgramWindows?.forEach(prog =>{
+        if(prog.id === programKey){
+          prog.classList.remove('minimized')
+        }
+      })
     }
         
     $programs?.forEach((elem) => {
       elem.addEventListener('click', handleActiveProgram);
     });
+
+
+
     
     return () => {
       $programs?.forEach((elem) => {

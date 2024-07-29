@@ -13,34 +13,29 @@ function Program({ name, programId, layer }: ProgramProps) {
   const [programArr, setProgramArr] = useRecoilState(programStatus);
   const [activeProgram, setActiveProgram] = useRecoilState(currentProgram);
 
-  const winW = window.innerWidth
-  const winH = window.innerHeight
+  const winW = window.innerWidth;
+  const winH = window.innerHeight;
 
-  const [size, setSize] = useState({ width: winW/2, height: winH/2 });
+  const [size, setSize] = useState({ width: winW / 2, height: winH / 2 });
   const [isResizing, setIsResizing] = useState(false);
   const [resizeDirection, setResizeDirection] = useState<null | string>(null);
-  const [isMinimized, setIsMinimized] = useState(false);
   const [isMaximized, setIsMaximized] = useState(false);
-  const [position, setPosition] = useState({ x: ((winW/2) - (size.width/2)), y: ((winH/2) - (size.height/2))});
+  const [position, setPosition] = useState({ 
+    x: (winW / 2) - (size.width / 2) + (layer * 25),
+    y: (winH / 2) - (size.height / 2) + (layer * 25),
+  });
   const windowRef = useRef<HTMLDivElement>(null);
-  const $DeskTopScreenInner = document.querySelector('.DeskTopScreen .screenInner')
 
-  useEffect(() => {
-    // console.log(`Program ${name} has mounted`);
-    return () => {
-      // console.log(`Program ${name} has unmounted`);
-    };
-  }, [name]);
 
   useEffect(() => {
     const $ProgramWindows = document.querySelectorAll('.ProgramWindow');
 
     $ProgramWindows.forEach(prog => {
-      prog.removeAttribute('data-window')
+      prog.removeAttribute('data-window');
     });
 
     if (activeProgram) {
-      document.querySelector(`#${activeProgram}`)?.setAttribute('data-window', 'focused')
+      document.querySelector(`#${activeProgram}`)?.setAttribute('data-window', 'focused');
     }
   }, [activeProgram]);
 
@@ -52,13 +47,13 @@ function Program({ name, programId, layer }: ProgramProps) {
 
     const rect = window.getBoundingClientRect();
     if (resizeDirection.includes('right')) {
-      setSize((prevSize) => ({
+      setSize(prevSize => ({
         ...prevSize,
         width: Math.max(200, e.clientX - rect.left),
       }));
     }
     if (resizeDirection.includes('bottom')) {
-      setSize((prevSize) => ({
+      setSize(prevSize => ({
         ...prevSize,
         height: Math.max(200, e.clientY - rect.top),
       }));
@@ -110,48 +105,65 @@ function Program({ name, programId, layer }: ProgramProps) {
     };
   }, [isResizing]);
 
-  useEffect(() => {
-    console.log("isMinimized : ", isMinimized, "isMaximized : ", isMaximized);
-  }, [isMinimized, isMaximized]);
-
-  const handleMinimize = () => {
-    setIsMinimized(!isMinimized);
+  const handleMinimize = (e: React.MouseEvent<HTMLButtonElement>) => {
+    const target = e.currentTarget as HTMLElement;
+    const $currentProgram = target.closest('.ProgramWindow') as HTMLElement;
+    
+    $currentProgram?.classList.add('minimized');
+    
+    const currentIndex = programArr.findIndex(prog => prog.program === programId);
+  
+    if (currentIndex === 0) {
+      // 가장 먼저 열린 프로그램일 때
+      setActiveProgram('');
+    } else {
+      // 나머지 경우 (예: currentIndex > 1)
+      const previousProgramId = currentIndex > 0 ? programArr[currentIndex - 1].program : null;
+  
+      if (previousProgramId) {
+        setActiveProgram(previousProgramId);
+      }
+    }
   };
 
   const handleMaximize = () => {
     setIsMaximized(!isMaximized);
   };
 
-  const handleFocus = () => {
-    if (programId) {
+  const handleFocus = (e: React.SyntheticEvent<HTMLDivElement, Event>) => {
+    const target = e.currentTarget as HTMLElement;
+    const $currentProgram = target.closest('.ProgramWindow') as HTMLElement;
+
+    if (programId && !$currentProgram.classList.contains('minimized')) {
       setActiveProgram(programId);
     }
   };
 
   const handleClose = () => {
-    setProgramArr((prev) => prev.filter((prog) => prog.program !== programId));
+    setProgramArr(prev => prev.filter(prog => prog.program !== programId));
   };
 
   return (
     <Draggable
       handle=".title-bar"
-      defaultPosition={position}
-      onDrag={(e, data) => setPosition({ x: data.x, y: data.y }) }
+      position={position}
+      onDrag={(e, data) => setPosition({ x: data.x, y: data.y })}
     >
       <div
-        className={`ProgramWindow window${isMinimized ? ' minimized' : ''}${isMaximized ? ' maximized' : ''}`}
+        className={`ProgramWindow window${isMaximized ? ' maximized' : ''}`}
         id={programId || ""}
         ref={windowRef}
         style={{
           width: isMaximized ? "100%" : size.width,
           height: isMaximized ? "100%" : size.height,
-          top: isMaximized ? 0 : (position.y + (layer*25)),
-          left: isMaximized ? 0 : (position.x + (layer*25)),
-          zIndex:layer
+          top: isMaximized ? 0 : undefined,
+          left: isMaximized ? 0 : undefined,
+          transform: `translate(${position.x}px, ${position.y}px)`,
+          zIndex: layer,
         }}
         onClick={handleFocus}
         onFocus={handleFocus}
-        tabIndex={0} // Add tabIndex to make the element focusable
+        tabIndex={0}
       >
         <div className="container">
           <div className="title-bar">

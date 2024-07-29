@@ -47,6 +47,11 @@ function Background() {
 
       const $activeProg = $appPanel.querySelector(`[data-program-name=${activeProgram}]`)
       $activeProg?.classList.add('active')
+
+    }else if(activeProgram == ''){
+      $appPanel?.querySelectorAll('button').forEach((prog) => {
+        prog.classList.remove('active')
+      });
     }
   }, [activeProgram]);
   
