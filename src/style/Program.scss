@@ -3,12 +3,20 @@
   box-sizing: border-box;
   border: 1px solid #000;
   transform: none !important;
+  z-index: 1;
+
+  &[data-window=focused]{
+    z-index: 7 !important;
+    .title-bar{background: linear-gradient(90deg, navy, #1084d0);}
+  }
 
   &.minimized{
     display: none;
   }
 
   .title-bar{
+    background: linear-gradient(90deg, grey, #b5b5b5);
+
     .title-bar-text{
       font-size: 14px; padding-left: 4px;
 
