@@ -22,7 +22,7 @@ function DeskTop() {
     const timer = setTimeout(() => {
       $DeskTopScreen?.classList.add('loaded');
       soundActive && startUpAudio.play()
-    }, 1000);
+    }, 100);
     
     return () => clearTimeout(timer); 
   }, []);

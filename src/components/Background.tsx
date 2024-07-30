@@ -60,7 +60,7 @@ function Background() {
       clearTimeout(firstProgramTime)
       setActiveProgram('help')
       setProgramArr([...programArr, { program: 'help', name: '도움말' }]);
-    }, 4000)
+    }, 5000)
   }, []);
 
   return (

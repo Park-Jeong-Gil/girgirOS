@@ -9,8 +9,8 @@
     opacity: 1;
   }
   .screenInner{
-    position: absolute; top:0; left: 0;
-    width: 100%; height: 100vh;
+    position: fixed; top:0; left: 0;
+    width: 100%; height: calc(100vh - 35px);
     opacity: 0; transition: opacity .5s ease-out;
     // background: url('https://i.pinimg.com/originals/69/3d/dc/693ddc3a87eeb8149dcccd8024e90cff.jpg') no-repeat center / cover;
     // background: #019394;
