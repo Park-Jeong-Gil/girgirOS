@@ -8,11 +8,31 @@
   }
 
   .imageBox{
-    width: 50%;
-    background: red;
+    display: flex;
+    width: 50%; height: 100%;
+    align-items: center;
+    justify-content: center;
+
+    .profile{
+      width: 80%;
+      height: 100%;
+      background: url('../assets/images/profile.png') no-repeat center / contain;
+    }
   }
+
   .description{
+    background: #fff;
+    box-shadow: inset -1px -1px #fff, inset 1px 1px grey, inset -2px -2px #dfdfdf, inset 2px 2px #0a0a0a;
     width: 50%;
-    overflow-y: scroll;
+    overflow-y: auto;
+    padding: 30px 20px;
+
+    .textDiv{
+      strong {font-weight: 600;}
+
+      & + .textDiv{
+        margin-top: 25px;
+      }
+    }
   }
 }

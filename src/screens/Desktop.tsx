@@ -33,7 +33,12 @@ function DeskTop() {
         <Background/>
         {
           programArr.length > 0 && programArr.map((item, index) => (
-            <Program key={index} name={item.name} programId={item.program} layer={index}/>
+            <Program 
+              key={index} 
+              name={item.name} 
+              programId={item.program} 
+              layer={index} 
+              initialSize={item.initialSize}/>
           ))
         }
         <Start />

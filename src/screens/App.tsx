@@ -1,6 +1,6 @@
 import { useRecoilState } from 'recoil';
 import { systemState} from '../store/useSystemStatus';
-import '../style/style..scss'
+import '../style/style.scss'
 import Booting from './Booting';
 import DeskTop from './Desktop';
 import Loading from './Loading'

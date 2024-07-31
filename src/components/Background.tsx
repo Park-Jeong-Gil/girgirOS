@@ -8,20 +8,56 @@ function Background() {
 
   useEffect(() => {
     const $desktopIcons = document.querySelectorAll('.desktopIcon');
+    const winW = window.innerWidth;
+    const winH = window.innerHeight;
 
     const handleRunProgram = (e: Event) => {
       const target = e.currentTarget as HTMLElement;
       const iconNameElement = target.querySelector('.iconName');
       const iconName = iconNameElement ? iconNameElement.textContent : 'Unknown';
       const programKey = target.getAttribute('data-program-name') || '';
+
+      let programW;
+      let programH;
       
       if (iconName && !programArr.some(prog => prog.name === iconName)) {
-        setProgramArr([...programArr, { program: programKey, name: iconName }]);
         
+        switch (programKey) {
+          case 'myPc':
+            programW = 600;
+            programH = 400;
+            break;
+          case 'myDoc':
+            programW = 700;
+            programH = 500;
+            break;
+          case 'trashCan':
+            programW = 500;
+            programH = 300;
+            break;
+          case 'ie':
+            programW = winW/2;
+            programH = winH/2;
+            break;
+          case 'outlook':
+            programW = 750;
+            programH = 450;
+            break;
+          case 'help':
+            programW = 840;
+            programH = 600;
+            break;
+          default:
+            programW = 800;
+            programH = 600;
+        }
+
+        setProgramArr([...programArr, { program: programKey, name: iconName, initialSize:{ width: programW, height: programH} }]);
+        setActiveProgram(programKey)
       } else {
         // console.log("Program already exists or name is unknown:", iconName);
       }
-      setActiveProgram(programKey)
+      
     };
 
     $desktopIcons.forEach((elem) => {
@@ -58,9 +94,13 @@ function Background() {
   useEffect(() => {
     const firstProgramTime =  setTimeout(() => {
       clearTimeout(firstProgramTime)
+      setProgramArr([...programArr, { program: 'help', name: 'About Me', initialSize:{ width: 840, height: 600} }]);
       setActiveProgram('help')
-      setProgramArr([...programArr, { program: 'help', name: '도움말' }]);
     }, 5000)
+
+    return () => {
+      clearTimeout(firstProgramTime)
+    };
   }, []);
 
   return (
@@ -87,7 +127,7 @@ function Background() {
       </button>
       <button className="desktopIcon help" data-program-name="help">
         <span className="iconImage"></span>
-        <span className="iconName">도움말</span>
+        <span className="iconName">About Me</span>
       </button>
     </div>
   );

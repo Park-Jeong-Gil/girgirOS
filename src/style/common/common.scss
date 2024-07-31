@@ -18,6 +18,7 @@ body{
 }
 button{background: none; border: none;}
 .blind{ @include blind }
+
 #root{
   // flicker
   &:after{
@@ -26,6 +27,7 @@ button{background: none; border: none;}
 
   // scanlines
   &:before{
-    @include scanlines
+    @include scanlines;
+    opacity: 0.4;
   }
 }

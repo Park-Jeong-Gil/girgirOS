@@ -3,21 +3,23 @@ import { useRecoilState } from "recoil";
 import { currentProgram, programStatus } from "../store/useProgramStatus";
 import Draggable from "react-draggable";
 import About from "./About";
+import Explorer from "./Explorer";
 
 interface ProgramProps {
   name: string;
   programId: string | null;
   layer: number;
+  initialSize: { width: number, height: number };
 }
 
-function Program({ name, programId, layer }: ProgramProps) {
+function Program({ name, programId, layer, initialSize }: ProgramProps) {
   const [programArr, setProgramArr] = useRecoilState(programStatus);
   const [activeProgram, setActiveProgram] = useRecoilState(currentProgram);
 
   const winW = window.innerWidth;
   const winH = window.innerHeight;
 
-  const [size, setSize] = useState({ width: winW / 2, height: winH / 2 });
+  const [size, setSize] = useState(initialSize);
   const [isResizing, setIsResizing] = useState(false);
   const [resizeDirection, setResizeDirection] = useState<null | string>(null);
   const [isMaximized, setIsMaximized] = useState(false);
@@ -25,6 +27,7 @@ function Program({ name, programId, layer }: ProgramProps) {
     x: (winW / 2) - (size.width / 2) + (layer * 25),
     y: (winH / 2) - (size.height / 2) + (layer * 25),
   });
+  
   const [prevPosition, setPrevPosition] = useState(position); // 이전 위치 저장
   const windowRef = useRef<HTMLDivElement>(null);
 
@@ -186,6 +189,7 @@ function Program({ name, programId, layer }: ProgramProps) {
           </div>
           <div className="window-body">
             {programId == 'help' && <About />}
+            {programId == 'ie' && <Explorer />}
           </div>
         </div>
         {isMaximized === false && (
