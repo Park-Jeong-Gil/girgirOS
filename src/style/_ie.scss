@@ -113,15 +113,8 @@
 
     .linkto{
       color:#000; text-decoration: none;
-      border: none;
-      border-radius: 0;
-      box-sizing: border-box;
-      color: transparent;
-      // min-height: 23px;
-      // min-width: 75px;
       padding: 5px 12px;
       text-shadow: 0 0 #222;
-      background: silver;
       box-shadow: inset -1px -1px #0a0a0a, inset 1px 1px #fff, inset -2px -2px grey, inset 2px 2px #dfdfdf;
 
       &:focus{
@@ -133,23 +126,6 @@
         box-shadow: inset -1px -1px #fff, inset 1px 1px #0a0a0a, inset -2px -2px #dfdfdf, inset 2px 2px grey;
         text-shadow: 1px 1px #222;
       }
-      // min-width: auto; min-height:auto;
-      // box-shadow: none; padding: 0;
-      // // width: 200px; height: 19px; 
-      // padding: 8px 12px;
-
-      // &:focus{ outline: none; }
-      // &:hover{
-      //   border-style: solid;
-      //   border-width: 1px;
-      //   border-color: #fff rgb(128, 128, 128) rgb(128, 128, 128) #fff;
-      // }
-      // &:hover:active{
-      //   box-shadow: none;
-      //   border-style: solid;
-      //   border-width: 1px;
-      //   border-color: rgb(128, 128, 128) rgb(255, 255, 255) rgb(255, 255, 255) rgb(128, 128, 128);
-      // }
     }
   }
 
