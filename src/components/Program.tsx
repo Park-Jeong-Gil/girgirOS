@@ -32,14 +32,14 @@ function Program({ name, programId, layer, initialSize }: ProgramProps) {
   const windowRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const $ProgramWindows = document.querySelectorAll('.ProgramWindow');
+    const $ProgramWindows = document.querySelectorAll('.window');
 
     $ProgramWindows.forEach(prog => {
       prog.removeAttribute('data-window');
     });
 
     if (activeProgram) {
-      document.querySelector(`#${activeProgram}`)?.setAttribute('data-window', 'focused');
+      document.querySelector(`#${activeProgram}App`)?.setAttribute('data-window', 'focused');
     }
   }, [activeProgram]);
 
@@ -53,19 +53,19 @@ function Program({ name, programId, layer, initialSize }: ProgramProps) {
     if (resizeDirection.includes('right')) {
       setSize(prevSize => ({
         ...prevSize,
-        width: Math.max(200, e.clientX - rect.left),
+        width: Math.max(800, e.clientX - rect.left),
       }));
     }
     if (resizeDirection.includes('bottom')) {
       setSize(prevSize => ({
         ...prevSize,
-        height: Math.max(200, e.clientY - rect.top),
+        height: Math.max(600, e.clientY - rect.top),
       }));
     }
     if (resizeDirection.includes('left')) {
       setSize((prevSize) => ({
         ...prevSize,
-        width: Math.max(200, rect.right - e.clientX),
+        width: Math.max(800, rect.right - e.clientX),
       }));
       setPosition((prevPosition) => ({
         ...prevPosition,
@@ -75,7 +75,7 @@ function Program({ name, programId, layer, initialSize }: ProgramProps) {
     if (resizeDirection.includes('top')) {
       setSize((prevSize) => ({
         ...prevSize,
-        height: Math.max(200, rect.bottom - e.clientY),
+        height: Math.max(600, rect.bottom - e.clientY),
       }));
       setPosition((prevPosition) => ({
         ...prevPosition,
@@ -111,7 +111,7 @@ function Program({ name, programId, layer, initialSize }: ProgramProps) {
 
   const handleMinimize = (e: React.MouseEvent<HTMLButtonElement>) => {
     const target = e.currentTarget as HTMLElement;
-    const $currentProgram = target.closest('.ProgramWindow') as HTMLElement;
+    const $currentProgram = target.closest('.window') as HTMLElement;
 
     $currentProgram?.classList.add('minimized');
 
@@ -145,7 +145,7 @@ function Program({ name, programId, layer, initialSize }: ProgramProps) {
 
   const handleFocus = (e: React.SyntheticEvent<HTMLDivElement, Event>) => {
     const target = e.currentTarget as HTMLElement;
-    const $currentProgram = target.closest('.ProgramWindow') as HTMLElement;
+    const $currentProgram = target.closest('.window') as HTMLElement;
 
     if (programId && !$currentProgram.classList.contains('minimized')) {
       setActiveProgram(programId);
@@ -165,7 +165,7 @@ function Program({ name, programId, layer, initialSize }: ProgramProps) {
     >
       <div
         className={`ProgramWindow window${isMaximized ? ' maximized' : ''}`}
-        id={programId || ""}
+        id={`${programId}App` || ""}
         ref={windowRef}
         style={{
           width: isMaximized ? "100%" : size.width,

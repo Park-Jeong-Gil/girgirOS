@@ -1,4 +1,4 @@
-.ProgramWindow {
+.window {
   position: absolute; top:0; left: 0;
   box-sizing: border-box;
   border: 1px solid #000;
@@ -35,22 +35,22 @@
         background-size: contain;
         vertical-align: middle;
 
-        @include parent-selector('.ProgramWindow', '#myPc') {
+        @include parent-selector('.window', '#myPcApp') {
           @include myPcImg
         }
-        @include parent-selector('.ProgramWindow', '#myDoc') {
+        @include parent-selector('.window', '#myDocApp') {
           @include myDocImg
         }
-        @include parent-selector('.ProgramWindow', '#trashCan') {
+        @include parent-selector('.window', '#trashCanApp') {
           @include trashCanImg
         }
-        @include parent-selector('.ProgramWindow', '#ie') {
+        @include parent-selector('.window', '#ieApp') {
           @include ieImg
         }
-        @include parent-selector('.ProgramWindow', '#outlook') {
+        @include parent-selector('.window', '#outlookApp') {
           @include outlookImg
         }
-        @include parent-selector('.ProgramWindow', '#help') {
+        @include parent-selector('.window', '#helpApp') {
           @include helpImg
         }
       }

@@ -12,7 +12,6 @@
     .splash{
       width: 100%; height: 100vh;
       background: url('../assets/images/splashBg.jpg') no-repeat center / cover;
-      // background: url('https://images.unsplash.com/photo-1514477917009-389c76a86b68?q=80&w=2589&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D') no-repeat center / cover;
       display: flex; justify-content: center; align-items: center;
       position: relative; z-index: 2;
 
@@ -34,7 +33,7 @@
           display: block;
           width: 100%;
           height: 100%;
-          background: linear-gradient(90deg, rgba(0, 0, 0, 0) 0%, rgb(36, 64, 165) 30%, rgba(0, 0, 0, 0) 100%);
+          background: linear-gradient(90deg, rgba(0, 0, 0, 0) 0%, rgb(77, 125, 188) 30%, rgba(0, 0, 0, 0) 100%);
           animation: loadingBar 1.8s infinite;
         }
       }

@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useRecoilState } from "recoil";
 import { currentProgram, programStatus } from "../store/useProgramStatus";
+import { programs } from "../constants/desktopData";
 
 function Background() {
   const [programArr, setProgramArr] = useRecoilState(programStatus);
@@ -15,7 +16,7 @@ function Background() {
       const target = e.currentTarget as HTMLElement;
       const iconNameElement = target.querySelector('.iconName');
       const iconName = iconNameElement ? iconNameElement.textContent : 'Unknown';
-      const programKey = target.getAttribute('data-program-name') || '';
+      const programKey = target.getAttribute('id') || '';
 
       let programW;
       let programH;
@@ -105,30 +106,17 @@ function Background() {
 
   return (
     <div className="Background">
-      <button className="desktopIcon myPc" data-program-name="myPc">
-        <span className="iconImage"></span>
-        <span className="iconName">내 컴퓨터</span>
-      </button>
-      <button className="desktopIcon myDoc" data-program-name="myDoc">
-        <span className="iconImage"></span>
-        <span className="iconName">내 문서</span>
-      </button>
-      <button className="desktopIcon trashCan" data-program-name="trashCan">
-        <span className="iconImage"></span>
-        <span className="iconName">휴지통</span>
-      </button>
-      <button className="desktopIcon ie" data-program-name="ie">
-        <span className="iconImage"></span>
-        <span className="iconName">Internet<br /> Explorer</span>
-      </button>
-      <button className="desktopIcon outlook" data-program-name="outlook">
-        <span className="iconImage"></span>
-        <span className="iconName">Outlook<br /> Express</span>
-      </button>
-      <button className="desktopIcon help" data-program-name="help">
-        <span className="iconImage"></span>
-        <span className="iconName">About Me</span>
-      </button>
+      {
+        Object.keys(programs).map((key) => {
+          const item = programs[key as keyof typeof programs];
+          return (
+            <button key={item.ID} id={item.ID} className="desktopIcon" title={item.DESCRIPTION}>
+              <span className="iconImage"></span>
+              <span className="iconName">{item.NANE}</span>
+            </button>
+          );
+        })
+      }
     </div>
   );
 }

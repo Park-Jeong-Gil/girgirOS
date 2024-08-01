@@ -5,16 +5,14 @@
   color:#000;
   * {cursor: url('data:image/gif;base64,R0lGODlhCwATAJEAAAAAAP///////wAAACH5BAEAAAIALAAAAAALABMAAAIrhI4JlhrcBAgvSlrbxPBs7mAU9IlMaV7mwo6jY2zk+Xphh8iWint1tDgUAAA7'), default !important;}
 
-  &.loaded .screenInner{
-    opacity: 1;
-  }
   .screenInner{
     position: fixed; top:0; left: 0;
     width: 100%; height: calc(100vh - 35px);
     opacity: 0; transition: opacity .5s ease-out;
-    // background: url('https://i.pinimg.com/originals/69/3d/dc/693ddc3a87eeb8149dcccd8024e90cff.jpg') no-repeat center / cover;
-    // background: #019394;
-    // background: url('https://images.unsplash.com/photo-1522441815192-d9f04eb0615c?q=80&w=4433&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D') no-repeat center / cover;
     background: url('../assets/images/desktopBg.jpg') no-repeat center / cover;
+
+    @include parent-selector('.DeskTopScreen', '.loaded') {
+      opacity: 1;
+    }
   }
 }
