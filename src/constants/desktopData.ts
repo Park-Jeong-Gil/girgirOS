@@ -1,3 +1,6 @@
+const winW = window.innerWidth;
+const winH = window.innerHeight;
+
 const programs = {
   CONTACT: {
     ID: 'myPc',
@@ -34,8 +37,8 @@ const programs = {
     NANE:'Internet\n Explorer',
     TYPE: 'internet',
     SIZE:{
-      width: 840,
-      height: 600
+      width: 1024,
+      height: 700
     },
     DESCRIPTION: '프로젝트 브라우저 입니다.',
   },

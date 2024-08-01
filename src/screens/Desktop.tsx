@@ -31,7 +31,7 @@ function DeskTop() {
     <section className="DeskTopScreen">
       <div className="screenInner">
         <Background/>
-        {
+        {/* {
           programArr.length > 0 && programArr.map((item, index) => (
             <Program 
               key={index} 
@@ -40,7 +40,7 @@ function DeskTop() {
               layer={index} 
               initialSize={item.initialSize}/>
           ))
-        }
+        } */}
         <Start />
       </div>
     </section>
