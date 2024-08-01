@@ -188,7 +188,7 @@ function Program({ name, programId, layer, initialSize }: ProgramProps) {
             </div>
           </div>
           <div className="window-body">
-            {programId == 'help' && <About />}
+            {programId == 'about' && <About />}
             {programId == 'ie' && <Explorer />}
           </div>
         </div>

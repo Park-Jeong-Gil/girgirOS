@@ -139,8 +139,8 @@
       &[data-program-name=outlook]:before{
         @include outlookImg
       }
-      &[data-program-name=help]:before{
-        @include helpImg
+      &[data-program-name=about]:before{
+        @include aboutImg
       }
 
       &.active{

@@ -1,6 +1,4 @@
-import { useEffect, useState } from "react";
-import { currentProgram, programStatus } from "../store/useProgramStatus"; 
-import { useRecoilState } from "recoil";
+import { useEffect } from "react";
 
 interface AboutProps {
 

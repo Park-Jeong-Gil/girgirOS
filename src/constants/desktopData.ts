@@ -40,10 +40,10 @@ const programs = {
       width: 1024,
       height: 700
     },
-    DESCRIPTION: '프로젝트 브라우저 입니다.',
+    DESCRIPTION: '프로젝트를 볼 수 있는 브라우저 입니다.',
   },
   ABOUT_ME: {
-    ID: 'help',
+    ID: 'about',
     NANE:'About Me',
     TYPE: 'application',
     SIZE:{

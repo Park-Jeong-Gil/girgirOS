@@ -50,8 +50,8 @@
         @include parent-selector('.window', '#outlookApp') {
           @include outlookImg
         }
-        @include parent-selector('.window', '#helpApp') {
-          @include helpImg
+        @include parent-selector('.window', '#aboutApp') {
+          @include aboutImg
         }
       }
     }

@@ -20,7 +20,7 @@
 
   .iconImage{
     position: relative;
-    width: 70%; height: 80px;
+    width: 70%; height: 72px;
     margin: 0 auto;
     background-image: url("../assets/images/file.png");
     background-repeat: no-repeat;
@@ -47,8 +47,8 @@
       @include outlookImg
     }
 
-    @include parent-selector('.desktopIcon', '#help') {
-      @include helpImg
+    @include parent-selector('.desktopIcon', '#about') {
+      @include aboutImg
     }
   }
 
@@ -100,7 +100,7 @@
         -webkit-mask-image: url("../assets/images/outlook-express-48x48.png");
       }
     }
-    &#help .iconImage{
+    &#about .iconImage{
       &::before{ 
         mask-image: url("../assets/images/help-48x48.png");
         -webkit-mask-image: url("../assets/images/help-48x48.png");
