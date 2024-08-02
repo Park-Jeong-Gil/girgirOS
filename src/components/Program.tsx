@@ -2,8 +2,9 @@ import React, { useEffect, useRef, useState } from "react";
 import { useRecoilState } from "recoil";
 import { currentProgram, programStatus } from "../store/useProgramStatus";
 import Draggable from "react-draggable";
-import About from "./About";
-import Explorer from "./Explorer";
+import About from "./application/About";
+import Explorer from "./application/Explorer";
+import Folder from "./application/Folder";
 
 interface ProgramProps {
   name: string;
@@ -190,6 +191,9 @@ function Program({ name, programId, layer, initialSize }: ProgramProps) {
           <div className="window-body">
             {programId == 'about' && <About />}
             {programId == 'ie' && <Explorer />}
+            {programId == 'myPc' && <Folder id='myPc'/>}
+            {programId == 'myDoc' && <Folder id='myDoc'/>}
+            {programId == 'trashCan' && <Folder id='trashCan'/>}
           </div>
         </div>
         {isMaximized === false && (

@@ -1,5 +1,3 @@
-const winW = window.innerWidth;
-const winH = window.innerHeight;
 
 const programs = {
   CONTACT: {
