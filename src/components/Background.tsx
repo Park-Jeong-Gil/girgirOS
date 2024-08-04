@@ -9,7 +9,7 @@ function Background() {
   const [activeProgram, setActiveProgram] = useRecoilState(currentProgram);
 
   useEffect(() => {
-    const $desktopIcons = document.querySelectorAll('.desktopIcon');
+    const $appIcons = document.querySelectorAll('.appIcon');
 
     const handleRunProgram = (e: Event) => {
       const target = e.currentTarget as HTMLElement;
@@ -30,12 +30,12 @@ function Background() {
       }
     };
 
-    $desktopIcons.forEach((elem) => {
+    $appIcons.forEach((elem) => {
       elem.addEventListener('dblclick', handleRunProgram);
     });
 
     return () => {
-      $desktopIcons.forEach((elem) => {
+      $appIcons.forEach((elem) => {
         elem.removeEventListener('dblclick', handleRunProgram);
       });
     };
@@ -76,13 +76,14 @@ function Background() {
       {Object.keys(programs).map((key) => {
         const item = programs[key as keyof typeof programs];
         return (
-          <button key={item.ID} id={item.ID} className="desktopIcon" title={item.DESCRIPTION}>
+          <button key={item.ID} id={item.ID} className="appIcon" title={item.DESCRIPTION}>
             <span className="iconImage"></span>
             <span className="iconName">{item.NANE}</span>
           </button>
         );
       })}
-      {programArr.map((prog, index) => (
+
+      { programArr.map((prog, index) => (
         <Program
           key={prog.program}
           name={prog.name}

@@ -1,4 +1,4 @@
-.desktopIcon{
+.appIcon{
   position: relative;
   display: flex; flex-direction: column;
   width: 88px; height: auto; min-width: auto;
@@ -27,27 +27,27 @@
     background-position: left;
     background-size: contain;
 
-    @include parent-selector('.desktopIcon', '#myPc') {
+    @include parent-selector('.appIcon', '#myPc') {
       @include myPcImg
     }
 
-    @include parent-selector('.desktopIcon', '#myDoc') {
+    @include parent-selector('.appIcon', '#myDoc') {
       @include myDocImg
     }
 
-    @include parent-selector('.desktopIcon', '#trashCan') {
+    @include parent-selector('.appIcon', '#trashCan') {
       @include trashCanImg
     }
 
-    @include parent-selector('.desktopIcon', '#ie') {
+    @include parent-selector('.appIcon', '#ie') {
       @include ieImg
     }
 
-    @include parent-selector('.desktopIcon', '#outlook') {
+    @include parent-selector('.appIcon', '#outlook') {
       @include outlookImg
     }
 
-    @include parent-selector('.desktopIcon', '#about') {
+    @include parent-selector('.appIcon', '#about') {
       @include aboutImg
     }
   }
