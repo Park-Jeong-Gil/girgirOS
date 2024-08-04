@@ -1,0 +1,32 @@
+.alertWindow {
+  width: 250px;
+  top:50%; left: 50%;
+  margin-top: -50px;
+  margin-left: -125px;
+  z-index: 10;
+
+  
+  &:not(:focus){
+    .title-bar{background: linear-gradient(90deg, grey, #b5b5b5);}
+  }
+
+  .title-bar{
+    background: linear-gradient(90deg, navy, #1084d0);
+    .title-bar-text{
+      font-size: 11px;
+
+      &::before{
+        background-image: url('../assets/images/alert.png');
+      }
+    }
+  }
+
+  .window-body > p{
+    margin: 20px 0;
+    font-size: 12px;
+  }
+
+  .field-row{
+    justify-content: center;
+  }
+}

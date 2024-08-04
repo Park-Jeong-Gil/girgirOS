@@ -9,6 +9,12 @@ interface Program {
   }
 }
 
+interface Alrert {
+  id: string;
+  name: string;
+  description: string;
+}
+
 export const programStatus = atom<Program[]>({
   key:'programArr',
   default: []
@@ -17,4 +23,9 @@ export const programStatus = atom<Program[]>({
 export const currentProgram = atom<string>({
   key:'activeProgram',
   default: ''
+});
+
+export const currentAlert = atom<Alrert | null>({
+  key: 'activeAlert',
+  default: null
 });

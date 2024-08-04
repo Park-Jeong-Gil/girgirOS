@@ -17,25 +17,25 @@ function AdressMenu({type}: AdressMenuProps) {
         { type == 'explorer' && 
           <>
             <img id="addressIcon" width="16" height="16" src="https://98.js.org/images/icons/html-16x16.png" alt="" /> 
-            <input type="text" id="address" autoComplete="off"/>
+            <input type="text" id="address" autoComplete="off" readOnly/>
           </>
         }
         { type == 'myPc' && 
           <>
             <img id="addressIcon" width="16" height="16" src="https://98.js.org/images/icons/my-computer-16x16.png" alt="" /> 
-            <input type="text" id="address" autoComplete="off" value={programs.CONTACT.NANE}/>
+            <input type="text" id="address" autoComplete="off" value={programs.CONTACT.NANE} readOnly/>
           </>
         }
         { type == 'myDoc' && 
           <>
             <img id="addressIcon" width="16" height="16" src="https://98.js.org/images/icons/my-documents-16x16.png" alt="" /> 
-            <input type="text" id="address" autoComplete="off" value={programs.PROJECTS.NANE}/>
+            <input type="text" id="address" autoComplete="off" value={programs.PROJECTS.NANE} readOnly/>
           </>
         }
         { type == 'trashCan' && 
           <>
             <img id="addressIcon" width="16" height="16" src="https://98.js.org/images/icons/recycle-bin-16x16.png" alt="" /> 
-            <input type="text" id="address" autoComplete="off" value={programs.TRASHCAN.NANE}/>
+            <input type="text" id="address" autoComplete="off" value={programs.TRASHCAN.NANE} readOnly/>
           </>
         }
         <button id="addressDropdownButton" disabled>

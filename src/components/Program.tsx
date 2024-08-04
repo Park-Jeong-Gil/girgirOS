@@ -41,6 +41,7 @@ function Program({ name, programId, layer, initialSize }: ProgramProps) {
 
     if (activeProgram) {
       document.querySelector(`#${activeProgram}App`)?.setAttribute('data-window', 'focused');
+      // document.querySelector(`#${activeProgram}App`)?.setAttribute('style', `z-index: ${layer + 1}`);
     }
   }, [activeProgram]);
 
@@ -115,20 +116,7 @@ function Program({ name, programId, layer, initialSize }: ProgramProps) {
     const $currentProgram = target.closest('.window') as HTMLElement;
 
     $currentProgram?.classList.add('minimized');
-
-    const currentIndex = programArr.findIndex(prog => prog.program === programId);
-
-    if (currentIndex === 0) {
-      // 가장 먼저 열린 프로그램일 때
-      setActiveProgram('');
-    } else {
-      // 나머지 경우 (예: currentIndex > 1)
-      const previousProgramId = currentIndex > 0 ? programArr[currentIndex - 1].program : null;
-
-      if (previousProgramId) {
-        setActiveProgram(previousProgramId);
-      }
-    }
+    setActiveProgram('');
   };
 
   const handleMaximize = () => {
@@ -153,8 +141,33 @@ function Program({ name, programId, layer, initialSize }: ProgramProps) {
     }
   };
 
+  // const setLastProgActive = () => {
+  //   // 가장 마지막 요소의 인덱스를 계산합니다.
+  //   const lastProgIndex = programArr.length - 1;
+
+  //   // 프로그램 배열이 비어있는 경우를 처리합니다.
+  //   if (lastProgIndex < 0) {
+  //     setActiveProgram(''); // 또는 적절한 기본값
+  //     return;
+  //   }
+
+  //   // 가장 마지막 요소의 ID를 가져옵니다.
+  //   const lastProgId = programArr[lastProgIndex].program;
+
+  //   // 프로그램의 ID를 설정합니다.
+  //   lastProgId !== null && setActiveProgram(lastProgId);
+
+  //   // 디버깅을 위한 로그 출력
+  //   console.log(lastProgIndex, lastProgId, activeProgram);
+  // };
+
   const handleClose = () => {
-    setProgramArr(prev => prev.filter(prog => prog.program !== programId));
+    setProgramArr(prev => {
+      const updatedProgramArr = prev.filter(prog => prog.program !== programId);
+      // 배열을 업데이트한 후 마지막 프로그램을 활성화합니다.
+      // setLastProgActive();
+      return updatedProgramArr;
+    });
   };
 
   return (

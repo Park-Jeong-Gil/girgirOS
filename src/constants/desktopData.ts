@@ -52,17 +52,19 @@ const programs = {
   },
 } as const;
 
-const alerts = {
-  ERROR: {
-    TITLE: '경고',
-    DESCRIPTION: '잘못 된 접근 입니다.',
-    BUTTON: '확인'
-  },
+const contact = {
   PHONE_NUMBER: {
-    TITLE: '연락처',
-    DESCRIPTION: '잘못 된 접근 입니다.',
-    BUTTON: '확인'
+    ID: 'phone',
+    NANE:'연락처',
+    TYPE: 'alert',
+    DESCRIPTION: '010-4468-7412 입니다.',
+  },
+  EMAIL: {
+    ID: 'email',
+    NANE:'이메일',
+    TYPE: 'alert',
+    DESCRIPTION: 'wjdrlf5986@naver.com 으로 메일 주세요.',
   },
 } as const;
 
-export {programs, alerts};
+export {programs, contact, };

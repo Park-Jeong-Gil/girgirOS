@@ -2,7 +2,8 @@ import { useEffect, useState } from "react";
 import TopMenu from "../toolBar/TopMenu";
 import MiddleMenu from "../toolBar/MiddleMenu";
 import AddressMenu from "../toolBar/AddressMenu";
-import { programs } from "../../constants/desktopData";
+import { contact, programs } from "../../constants/desktopData";
+import Icon from "../Icon";
 
 interface FolderProps {
   id: string;
@@ -33,11 +34,18 @@ function Folder({ id }: FolderProps) {
             <span>{programData.NANE}</span>
           </h3>
           <p className="panelInfo">
-            {programData.DESCRIPTION} 
+            {programData.DESCRIPTION}
           </p>
         </div>
         <div className="fileList">
-          {/* 파일 목록을 여기에 추가할 수 있습니다 */}
+          {id === 'myPc' && (
+            Object.keys(contact).map((key) => {
+              const item = contact[key as keyof typeof contact];
+              return (
+                <Icon type="alert" key={item.ID} id={item.ID} name={item.NANE} desc={item.DESCRIPTION} />
+              );
+            })
+          )}
         </div>
       </div>
     </section>

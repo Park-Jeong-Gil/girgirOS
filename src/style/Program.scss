@@ -1,7 +1,6 @@
 .window {
   position: absolute; top:0; left: 0;
   box-sizing: border-box;
-  border: 1px solid #000;
   z-index: 1;
   outline: none;
 
@@ -23,12 +22,12 @@
     padding: 1px 3px 1px 3px;
 
     .title-bar-text{
-      font-size: 13px; padding-left: 4px;
+      font-size: 12px; padding-left: 4px; line-height: 1;
 
       &::before{
         content: '';
         display: inline-block;
-        width: 14px; height: 14px;
+        width: 12px; height: 12px;
         margin-right: 8px;
         background-repeat: no-repeat;
         background-position: center;

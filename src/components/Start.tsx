@@ -37,7 +37,7 @@ function Start({}: StartProps) {
       setActiveProgram(programKey)
       
       $ProgramWindows?.forEach(prog =>{
-        if(prog.id === programKey){
+        if(prog.id.includes(programKey)){
           prog.classList.remove('minimized')
         }
       })
@@ -46,9 +46,6 @@ function Start({}: StartProps) {
     $programs?.forEach((elem) => {
       elem.addEventListener('click', handleActiveProgram);
     });
-
-
-
     
     return () => {
       $programs?.forEach((elem) => {
