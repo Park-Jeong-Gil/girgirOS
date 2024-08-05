@@ -41,9 +41,9 @@ function Background() {
           initialSize={prog.initialSize}
         />
       ))}
-      { activeAlert !== null &&
-        <Alert/> 
-      }
+      { activeAlert.map((data, index) => (
+        <Alert key={index} name={data.name} description={data.description}/> 
+      ))}
     </div>
   );
 }

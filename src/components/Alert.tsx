@@ -5,9 +5,12 @@ import { currentAlert } from '../store/useProgramStatus';
 import ding from '../assets/sounds/ding.wav'
 import { soundState } from "../store/useSystemStatus";
 
-interface AlertProps {}
+interface AlertProps {
+  name:string;
+  description:string;
+}
 
-function Alert({}: AlertProps) {
+function Alert({name, description}: AlertProps) {
   const [alert, setAlert] = useRecoilState(currentAlert);
   const [soundActive] = useRecoilState(soundState)
 
@@ -17,7 +20,10 @@ function Alert({}: AlertProps) {
   }, []);
 
   const handleClose = () => {
-    setAlert(null); // 상태를 null로 설정하여 알림을 닫습니다.
+    setAlert(prev => {
+      const updatedAlertArr = prev.filter(data => data.name !== name);
+      return updatedAlertArr;
+    });
   };
 
   return (
@@ -25,14 +31,14 @@ function Alert({}: AlertProps) {
       <div className="window alertWindow" tabIndex={0}>
         <div className="title-bar">
           <h2 className="title-bar-text">
-            {alert?.name}
+            {name}
           </h2>
           <div className="title-bar-controls">
             <button aria-label="Close" onClick={handleClose}></button>
           </div>
         </div>
         <div className="window-body">
-          <p>{alert?.description}</p>
+          <p>{description}</p>
           <section className="field-row">
             <button onClick={handleClose}>OK</button>
           </section>

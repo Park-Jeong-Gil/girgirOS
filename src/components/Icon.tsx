@@ -80,11 +80,13 @@ function Icon({ type, id, name, desc }: IconProps) {
           // }
         }
       } else if (target.classList.contains('alert')) {
-        setActiveAlert({
-          id: programKey,
-          name: iconName !== null ? iconName : '',
-          description: programDesc
-        });
+        setActiveAlert(prevArr =>[
+          ...prevArr,{
+            id: programKey,
+            name: iconName !== null ? iconName : '',
+            description: programDesc
+          }
+        ]);
       }
     };
 

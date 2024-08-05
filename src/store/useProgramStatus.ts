@@ -25,7 +25,7 @@ export const currentProgram = atom<string>({
   default: ''
 });
 
-export const currentAlert = atom<Alrert | null>({
+export const currentAlert = atom<Alrert[]>({
   key: 'activeAlert',
-  default: null
+  default: []
 });
