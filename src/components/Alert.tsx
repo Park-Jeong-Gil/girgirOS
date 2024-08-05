@@ -1,23 +1,27 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import Draggable from "react-draggable";
 import { useRecoilState } from 'recoil';
 import { currentAlert } from '../store/useProgramStatus';
-import ding from '../assets/sounds/ding.wav'
+import ding from '../assets/sounds/ding.wav';
 import { soundState } from "../store/useSystemStatus";
 
 interface AlertProps {
-  name:string;
-  description:string;
+  id: string;
+  name: string;
+  description: string;
 }
 
-function Alert({name, description}: AlertProps) {
+function Alert({ id, name, description }: AlertProps) {
   const [alert, setAlert] = useRecoilState(currentAlert);
-  const [soundActive] = useRecoilState(soundState)
+  const [soundActive] = useRecoilState(soundState);
+  const [position, setPosition] = useState({ x: 0, y: 0 });
 
   useEffect(() => {
-    const alertAudio = new Audio(ding);
-    soundActive && alertAudio.play()
-  }, []);
+    if (soundActive) {
+      const alertAudio = new Audio(ding);
+      alertAudio.play();
+    }
+  }, [soundActive]);
 
   const handleClose = () => {
     setAlert(prev => {
@@ -26,13 +30,16 @@ function Alert({name, description}: AlertProps) {
     });
   };
 
+
   return (
-    <Draggable handle=".title-bar">
-      <div className="window alertWindow" tabIndex={0}>
+    <Draggable
+      handle=".title-bar"
+      position={position}
+      onDrag={(e, data) => setPosition({ x: data.x, y: data.y })}
+    >
+      <div id={`${id}Alert`} className="window alertWindow" tabIndex={0}>
         <div className="title-bar">
-          <h2 className="title-bar-text">
-            {name}
-          </h2>
+          <h2 className="title-bar-text"> {name} </h2>
           <div className="title-bar-controls">
             <button aria-label="Close" onClick={handleClose}></button>
           </div>

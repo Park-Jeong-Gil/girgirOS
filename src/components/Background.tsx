@@ -42,7 +42,7 @@ function Background() {
         />
       ))}
       { activeAlert.map((data, index) => (
-        <Alert key={index} name={data.name} description={data.description}/> 
+        <Alert key={index} id={data.id} name={data.name} description={data.description}/> 
       ))}
     </div>
   );

@@ -5,7 +5,7 @@ import Draggable from "react-draggable";
 import About from "./application/About";
 import Explorer from "./application/Explorer";
 import Folder from "./application/Folder";
-import Profile from "./application/Frofile";
+import Profile from "./application/Profile";
 
 interface ProgramProps {
   name: string;
