@@ -68,27 +68,6 @@
     overflow: hidden;
 }
 
-@mixin myPcImg{
-	background-image: url("../assets/images/my-computer-48x48.png");
-}
-@mixin myDocImg{
-	background-image: url("../assets/images/my-documents-48x48.png");
-}
-@mixin trashCanImg{
-	background-image: url("../assets/images/recycle-bin-full-48x48.png");
-}
-@mixin ieImg{
-	background-image: url("../assets/images/internet-explorer-48x48.png");
-}
-@mixin outlookImg{
-	background-image: url("../assets/images/outlook-express-48x48.png");
-}
-@mixin aboutImg{
-	background-image: url("../assets/images/help-48x48.png");
-}
-
-
-
 @mixin flicker {
 	content:'';
 	display:block;

@@ -10,7 +10,7 @@ interface IconProps {
   desc: string;
 }
 
-function Icon({type, id, name, desc}: IconProps) {
+function Icon({ type, id, name, desc }: IconProps) {
   const [programArr, setProgramArr] = useRecoilState(programStatus);
   const [activeProgram, setActiveProgram] = useRecoilState(currentProgram);
   const [activeAlert, setActiveAlert] = useRecoilState(currentAlert);
@@ -25,47 +25,79 @@ function Icon({type, id, name, desc}: IconProps) {
       const programKey = target.getAttribute('id') || '';
       const programDesc = target.getAttribute('title') || '';
 
-      if (type === 'application') {
+      if (target.classList.contains('application')) {
         if (iconName && !programArr.some(prog => prog.name === iconName)) {
           const programData = Object.values(programs).find(program => program.ID === programKey);
+          const contactData = Object.values(contact).find(item => item.ID === programKey);
 
-          if (programData) {
-            const { width: programW, height: programH } = programData.SIZE;
+          const defaultSize = { width: 840, height: 600 };
+
+          const { width: programW = defaultSize.width, height: programH = defaultSize.height } = 
+            programData?.SIZE || 
+            (contactData?.TYPE === 'application' ? contactData.SIZE : {});
+
+          if (programData ||contactData) {
             setProgramArr(prevArr => [
               ...prevArr,
               { program: programKey, name: iconName, initialSize: { width: programW, height: programH } }
             ]);
             setActiveProgram(programKey);
           } else {
-            console.error(`Program data not found for key: ${programKey}`);
+            console.error(`Program or contact data not found for key: ${programKey}`);
           }
-        }
-      } else if (type === 'alert') {
-        // Contact에서 알림 정보를 가져와서 업데이트
-        const alretData = Object.values(contact).find(item => item.ID === programKey);
 
-        if (alretData) {
-          setActiveAlert({
-            id: alretData.ID,
-            name: alretData.NANE,
-            description: alretData.DESCRIPTION
-          });
-        } else {
-          console.error(`Alert data not found for key: ${programKey}`);
+
+
+
+
+
+          // // Check programs first
+          // const programData = Object.values(programs).find(program => program.ID === programKey);
+          // const contactData = Object.values(contact).find(item => item.ID === programKey);
+  
+          // if (programData || contactData) {
+          //   const { width: programW, height: programH } = programData.SIZE; || contactData.SIZE
+            
+          //   setProgramArr(prevArr => [
+          //     ...prevArr,
+          //     { program: programKey, name: iconName, initialSize: { width: programW, height: programH } }
+          //   ]);
+          //   setActiveProgram(programKey);
+          // } 
+          // else {
+          //   // Check contact if not found in programs
+          //   const contactData = Object.values(contact).find(item => item.ID === programKey);
+          //   if (contactData && contactData.TYPE === 'application') {
+          //     const { width: contactW, height: contactH } = contactData.SIZE || { width: 840, height: 600 }; // Default size
+          //     setProgramArr(prevArr => [
+          //       ...prevArr,
+          //       { program: programKey, name: iconName, initialSize: { width: contactW, height: contactH } }
+          //     ]);
+          //     setActiveProgram(programKey);
+          //   } else {
+          //     console.error(`Program or contact data not found for key: ${programKey}`);
+          //   }
+          // }
         }
+      } else if (target.classList.contains('alert')) {
+        setActiveAlert({
+          id: programKey,
+          name: iconName !== null ? iconName : '',
+          description: programDesc
+        });
       }
     };
 
-      appIcons.forEach((elem) => {
-        elem.addEventListener('dblclick', handleRunProgram);
-      });
+    appIcons.forEach((elem) => {
+      elem.addEventListener('dblclick', handleRunProgram);
+    });
 
-      return () => {
-        appIcons.forEach((elem) => {
-          elem.removeEventListener('dblclick', handleRunProgram);
-        });
-      };
-  }, [type, programArr, setProgramArr, setActiveProgram, activeAlert]);
+    return () => {
+      appIcons.forEach((elem) => {
+        elem.removeEventListener('dblclick', handleRunProgram);
+      });
+    };
+  }, [type, programArr, setProgramArr, setActiveProgram, setActiveAlert]);
 
   useEffect(() => {
     const appPanel = document.querySelector('.appPanelWrap');

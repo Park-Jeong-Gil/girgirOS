@@ -36,7 +36,7 @@ function Explorer({}: ExplorerProps) {
   }, [isFavoritesVisible, isHistoryVisible]);
 
   return (
-    <section className="explorerContainer">
+    <div className="explorerContainer">
       <div className="toolBarWrap">
         <TopMenu />
         <MiddleMenu
@@ -131,7 +131,7 @@ function Explorer({}: ExplorerProps) {
         <img id="status-bar-right-icon" width="16" height="16" src="https://98.js.org/images/icons/zone-internet-16x16.png" alt=""/>Internet
       </p>
     </div>
-    </section>
+    </div>
   );
 }
 

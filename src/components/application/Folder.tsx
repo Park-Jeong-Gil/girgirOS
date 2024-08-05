@@ -23,7 +23,7 @@ function Folder({ id }: FolderProps) {
   }
 
   return (
-    <section className="folderContainer">
+    <div className="folderContainer">
       <TopMenu />
       <MiddleMenu type="folder" />
       <AddressMenu type={id} />
@@ -42,13 +42,13 @@ function Folder({ id }: FolderProps) {
             Object.keys(contact).map((key) => {
               const item = contact[key as keyof typeof contact];
               return (
-                <Icon type="alert" key={item.ID} id={item.ID} name={item.NANE} desc={item.DESCRIPTION} />
+                <Icon type={item.TYPE} key={item.ID} id={item.ID} name={item.NANE} desc={item.DESCRIPTION} />
               );
             })
           )}
         </div>
       </div>
-    </section>
+    </div>
   );
 }
 

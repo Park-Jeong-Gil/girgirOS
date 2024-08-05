@@ -5,6 +5,8 @@
   background-color: transparent;
   margin: 14px 8px; padding: 8px;
   font-size: 16px; font-weight: 500; color: #fff;
+  // font-family: "W95", "DosGothic", "Segoe UI", Tahoma, Verdana, sans-serif;
+  font-weight: 400;
   box-shadow: none;
 
   &:not(:disabled):active{
@@ -50,6 +52,14 @@
     @include parent-selector('.appIcon', '#about') {
       @include aboutImg
     }
+
+    @include parent-selector('.appIcon', '#phone') {
+      @include phoneImg
+    }
+
+    @include parent-selector('.appIcon', '#email') {
+      @include mailImg
+    }
   }
 
   &:focus{
@@ -58,14 +68,12 @@
     .iconImage{
       &::before{
         content:"";
-        width: 100%; height: 100%;
         display: block;
+        width: 100%; height: 100%;
         background-color: #0000a2;
-        mask-repeat: no-repeat;
-        mask-size: contain;
-        mask-position: center;
         opacity: 0.5;
-        mask-image: url("../assets/images/file.png");
+        mask-repeat: no-repeat; mask-size: contain; mask-position: center;
+        mask-image: url("../assets/images/file.png"); 
         -webkit-mask-image: url("../assets/images/file.png");
       }
     }
@@ -104,6 +112,18 @@
       &::before{ 
         mask-image: url("../assets/images/help-48x48.png");
         -webkit-mask-image: url("../assets/images/help-48x48.png");
+      }
+    }
+    &#phone .iconImage{
+      &::before{ 
+        mask-image: url("../assets/images/phone.png");
+        -webkit-mask-image: url("../assets/images/phone.png");
+      }
+    }
+    &#email .iconImage{
+      &::before{ 
+        mask-image: url("../assets/images/mail.png");
+        -webkit-mask-image: url("../assets/images/mail.png");
       }
     }
 

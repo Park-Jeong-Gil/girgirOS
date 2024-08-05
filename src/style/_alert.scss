@@ -1,10 +1,7 @@
 .alertWindow {
-  width: 250px;
+  min-width: 250px;
   top:50%; left: 50%;
-  margin-top: -50px;
-  margin-left: -125px;
   z-index: 10;
-
   
   &:not(:focus){
     .title-bar{background: linear-gradient(90deg, grey, #b5b5b5);}
@@ -23,7 +20,9 @@
 
   .window-body > p{
     margin: 20px 0;
-    font-size: 12px;
+    font-size: 20px;
+    font-family: "W95", "DosGothic", "Segoe UI", Tahoma, Verdana, sans-serif;
+    font-weight: 600;
   }
 
   .field-row{

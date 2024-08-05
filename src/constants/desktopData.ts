@@ -2,13 +2,13 @@
 const programs = {
   CONTACT: {
     ID: 'myPc',
-    NANE:'연락처',
+    NANE:'프로필',
     TYPE: 'folder',
     SIZE:{
       width: 840,
       height: 600
     },
-    DESCRIPTION: 'girgir\'s 연락처를 확인 할 수 있습니다.',
+    DESCRIPTION: 'girgir\'s 프로필을 확인 할 수 있습니다.',
   },
   PROJECTS: {
     ID: 'myDoc',
@@ -50,9 +50,20 @@ const programs = {
     },
     DESCRIPTION: '간단한 자기 소개 입니다.',
   },
+
 } as const;
 
 const contact = {
+  PROFILE: {
+    ID: 'profile',
+    NANE:'프로필',
+    TYPE: 'application',
+    SIZE:{
+      width: 840,
+      height: 600
+    },
+    DESCRIPTION: '간단한 자기 소개 입니다.',
+  },
   PHONE_NUMBER: {
     ID: 'phone',
     NANE:'연락처',

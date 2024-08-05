@@ -5,6 +5,7 @@ import Draggable from "react-draggable";
 import About from "./application/About";
 import Explorer from "./application/Explorer";
 import Folder from "./application/Folder";
+import Profile from "./application/Frofile";
 
 interface ProgramProps {
   name: string;
@@ -14,7 +15,7 @@ interface ProgramProps {
 }
 
 function Program({ name, programId, layer, initialSize }: ProgramProps) {
-  const [programArr, setProgramArr] = useRecoilState(programStatus);
+  const [, setProgramArr] = useRecoilState(programStatus);
   const [activeProgram, setActiveProgram] = useRecoilState(currentProgram);
 
   const winW = window.innerWidth;
@@ -203,6 +204,7 @@ function Program({ name, programId, layer, initialSize }: ProgramProps) {
           </div>
           <div className="window-body">
             {programId == 'about' && <About />}
+            {programId == 'profile' && <Profile />}
             {programId == 'ie' && <Explorer />}
             {programId == 'myPc' && <Folder id='myPc'/>}
             {programId == 'myDoc' && <Folder id='myDoc'/>}

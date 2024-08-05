@@ -10,7 +10,7 @@ function About({}: AboutProps) {
   },[])
 
   return (
-    <section className="aboutContainer">
+    <div className="aboutContainer">
       <div className="containerInner">
         <div className="imageBox">
           <span className="profile"></span>
@@ -72,7 +72,7 @@ function About({}: AboutProps) {
           
         </div>
       </div>
-    </section>
+    </div>
   )
 }
 
