@@ -1,6 +1,5 @@
 .alertWindow {
   min-width: 250px;
-  top:50%; left: 50%;
   z-index: 10;
   
   &:not(:focus){

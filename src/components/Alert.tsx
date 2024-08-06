@@ -9,12 +9,27 @@ interface AlertProps {
   id: string;
   name: string;
   description: string;
+  layer: number
 }
 
-function Alert({ id, name, description }: AlertProps) {
+function Alert({ id, name, description, layer}: AlertProps) {
   const [alert, setAlert] = useRecoilState(currentAlert);
   const [soundActive] = useRecoilState(soundState);
   const [position, setPosition] = useState({ x: 0, y: 0 });
+
+  useEffect(() => {
+    switch (id) {
+      case 'phone':
+        setPosition({ x: -350, y: 80 }); 
+        break;
+      case 'email':
+        setPosition({ x: -260, y: 180 });
+        break;
+      default:
+        setPosition({ x: 0, y: 0 });
+        break;
+    }
+  }, [id]);
 
   useEffect(() => {
     if (soundActive) {
@@ -37,7 +52,7 @@ function Alert({ id, name, description }: AlertProps) {
       position={position}
       onDrag={(e, data) => setPosition({ x: data.x, y: data.y })}
     >
-      <div id={`${id}Alert`} className="window alertWindow" tabIndex={0}>
+      <div id={`${id}Alert`} className="window alertWindow" tabIndex={0} style={{ zIndex: (10 + layer)}}>
         <div className="title-bar">
           <h2 className="title-bar-text"> {name} </h2>
           <div className="title-bar-controls">

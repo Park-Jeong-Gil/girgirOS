@@ -1,5 +1,5 @@
 .window {
-  position: absolute; top:0; left: 0;
+  position: absolute; top:50%; left: 50%;
   box-sizing: border-box;
   z-index: 1;
   outline: none;
@@ -19,7 +19,7 @@
 
   .title-bar{
     background: linear-gradient(90deg, grey, #b5b5b5);
-    padding: 1px 3px 1px 3px;
+    padding: 2px 3px 2px 3px;
 
     .title-bar-text{
       font-size: 12px; padding-left: 4px; line-height: 1;
@@ -33,26 +33,11 @@
         background-position: center;
         background-size: contain;
         vertical-align: middle;
-
-        @include parent-selector('.window', '#myPcApp') {
-          @include myPcImg
-        }
-        @include parent-selector('.window', '#myDocApp') {
-          @include myDocImg
-        }
-        @include parent-selector('.window', '#trashCanApp') {
-          @include trashCanImg
-        }
-        @include parent-selector('.window', '#ieApp') {
-          @include ieImg
-        }
-        @include parent-selector('.window', '#outlookApp') {
-          @include outlookImg
-        }
-        @include parent-selector('.window', '#aboutApp') {
-          @include aboutImg
-        }
       }
+    }
+
+    button[aria-label=Close]{
+      margin: 0;
     }
   }
 

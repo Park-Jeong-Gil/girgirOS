@@ -35,8 +35,8 @@ const programs = {
     NANE:'Internet\n Explorer',
     TYPE: 'internet',
     SIZE:{
-      width: 1024,
-      height: 700
+      width: 1440,
+      height: 780
     },
     DESCRIPTION: '프로젝트를 볼 수 있는 브라우저 입니다.',
   },
@@ -45,8 +45,8 @@ const programs = {
     NANE:'About Me',
     TYPE: 'application',
     SIZE:{
-      width: 840,
-      height: 600
+      width: 820,
+      height: 550
     },
     DESCRIPTION: '간단한 자기 소개 입니다.',
   },
@@ -59,23 +59,19 @@ const contact = {
     NANE:'프로필',
     TYPE: 'application',
     SIZE:{
-      width: 840,
-      height: 600
+      width: 500,
+      height: 400
     },
     DESCRIPTION: '간단한 자기 소개 입니다.',
   },
-  PHONE_NUMBER: {
-    ID: 'phone',
-    NANE:'연락처',
-    TYPE: 'alert',
-    DESCRIPTION: '010-4468-7412 입니다.',
+    WANTED: {
+    ID: 'wanted',
+    NANE:'원티드',
+    TYPE: 'link',
+    LINK: 'https://www.wanted.co.kr/',
+    DESCRIPTION: 'https://www.wanted.co.kr/',
   },
-  EMAIL: {
-    ID: 'email',
-    NANE:'이메일',
-    TYPE: 'alert',
-    DESCRIPTION: 'wjdrlf5986@naver.com 으로 메일 주세요.',
-  },
+
 } as const;
 
 export {programs, contact, };

@@ -22,3 +22,184 @@
 @mixin mailImg{
 	background-image: url("../assets/images/mail.png");
 }
+@mixin profileImg{
+	background-image: url("../assets/images/camera-icon.png");
+}
+@mixin wantedImg{
+	background-image: url("../assets/images/wanted-logo.png");
+}
+
+.appIcon{
+  .iconImage{
+    position: relative;
+    width: 70%; height: 72px;
+    margin: 0 auto;
+    background-image: url("../assets/images/file.png");
+    background-repeat: no-repeat;
+    background-position: left;
+    background-size: contain;
+  
+    @include parent-selector('.appIcon', '.link') {
+      &::after{
+        content: '';
+        display: inline-block; width: 15px; height: 15px;
+        position: absolute; bottom:10px; left: 1px; z-index: 2;
+        background: url('../assets/images/shortcut-32x32.png') no-repeat center / contain;
+      }
+    }
+
+    @include parent-selector('.appIcon', '#myPc') {
+      @include myPcImg
+    }
+  
+    @include parent-selector('.appIcon', '#myDoc') {
+      @include myDocImg
+    }
+  
+    @include parent-selector('.appIcon', '#trashCan') {
+      @include trashCanImg
+    }
+  
+    @include parent-selector('.appIcon', '#ie') {
+      @include ieImg
+    }
+  
+    @include parent-selector('.appIcon', '#outlook') {
+      @include outlookImg
+    }
+  
+    @include parent-selector('.appIcon', '#about') {
+      @include aboutImg
+    }
+  
+    @include parent-selector('.appIcon', '#phone') {
+      @include phoneImg
+    }
+  
+    @include parent-selector('.appIcon', '#email') {
+      @include mailImg
+    }
+  
+    @include parent-selector('.appIcon', '#profile') {
+      @include profileImg
+    }
+  
+    @include parent-selector('.appIcon', '#wanted') {
+      @include wantedImg
+    }
+  }
+
+  &:focus{
+    &#myPc .iconImage{
+      &::before{ 
+        mask-image: url("../assets/images/my-computer-48x48.png");
+        -webkit-mask-image: url("../assets/images/my-computer-48x48.png");
+      }
+    }
+    &#myDoc .iconImage{
+      &::before{ 
+        mask-image: url("../assets/images/my-documents-48x48.png");
+        -webkit-mask-image: url("../assets/images/my-documents-48x48.png");
+      }
+    }
+    &#trashCan .iconImage{
+      &::before{ 
+        mask-image: url("../assets/images/recycle-bin-full-48x48.png");
+        -webkit-mask-image: url("../assets/images/recycle-bin-full-48x48.png");
+      }
+    }
+    &#ie .iconImage{
+      &::before{ 
+        mask-image: url("../assets/images/internet-explorer-48x48.png");
+        -webkit-mask-image: url("../assets/images/internet-explorer-48x48.png");
+      }
+    }
+    &#outlook .iconImage{
+      &::before{ 
+        mask-image: url("../assets/images/outlook-express-48x48.png");
+        -webkit-mask-image: url("../assets/images/outlook-express-48x48.png");
+      }
+    }
+    &#about .iconImage{
+      &::before{ 
+        mask-image: url("../assets/images/help-48x48.png");
+        -webkit-mask-image: url("../assets/images/help-48x48.png");
+      }
+    }
+    &#phone .iconImage{
+      &::before{ 
+        mask-image: url("../assets/images/phone.png");
+        -webkit-mask-image: url("../assets/images/phone.png");
+      }
+    }
+    &#email .iconImage{
+      &::before{ 
+        mask-image: url("../assets/images/mail.png");
+        -webkit-mask-image: url("../assets/images/mail.png");
+      }
+    }
+    &#profile .iconImage{
+      &::before{ 
+        mask-image: url("../assets/images/camera-icon.png");
+        -webkit-mask-image: url("../assets/images/camera-icon.png");
+      }
+    }
+    &#wanted .iconImage{
+      &::before{ 
+        mask-image: url("../assets/images/wanted-logo.png");
+        -webkit-mask-image: url("../assets/images/wanted-logo.png");
+      }
+    }
+  }
+}
+
+// title bar
+.window .title-bar .title-bar-text{
+  &::before{
+    @include parent-selector('.window', '#myPcApp') {
+      @include myPcImg
+    }
+    @include parent-selector('.window', '#myDocApp') {
+      @include myDocImg
+    }
+    @include parent-selector('.window', '#trashCanApp') {
+      @include trashCanImg
+    }
+    @include parent-selector('.window', '#ieApp') {
+      @include ieImg
+    }
+    @include parent-selector('.window', '#outlookApp') {
+      @include outlookImg
+    }
+    @include parent-selector('.window', '#aboutApp') {
+      @include aboutImg
+    }
+    @include parent-selector('.window', '#profileApp') {
+      @include profileImg
+    }
+  }
+}
+
+.StartBar .appPanelWrap .runningProgram{
+  &[data-program-name=myPc]:before{
+    @include myPcImg
+  }
+  &[data-program-name=myDoc]:before{
+    @include myDocImg
+  }
+  &[data-program-name=trashCan]:before{
+    @include trashCanImg
+  }
+  &[data-program-name=ie]:before{
+    @include ieImg
+  }
+  &[data-program-name=outlook]:before{
+    @include outlookImg
+  }
+  &[data-program-name=about]:before{
+    @include aboutImg
+  }
+  &[data-program-name=profile]:before{
+    @include profileImg
+  }
+}

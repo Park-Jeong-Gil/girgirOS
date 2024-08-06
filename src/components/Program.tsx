@@ -6,6 +6,7 @@ import About from "./application/About";
 import Explorer from "./application/Explorer";
 import Folder from "./application/Folder";
 import Profile from "./application/Profile";
+import Spec from "./application/Spec";
 
 interface ProgramProps {
   name: string;
@@ -18,19 +19,39 @@ function Program({ name, programId, layer, initialSize }: ProgramProps) {
   const [, setProgramArr] = useRecoilState(programStatus);
   const [activeProgram, setActiveProgram] = useRecoilState(currentProgram);
 
-  const winW = window.innerWidth;
-  const winH = window.innerHeight;
-
   const [size, setSize] = useState(initialSize);
   const [isResizing, setIsResizing] = useState(false);
   const [resizeDirection, setResizeDirection] = useState<null | string>(null);
   const [isMaximized, setIsMaximized] = useState(false);
   const [position, setPosition] = useState({
-    x: (winW / 2) - (size.width / 2) + (layer * 25),
-    y: (winH / 2) - (size.height / 2) + (layer * 25),
+    x: -(size.width / 2) + (layer * 25),
+    y: -(size.height / 2) + (layer * 25),
   });
+
+  useEffect(() => {
+    switch (programId) {
+      case 'profile':
+        setPosition({
+          x: -(size.width / 2) + (layer * 25),
+          y: -(size.height / 2) + (layer * 25),
+        });
+        break;
+      case 'spec':
+        setPosition({
+          x: (size.width / 2) + 60,
+          y: -(size.height / 2),
+        });
+        break;
+      default:
+        setPosition({
+          x: -(size.width / 2) + (layer * 25),
+          y: -(size.height / 2) + (layer * 25),
+        }); 
+        break;
+    }
+  }, [programId]);
   
-  const [prevPosition, setPrevPosition] = useState(position); // 이전 위치 저장
+  const [prevPosition, setPrevPosition] = useState(position); 
   const windowRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -165,7 +186,6 @@ function Program({ name, programId, layer, initialSize }: ProgramProps) {
   const handleClose = () => {
     setProgramArr(prev => {
       const updatedProgramArr = prev.filter(prog => prog.program !== programId);
-      // 배열을 업데이트한 후 마지막 프로그램을 활성화합니다.
       // setLastProgActive();
       return updatedProgramArr;
     });
@@ -205,6 +225,7 @@ function Program({ name, programId, layer, initialSize }: ProgramProps) {
           <div className="window-body">
             {programId == 'about' && <About />}
             {programId == 'profile' && <Profile />}
+            {programId == 'spec' && <Spec />}
             {programId == 'ie' && <Explorer />}
             {programId == 'myPc' && <Folder id='myPc'/>}
             {programId == 'myDoc' && <Folder id='myDoc'/>}

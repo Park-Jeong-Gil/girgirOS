@@ -124,25 +124,6 @@
         background-size: contain;
       }
 
-      &[data-program-name=myPc]:before{
-        @include myPcImg
-      }
-      &[data-program-name=myDoc]:before{
-        @include myDocImg
-      }
-      &[data-program-name=trashCan]:before{
-        @include trashCanImg
-      }
-      &[data-program-name=ie]:before{
-        @include ieImg
-      }
-      &[data-program-name=outlook]:before{
-        @include outlookImg
-      }
-      &[data-program-name=about]:before{
-        @include aboutImg
-      }
-
       &.active{
         background-color: #ffffff;
         box-shadow: inset -1px -1px 0px #ffffff, inset 1px 1px 0px #0c0c0c, inset -2px -2px 0px #bbc3c4, inset 2px 2px 0px #808088;

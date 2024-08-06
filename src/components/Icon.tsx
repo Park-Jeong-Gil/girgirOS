@@ -4,7 +4,7 @@ import { useRecoilState } from "recoil";
 import { currentAlert, currentProgram, programStatus } from "../store/useProgramStatus";
 
 interface IconProps {
-  type: 'application' | 'alert';
+  type:string;
   id: string;
   name: string;
   desc: string;
@@ -57,6 +57,20 @@ function Icon({ type, id, name, desc }: IconProps) {
           }
         ];
       });
+    }else if (target.classList.contains('link')) {
+        const contactData = Object.values(contact).find(item => item.ID === programKey);
+      
+        if (contactData && 'LINK' in contactData) {
+          const link = (contactData as { LINK?: string }).LINK;
+          if (link) {
+            window.open(link, '_blank');
+            
+          } else {
+            console.error(`Link not found for key: ${programKey}`);
+          }
+        } else {
+          console.error(`Link not found for key: ${programKey}`);
+        }
     }
   }, [programArr, setProgramArr, setActiveProgram, setActiveAlert]);
 

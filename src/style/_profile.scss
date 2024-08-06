@@ -1,0 +1,104 @@
+#profileApp{
+  // position: absolute; left: 50%; top:50%;
+  button[aria-label="Maximize"],
+  .handleWrap{display: none;}
+
+  .profileContainer{
+    display: flex; flex-direction: column; height: 100%;
+    padding: 2px; overflow: hidden;
+  
+    .profileICamera{
+      width: 100%; height: 100%; overflow: hidden;
+      border: 1px solid #a2a2a2; padding: 2px;
+      border-radius: 3px;
+
+      img{
+        width: 100%; height: 100%;
+        margin: 0; object-fit: cover;
+        border-radius: 3px;
+      }
+    }
+  
+    .cameraButtonWrap{
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 1; padding: 15px 0;
+  
+      .cameraBtn{
+        width: 30px; height: 30px;
+        background: url('../assets/images/shutter-icon.png') no-repeat center / 50% #de2626;
+        border-radius: 50%;
+      }
+    }
+  }
+}
+
+#specApp{
+  // position: absolute; left: 50%; top:50%;
+  // background: none; 
+  // box-shadow: none;
+  
+  button[aria-label="Maximize"],
+  .handleWrap{display: none;}
+
+  // .title-bar{
+  //   box-shadow: inset -1px -1px #0a0a0a, inset 1px 1px #dfdfdf, inset -2px -2px grey, inset 2px 2px #fff;
+  // }
+
+  .window-body{
+    height: 100%;
+    overflow-y: auto;
+  }
+
+  .specContainer{
+    display: flex; flex-direction: column; 
+    padding: 24px; 
+    background-color: #fff;
+
+    .tit{
+      position: relative; font-weight: 600;
+
+      .bubble{
+        background-color: cornflowerblue;
+
+        &:after {
+          content:"";
+          border-top: 12px solid cornflowerblue;
+          border-left: 12px solid transparent;
+          border-right: 0px solid transparent;
+          border-bottom: 0px solid transparent;
+          position:absolute; bottom:10px; left:-12px;
+        }
+      }
+    }
+
+    .desc{
+      position: relative;
+      margin-left: auto;
+      .bubble{
+        background-color: yellowgreen;
+        padding-left: 26px;
+
+        &:after {
+          content:"";
+          border-top:12px solid yellowgreen;
+          border-left: 0px solid transparent;
+          border-right: 12px solid transparent;
+          border-bottom: 0px solid transparent;
+          position:absolute; bottom:10px; right:-12px;
+        }
+      }
+    }
+
+    .bubble{
+      width: auto;
+      display: inline-block;
+      border-radius: 15px;
+      padding: 12px 16px;
+      margin-top: 12px;
+
+      li{
+        list-style: disc;
+      }
+    }
+  }
+}

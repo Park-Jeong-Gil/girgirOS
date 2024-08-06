@@ -42,7 +42,7 @@ function Folder({ id }: FolderProps) {
             Object.keys(contact).map((key) => {
               const item = contact[key as keyof typeof contact];
               return (
-                <Icon type={item.TYPE} key={item.ID} id={item.ID} name={item.NANE} desc={item.DESCRIPTION} />
+                <Icon type={item.TYPE} key={item.ID} id={item.ID} name={item.NANE} desc={item.DESCRIPTION}/>
               );
             })
           )}

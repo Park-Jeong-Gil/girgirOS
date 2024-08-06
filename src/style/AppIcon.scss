@@ -20,48 +20,6 @@
     padding: 2px 2px 1px;
   }
 
-  .iconImage{
-    position: relative;
-    width: 70%; height: 72px;
-    margin: 0 auto;
-    background-image: url("../assets/images/file.png");
-    background-repeat: no-repeat;
-    background-position: left;
-    background-size: contain;
-
-    @include parent-selector('.appIcon', '#myPc') {
-      @include myPcImg
-    }
-
-    @include parent-selector('.appIcon', '#myDoc') {
-      @include myDocImg
-    }
-
-    @include parent-selector('.appIcon', '#trashCan') {
-      @include trashCanImg
-    }
-
-    @include parent-selector('.appIcon', '#ie') {
-      @include ieImg
-    }
-
-    @include parent-selector('.appIcon', '#outlook') {
-      @include outlookImg
-    }
-
-    @include parent-selector('.appIcon', '#about') {
-      @include aboutImg
-    }
-
-    @include parent-selector('.appIcon', '#phone') {
-      @include phoneImg
-    }
-
-    @include parent-selector('.appIcon', '#email') {
-      @include mailImg
-    }
-  }
-
   &:focus{
     outline: none;
 
@@ -75,55 +33,6 @@
         mask-repeat: no-repeat; mask-size: contain; mask-position: center;
         mask-image: url("../assets/images/file.png"); 
         -webkit-mask-image: url("../assets/images/file.png");
-      }
-    }
-
-    &#myPc .iconImage{
-      &::before{ 
-        mask-image: url("../assets/images/my-computer-48x48.png");
-        -webkit-mask-image: url("../assets/images/my-computer-48x48.png");
-      }
-    }
-    &#myDoc .iconImage{
-      &::before{ 
-        mask-image: url("../assets/images/my-documents-48x48.png");
-        -webkit-mask-image: url("../assets/images/my-documents-48x48.png");
-      }
-    }
-    &#trashCan .iconImage{
-      &::before{ 
-        mask-image: url("../assets/images/recycle-bin-full-48x48.png");
-        -webkit-mask-image: url("../assets/images/recycle-bin-full-48x48.png");
-      }
-    }
-    &#ie .iconImage{
-      &::before{ 
-        mask-image: url("../assets/images/internet-explorer-48x48.png");
-        -webkit-mask-image: url("../assets/images/internet-explorer-48x48.png");
-      }
-    }
-    &#outlook .iconImage{
-      &::before{ 
-        mask-image: url("../assets/images/outlook-express-48x48.png");
-        -webkit-mask-image: url("../assets/images/outlook-express-48x48.png");
-      }
-    }
-    &#about .iconImage{
-      &::before{ 
-        mask-image: url("../assets/images/help-48x48.png");
-        -webkit-mask-image: url("../assets/images/help-48x48.png");
-      }
-    }
-    &#phone .iconImage{
-      &::before{ 
-        mask-image: url("../assets/images/phone.png");
-        -webkit-mask-image: url("../assets/images/phone.png");
-      }
-    }
-    &#email .iconImage{
-      &::before{ 
-        mask-image: url("../assets/images/mail.png");
-        -webkit-mask-image: url("../assets/images/mail.png");
       }
     }
 
