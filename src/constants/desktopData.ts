@@ -12,7 +12,7 @@ const programs = {
   },
   PROJECTS: {
     ID: 'myDoc',
-    NANE:'프로젝트',
+    NANE:'My projects',
     TYPE: 'folder',
     SIZE:{
       width: 840,
@@ -59,7 +59,7 @@ const contact = {
     NANE:'프로필',
     TYPE: 'application',
     SIZE:{
-      width: 900,
+      width: 920,
       height: 800
     },
     DESCRIPTION: '간단한 자기 소개 입니다.',

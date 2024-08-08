@@ -208,7 +208,7 @@ function Program({ name, programId, layer, initialSize }: ProgramProps) {
           left: isMaximized ? 0 : undefined,
           zIndex: layer,
         }}
-        onClick={handleFocus}
+        // onClick={handleFocus}
         onFocus={handleFocus}
         tabIndex={0}
       >

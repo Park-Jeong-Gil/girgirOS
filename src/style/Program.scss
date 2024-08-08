@@ -22,7 +22,10 @@
     padding: 2px 3px 2px 3px;
 
     .title-bar-text{
-      font-size: 12px; padding-left: 4px; line-height: 1;
+      align-items: center; display: flex;
+      font-size: 12px; font-weight: 400;
+      padding-left: 4px; line-height: 1;
+      -webkit-font-smoothing: auto;
 
       &::before{
         content: '';

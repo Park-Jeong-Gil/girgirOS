@@ -103,16 +103,42 @@
   }
 
   .resumeBtnWrap{
-    padding: 16px;
+    padding: 16px 12px 10px;
     display: flex;justify-content: flex-end;
     gap: 14px;
 
     button{
-      font-size: 16px; 
+      display: flex; align-items: center;
+      font-size: 16px;  color: #000;
       padding: 10px 20px;
-      // margin-left: auto;
-      color: #000;
       text-shadow: none;
+
+      &::before{
+        content: ''; 
+        display: inline-block; width: 20px; height: 20px; margin-right: 8px;
+        background-repeat: no-repeat; background-position: center; background-size: contain;
+      }
+      
+      &.helpBtn::before{
+        @include aboutImg
+      }
+
+      &.projectBtn::before{
+        @include myDocImg
+      }
+
+      &.wantedBtn::before{
+        @include wantedImg
+      }
+
+      strong{
+        font-size: 14px; font-weight: 400;
+        margin-left: 4px;
+
+        span{
+          text-decoration: underline;
+        }
+      }
     }
   }
 }
