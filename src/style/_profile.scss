@@ -119,8 +119,8 @@
         background-repeat: no-repeat; background-position: center; background-size: contain;
       }
       
-      &.helpBtn::before{
-        @include aboutImg
+      &.introBtn::before{
+        @include notepadImg
       }
 
       &.projectBtn::before{

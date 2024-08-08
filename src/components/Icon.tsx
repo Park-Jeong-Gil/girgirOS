@@ -72,6 +72,7 @@ function Icon({ type, id, name, desc }: IconProps) {
           console.error(`Link not found for key: ${programKey}`);
         }
     }
+    
   }, [programArr, setProgramArr, setActiveProgram, setActiveAlert]);
 
   useEffect(() => {

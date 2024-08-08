@@ -22,6 +22,11 @@
   }
 }
 
+@mixin DosGothic {
+	font-family: 'DosGothic';
+	letter-spacing: -0.5px;
+}
+
 @mixin font($name: null, $font-size: 14px, $weight: null, $line-height: null) {
 	@if type-of($name) != null {
 		font-family: $name, sans-serif;
@@ -58,14 +63,14 @@
 }
 
 @mixin blind{
-    position: absolute;
-    clip: rect(0 0 0 0);
-    font-size: 1px;
-    color: transparent;
-    width: 1px;
-    height: 1px;
-    margin: -1px;
-    overflow: hidden;
+	position: absolute;
+	clip: rect(0 0 0 0);
+	font-size: 1px;
+	color: transparent;
+	width: 1px;
+	height: 1px;
+	margin: -1px;
+	overflow: hidden;
 }
 
 @mixin flicker {

@@ -16,7 +16,7 @@ function Background() {
       clearTimeout(firstProgramTime);
       setProgramArr([...programArr, { program: programs.ABOUT_ME.ID, name: programs.ABOUT_ME.NANE, initialSize: { width: programs.ABOUT_ME.SIZE.width, height:  programs.ABOUT_ME.SIZE.height } }]);
       setActiveProgram(programs.ABOUT_ME.ID);
-    }, 5000);
+    }, 2500);
 
     return () => {
       clearTimeout(firstProgramTime);

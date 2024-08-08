@@ -27,6 +27,8 @@
 
       .panelTitle{
         font-size: 24px;
+        @include DosGothic;
+
         span{margin-left: 20px;}
 
         &:after{

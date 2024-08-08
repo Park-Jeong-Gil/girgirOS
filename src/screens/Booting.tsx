@@ -24,7 +24,7 @@ function Booting() {
 
     const autoBootingTimer =  setTimeout(()=>{
       autoTimer && setSystemStatus('loading')
-    },15000)
+    },10000)
 
     return () => {
       clearTimeout(timer)

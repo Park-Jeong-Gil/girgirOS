@@ -6,6 +6,7 @@ import About from "./application/About";
 import Explorer from "./application/Explorer";
 import Folder from "./application/Folder";
 import Profile from "./application/Profile";
+import NotePad from "./application/Notepad";
 
 interface ProgramProps {
   name: string;
@@ -76,19 +77,22 @@ function Program({ name, programId, layer, initialSize }: ProgramProps) {
     if (resizeDirection.includes('right')) {
       setSize(prevSize => ({
         ...prevSize,
-        width: Math.max(800, e.clientX - rect.left),
+        // width: Math.max(800, e.clientX - rect.left),
+        width: (e.clientX - rect.left),
       }));
     }
     if (resizeDirection.includes('bottom')) {
       setSize(prevSize => ({
         ...prevSize,
-        height: Math.max(600, e.clientY - rect.top),
+        // height: Math.max(600, e.clientY - rect.top),
+        height: (e.clientY - rect.top),
       }));
     }
     if (resizeDirection.includes('left')) {
       setSize((prevSize) => ({
         ...prevSize,
-        width: Math.max(800, rect.right - e.clientX),
+        // width: Math.max(800, rect.right - e.clientX),
+        width: (rect.right - e.clientX),
       }));
       setPosition((prevPosition) => ({
         ...prevPosition,
@@ -98,7 +102,8 @@ function Program({ name, programId, layer, initialSize }: ProgramProps) {
     if (resizeDirection.includes('top')) {
       setSize((prevSize) => ({
         ...prevSize,
-        height: Math.max(600, rect.bottom - e.clientY),
+        // height: Math.max(600, rect.bottom - e.clientY),
+        height: (rect.bottom - e.clientY),
       }));
       setPosition((prevPosition) => ({
         ...prevPosition,
@@ -228,6 +233,7 @@ function Program({ name, programId, layer, initialSize }: ProgramProps) {
             {programId == 'myPc' && <Folder id='myPc'/>}
             {programId == 'myDoc' && <Folder id='myDoc'/>}
             {programId == 'trashCan' && <Folder id='trashCan'/>}
+            {programId == 'notepad' && <NotePad id='introduction'/>}
           </div>
         </div>
         {isMaximized === false && (

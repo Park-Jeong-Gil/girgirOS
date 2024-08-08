@@ -28,6 +28,9 @@
 @mixin wantedImg{
 	background-image: url("../assets/images/wanted-logo.png");
 }
+@mixin notepadImg{
+	background-image: url("../assets/images/notepad-file-32x32.png");
+}
 
 .appIcon{
   .iconImage{
@@ -82,11 +85,16 @@
   
     @include parent-selector('.appIcon', '#profile') {
       @include profileImg;
-      width: 42%;
+      width: 43%;
     }
   
     @include parent-selector('.appIcon', '#wanted') {
       @include wantedImg
+    }
+  
+    @include parent-selector('.appIcon', '#notepad') {
+      @include notepadImg;
+      width: 48%;
     }
   }
 
@@ -151,6 +159,12 @@
         -webkit-mask-image: url("../assets/images/wanted-logo.png");
       }
     }
+    &#notepad .iconImage{
+      &::before{ 
+        mask-image: url("../assets/images/notepad-file-32x32.png");
+        -webkit-mask-image: url("../assets/images/notepad-file-32x32.png");
+      }
+    }
   }
 }
 
@@ -178,9 +192,13 @@
     @include parent-selector('.window', '#profileApp') {
       @include profileImg
     }
+    @include parent-selector('.window', '#notepadApp') {
+      @include notepadImg
+    }
   }
 }
 
+// start bar
 .StartBar .appPanelWrap .runningProgram{
   &[data-program-name=myPc]:before{
     @include myPcImg
@@ -202,5 +220,8 @@
   }
   &[data-program-name=profile]:before{
     @include profileImg
+  }
+  &[data-program-name=notepad]:before{
+    @include notepadImg
   }
 }

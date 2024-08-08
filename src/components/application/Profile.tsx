@@ -12,14 +12,14 @@ function Profile({}: ProfileProps) {
   const [programArr, setProgramArr] = useRecoilState(programStatus);
   const [, setActiveProgram] = useRecoilState(currentProgram);
 
-  const runHelpProgram = ()=>{
+  const runIntroProgram = ()=>{
     setProgramArr([...programArr, { 
-        program: programs.ABOUT_ME.ID, 
-        name: programs.ABOUT_ME.NANE, 
-        initialSize: { width: programs.ABOUT_ME.SIZE.width, height:  programs.ABOUT_ME.SIZE.height }
+        program: contact.SELF_INTRO.ID, 
+        name: contact.SELF_INTRO.NANE, 
+        initialSize: { width: contact.SELF_INTRO.SIZE.width, height:  contact.SELF_INTRO.SIZE.height }
       }]);
 
-    setActiveProgram(programs.ABOUT_ME.ID);
+    setActiveProgram(contact.SELF_INTRO.ID);
   }
 
   const runProjectsProgram = ()=>{
@@ -120,7 +120,7 @@ function Profile({}: ProfileProps) {
         </div>
       </div>
       <div className="resumeBtnWrap">
-        <button className="helpBtn" onClick={runHelpProgram}>자기소개 보기 <strong>(<span>H</span>elp) </strong></button>
+        <button className="introBtn" onClick={runIntroProgram}>자기소개 보기 <strong>(<span>H</span>elp) </strong></button>
         <button className="projectBtn" onClick={runProjectsProgram}>프로젝트 보기 <strong>(<span>P</span>rojects)</strong></button>
         <button className="wantedBtn" onClick={runWantedProgram}>원티드 이력서 확인 하기 <strong>(<span>W</span>anted)</strong></button>
       </div>

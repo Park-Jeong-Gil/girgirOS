@@ -4,10 +4,8 @@
   width: 88px; height: auto; min-width: auto;
   background-color: transparent;
   margin: 18px 8px; padding: 0px;
-  font-size: 15px; color: #fff;
-  // font-family: "W95", "DosGothic", "Segoe UI", Tahoma, Verdana, sans-serif;
-  font-weight: 400;
   box-shadow: none;
+  color: #fff;
 
   &:not(:disabled):active{
     box-shadow: none;
@@ -16,9 +14,21 @@
   
   span.iconName{
     width: auto;
-    align-self: center;
-    text-align: center;
-    padding: 3px 4px 2px;
+    align-self: center; text-align: center;
+    padding: 3px 6px 2px;
+    // line-height: 1;
+    // font-family: 'W95';
+    font-size: 15px; 
+    font-weight: 400;
+    text-shadow: 1px 1px 0 #000;
+
+    @at-root .ProgramWindow &{
+      text-shadow: none;
+    }
+
+    @include parent-selector('.appIcon', '#ie') {
+      width: 80%;
+    }
   }
 
   &:focus{

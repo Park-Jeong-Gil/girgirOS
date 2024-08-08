@@ -12,7 +12,7 @@ const programs = {
   },
   PROJECTS: {
     ID: 'myDoc',
-    NANE:'My projects',
+    NANE:'My Projects',
     TYPE: 'folder',
     SIZE:{
       width: 840,
@@ -50,7 +50,6 @@ const programs = {
     },
     DESCRIPTION: '간단한 자기 소개 입니다.',
   },
-
 } as const;
 
 const contact = {
@@ -62,16 +61,26 @@ const contact = {
       width: 920,
       height: 800
     },
-    DESCRIPTION: '간단한 자기 소개 입니다.',
+    DESCRIPTION: '프로필을 확인 할 수 있습니다.',
+  },
+  SELF_INTRO: {
+    ID: 'notepad',
+    NANE:'자기소개.txt',
+    TYPE: 'application',
+    SIZE:{
+      width: 550,
+      height: 450
+    },
+    DESCRIPTION: '자기 소개 글 입니다.',
   },
     WANTED: {
     ID: 'wanted',
     NANE:'원티드',
     TYPE: 'link',
     LINK: 'https://www.wanted.co.kr/',
-    DESCRIPTION: 'https://www.wanted.co.kr/',
+    DESCRIPTION: '새 탭으로 원티드 지원서를 엽니다.',
   },
 
 } as const;
 
-export {programs, contact, };
+export {programs, contact};
