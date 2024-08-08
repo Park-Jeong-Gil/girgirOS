@@ -18,8 +18,8 @@ function About({}: AboutProps) {
         <div className="description">
           <div className="textDiv">
             안녕하세요! <br />
-            코딩을 통해 그래픽 작업을 하는 개발자 <br />
-            <strong>Code grapher</strong> 박정길 입니다. <br />
+            저는 코딩을 통해 그래픽 작업을 하는 개발자 <br />
+            <strong>&lt;Code grapher&gt;</strong> 박정길 입니다. <br />
           </div>
 
           <div className="textDiv">
@@ -33,7 +33,7 @@ function About({}: AboutProps) {
 
           <div className="textDiv">
             평범한 개발자들과는 다른 출발점에 섰던 저는 <br />
-            직접 에셋을 공수 할 수 있는 디자인 툴 스킬, <br />
+            직접 에셋을 공수 할 수 있는 디자인 스킬, <br />
             UX를 기반으로 구현 가능한 아이디어와 영감을 가진 <br />
             프론트 엔드 개발자가 되었습니다. <br />
             덕분에 동료 개발자들 뿐 아니라 <br />
@@ -42,18 +42,16 @@ function About({}: AboutProps) {
           </div>
 
           <div className="textDiv">
-            이렇듯 남다른 스킬 포인트 투자로 인해 <br />
-            아쉽게도 프론트 엔드 스킬이 얕다는 약점도 있습니다. <br />
-            하지만 그만큼 개발 스터디에 관심을 가지며, <br />
-            성장하는 즐거움을 느끼는걸 좋아 합니다. <br />
-            <br />
-            * 참고로 보고 계신 포폴은  <br />
-            Vite + React + Typescript를  <br />
-            사용하여 만들었습니다.
+          이렇듯 남다른 스킬 포인트 투자로 인해 <br />
+          아쉽게도 프론트 엔드 스킬은 인터렉션을 구현하는 스킬에 비해 <br />
+          비교적 얕다는 약점도 있습니다. <br />
+          하지만 그만큼 개발 스터디에 항상 관심을 가지며,<br />
+          현재 포트폴리오도 Vite + React + Typescript 를 <br /> 
+          혼자 스터디 하며 제작 할 수 있었습니다.
           </div>
 
           <div className="textDiv">
-            지금 이 포폴을 보시다 싶이 <br />
+            지금 보고계신 이 포폴 사이트 처럼 <br />
             저는 도전적인 길을 가는걸 좋아 합니다. <br />
             저 처럼 웹의 한계를 시험하는 <br />
             멋진 작업을 좋아하신다면<br />

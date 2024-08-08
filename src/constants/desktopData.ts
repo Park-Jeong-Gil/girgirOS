@@ -2,13 +2,13 @@
 const programs = {
   CONTACT: {
     ID: 'myPc',
-    NANE:'프로필',
+    NANE:'About Me',
     TYPE: 'folder',
     SIZE:{
       width: 840,
       height: 600
     },
-    DESCRIPTION: 'girgir\'s 프로필을 확인 할 수 있습니다.',
+    DESCRIPTION: 'girgir\'s 프로필과 이력서 등 정보를 확인 할 수 있습니다.',
   },
   PROJECTS: {
     ID: 'myDoc',
@@ -42,7 +42,7 @@ const programs = {
   },
   ABOUT_ME: {
     ID: 'about',
-    NANE:'About Me',
+    NANE:'help',
     TYPE: 'application',
     SIZE:{
       width: 820,
@@ -59,8 +59,8 @@ const contact = {
     NANE:'프로필',
     TYPE: 'application',
     SIZE:{
-      width: 500,
-      height: 400
+      width: 900,
+      height: 800
     },
     DESCRIPTION: '간단한 자기 소개 입니다.',
   },

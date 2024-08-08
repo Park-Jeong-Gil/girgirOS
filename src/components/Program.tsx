@@ -6,7 +6,6 @@ import About from "./application/About";
 import Explorer from "./application/Explorer";
 import Folder from "./application/Folder";
 import Profile from "./application/Profile";
-import Spec from "./application/Spec";
 
 interface ProgramProps {
   name: string;
@@ -225,7 +224,6 @@ function Program({ name, programId, layer, initialSize }: ProgramProps) {
           <div className="window-body">
             {programId == 'about' && <About />}
             {programId == 'profile' && <Profile />}
-            {programId == 'spec' && <Spec />}
             {programId == 'ie' && <Explorer />}
             {programId == 'myPc' && <Folder id='myPc'/>}
             {programId == 'myDoc' && <Folder id='myDoc'/>}

@@ -23,7 +23,7 @@
 	background-image: url("../assets/images/mail.png");
 }
 @mixin profileImg{
-	background-image: url("../assets/images/camera-icon.png");
+	background-image: url("../assets/images/profile-icon.png");
 }
 @mixin wantedImg{
 	background-image: url("../assets/images/wanted-logo.png");
@@ -81,7 +81,8 @@
     }
   
     @include parent-selector('.appIcon', '#profile') {
-      @include profileImg
+      @include profileImg;
+      width: 50%;
     }
   
     @include parent-selector('.appIcon', '#wanted') {
@@ -140,8 +141,8 @@
     }
     &#profile .iconImage{
       &::before{ 
-        mask-image: url("../assets/images/camera-icon.png");
-        -webkit-mask-image: url("../assets/images/camera-icon.png");
+        mask-image: url("../assets/images/profile-icon.png");
+        -webkit-mask-image: url("../assets/images/profile-icon.png");
       }
     }
     &#wanted .iconImage{
