@@ -12,6 +12,8 @@ function About() {
       setIsFullscreen(document.fullscreenElement !== null);
     };
 
+    handleFullscreenChange()
+
     document.addEventListener('fullscreenchange', handleFullscreenChange);
 
     return () => {

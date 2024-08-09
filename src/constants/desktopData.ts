@@ -1,4 +1,3 @@
-
 const programs = {
   CONTACT: {
     ID: 'myPc',
@@ -38,7 +37,7 @@ const programs = {
       width: 1440,
       height: 780
     },
-    DESCRIPTION: '프로젝트를 볼 수 있는 브라우저 입니다.',
+    DESCRIPTION: '개발한 웹사이트를 볼 수 있는 브라우저 입니다.',
   },
   ABOUT_ME: {
     ID: 'about',
@@ -48,11 +47,23 @@ const programs = {
       width: 820,
       height: 630
     },
-    DESCRIPTION: '간단한 자기 소개 입니다.',
+    DESCRIPTION: '포트폴리오 가이드 입니다.',
   },
 } as const;
 
-const contact = {
+interface itemData {
+  ID: string;
+  NANE: string;
+  TYPE: string;
+  DESCRIPTION: string;
+  SIZE?: {
+    width: number;
+    height: number;
+  };
+  LINK? :string;
+}
+
+const contact: { [key: string]: itemData } = {
   PROFILE: {
     ID: 'profile',
     NANE:'프로필',
@@ -83,4 +94,24 @@ const contact = {
 
 } as const;
 
-export {programs, contact};
+const works: { [key: string]: itemData } = {
+  WEBSITE: {
+    ID: 'ie',
+    NANE:'웹사이트',
+    TYPE: 'application',
+    DESCRIPTION: '프로필을 확인 할 수 있습니다.',
+  },
+  DESIGN: {
+    ID: 'design',
+    NANE:'디자인',
+    TYPE: 'application',
+    SIZE:{
+      width: 920,
+      height: 800
+    },
+    DESCRIPTION: '프로필을 확인 할 수 있습니다.',
+  },
+
+} as const;
+
+export {programs, contact, works};

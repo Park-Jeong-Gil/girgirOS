@@ -2,11 +2,12 @@ import React, { useEffect, useRef, useState } from "react";
 import { useRecoilState } from "recoil";
 import { currentProgram, programStatus } from "../store/useProgramStatus";
 import Draggable from "react-draggable";
-import About from "./application/About";
+import About from "./contents/About";
 import Explorer from "./application/Explorer";
 import Folder from "./application/Folder";
-import Profile from "./application/Profile";
+import Profile from "./contents/Profile";
 import NotePad from "./application/Notepad";
+import Design from "./contents/Design";
 
 interface ProgramProps {
   name: string;
@@ -234,6 +235,8 @@ function Program({ name, programId, layer, initialSize }: ProgramProps) {
             {programId == 'myDoc' && <Folder id='myDoc'/>}
             {programId == 'trashCan' && <Folder id='trashCan'/>}
             {programId == 'notepad' && <NotePad id='introduction'/>}
+            {programId == 'website' && <Explorer />}
+            {programId == 'design' && <Design />}
           </div>
         </div>
         {isMaximized === false && (

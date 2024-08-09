@@ -1,5 +1,6 @@
 const notepad = {
-  SELF_INTRO: `안녕하세요! 
+  SELF_INTRO: `
+안녕하세요! 
 저는 코딩을 통해 그래픽 작업을 하는 개발자 
 <Code grapher> 박정길 입니다. 
 

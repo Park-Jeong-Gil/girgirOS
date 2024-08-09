@@ -1,10 +1,10 @@
 import { useCallback, useEffect } from "react";
-import { contact, programs } from "../constants/desktopData";
+import { contact, programs, works } from "../constants/desktopData";
 import { useRecoilState } from "recoil";
 import { currentAlert, currentProgram, programStatus } from "../store/useProgramStatus";
 
 interface IconProps {
-  type:string;
+  type: string;
   id: string;
   name: string;
   desc: string;
@@ -26,16 +26,19 @@ function Icon({ type, id, name, desc }: IconProps) {
       if (iconName && !programArr.some(prog => prog.program === programKey)) {
         const programData = Object.values(programs).find(program => program.ID === programKey);
         const contactData = Object.values(contact).find(item => item.ID === programKey);
+        const worksData = Object.values(works).find(item => item.ID === programKey);
 
         const defaultSize = { width: 840, height: 600 };
-        const { width: programW = defaultSize.width, height: programH = defaultSize.height } =
-          programData?.SIZE || 
-          (contactData?.TYPE === 'application' ? contactData.SIZE : {});
 
-        if (programData || contactData) {
+        const size =  worksData?.SIZE ||
+                      contactData?.SIZE ||
+                      programData?.SIZE ||
+                      defaultSize;
+
+        if (programData || contactData || worksData) {
           setProgramArr(prevArr => [
             ...prevArr,
-            { program: programKey, name: iconName, initialSize: { width: programW, height: programH } }
+            { program: programKey, name: iconName, initialSize: size }
           ]);
           setActiveProgram(programKey);
         } else {
@@ -57,27 +60,25 @@ function Icon({ type, id, name, desc }: IconProps) {
           }
         ];
       });
-    }else if (target.classList.contains('link')) {
-        const contactData = Object.values(contact).find(item => item.ID === programKey);
-      
-        if (contactData && 'LINK' in contactData) {
-          const link = (contactData as { LINK?: string }).LINK;
-          if (link) {
-            window.open(link, '_blank');
-            
-          } else {
-            console.error(`Link not found for key: ${programKey}`);
-          }
+    } else if (target.classList.contains('link')) {
+      const contactData = Object.values(contact).find(item => item.ID === programKey);
+
+      if (contactData && 'LINK' in contactData) {
+        const link = (contactData as { LINK?: string }).LINK;
+        if (link) {
+          window.open(link, '_blank');
         } else {
           console.error(`Link not found for key: ${programKey}`);
         }
+      } else {
+        console.error(`Link not found for key: ${programKey}`);
+      }
     }
-    
   }, [programArr, setProgramArr, setActiveProgram, setActiveAlert]);
 
   useEffect(() => {
     const appIcons = document.querySelectorAll('.appIcon');
-    
+
     appIcons.forEach((elem) => {
       elem.addEventListener('dblclick', handleRunProgram);
     });

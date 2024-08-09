@@ -4,6 +4,8 @@
   box-sizing: border-box;
   z-index: 1;
   outline: none;
+  min-width: 400px;
+  min-height: 300px;
 
   &[data-window=focused]{
     z-index: 7 !important;
