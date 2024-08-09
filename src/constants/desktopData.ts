@@ -1,7 +1,7 @@
 const programs = {
   CONTACT: {
     ID: 'myPc',
-    NANE:'About Me',
+    NANE:'My Profile',
     TYPE: 'folder',
     SIZE:{
       width: 840,

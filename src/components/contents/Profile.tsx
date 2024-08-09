@@ -13,7 +13,7 @@ function Profile({}: ProfileProps) {
   const [, setActiveProgram] = useRecoilState(currentProgram);
 
   const runIntroProgram = ()=>{
-    if(contact.SELF_INTRO.SIZE){
+    if(contact.SELF_INTRO.SIZE && !programArr.some(prog => prog.program === contact.SELF_INTRO.ID)){
       setProgramArr([...programArr, { 
           program: contact.SELF_INTRO.ID, 
           name: contact.SELF_INTRO.NANE, 
@@ -25,11 +25,13 @@ function Profile({}: ProfileProps) {
   }
 
   const runProjectsProgram = ()=>{
-    setProgramArr([...programArr, { 
-        program: programs.PROJECTS.ID, 
-        name: programs.PROJECTS.NANE, 
-        initialSize: { width: programs.PROJECTS.SIZE.width, height:  programs.PROJECTS.SIZE.height }
-      }]);
+    if(!programArr.some(prog => prog.program === programs.PROJECTS.ID)){
+      setProgramArr([...programArr, { 
+          program: programs.PROJECTS.ID, 
+          name: programs.PROJECTS.NANE, 
+          initialSize: { width: programs.PROJECTS.SIZE.width, height:  programs.PROJECTS.SIZE.height }
+        }]);
+    }
 
     setActiveProgram(programs.PROJECTS.ID);
   }

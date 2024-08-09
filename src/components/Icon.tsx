@@ -40,6 +40,7 @@ function Icon({ type, id, name, desc }: IconProps) {
             ...prevArr,
             { program: programKey, name: iconName, initialSize: size }
           ]);
+          
           setActiveProgram(programKey);
         } else {
           console.error(`Program or contact data not found for key: ${programKey}`);
@@ -73,6 +74,14 @@ function Icon({ type, id, name, desc }: IconProps) {
       } else {
         console.error(`Link not found for key: ${programKey}`);
       }
+    }
+    
+    setActiveProgram(programKey);
+
+    const $progWindow = document.querySelector(`#${programKey}App`)
+
+    if($progWindow && $progWindow.classList.contains('minimized')){
+      $progWindow.classList.remove('minimized')
     }
   }, [programArr, setProgramArr, setActiveProgram, setActiveAlert]);
 
