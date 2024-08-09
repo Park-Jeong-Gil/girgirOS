@@ -36,6 +36,13 @@ function Profile({}: ProfileProps) {
     window.open(contact.WANTED.LINK, '_blank');
   }
 
+  const handleClose = () => {
+    setProgramArr(prev => {
+      const updatedProgramArr = prev.filter(prog => prog.program !== 'profile');
+      return updatedProgramArr;
+    });
+  };
+
   return (
     <div className="profileContainer">
       <div className="profileContentsWrap profileInfo">
@@ -124,6 +131,9 @@ function Profile({}: ProfileProps) {
         <button className="projectBtn" onClick={runProjectsProgram}>프로젝트 보기 <strong>(<span>P</span>rojects)</strong></button>
         <button className="wantedBtn" onClick={runWantedProgram}>원티드 이력서 확인 하기 <strong>(<span>W</span>anted)</strong></button>
       </div>
+      {/* <div className="closeBtnWrap">
+        <button className="closeBtn" onClick={handleClose}>닫기</button>
+      </div> */}
     </div>
   )
 }

@@ -105,7 +105,9 @@
   .resumeBtnWrap{
     padding: 16px 12px 10px;
     display: flex;justify-content: flex-end;
-    gap: 14px;
+    gap: 12px;
+
+    // flex-direction: column;
 
     button{
       display: flex; align-items: center;
@@ -139,6 +141,21 @@
           text-decoration: underline;
         }
       }
+    }
+  }
+
+  .closeBtnWrap{
+    display: flex; justify-content: flex-end; gap:12px;
+    margin-top: 28px; padding-top: 28px; 
+    border-top: 1px solid #fff;
+    box-shadow: 0px -1px 0px rgb(128, 128, 128);
+
+    button{
+      min-width: 150px;
+      font-size: 16px;
+      color: #000;
+      padding: 8px 20px;
+      text-shadow: none;
     }
   }
 }

@@ -46,7 +46,7 @@ function Explorer({}: ExplorerProps) {
         />
         <AddressMenu type='explorer'/>
       </div>
-      <div className="containerInner">
+      <div className="bodyInner">
         <iframe src="https://girgir.synology.me/dev/KG-Mobility/"></iframe>
       {/* <iframe
         width="100%"

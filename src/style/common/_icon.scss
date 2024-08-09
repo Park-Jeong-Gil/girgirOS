@@ -29,7 +29,7 @@
 	background-image: url("../assets/images/wanted-logo.png");
 }
 @mixin notepadImg{
-	background-image: url("../assets/images/notepad-file-32x32.png");
+	background-image: url("../assets/images/notepad-32x32.png");
 }
 
 .appIcon{
@@ -161,8 +161,8 @@
     }
     &#notepad .iconImage{
       &::before{ 
-        mask-image: url("../assets/images/notepad-file-32x32.png");
-        -webkit-mask-image: url("../assets/images/notepad-file-32x32.png");
+        mask-image: url("../assets/images/notepad-32x32.png");
+        -webkit-mask-image: url("../assets/images/notepad-32x32.png");
       }
     }
   }

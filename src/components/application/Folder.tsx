@@ -27,7 +27,7 @@ function Folder({ id }: FolderProps) {
       <TopMenu />
       <MiddleMenu type="folder" />
       <AddressMenu type={id} />
-      <div className="containerInner">
+      <div className="bodyInner">
         <div className="folderPanel">
           <span className={`panelicon ${programData.ID}`}></span>
           <h3 className="panelTitle">

@@ -8,7 +8,7 @@ const programs = {
       width: 840,
       height: 600
     },
-    DESCRIPTION: 'girgir\'s 프로필과 이력서 등 정보를 확인 할 수 있습니다.',
+    DESCRIPTION: 'girgir\'s 프로필과 이력서 정보를 확인 할 수 있습니다.',
   },
   PROJECTS: {
     ID: 'myDoc',
@@ -28,7 +28,7 @@ const programs = {
       width: 840,
       height: 600
     },
-    DESCRIPTION: '휴지통 입니다.',
+    DESCRIPTION: '휴지통 입니다.(?)',
   },
   INTERNET: {
     ID: 'ie',
@@ -46,7 +46,7 @@ const programs = {
     TYPE: 'application',
     SIZE:{
       width: 820,
-      height: 550
+      height: 630
     },
     DESCRIPTION: '간단한 자기 소개 입니다.',
   },
