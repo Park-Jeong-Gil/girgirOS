@@ -39,14 +39,14 @@ function About() {
         <span className="profile"></span>
       </div>
       <div className="descBox">
-        <strong>Welcome to Portfolio!</strong>
+        <strong>Welcome to <span>Girgir's</span> Portfolio!</strong>
         <div className="description">
           <strong>
             Hello world! 반갑습니다! <br />
-            박정길의 포트폴리오에 오신걸 환영 합니다.
+            박정길(girgir)의 포트폴리오에 오신걸 환영 합니다.
           </strong>
           <ul>
-            <li>해당 포트폴리오는 풀 스크린 사이즈에 <br />최적화 되어 있습니다.</li>
+            <li>해당 포트폴리오는 PC 풀 스크린 사이즈에 <br />최적화 되어 있습니다.</li>
             <li>바탕화면에 아이콘을 더블클릭 하여 내용을 <br />확인 할 수 있습니다.</li>
             <li>모쪼록 재밌게 봐주시면 감사드리겠습니다.</li>
           </ul>

@@ -9,7 +9,7 @@
     position: fixed; top:0; left: 0;
     width: 100%; height: calc(100vh - 35px);
     opacity: 0; transition: opacity .5s ease-out;
-    background: url('../assets/images/desktopBg.jpg') no-repeat center / cover;
+    background: url('../assets/images/common/desktopBg.jpg') no-repeat center / cover;
 
     @include parent-selector('.DeskTopScreen', '.loaded') {
       opacity: 1;

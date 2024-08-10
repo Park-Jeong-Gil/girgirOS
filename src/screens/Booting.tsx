@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import bootLogo1 from '../assets/images/bootLogo1.png'
+import bootLogo1 from '../assets/images/common/bootLogo1.png'
 import { soundState, systemState } from '../store/useSystemStatus';
 import { useRecoilState } from 'recoil';
 

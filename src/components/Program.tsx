@@ -8,6 +8,7 @@ import Folder from "./application/Folder";
 import Profile from "./contents/Profile";
 import NotePad from "./application/Notepad";
 import Design from "./contents/Design";
+import Website from "./contents/Website";
 
 interface ProgramProps {
   name: string;
@@ -235,7 +236,7 @@ function Program({ name, programId, layer, initialSize }: ProgramProps) {
             {programId == 'myDoc' && <Folder id='myDoc'/>}
             {programId == 'trashCan' && <Folder id='trashCan'/>}
             {programId == 'notepad' && <NotePad id='introduction'/>}
-            {programId == 'website' && <Explorer />}
+            {programId == 'website' && <Website />}
             {programId == 'design' && <Design />}
           </div>
         </div>

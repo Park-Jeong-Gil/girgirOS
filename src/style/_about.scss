@@ -1,4 +1,5 @@
 #aboutApp{
+  font-family: "DosGothic";
   button[aria-label="Maximize"],
   .handleWrap{display: none;}
   
@@ -14,20 +15,24 @@
 
     .profile{
       width: 80%; height: 100%;
-      background: url('../assets/images/profile.png') no-repeat center / contain;
+      background: url('../assets/images/common/profile.png') no-repeat center / contain;
     }
   }
 
   .descBox{
     display: flex; flex-direction: column; justify-content: center;
-    width: 70%; padding: 28px 28px 28px 0;
+    width: 75%; padding: 28px 28px 28px 0;
 
     > strong{
       display: block;
       font-family: 'Hahmlet';
-      font-size: 36px; font-weight: 100; letter-spacing: -2px;
+      font-size: 36px; font-weight: 100; letter-spacing: -2.5px;
       margin: 16px 0 10px;
       -webkit-font-smoothing:none; text-rendering:none;
+
+      > span{
+        color:#fff;
+      }
     }
 
     .description{
@@ -44,7 +49,11 @@
         // margin: 0 auto;
         grid-row: 1 / span 2;
         margin-left: 8px;
-        background: url('../assets/images/welcom-icon.png') no-repeat center / contain;
+        background: url('../assets/images/common/welcom-icon.png') no-repeat center / contain;
+      }
+
+      >strong{
+        font-weight: 800;
       }
 
       > ul{

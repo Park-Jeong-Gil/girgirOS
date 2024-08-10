@@ -1,35 +1,41 @@
 @mixin myPcImg{
-	background-image: url("../assets/images/my-computer-48x48.png");
+	background-image: url("../assets/images/common/my-computer-48x48.png");
 }
 @mixin myDocImg{
-	background-image: url("../assets/images/my-documents-48x48.png");
+	background-image: url("../assets/images/common/my-documents-48x48.png");
 }
 @mixin trashCanImg{
-	background-image: url("../assets/images/recycle-bin-full-48x48.png");
+	background-image: url("../assets/images/common/recycle-bin-full-48x48.png");
 }
 @mixin ieImg{
-	background-image: url("../assets/images/internet-explorer-48x48.png");
+	background-image: url("../assets/images/common/internet-explorer-48x48.png");
 }
 @mixin outlookImg{
-	background-image: url("../assets/images/outlook-express-48x48.png");
+	background-image: url("../assets/images/common/outlook-express-48x48.png");
 }
 @mixin aboutImg{
-	background-image: url("../assets/images/help-48x48.png");
+	background-image: url("../assets/images/common/help-48x48.png");
 }
 @mixin phoneImg{
-	background-image: url("../assets/images/phone.png");
+	background-image: url("../assets/images/common/phone.png");
 }
 @mixin mailImg{
-	background-image: url("../assets/images/mail.png");
+	background-image: url("../assets/images/common/mail.png");
 }
 @mixin profileImg{
-	background-image: url("../assets/images/profile-icon.png");
+	background-image: url("../assets/images/common/profile-icon.png");
 }
 @mixin wantedImg{
-	background-image: url("../assets/images/wanted-logo.png");
+	background-image: url("../assets/images/common/wanted-logo.png");
 }
 @mixin notepadImg{
-	background-image: url("../assets/images/notepad-32x32.png");
+	background-image: url("../assets/images/common/notepad-32x32.png");
+}
+@mixin websiteImg{
+	background-image: url("../assets/images/common/website-icon.png");
+}
+@mixin designImg{
+	background-image: url("../assets/images/common/design-icon.png");
 }
 
 .appIcon{
@@ -37,7 +43,7 @@
     position: relative;
     width: 55%; height: 72px;
     margin: 0 auto;
-    background-image: url("../assets/images/file.png");
+    background-image: url("../assets/images/common/file.png");
     background-repeat: no-repeat;
     background-position: left;
     background-size: contain;
@@ -47,7 +53,7 @@
         content: '';
         display: inline-block; width: 15px; height: 15px;
         position: absolute; bottom:10px; left: 1px; z-index: 2;
-        background: url('../assets/images/shortcut-32x32.png') no-repeat center / contain;
+        background: url('../assets/images/common/shortcut-32x32.png') no-repeat center / contain;
       }
     }
 
@@ -85,7 +91,6 @@
   
     @include parent-selector('.appIcon', '#profile') {
       @include profileImg;
-      // width: 43%;
     }
   
     @include parent-selector('.appIcon', '#wanted') {
@@ -96,73 +101,94 @@
       @include notepadImg;
       width: 48%;
     }
+  
+    @include parent-selector('.appIcon', '#website') {
+      @include websiteImg;
+    }
+  
+    @include parent-selector('.appIcon', '#design') {
+      @include designImg;
+      width: 48%;
+    }
   }
 
   &:focus{
     &#myPc .iconImage{
       &::before{ 
-        mask-image: url("../assets/images/my-computer-48x48.png");
-        -webkit-mask-image: url("../assets/images/my-computer-48x48.png");
+        mask-image: url("../assets/images/common/my-computer-48x48.png");
+        -webkit-mask-image: url("../assets/images/common/my-computer-48x48.png");
       }
     }
     &#myDoc .iconImage{
       &::before{ 
-        mask-image: url("../assets/images/my-documents-48x48.png");
-        -webkit-mask-image: url("../assets/images/my-documents-48x48.png");
+        mask-image: url("../assets/images/common/my-documents-48x48.png");
+        -webkit-mask-image: url("../assets/images/common/my-documents-48x48.png");
       }
     }
     &#trashCan .iconImage{
       &::before{ 
-        mask-image: url("../assets/images/recycle-bin-full-48x48.png");
-        -webkit-mask-image: url("../assets/images/recycle-bin-full-48x48.png");
+        mask-image: url("../assets/images/common/recycle-bin-full-48x48.png");
+        -webkit-mask-image: url("../assets/images/common/recycle-bin-full-48x48.png");
       }
     }
     &#ie .iconImage{
       &::before{ 
-        mask-image: url("../assets/images/internet-explorer-48x48.png");
-        -webkit-mask-image: url("../assets/images/internet-explorer-48x48.png");
+        mask-image: url("../assets/images/common/internet-explorer-48x48.png");
+        -webkit-mask-image: url("../assets/images/common/internet-explorer-48x48.png");
       }
     }
     &#outlook .iconImage{
       &::before{ 
-        mask-image: url("../assets/images/outlook-express-48x48.png");
-        -webkit-mask-image: url("../assets/images/outlook-express-48x48.png");
+        mask-image: url("../assets/images/common/outlook-express-48x48.png");
+        -webkit-mask-image: url("../assets/images/common/outlook-express-48x48.png");
       }
     }
     &#about .iconImage{
       &::before{ 
-        mask-image: url("../assets/images/help-48x48.png");
-        -webkit-mask-image: url("../assets/images/help-48x48.png");
+        mask-image: url("../assets/images/common/help-48x48.png");
+        -webkit-mask-image: url("../assets/images/common/help-48x48.png");
       }
     }
     &#phone .iconImage{
       &::before{ 
-        mask-image: url("../assets/images/phone.png");
-        -webkit-mask-image: url("../assets/images/phone.png");
+        mask-image: url("../assets/images/common/phone.png");
+        -webkit-mask-image: url("../assets/images/common/phone.png");
       }
     }
     &#email .iconImage{
       &::before{ 
-        mask-image: url("../assets/images/mail.png");
-        -webkit-mask-image: url("../assets/images/mail.png");
+        mask-image: url("../assets/images/common/mail.png");
+        -webkit-mask-image: url("../assets/images/common/mail.png");
       }
     }
     &#profile .iconImage{
       &::before{ 
-        mask-image: url("../assets/images/profile-icon.png");
-        -webkit-mask-image: url("../assets/images/profile-icon.png");
+        mask-image: url("../assets/images/common/profile-icon.png");
+        -webkit-mask-image: url("../assets/images/common/profile-icon.png");
       }
     }
     &#wanted .iconImage{
       &::before{ 
-        mask-image: url("../assets/images/wanted-logo.png");
-        -webkit-mask-image: url("../assets/images/wanted-logo.png");
+        mask-image: url("../assets/images/common/wanted-logo.png");
+        -webkit-mask-image: url("../assets/images/common/wanted-logo.png");
       }
     }
     &#notepad .iconImage{
       &::before{ 
-        mask-image: url("../assets/images/notepad-32x32.png");
-        -webkit-mask-image: url("../assets/images/notepad-32x32.png");
+        mask-image: url("../assets/images/common/notepad-32x32.png");
+        -webkit-mask-image: url("../assets/images/common/notepad-32x32.png");
+      }
+    }
+    &#website .iconImage{
+      &::before{ 
+        mask-image: url("../assets/images/common/website-icon.png");
+        -webkit-mask-image: url("../assets/images/common/website-icon.png");
+      }
+    }
+    &#design .iconImage{
+      &::before{ 
+        mask-image: url("../assets/images/common/design-icon.png");
+        -webkit-mask-image: url("../assets/images/common/design-icon.png");
       }
     }
   }
@@ -195,6 +221,12 @@
     @include parent-selector('.window', '#notepadApp') {
       @include notepadImg
     }
+    @include parent-selector('.window', '#websiteApp') {
+      @include websiteImg
+    }
+    @include parent-selector('.window', '#designApp') {
+      @include designImg
+    }
   }
 }
 
@@ -223,5 +255,11 @@
   }
   &[data-program-name=notepad]:before{
     @include notepadImg
+  }
+  &[data-program-name=website]:before{
+    @include websiteImg
+  }
+  &[data-program-name=design]:before{
+    @include designImg
   }
 }

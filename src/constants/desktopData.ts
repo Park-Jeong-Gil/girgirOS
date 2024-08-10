@@ -21,7 +21,7 @@ const programs = {
   },
   TRASHCAN: {
     ID: 'trashCan',
-    NANE:'휴지통',
+    NANE:'Recycle Bin',
     TYPE: 'folder',
     SIZE:{
       width: 840,
@@ -47,7 +47,7 @@ const programs = {
       width: 820,
       height: 650
     },
-    DESCRIPTION: '포트폴리오 가이드 입니다.',
+    DESCRIPTION: '포트폴리오 이용 가이드 입니다.',
   },
 } as const;
 
@@ -96,10 +96,14 @@ const contact: { [key: string]: itemData } = {
 
 const works: { [key: string]: itemData } = {
   WEBSITE: {
-    ID: 'ie',
+    ID: 'website',
     NANE:'웹사이트',
     TYPE: 'application',
-    DESCRIPTION: '프로필을 확인 할 수 있습니다.',
+    SIZE:{
+      width: 700,
+      height: 834
+    },
+    DESCRIPTION: '개발한 웹사이트 목록을 볼 수 있습니다.',
   },
   DESIGN: {
     ID: 'design',
@@ -109,9 +113,8 @@ const works: { [key: string]: itemData } = {
       width: 920,
       height: 800
     },
-    DESCRIPTION: '프로필을 확인 할 수 있습니다.',
+    DESCRIPTION: '디자인 작업을 볼 수 있습니다.',
   },
-
 } as const;
 
 export {programs, contact, works};

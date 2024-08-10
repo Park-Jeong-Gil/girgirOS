@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useRecoilState } from "recoil";
-import selfImage from '../../assets/images/profile-image.jpg'
+import selfImage from '../../assets/images/common/profile-image.jpg'
 import { contact, programs } from "../../constants/desktopData";
 import { currentProgram, programStatus } from "../../store/useProgramStatus";
 
