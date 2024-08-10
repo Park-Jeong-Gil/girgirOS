@@ -7,7 +7,7 @@ const programs = {
       width: 840,
       height: 600
     },
-    DESCRIPTION: 'girgir\'s 프로필과 이력서 정보를 확인 할 수 있습니다.',
+    DESCRIPTION: 'girgir\'s 프로필과 정보를 확인 할 수 있습니다.',
   },
   PROJECTS: {
     ID: 'myDoc',
@@ -37,7 +37,7 @@ const programs = {
       width: 1440,
       height: 780
     },
-    DESCRIPTION: '개발한 웹사이트를 볼 수 있는 브라우저 입니다.',
+    DESCRIPTION: '개발한 웹사이트를 볼 수 있습니다.',
   },
   ABOUT_ME: {
     ID: 'about',
@@ -45,7 +45,7 @@ const programs = {
     TYPE: 'application',
     SIZE:{
       width: 820,
-      height: 630
+      height: 650
     },
     DESCRIPTION: '포트폴리오 가이드 입니다.',
   },
@@ -66,7 +66,7 @@ interface itemData {
 const contact: { [key: string]: itemData } = {
   PROFILE: {
     ID: 'profile',
-    NANE:'프로필',
+    NANE:'(c:)프로필',
     TYPE: 'application',
     SIZE:{
       width: 920,

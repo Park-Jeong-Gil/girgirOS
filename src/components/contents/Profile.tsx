@@ -48,6 +48,7 @@ function Profile({}: ProfileProps) {
   };
 
   return (
+    <>
     <div className="profileContainer">
       <div className="profileContentsWrap profileInfo">
         <p className="imageWrap">
@@ -130,15 +131,17 @@ function Profile({}: ProfileProps) {
           </ul>
         </div>
       </div>
-      <div className="resumeBtnWrap">
-        <button className="introBtn" onClick={runIntroProgram}>자기소개 보기 <strong>(<span>I</span>ntroduct) </strong></button>
-        <button className="projectBtn" onClick={runProjectsProgram}>프로젝트 보기 <strong>(<span>P</span>rojects)</strong></button>
-        <button className="wantedBtn" onClick={runWantedProgram}>원티드 이력서 확인 하기 <strong>(<span>W</span>anted)</strong></button>
-      </div>
+
       {/* <div className="closeBtnWrap">
         <button className="closeBtn" onClick={handleClose}>닫기</button>
       </div> */}
     </div>
+    <div className="resumeBtnWrap">
+        <button className="introBtn" onClick={runIntroProgram}>자기소개 보기 <strong>(<span>I</span>ntroduction) </strong></button>
+        <button className="projectBtn" onClick={runProjectsProgram}>프로젝트 보기 <strong>(<span>P</span>rojects)</strong></button>
+        <button className="wantedBtn" onClick={runWantedProgram}>원티드 이력서 확인 하기 <strong>(<span>W</span>anted)</strong></button>
+      </div>
+    </>
   )
 }
 

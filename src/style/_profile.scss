@@ -1,7 +1,12 @@
 #profileApp{
   // button[aria-label="Maximize"],
   // .handleWrap{display: none;}
-  .window-body{padding: 1px;}
+  .window-body{
+    padding: 1px;
+    height: 100%;
+    overflow: auto;
+    padding: 14px; 
+  }
 
   li{
     &::before{
@@ -11,8 +16,9 @@
   }
 
   .profileContainer{
-    height: 100%;
-    padding: 24px; overflow: auto;
+    // height: 100%;
+    padding: 24px; 
+    box-shadow: inset -1px -1px #0a0a0a, inset 1px 1px #dfdfdf, inset -2px -2px grey, inset 2px 2px #fff;
 
     .profileInfo{
       display: flex;
@@ -103,7 +109,7 @@
   }
 
   .resumeBtnWrap{
-    padding: 16px 12px 10px;
+    padding: 20px 0 10px;
     display: flex;justify-content: flex-end;
     gap: 12px;
 

@@ -85,7 +85,7 @@
   
     @include parent-selector('.appIcon', '#profile') {
       @include profileImg;
-      width: 43%;
+      // width: 43%;
     }
   
     @include parent-selector('.appIcon', '#wanted') {
