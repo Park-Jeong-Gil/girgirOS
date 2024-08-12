@@ -4,9 +4,10 @@ interface MiddleMenuProps {
   type: string;
   toggleFavorites?: () => void;
   toggleHistory?: () => void;
+  toggleHome?: () => void;
 }
 
-function MiddleMenu({ toggleFavorites, toggleHistory, type }: MiddleMenuProps) {
+function MiddleMenu({ toggleFavorites, toggleHistory, toggleHome, type }: MiddleMenuProps) {
   useEffect(() => {
     // 초기화 작업 (필요한 경우)
   }, []);
@@ -59,7 +60,7 @@ function MiddleMenu({ toggleFavorites, toggleHistory, type }: MiddleMenuProps) {
           <button className="toolbarButton refreshButton" disabled>
             <span className="btnLabelText">Refresh</span>
           </button>
-          <button className="toolbarButton homeButton">
+          <button className="toolbarButton homeButton" onClick={toggleHome}>
             <span className="btnLabelText">Home</span>
           </button>
           <hr aria-orientation="vertical" />

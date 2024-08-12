@@ -3,9 +3,10 @@ import { programs } from "../../constants/desktopData";
 
 interface AdressMenuProps {
   type: string;
+  url?:string
 }
 
-function AdressMenu({type}: AdressMenuProps) {
+function AdressMenu({type, url}: AdressMenuProps) {
   useEffect(() => {
     // 초기화 작업 (필요한 경우)
   }, []);
@@ -17,7 +18,7 @@ function AdressMenu({type}: AdressMenuProps) {
         { type == 'explorer' && 
           <>
             <img id="addressIcon" width="16" height="16" src="https://98.js.org/images/icons/html-16x16.png" alt="" /> 
-            <input type="text" id="address" autoComplete="off" readOnly/>
+            <input type="text" id="address" autoComplete="off" value={url || 'localhost:5000'} readOnly/>
           </>
         }
         { type == 'myPc' && 

@@ -68,7 +68,7 @@ function Start({}: StartProps) {
       <div className="appPanelWrap">
         {
           programArr.length > 0 && programArr.map((item, index) => (
-            <button className="runningProgram" key={index} data-program-name={item.program}>
+            <button className="runningProgram active" key={index} data-program-name={item.program}>
               <span>{item.name}</span>
             </button>
           ))
