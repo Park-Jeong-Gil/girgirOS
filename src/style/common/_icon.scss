@@ -37,6 +37,9 @@
 @mixin designImg{
 	background-image: url("../assets/images/common/design-icon.png");
 }
+@mixin noteImg{
+	background-image: url("../assets/images/common/notepad-file-32x32.png");
+}
 
 .appIcon{
   .iconImage{
@@ -109,6 +112,10 @@
     @include parent-selector('.appIcon', '#design') {
       @include designImg;
       width: 48%;
+    }
+  
+    @include parent-selector('.appIcon', "[id*='note']") {
+      @include noteImg;
     }
   }
 
@@ -189,6 +196,12 @@
       &::before{ 
         mask-image: url("../assets/images/common/design-icon.png");
         -webkit-mask-image: url("../assets/images/common/design-icon.png");
+      }
+    }
+    &[id*='note'] .iconImage{
+      &::before{ 
+        mask-image: url("../assets/images/common/notepad-file-32x32.png");
+        -webkit-mask-image: url("../assets/images/common/notepad-file-32x32.png");
       }
     }
   }

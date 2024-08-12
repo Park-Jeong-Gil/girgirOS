@@ -117,4 +117,19 @@ const works: { [key: string]: itemData } = {
   },
 } as const;
 
-export {programs, contact, works};
+const recycle = {
+  trash: {
+    ID: 'note1',
+    NANE:'TMI.txt',
+    TYPE: 'alert',
+    DESCRIPTION: '저와 친해지면 알 수 있습니다.',
+  },
+  // trash2: {
+  //   ID: 'note2',
+  //   NANE:'부정적 에너지',
+  //   TYPE: 'alert',
+  //   DESCRIPTION: '부정적 마인드는 과감히 버립니다.',
+  // },
+} as const;
+
+export {programs, contact, works, recycle};

@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import TopMenu from "../toolBar/TopMenu";
 import MiddleMenu from "../toolBar/MiddleMenu";
 import AddressMenu from "../toolBar/AddressMenu";
-import { contact, programs, works } from "../../constants/desktopData";
+import { contact, programs, works, recycle } from "../../constants/desktopData";
 import Icon from "../Icon";
 
 interface FolderProps {
@@ -49,6 +49,14 @@ function Folder({ id }: FolderProps) {
           {id === 'myDoc' && (
             Object.keys(works).map((key) => {
               const item = works[key as keyof typeof works];
+              return (
+                <Icon type={item.TYPE} key={item.ID} id={item.ID} name={item.NANE} desc={item.DESCRIPTION}/>
+              );
+            })
+          )}
+          {id === 'trashCan' && (
+            Object.keys(recycle).map((key) => {
+              const item = recycle[key as keyof typeof recycle];
               return (
                 <Icon type={item.TYPE} key={item.ID} id={item.ID} name={item.NANE} desc={item.DESCRIPTION}/>
               );
