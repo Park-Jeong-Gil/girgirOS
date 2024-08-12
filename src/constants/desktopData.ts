@@ -69,8 +69,8 @@ const contact: { [key: string]: itemData } = {
     NANE:'(c:)프로필',
     TYPE: 'application',
     SIZE:{
-      width: 788,
-      height: 745
+      width: 664,
+      height: 820
     },
     DESCRIPTION: '프로필을 확인 할 수 있습니다.',
   },
