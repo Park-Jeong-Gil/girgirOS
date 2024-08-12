@@ -18,6 +18,17 @@ body{
   user-select:none;
   button{ -webkit-font-smoothing: auto;}
 }
+
+menu[role=tablist]>li[aria-selected=true]{
+  &::after{
+    content: '';
+    display: block; width: 100%; height: 2px;
+    background-color: silver;
+    position: absolute; left: 0px; bottom: -1px;
+    border-left: 2px solid #fdfffd;
+  }
+}
+
 .blind{ @include blind }
 
 #root{

@@ -1,16 +1,20 @@
-import { useEffect } from "react";
 import { useRecoilState } from "recoil";
 import selfImage from '../../assets/images/common/profile-image.jpg'
 import { contact, programs } from "../../constants/desktopData";
 import { currentProgram, programStatus } from "../../store/useProgramStatus";
+import { useState } from "react";
 
-interface ProfileProps {
-
-}
+interface ProfileProps {}
 
 function Profile({}: ProfileProps) {
   const [programArr, setProgramArr] = useRecoilState(programStatus);
   const [, setActiveProgram] = useRecoilState(currentProgram);
+  // 상태 관리 추가
+  const [activeTab, setActiveTab] = useState('Girgir'); // 기본적으로 'Girgir' 탭이 활성화됨
+  
+  const handleTabClick = (tab: string) => {
+    setActiveTab(tab); // 클릭한 탭으로 상태 업데이트
+  };
 
   const runIntroProgram = ()=>{
     if(contact.SELF_INTRO.SIZE && !programArr.some(prog => prog.program === contact.SELF_INTRO.ID)){
@@ -49,8 +53,22 @@ function Profile({}: ProfileProps) {
 
   return (
     <>
-    <div className="profileContainer">
-      <div className="profileContentsWrap profileInfo">
+    <menu role="tablist">
+    <li role="tab" aria-selected={activeTab === 'Girgir'} onClick={() => handleTabClick('Girgir')}>
+          <button>Girgir</button>
+        </li>
+        <li role="tab" aria-selected={activeTab === 'Skills'} onClick={() => handleTabClick('Skills')}>
+          <button>Skills</button>
+        </li>
+        <li role="tab" aria-selected={activeTab === 'Education'} onClick={() => handleTabClick('Education')}>
+          <button>Education</button>
+        </li>
+        <li role="tab" aria-selected={activeTab === 'Experience'} onClick={() => handleTabClick('Experience')}>
+          <button>Experience</button>
+        </li>
+    </menu>
+    <div className="profileContainer" role="tabpanel">
+      <div className={`profileContentsWrap profileInfo ${activeTab === 'Girgir' ? 'active' : ''}`}>
         <p className="imageWrap">
           <strong className="secTit">Girgir</strong>
           <img src={selfImage} alt="profile image"/>
@@ -70,8 +88,7 @@ function Profile({}: ProfileProps) {
           </p> */}
         </div>
       </div>
-      <div className="specContainer">
-        <div className="profileContentsWrap">
+      <div className={`profileContentsWrap ${activeTab === 'Skills' ? 'active' : ''}`}>
           <strong className="secTit">Skills</strong>
           <div className="skillWrap">
             <ul>
@@ -93,7 +110,7 @@ function Profile({}: ProfileProps) {
             </ul>
           </div>
         </div>
-        <div className="profileContentsWrap">
+        <div className={`profileContentsWrap ${activeTab === 'Education' ? 'active' : ''}`}>
           <strong className="secTit">Education</strong>
           <ul>
             <li>고려사이버대학교 디자인 공학과 (2020~재학중)</li>
@@ -101,7 +118,7 @@ function Profile({}: ProfileProps) {
             <li>인하대학교 부속 고등학교 (2008) </li>
           </ul>
         </div>
-        <div className="profileContentsWrap">
+        <div className={`profileContentsWrap ${activeTab === 'Experience' ? 'active' : ''}`}>
           <strong className="secTit">Experience</strong>
           <ul className="experienceWrap">
             <li>
@@ -130,8 +147,6 @@ function Profile({}: ProfileProps) {
             </li>
           </ul>
         </div>
-      </div>
-
       {/* <div className="closeBtnWrap">
         <button className="closeBtn" onClick={handleClose}>닫기</button>
       </div> */}
