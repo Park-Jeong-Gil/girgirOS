@@ -82,10 +82,6 @@ function Profile({}: ProfileProps) {
               <li>Location : 서울, 은평구 통일로</li>
               <li>MBTI : INFJ</li>
             </ul>
-            {/* <p style={{marginTop:'10px'}}>
-              <strong style={{marginRight:'10px'}}> 자기소개 보기 :</strong>
-              <button>help</button>
-            </p> */}
           </div>
         </div>
         <div className={`profileContentsWrap ${activeTab === 'Skills' ? 'active' : ''}`}>

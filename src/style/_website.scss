@@ -37,14 +37,18 @@
       background: url('../assets/images/common/monitor.png') no-repeat center / contain;
 
       .monitorScreen{
-        position: absolute; top: 27px; left: 22px;
+        position: absolute; top: 28px;
+        left: 22px;
         display: inline-block;
-        width: 207px; height: 150px;
+        width: 204px;
+        height: 148px;
         background: #007978 no-repeat center / contain;
         // image-rendering: auto;
         // animation: 5s ease 2000ms normal none infinite running glitch;
         
-        &[data-screen]{background-color: #000; }
+        &[data-screen]{
+          background: url('../assets/images/common/monitor-screen.png') no-repeat center / cover #000;
+        }
 
         &[data-screen='kg']{
           background-image: url('../assets/images/website/kg.png');
@@ -145,10 +149,12 @@
 
   .listInner{
     background: #fff;
-    box-shadow: inset -1px -1px #fff, inset 1px 1px grey, inset -2px -2px #dfdfdf, inset 2px 2px #0a0a0a;
+    // box-shadow: inset -1px -1px #fff, inset 1px 1px grey, inset -2px -2px #dfdfdf, inset 2px 2px #0a0a0a;
     padding: 12px 8px; margin-top: 4px;
     overflow: auto;
     height: 150px;
+    border: 2px groove transparent;
+      border-image: url("data:image/svg+xml;charset=utf-8,%3Csvg width='5' height='5' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill='gray' d='M0 0h4v1H0z'/%3E%3Cpath fill='gray' d='M0 0h1v4H0z'/%3E%3Cpath fill='%230a0a0a' d='M1 1h2v1H1z'/%3E%3Cpath fill='%230a0a0a' d='M1 1h1v2H1z'/%3E%3Cpath fill='%23fff' d='M0 4h5v1H0z'/%3E%3Cpath fill='%23fff' d='M4 0h1v5H4z'/%3E%3Cpath fill='%23dfdfdf' d='M3 1h1v3H3z'/%3E%3Cpath fill='%23dfdfdf' d='M1 3h3v1H1z'/%3E%3C/svg%3E") 2;
 
     .websiteList{
       & +li{margin-top: 4px;}
@@ -203,8 +209,10 @@
     overflow: auto;
     height: 150px;
     background: #dfdfdf;
-    padding: 12px 8px; 
-    box-shadow: inset -1px -1px #fff, inset 1px 1px grey, inset -2px -2px #dfdfdf, inset 2px 2px #0a0a0a;
+    padding: 16px 20px;
+    border: 2px groove transparent;
+      border-image: url("data:image/svg+xml;charset=utf-8,%3Csvg width='5' height='5' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill='gray' d='M0 0h4v1H0z'/%3E%3Cpath fill='gray' d='M0 0h1v4H0z'/%3E%3Cpath fill='%230a0a0a' d='M1 1h2v1H1z'/%3E%3Cpath fill='%230a0a0a' d='M1 1h1v2H1z'/%3E%3Cpath fill='%23fff' d='M0 4h5v1H0z'/%3E%3Cpath fill='%23fff' d='M4 0h1v5H4z'/%3E%3Cpath fill='%23dfdfdf' d='M3 1h1v3H3z'/%3E%3Cpath fill='%23dfdfdf' d='M1 3h3v1H1z'/%3E%3C/svg%3E") 2;
+    // box-shadow: inset -1px -1px #fff, inset 1px 1px grey, inset -2px -2px #dfdfdf, inset 2px 2px #0a0a0a;
     word-break: keep-all;
     @include DosGothic
   }

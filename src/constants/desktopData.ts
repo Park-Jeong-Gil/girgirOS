@@ -120,9 +120,9 @@ const works: { [key: string]: itemData } = {
 const recycle = {
   trash: {
     ID: 'note1',
-    NANE:'TMI.txt',
+    NANE:'TMI (흑역사.ver)',
     TYPE: 'alert',
-    DESCRIPTION: '저와 친해지면 알 수 있습니다.',
+    DESCRIPTION: '친해지면 대방출 합니다.',
   },
   // trash2: {
   //   ID: 'note2',

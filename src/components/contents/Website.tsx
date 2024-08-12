@@ -31,6 +31,16 @@ function Website({}: WebsiteProps) {
     }
   };
 
+  const handleDoubleClick = (projectID: string) => {
+    const selectedProject = findProjectByID(projectID);
+    // && selectedProject.SRC !== '#'
+    if (selectedProject && selectedProject.SRC ) {
+      window.open(selectedProject.SRC, '_blank');
+    } else {
+      console.error('No source URL available or URL is invalid');
+    }
+  };
+
   const handleClose = () => {
     setProgramArr(prev => {
       const updatedProgramArr = prev.filter(prog => prog.program !== 'website');
@@ -78,6 +88,7 @@ function Website({}: WebsiteProps) {
                       id={item.ID}
                       className={`websiteBtn ${activeProject === item.ID ? 'active' : ''}`}
                       onClick={() => handleProjectClick(item.ID)}
+                      onDoubleClick={() => handleDoubleClick(item.ID)} // 더블 클릭 핸들러 추가
                       >
                       <span className="websiteIcon"></span>
                       <em className="websiteName">{item.TITLE}</em>

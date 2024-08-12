@@ -75,8 +75,9 @@ function Explorer({}: ExplorerProps) {
     if (!acc[year]) {
       acc[year] = [];
     }
-    // SRC가 '#'이 아닌 경우만 추가
-    if (project.SRC !== '#') {
+    
+    // project.SRC !== '#' && 
+    if (!project.SRC.endsWith('#')) {
       acc[year].push(project);
     }
     return acc;

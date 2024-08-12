@@ -19,11 +19,33 @@ const projects = {
     SRC: 'https://www.weeklywine.co.kr/',
     DESCRIPTION: `독일 프랑크푸르트에서 와인을 배송해주는 WeeklyWine 사이트 개발`,
   },
+  SEMICONDUCTOR: {
+    ID:'semiconductor',
+    DATE:'2023.02',
+    TITLE: 'samsung semiconductor 삼성 반도체 ',
+    SRC: 'https://semiconductor.samsung.com/image-sensor/mobile-image-sensor/isocell-hp2/#',
+    DESCRIPTION: `삼성 반도체 `,
+  },
+  SPACEHUB: {
+    ID:'spacehub',
+    DATE:'2023.02',
+    TITLE: 'Hanwha Spacehub',
+    SRC: 'https://www.hanwhaspacehub.com/',
+    DESCRIPTION: `한화 그룹 우주 사업 스페이스 허브 웹사이트 개발 참여`,
+  },
+  FAVE: {
+    ID:'fave',
+    DATE:'2023.02',
+    TITLE: 'FAVE',
+    SRC: 'https://fave.kr/',
+    DESCRIPTION: `fave 홈페이지 개발을 위해 PL로서 기획, 디자인, 개발 직접 진행 <br/>
+    three.js 를 활용한 풀 3D 웹사이트 개발 및 오픈`,
+  },
   GOBLINS: {
     ID:'goblins',
     DATE:'2023.02',
     TITLE: 'Raving Goblins',
-    SRC: '#',
+    SRC: 'https://girgir.synology.me/dev/RV/',
     DESCRIPTION: `고블린 사이트`,
   },
 } as const;
