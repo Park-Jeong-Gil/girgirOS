@@ -101,7 +101,7 @@ const works: { [key: string]: itemData } = {
     TYPE: 'application',
     SIZE:{
       width: 700,
-      height: 834
+      height: 868
     },
     DESCRIPTION: '개발한 웹사이트 목록을 볼 수 있습니다.',
   },

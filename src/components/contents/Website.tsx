@@ -66,7 +66,7 @@ function Website({}: WebsiteProps) {
           <strong className="secTit">Website List</strong>
           <div className="headerWrap">
             <p>아래 목록에서 사이트를 선택 해주세요.</p>
-            <button className="newWindowBtn" onClick={handleNewWindowClick}>새창으로 보기</button>
+            <a href={activeSrc ? activeSrc : '#'} target="_blank" className="newWindowBtn">새창으로 보기</a>
           </div>
           <div className="listInner">
             <ul>
@@ -87,6 +87,7 @@ function Website({}: WebsiteProps) {
               })}
             </ul>
           </div>
+          <p className="descTit">사이트 설명 :</p>
           <div className="websiteDesc">
             <p dangerouslySetInnerHTML={{ __html: activeDescription }} />
           </div>

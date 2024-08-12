@@ -3,9 +3,9 @@ const projects = {
     ID:'kg',
     TITLE: 'KG-Mobility',
     SRC: 'https://girgir.synology.me/dev/KG-Mobility/',
-    DESCRIPTION: `KG-Mobolity 공식 홈페이지를 리뉴얼 하는 프로젝트에 체택되기 위해 <br/>
-    제안서 및 웹페이지 개발 three.js를 활용하여 자동차 3D 모델을 움직이는 프로모션 페이지 개발
-    <p>아래 목록에서 사이트를 선택 해주세요.</p>`,
+    DESCRIPTION: `KG-Mobolity 공식 홈페이지를  <br/>리뉴얼 하는 프로젝트에 체택되기 위해 <br/>
+    제안서 및 웹페이지 개발 three.js를 활용하여 <br/> 자동차 3D 모델을 움직이는 프로모션 페이지 개발 <br/>
+    <strong>아래 목록에서 사이트를 선택 해주세요.</strong>`,
   },
   WINE: {
     ID:'weeklywine',
