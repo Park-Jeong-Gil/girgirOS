@@ -8,7 +8,7 @@
   min-height: 300px;
 
   &[data-window=focused]{
-    z-index: 7 !important;
+    z-index: 20 !important;
     .title-bar{background: linear-gradient(90deg, navy, #1084d0);}
   }
 

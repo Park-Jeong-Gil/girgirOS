@@ -47,7 +47,7 @@ const programs = {
       width: 820,
       height: 650
     },
-    DESCRIPTION: '포트폴리오 이용 가이드 입니다.',
+    DESCRIPTION: '포트폴리오 가이드 입니다.',
   },
 } as const;
 
@@ -70,7 +70,7 @@ const contact: { [key: string]: itemData } = {
     TYPE: 'application',
     SIZE:{
       width: 664,
-      height: 820
+      height: 812
     },
     DESCRIPTION: '프로필을 확인 할 수 있습니다.',
   },

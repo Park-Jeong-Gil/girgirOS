@@ -4,9 +4,13 @@ const projects = {
     DATE:'2024.04',
     TITLE: 'KG-Mobility',
     SRC: 'https://girgir.synology.me/dev/KG-Mobility/',
-    DESCRIPTION: `KG-Mobolity 공식 홈페이지를  <br/>리뉴얼 하는 프로젝트에 체택되기 위해 <br/>
-    제안서 및 웹페이지 개발 three.js를 활용하여 <br/> 자동차 3D 모델을 움직이는 프로모션 페이지 개발 <br/>
-    <strong>아래 목록에서 사이트를 선택 해주세요.</strong>`,
+    DESCRIPTION: `
+    토레스 EV 모델 출시에 앞서 KG Mobolity 공식 홈페이지를 리뉴얼 하는 프로젝트를 위해 제안용으로 개발하게 된 웹페이지 입니다.<br/>
+    실제 코란도 상세 페이지의 내용을 토대로 차량을 전방위로 볼 수 있는 동선을 직접 구상 했으며, <br/>
+    상세 페이지 내에서 사용자가 실시간으로 차체의 색상을 바꾸거나 휠 컬러를 바꾸는 경험을 할 수 있는 것이 포인트 입니다. <br/>
+    3D 모델러가 없었기 때문에 유료로 판매하는 코란도 모델을 구입하여, three.js를 활용해서 제작했습니다.<br/>
+    스크롤 애니메이션은 블렌더를 통해 작업 했습니다. <br/>
+    `,
   },
   WINE: {
     ID:'weeklywine',

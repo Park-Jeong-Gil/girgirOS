@@ -19,7 +19,50 @@
 
   .homeScreen{
     @include DosGothic;
-    padding: 8px;
+    padding: 24px;
+
+    .homeTit{
+      display: flex; align-items: flex-start;
+      font-size: 24px;
+
+      &::before{
+        content: '';
+        width: 44px; height: 44px;
+        display: inline-block;
+        margin-right: 8px;
+        background: url('../assets/images/common/404-icon.png') no-repeat center / contain;
+      }
+    }
+    > p{margin-top: 24px;}
+
+    .howto{
+      border-top: 1px solid #c4c4c4;
+      padding-top: 24px;
+
+      strong{ display: block; font-size: 16px; margin-bottom: 4px;}
+      em{ 
+        font-style: normal;
+
+        &::before{
+          content: '';
+          width: 20px; height: 20px;
+          display: inline-block;
+          margin-right: 8px;
+          background-image: url('../assets/images/common/browse-ui-icons.png');
+          background-repeat: no-repeat;
+        }
+
+        &.favorites::before{
+          background-position: -120px 0px;
+        }
+        &.history::before{
+          background-position: -140px 0px;
+        }
+        &.home::before{
+          background-position: -80px 0px;
+        }
+      }
+    }
   }
 
   .sideBar{
@@ -177,6 +220,8 @@
       width: 100%; height: 100%;
       overflow: auto;
       margin-top: 1px; margin-right: 2px;
+      word-break: keep-all;
+      @include DosGothic;
 
       div{
         width: 100%; height: 100%;

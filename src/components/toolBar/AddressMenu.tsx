@@ -1,6 +1,11 @@
 import { useEffect } from "react";
 import { programs } from "../../constants/desktopData";
 
+import htmlIcon from '../../assets/images/common/html-16x16.png'
+import mycomIcon from '../../assets/images/common/my-computer-16x16.png'
+import myDocIcon from '../../assets/images/common/my-documents-16x16.png'
+import recycleIcon from '../../assets/images/common/recycle-bin-16x16.png'
+
 interface AdressMenuProps {
   type: string;
   url?:string
@@ -17,25 +22,25 @@ function AdressMenu({type, url}: AdressMenuProps) {
       <div id="addressInput">
         { type == 'explorer' && 
           <>
-            <img id="addressIcon" width="16" height="16" src="https://98.js.org/images/icons/html-16x16.png" alt="" /> 
+            <img id="addressIcon" width="16" height="16" src={htmlIcon} alt="html icon" /> 
             <input type="text" id="address" autoComplete="off" value={url || 'localhost:5000'} readOnly/>
           </>
         }
         { type == 'myPc' && 
           <>
-            <img id="addressIcon" width="16" height="16" src="https://98.js.org/images/icons/my-computer-16x16.png" alt="" /> 
+            <img id="addressIcon" width="16" height="16" src={mycomIcon} alt="my computer icon" /> 
             <input type="text" id="address" autoComplete="off" value={programs.CONTACT.NANE} readOnly/>
           </>
         }
         { type == 'myDoc' && 
           <>
-            <img id="addressIcon" width="16" height="16" src="https://98.js.org/images/icons/my-documents-16x16.png" alt="" /> 
+            <img id="addressIcon" width="16" height="16" src={myDocIcon} alt="my document icon" /> 
             <input type="text" id="address" autoComplete="off" value={programs.PROJECTS.NANE} readOnly/>
           </>
         }
         { type == 'trashCan' && 
           <>
-            <img id="addressIcon" width="16" height="16" src="https://98.js.org/images/icons/recycle-bin-16x16.png" alt="" /> 
+            <img id="addressIcon" width="16" height="16" src={recycleIcon} alt="recycle icon" /> 
             <input type="text" id="address" autoComplete="off" value={programs.TRASHCAN.NANE} readOnly/>
           </>
         }

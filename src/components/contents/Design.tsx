@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import TopMenu from "../toolBar/TopMenu";
 import { posters, logos, artworks } from '../../constants/design'
+import defualtImage from '../../assets/images/design/defualt.png'
 
 interface DesignProps {}
 
@@ -61,7 +62,7 @@ function Design({}: DesignProps) {
           </div>
           <div className="drawField">
             {/* 선택된 이미지가 있을 때만 표시 */}
-            {selectedImage && <img src={selectedImage} alt="Selected" />}
+            {selectedImage ? <img src={selectedImage} alt="Selected" /> : <img src={defualtImage} alt="defualt image" /> }
           </div>
         </div>
         <div className="selectWrap">

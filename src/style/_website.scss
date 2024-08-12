@@ -33,15 +33,57 @@
     .monitor{
       position: relative;
       width: 250px; height: 250px;
-      margin: 0 auto;
+      margin: 0 auto; overflow: hidden;
       background: url('../assets/images/common/monitor.png') no-repeat center / contain;
 
       .monitorScreen{
         position: absolute; top: 27px; left: 22px;
         display: inline-block;
         width: 207px; height: 150px;
-        background: #000;
+        background: #007978 no-repeat center / contain;
+        // image-rendering: auto;
+        // animation: 5s ease 2000ms normal none infinite running glitch;
+        
+        &[data-screen]{background-color: #000; }
+
+        &[data-screen='kg']{
+          background-image: url('../assets/images/website/kg.png');
+        }
+        &[data-screen='weeklywine']{
+          background-image: url('../assets/images/website/weeklywine.png');
+        }
+        &[data-screen='goblins']{
+          background-image: url('../assets/images/website/ravinggoblins.png');
+        }
       }
+
+      // @keyframes glitch {
+      //   30% {
+      //   }
+      //   40% {
+      //     opacity: 1;
+      //     transform: scale(1, 1);
+      //     transform: skew(0, 0);
+      //   }
+      //   41% {
+      //     opacity: 0.8;
+      //     transform: scale(1, 1.2);
+      //     transform: skew(80deg, 0);
+      //   }
+      //   42% {
+      //     opacity: 0.8;
+      //     transform: scale(1, 1.2);
+      //     transform: skew(-50deg, 0);
+      //   }
+      //   43% {
+      //     opacity: 1;
+      //     transform: scale(1, 1);
+      //     transform: skew(0, 0);
+      //   }
+      //   65% {
+      //   }
+      // }
+      
     }
   }
 
@@ -156,12 +198,15 @@
     margin: 12px 0 4px;
     font-size: 14px;
   }
+
   .websiteDesc{
     overflow: auto;
     height: 150px;
     background: #dfdfdf;
     padding: 12px 8px; 
     box-shadow: inset -1px -1px #fff, inset 1px 1px grey, inset -2px -2px #dfdfdf, inset 2px 2px #0a0a0a;
+    word-break: keep-all;
+    @include DosGothic
   }
 
   .closeBtnWrap{
