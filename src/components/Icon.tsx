@@ -13,7 +13,7 @@ interface IconProps {
 function Icon({ type, id, name, desc }: IconProps) {
   const [programArr, setProgramArr] = useRecoilState(programStatus);
   const [activeProgram, setActiveProgram] = useRecoilState(currentProgram);
-  const [activeAlert, setActiveAlert] = useRecoilState(currentAlert);
+  const [, setActiveAlert] = useRecoilState(currentAlert);
 
   const handleRunProgram = useCallback((e: Event) => {
     const target = e.currentTarget as HTMLElement;

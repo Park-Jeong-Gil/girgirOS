@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useRecoilState } from "recoil";
 import { currentProgram, programStatus } from "../store/useProgramStatus";
-import Draggable from "react-draggable";
+import Draggable, {DraggableEvent, DraggableData } from 'react-draggable';
 import About from "./contents/About";
 import Explorer from "./application/Explorer";
 import Folder from "./application/Folder";
@@ -201,7 +201,7 @@ function Program({ name, programId, layer, initialSize }: ProgramProps) {
     <Draggable
       handle=".title-bar"
       position={position}
-      onDrag={(e, data) => setPosition({ x: data.x, y: data.y })}
+      onDrag={(_e: DraggableEvent, data: DraggableData) => setPosition({ x: data.x, y: data.y })}
       disabled={isMaximized}
     >
       <div

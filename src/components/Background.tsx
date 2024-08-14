@@ -9,7 +9,7 @@ import Icon from "./Icon";
 function Background() {
   const [programArr, setProgramArr] = useRecoilState(programStatus);
   const [, setActiveProgram] = useRecoilState(currentProgram);
-  const [activeAlert, setActiveAlert] = useRecoilState(currentAlert);
+  const [activeAlert] = useRecoilState(currentAlert);
 
   useEffect(() => {
     const firstProgramTime = setTimeout(() => {
