@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import bootLogo1 from '../assets/images/common/bootLogo1.png'
+import bootLogo1 from '../assets/images/common/bootLogo1.png';
 import { soundState, systemState } from '../store/useSystemStatus';
 import { useRecoilState } from 'recoil';
 
@@ -10,9 +10,10 @@ interface GPUInfo {
 
 function Booting() {
   const [, setSystemStatus] = useRecoilState(systemState);
-  const [, setsoundState] = useRecoilState(soundState)
+  const [, setsoundState] = useRecoilState(soundState);
   const [showLines, setShowLines] = useState(false);
-  const [autoTimer, setAutoTimer] = useState(true)
+  const [autoTimer, setAutoTimer] = useState(true);
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
     const $bootScreen = document.querySelector('.bootScreen');
@@ -22,17 +23,17 @@ function Booting() {
       setShowLines(true);
     }, 1000);
 
-    const autoBootingTimer =  setTimeout(()=>{
-      autoTimer && setSystemStatus('loading')
-    },10000)
+    const autoBootingTimer = setTimeout(() => {
+      if (autoTimer && !isMobile) {
+        setSystemStatus('loading');
+      }
+    }, 10000);
 
     return () => {
-      clearTimeout(timer)
-      clearTimeout(autoBootingTimer)
+      clearTimeout(timer);
+      clearTimeout(autoBootingTimer);
     };
-  }, []);
-
-
+  }, [autoTimer, isMobile, setSystemStatus]);
 
   useEffect(() => {
     if (showLines) {
@@ -40,7 +41,15 @@ function Booting() {
     }
   }, [showLines]);
 
-  function linesShow():void {
+  useEffect(() => {
+    // Check if the device is mobile or not
+    const userAgent = window.navigator.userAgent;
+    const mobileDevices = ['Android', 'iPhone', 'iPad', 'iPod'];
+    const isMobileDevice = mobileDevices.some(device => userAgent.includes(device));
+    setIsMobile(isMobileDevice);
+  }, []);
+
+  function linesShow(): void {
     const $colMiddle = document.querySelector('.colMiddle');
     const $middlebiosLines = $colMiddle?.querySelectorAll('.biosLine');
 
@@ -50,7 +59,7 @@ function Booting() {
       }, index * 500);
     });
   }
-  
+
   function getOSInfo(): string {
     const userAgent = window.navigator.userAgent;
     const platform = window.navigator.platform;
@@ -104,21 +113,22 @@ function Booting() {
 
   function getDate() {
     let today = new Date();   
-    let date = today.toLocaleDateString('en-US')
-
-    return date
+    let date = today.toLocaleDateString('en-US');
+    return date;
   }
 
   function enterPress() {
-    document.documentElement.requestFullscreen()
-    setAutoTimer(false)
-    setSystemStatus('loading')
-    setsoundState(true)
+    document.documentElement.requestFullscreen();
+    setAutoTimer(false);
+    if (!isMobile) {
+      setSystemStatus('loading');
+    }
+    setsoundState(true);
   }
 
   useEffect(() => {
     const handleKeyPress = (event: KeyboardEvent) => {
-      if (event.key === 'Enter') enterPress()
+      if (event.key === 'Enter') enterPress();
     };
 
     window.addEventListener('keydown', handleKeyPress);
@@ -137,32 +147,32 @@ function Booting() {
         </div>
         <div className='colTop'>
           <p className='biosLine'>Copyright (c) 2024 GIRGIR PORTFOLIO, Released 16/7/2024</p>
-
         </div>
         <div className='colMiddle'>
-        {showLines && (
-          <>
-            <p className='biosLine'>System initializing...</p>
-            <p className='biosLine'></p>
-            <p className='biosLine'>Operating Systems: <b>{getOSInfo()}</b></p>
-            <p className='biosLine'>Main Processor cores: <b>{getCPUInfo()} cores</b></p>
-            <p className='biosLine'>Memory Testing: <b>{getRAMInfo()} { getRAMInfo() !== 'Not available' && `OK`}</b> </p>
-            {typeof gpuInfo !== 'string' && (
-              <>
-                <p className='biosLine'>GPU Vendor: <b>{gpuInfo.vendor}</b></p>
-                <p className='biosLine'>GPU Renderer: <b>{gpuInfo.renderer}</b></p>
-              </>
-            )}
-            <p className='biosLine'>Detecting Device...</p>
-            <p className='biosLine'></p>
-            <p className='biosLine'></p>
-            <div className='biosLine'>
-              {/* <p className=''>This is an interactive web portfolio.</p>
-              <p className=''>The world is wide, and there are many freak.</p> */}
-              <p className='endLine'>Press <button id='enterPortfolio' onClick={enterPress} ><strong>&lt;Enter&gt;</strong></button> Key to Continue... </p>
-            </div>
-          </>
-        )}
+          {showLines && (
+            <>
+              <p className='biosLine'>System initializing...</p>
+              <p className='biosLine'></p>
+              <p className='biosLine'>Operating Systems: <b>{getOSInfo()}</b></p>
+              <p className='biosLine'>Main Processor cores: <b>{getCPUInfo()} cores</b></p>
+              <p className='biosLine'>Memory Testing: <b>{getRAMInfo()} {getRAMInfo() !== 'Not available' && `OK`}</b></p>
+              {typeof gpuInfo !== 'string' && (
+                <>
+                  <p className='biosLine'>GPU Vendor: <b>{gpuInfo.vendor}</b></p>
+                  <p className='biosLine'>GPU Renderer: <b>{gpuInfo.renderer}</b></p>
+                </>
+              )}
+              <p className='biosLine'>Detecting Device...</p>
+              <p className='biosLine'></p>
+              <p className='biosLine'></p>
+              <div className='biosLine'>
+                {isMobile ? 
+                <p className=' isMobile'>모바일 페이지는 아직 준비중 입니다. PC로 확인 부탁 드리겠습니다.</p> :
+                <p className='endLine'>Press <button id='enterPortfolio' onClick={enterPress} ><strong>&lt;Enter&gt;</strong></button> Key to Continue... </p>
+                }
+              </div>
+            </>
+          )}
         </div>
         <div className='colBottom'>
           <p className='biosLine'>Press <strong>&lt;DEL&gt;</strong> to Not enter Setup, <strong>&lt;ALT&gt;</strong> + <strong>&lt;F2&gt;</strong> to Nothing is happening.</p>

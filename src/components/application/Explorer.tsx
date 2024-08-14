@@ -153,7 +153,7 @@ function Explorer({}: ExplorerProps) {
               <button className="historyCloseBtn sideCloseBtn" onClick={closeHistory}></button>
             </div>
             <div className="description">
-              <div>
+              <div className="pageDesc">
               { activeSrc !== '' ? 
                 <p dangerouslySetInnerHTML={{ __html: activeDescription }} /> :
                 <p className="">

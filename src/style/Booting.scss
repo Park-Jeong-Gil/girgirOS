@@ -10,6 +10,7 @@
   display: flex;
   justify-content: center;
   overflow: hidden;
+  line-height: 1.25;
 
   &:after{
     @include flicker
@@ -45,13 +46,8 @@
     .colMiddle{
       margin-top: 40px;
   
-      .biosLine {
-        opacity: 0;
-      }
-      
-      .biosLine.show {
-        opacity: 1;
-      }
+      .biosLine { opacity: 0; }
+      .biosLine.show {opacity: 1; }
     }
   
     .colBottom{
@@ -74,10 +70,17 @@
         font-size: 16px;
         box-shadow: none;
         width: auto; max-width: none;
-        min-height: none;
-        min-width: none;
+        min-height: auto;
+        min-width: auto;
         padding: 0;
       }
+    }
+
+    .isMobile{
+      margin-top: 30px;
+      font-family: 'DosGothic';
+      font-size: 18px;
+      line-height: 1.5;
     }
   }
 }

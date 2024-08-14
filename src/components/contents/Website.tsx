@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useRecoilState } from "recoil";
 import { programStatus } from "../../store/useProgramStatus";
 import { projects } from "../../constants/projectData";
@@ -10,6 +10,9 @@ function Website({}: WebsiteProps) {
   const [activeProject, setActiveProject] = useState<string | null>(null);
   const [activeDescription, setActiveDescription] = useState<string>('');
   const [activeSrc, setActiveSrc] = useState<string>('');
+
+  // 페이지 설명을 참조할 수 있는 ref
+  const descriptionRef = useRef<HTMLDivElement>(null);
   
   // ID로 프로젝트를 찾는 함수
   const findProjectByID = (id: string) => {
@@ -41,19 +44,18 @@ function Website({}: WebsiteProps) {
     }
   };
 
+  // activeDescription이 변경될 때마다 페이지 설명의 스크롤을 상단으로 이동
+  useEffect(() => {
+    if (descriptionRef.current) {
+      descriptionRef.current.scrollTop = 0;
+    }
+  }, [activeDescription]);
+
   const handleClose = () => {
     setProgramArr(prev => {
       const updatedProgramArr = prev.filter(prog => prog.program !== 'website');
       return updatedProgramArr;
     });
-  };
-
-  const handleNewWindowClick = () => {
-    if (activeSrc) {
-      window.open(activeSrc, '_blank');
-    } else {
-      console.error('No source URL available');
-    }
   };
 
   return (
@@ -79,6 +81,10 @@ function Website({}: WebsiteProps) {
             <a href={activeSrc ? activeSrc : '#'} target="_blank" className="newWindowBtn">새창으로 보기</a>
           </div>
           <div className="listInner">
+            <div className="listHeader">
+              <span>Site Name</span>
+              <span>Date</span>
+            </div>
             <ul>
               {Object.keys(projects).map((key) => {
                 const item = projects[key as keyof typeof projects];
@@ -92,6 +98,7 @@ function Website({}: WebsiteProps) {
                       >
                       <span className="websiteIcon"></span>
                       <em className="websiteName">{item.TITLE}</em>
+                      <span className="websiteDate">{item.DATE}</span>
                     </button>
                   </li>
                 );
@@ -99,7 +106,7 @@ function Website({}: WebsiteProps) {
             </ul>
           </div>
           <p className="descTit">사이트 설명 :</p>
-          <div className="websiteDesc">
+          <div className="websiteDesc pageDesc" ref={descriptionRef}>
             <p dangerouslySetInnerHTML={{ __html: activeDescription }} />
           </div>
         </div>

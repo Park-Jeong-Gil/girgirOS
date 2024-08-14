@@ -10,10 +10,9 @@ const App = () => {
 
   return (
     <>
-      {/* {systemStatus === 'booting' && <Booting />}
+      {systemStatus === 'booting' && <Booting />}
       {systemStatus === 'loading' && <Loading />}
-      {systemStatus === 'desktop' && <DeskTop />} */}
-      <DeskTop />
+      {systemStatus === 'desktop' && <DeskTop />}
     </>
   );
 };

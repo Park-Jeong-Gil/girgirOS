@@ -94,6 +94,7 @@ function Profile({}: ProfileProps) {
                 <li>jQuery / GSAP</li>
                 <li>WebGL / Three.js</li>
                 <li>React / Typescript</li>
+                <li>gulp / ejs</li>
                 <li>Vite</li>
                 <li>Github</li>
               </ul>
