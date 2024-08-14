@@ -14,8 +14,19 @@ function Booting() {
   const [showLines, setShowLines] = useState(false);
   const [autoTimer, setAutoTimer] = useState(true);
   const [isMobile, setIsMobile] = useState(false);
-
+  
   useEffect(() => {
+    console.log(`=================================================================================================
+   .aMMMb  .aMMMb  dMMMMb  dMMMMMP        .aMMMMP dMMMMb  .aMMMb  dMMMMb  dMP dMP dMMMMMP dMMMMb 
+  dMP"VMP dMP"dMP dMP VMP dMP            dMP"    dMP.dMP dMP"dMP dMP.dMP dMP dMP dMP     dMP.dMP 
+ dMP     dMP dMP dMP dMP dMMMP          dMP MMP"dMMMMK" dMMMMMP dMMMMP" dMMMMMP dMMMP   dMMMMK"  
+dMP.aMP dMP.aMP dMP.aMP dMP            dMP.dMP dMP"AMF dMP dMP dMP     dMP dMP dMP     dMP"AMF   
+VMMMP"  VMMMP" dMMMMP" dMMMMMP         VMMMP" dMP dMP dMP dMP dMP     dMP dMP dMMMMMP dMP dMP    
+=================================================================================================
+ 📞 010-4468-7412
+ 📧 wjdrlf5986@naver.com
+  `);
+  
     const $bootScreen = document.querySelector('.bootScreen');
     $bootScreen?.classList.add('loaded');
 

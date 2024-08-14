@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import TopMenu from "../toolBar/TopMenu";
 import MiddleMenu from "../toolBar/MiddleMenu";
 import AddressMenu from "../toolBar/AddressMenu";
@@ -14,7 +14,8 @@ function Explorer({}: ExplorerProps) {
   const [activeProject, setActiveProject] = useState<string | null>(null);
   const [activeDescription, setActiveDescription] = useState<string>('');
   const [activeSrc, setActiveSrc] = useState<string>('');
-
+  const descriptionRef = useRef<HTMLDivElement>(null);
+  
   const findProjectByID = (id: string) => {
     return Object.values(projects).find(project => project.ID === id);
   };
@@ -68,6 +69,12 @@ function Explorer({}: ExplorerProps) {
   const closeHistory = () => {
     setHistoryVisible(false);
   };
+
+  useEffect(() => {
+    if (descriptionRef.current) {
+      descriptionRef.current.scrollTop = 0;
+    }
+  }, [activeDescription]);
 
   // 데이터 연도별로 그룹화
   const groupedProjects = Object.values(projects).reduce((acc, project) => {
@@ -153,7 +160,7 @@ function Explorer({}: ExplorerProps) {
               <button className="historyCloseBtn sideCloseBtn" onClick={closeHistory}></button>
             </div>
             <div className="description">
-              <div className="pageDesc">
+              <div className="pageDesc" ref={descriptionRef}>
               { activeSrc !== '' ? 
                 <p dangerouslySetInnerHTML={{ __html: activeDescription }} /> :
                 <p className="">

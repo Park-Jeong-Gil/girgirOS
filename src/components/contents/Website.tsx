@@ -10,8 +10,6 @@ function Website({}: WebsiteProps) {
   const [activeProject, setActiveProject] = useState<string | null>(null);
   const [activeDescription, setActiveDescription] = useState<string>('');
   const [activeSrc, setActiveSrc] = useState<string>('');
-
-  // 페이지 설명을 참조할 수 있는 ref
   const descriptionRef = useRef<HTMLDivElement>(null);
   
   // ID로 프로젝트를 찾는 함수

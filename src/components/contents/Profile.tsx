@@ -120,11 +120,8 @@ function Profile({}: ProfileProps) {
           <ul className="experienceWrap">
             <li>
               <strong>FAVE (2020. 06 ~ 2024. 05)</strong>
-              <span>감각적인 모션과 인터렉션에 특화된 웹에이전시 입니다. 
-              Samsung Galaxy Global, Samsung Semiconductor , 
-              한화, 직방 등 대기업을 고객사로 둔 만큼 엄격한 크로스 브라우징과 웹 접근성을 충족하는 웹사이트를 다수 개발 했으며, 
-              단순히 이목을 끌기 위한 모션이 아닌 정적인 컨텐츠 보다 효과적인 정보 전달을 목적으로 인터렉션을 구현하여
-              다양한 프로모션 페이지를 다수 개발 하였습니다.</span>
+              <span>인터렉션에 특화된 웹에이전시에서 감각적인 모션을 작업하며 다양한 프로모션 페이지들을 개발 하였습니다.
+              특히 Samsung Galaxy Global, Samsung Semiconductor, 한화, 직방 등의 대기업 클라이언트를 대상으로 엄격한 크로스 브라우징과 웹 접근성을 충족하는 웹사이트를 다수 개발 했습니다.</span>
             </li>
             <li>
               <strong>이넘넷 (2019. 03 ~ 2020. 06)</strong>

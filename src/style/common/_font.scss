@@ -1,17 +1,23 @@
+@import url('https://fonts.cdnfonts.com/css/arial-2');
+@import url('https://fonts.cdnfonts.com/css/menlo');
+
 @font-face {
   font-family: "Classic Console Neue";
-  src: url("../../assets/common/font/clacon2.woff2") format("woff2");
+  src: url("https://webdraft.hu/fonts/classic-console/fonts/clacon2.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
 }
 
 @font-face {
-  font-family: "DosGothic";
-  src: url("../../assets/common/font/DOSGothic") format("ttf");
+  font-family: 'Pretendard';
+	font-weight: 45 920;
+	font-style: normal;
+	font-display: block;
+	src: url('https://tistory1.daumcdn.net/tistory/814207/skin/images/PretendardVariable.subset.blog.woff2') format('woff2-variations');
 }
 
-@font-face {
-  font-family: "W95";
-  src: url("../../assets/common/font/W95FA") format("otf");
-}
+
+@import url('https://fonts.cdnfonts.com/css/w95fa');
 
 @font-face {
   font-family: 'DungGeunMo';

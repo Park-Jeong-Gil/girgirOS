@@ -88,7 +88,7 @@ const contact: { [key: string]: itemData } = {
     ID: 'wanted',
     NANE:'원티드',
     TYPE: 'link',
-    LINK: 'https://www.wanted.co.kr/',
+    LINK: 'https://girgir.synology.me/dev/code_grapher.pdf',
     DESCRIPTION: '새 탭으로 원티드 지원서를 엽니다.',
   },
 

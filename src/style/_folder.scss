@@ -14,7 +14,7 @@
       padding: 20px 0;
       overflow: auto;
       background: url('../assets/images/common/wvleft.bmp') no-repeat #fff;
-      font-family: "W95", "DosGothic", "Segoe UI", Tahoma, Verdana, sans-serif;
+      font-family: "W95", "Pretendard", "Segoe UI", Tahoma, Verdana, sans-serif;
 
       .panelicon{
         display: inline-block;
@@ -28,7 +28,8 @@
 
       .panelTitle{
         font-size: 24px;
-        @include DosGothic;
+        font-weight: 500;
+        @include Pretendard;
 
         span{margin-left: 20px;}
 
