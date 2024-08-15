@@ -34,8 +34,8 @@ const programs = {
     NANE:'Internet\n Explorer',
     TYPE: 'internet',
     SIZE:{
-      width: 1440,
-      height: 780
+      width: 948,
+      height: 950
     },
     DESCRIPTION: '개발한 웹사이트를 볼 수 있습니다.',
   },
