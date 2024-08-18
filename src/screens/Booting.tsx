@@ -38,7 +38,7 @@ VMMMP"  VMMMP" dMMMMP" dMMMMMP         VMMMP" dMP dMP dMP dMP dMP     dMP dMP dM
       if (autoTimer && !isMobile) {
         setSystemStatus('loading');
       }
-    }, 10000);
+    }, 9000);
 
     return () => {
       clearTimeout(timer);
@@ -67,7 +67,7 @@ VMMMP"  VMMMP" dMMMMP" dMMMMMP         VMMMP" dMP dMP dMP dMP dMP     dMP dMP dM
     $middlebiosLines?.forEach((line, index) => {
       setTimeout(() => {
         line.classList.add('show');
-      }, index * 500);
+      }, index * 400);
     });
   }
 

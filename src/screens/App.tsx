@@ -4,6 +4,7 @@ import '../style/style.scss'
 import Booting from './Booting';
 import DeskTop from './Desktop';
 import Loading from './Loading'
+import ShutDown from './ShutDown';
 
 const App = () => {
   const [systemStatus] = useRecoilState(systemState);
@@ -13,6 +14,7 @@ const App = () => {
       {systemStatus === 'booting' && <Booting />}
       {systemStatus === 'loading' && <Loading />}
       {systemStatus === 'desktop' && <DeskTop />}
+      {systemStatus === 'shutDown' && <ShutDown />}
     </>
   );
 };

@@ -47,19 +47,97 @@
     }
 
     .StartButton {
-      width: 74px;
-      height: 30px;
-      display: flex;
-      align-content: center;
+      display: flex; align-content: center;
+      width: 74px; height: 30px;
       padding-right: 6px;
       background-image: url('data:image/gif;base64,R0lGODlhNAATAPIFAAAAAAAA/wD/AP//AP8AAAAAAAAAAAAAACH5BAUAAAUALAAAAAA0ABMAAAOMWLrc/jDKSau9OF/Agf5RJ3ogRi4dwQkdI5aPJ6cqILAnp+j7KfGxEaF2AwJdvlBSQWhwaivjstCiVltVRnMLHR1fqKWOd2wMh50AZ5BFhsNYUlkRcAICasCAPZX2/mRTdYN5eGt8b1aJgYqND3iGdyKIcEmBcYkudl5zMBAyVm1tnhMjn6SoqaqrDwkAOw==');
       background-size: auto 24px;
       background-repeat: no-repeat;
       background-position: 3px 3px;
       image-rendering: auto;
+
+      &.active{
+        box-shadow: inset -1px -1px #fff, inset 1px 1px #0a0a0a, inset -2px -2px #dfdfdf, inset 2px 2px grey;
+        outline: 1px dotted #000;
+        outline-offset: -4px;
+      }
     }
   }
 
+  .startMenu{
+    display: flex; flex-direction: row;
+    width: 360px; height: 0; background-color: silver; 
+    position: absolute; left: 0; bottom: 32px; z-index: 2;
+    text-align: left; overflow: hidden;
+    transition: height .1s ease-out;
+
+    &.active{
+      height: 494px; padding: 2px;
+      box-shadow: inset -1px -1px #0a0a0a, inset 1px 1px #dfdfdf, inset -2px -2px grey, inset 2px 2px #fff;
+    }
+
+    &::before{
+      content: '';
+      display: inline-block;
+      width: 48px; height: 100%;
+      background-color: #000080;
+      box-sizing: border-box;
+    }
+
+    ul,li{width: 100%;}
+
+    .sideLabel{
+      position: absolute; left: 12px; bottom: -8px;
+      font-size: 26px;
+      color: #fff;
+      transform: rotate(-90deg);
+      transform-origin: 0 0;
+    }
+
+    ul{
+      display: flex; flex-direction: column;
+      margin-left: 2px;
+    }
+
+    button{
+      display: flex; align-items: center;
+      width: 100%; height: 70px;
+      min-width: auto; min-height: auto;
+      border:none; outline: none; box-shadow: none; text-shadow: none;
+      font-size: 16px; font-weight: 200;
+      color:#000; background:none;
+      text-align: left;
+
+      &:disabled{ text-shadow: 1px 1px 0 #fff; color: grey; pointer-events: none; }
+      &:hover{background-color: #0000a2; color:#fff}
+      &:focus{ outline: none; }
+      &:active{ box-shadow: none; text-shadow: none;}
+
+      &.startShutdown{
+        border-top: 1px solid #fff;
+        box-shadow: 0px -1px 0px rgb(128, 128, 128);
+      }
+
+      &::before{
+        content: '';
+        display: inline-block; width: 40px;height: 40px;
+        margin-right: 16px;
+        background: no-repeat center / contain;
+
+        @include parent-selector('button', '.startShutdown') { background-image: url('../assets/images/common/shutdown-icon.png'); }
+        @include parent-selector('button', '.startRun') { background-image: url('../assets/images/common/run-icon.png'); }
+        @include parent-selector('button', '.startHelp') { background-image: url('../assets/images/common/help-48x48.png'); }
+        @include parent-selector('button', '.startFind') { background-image: url('../assets/images/common/find-icon.png'); }
+        @include parent-selector('button', '.startSetting') { background-image: url('../assets/images/common/setting-icon.png'); }
+        @include parent-selector('button', '.startDocuments') { background-image: url('../assets/images/common/my-documents-48x48.png'); }
+        @include parent-selector('button', '.startpPrograms') { background-image: url('../assets/images/common/programs-icon.png'); }
+      }
+
+
+
+      span{text-decoration: underline;}
+    }
+  }
 
   .quickButtonWrap{
     position: relative;

@@ -10,7 +10,7 @@ function TopMenu({}: TopMenuProps) {
   return (
     <div className="toolBar topMenu">
       <button><span>F</span>ile</button>
-      <button><span>E</span>edit</button>
+      <button><span>E</span>dit</button>
       <button><span>V</span>iew</button>
       <button><span>G</span>o</button>
       <button>F<span>a</span>vorites</button>
