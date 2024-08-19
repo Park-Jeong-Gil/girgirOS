@@ -31,7 +31,7 @@ function Folder({ id }: FolderProps) {
         <div className="folderPanel">
           <span className={`panelicon ${programData.ID}`}></span>
           <h3 className="panelTitle">
-            <span>{programData.NANE}</span>
+            <span>{programData.NAME}</span>
           </h3>
           <p className="panelInfo">
             {programData.DESCRIPTION}
@@ -42,7 +42,7 @@ function Folder({ id }: FolderProps) {
             Object.keys(contact).map((key) => {
               const item = contact[key as keyof typeof contact];
               return (
-                <Icon type={item.TYPE} key={item.ID} id={item.ID} name={item.NANE} desc={item.DESCRIPTION}/>
+                <Icon type={item.TYPE} key={item.ID} id={item.ID} name={item.NAME} desc={item.DESCRIPTION}/>
               );
             })
           )}
@@ -50,7 +50,7 @@ function Folder({ id }: FolderProps) {
             Object.keys(works).map((key) => {
               const item = works[key as keyof typeof works];
               return (
-                <Icon type={item.TYPE} key={item.ID} id={item.ID} name={item.NANE} desc={item.DESCRIPTION}/>
+                <Icon type={item.TYPE} key={item.ID} id={item.ID} name={item.NAME} desc={item.DESCRIPTION}/>
               );
             })
           )}
@@ -58,7 +58,7 @@ function Folder({ id }: FolderProps) {
             Object.keys(recycle).map((key) => {
               const item = recycle[key as keyof typeof recycle];
               return (
-                <Icon type={item.TYPE} key={item.ID} id={item.ID} name={item.NANE} desc={item.DESCRIPTION}/>
+                <Icon type={item.TYPE} key={item.ID} id={item.ID} name={item.NAME} desc={item.DESCRIPTION}/>
               );
             })
           )}

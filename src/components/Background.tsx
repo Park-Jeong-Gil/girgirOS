@@ -14,7 +14,7 @@ function Background() {
   useEffect(() => {
     const firstProgramTime = setTimeout(() => {
       clearTimeout(firstProgramTime);
-      setProgramArr([...programArr, { program: programs.ABOUT_ME.ID, name: programs.ABOUT_ME.NANE, initialSize: { width: programs.ABOUT_ME.SIZE.width, height:  programs.ABOUT_ME.SIZE.height } }]);
+      setProgramArr([...programArr, { program: programs.ABOUT_ME.ID, name: programs.ABOUT_ME.NAME, initialSize: { width: programs.ABOUT_ME.SIZE.width, height:  programs.ABOUT_ME.SIZE.height } }]);
       setActiveProgram(programs.ABOUT_ME.ID);
     }, 2500);
 
@@ -28,7 +28,7 @@ function Background() {
       {Object.keys(programs).map((key) => {
         const item = programs[key as keyof typeof programs];
         return (
-          <Icon type="application" key={item.ID} id={item.ID} name={item.NANE} desc={item.DESCRIPTION}/>
+          <Icon type="application" key={item.ID} id={item.ID} name={item.NAME} desc={item.DESCRIPTION}/>
         );
       })}
 

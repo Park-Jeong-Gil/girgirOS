@@ -29,19 +29,19 @@ function AdressMenu({type, url}: AdressMenuProps) {
         { type == 'myPc' && 
           <>
             <img id="addressIcon" width="16" height="16" src={mycomIcon} alt="my computer icon" /> 
-            <input type="text" id="address" autoComplete="off" value={programs.CONTACT.NANE} readOnly/>
+            <input type="text" id="address" autoComplete="off" value={programs.CONTACT.NAME} readOnly/>
           </>
         }
         { type == 'myDoc' && 
           <>
             <img id="addressIcon" width="16" height="16" src={myDocIcon} alt="my document icon" /> 
-            <input type="text" id="address" autoComplete="off" value={programs.PROJECTS.NANE} readOnly/>
+            <input type="text" id="address" autoComplete="off" value={programs.PROJECTS.NAME} readOnly/>
           </>
         }
         { type == 'trashCan' && 
           <>
             <img id="addressIcon" width="16" height="16" src={recycleIcon} alt="recycle icon" /> 
-            <input type="text" id="address" autoComplete="off" value={programs.TRASHCAN.NANE} readOnly/>
+            <input type="text" id="address" autoComplete="off" value={programs.TRASHCAN.NAME} readOnly/>
           </>
         }
         <button id="addressDropdownButton" disabled>

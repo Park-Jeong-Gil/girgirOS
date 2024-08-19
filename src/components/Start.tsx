@@ -1,18 +1,19 @@
 import { useEffect, useState } from "react";
-import { currentProgram, programStatus } from "../store/useProgramStatus"; 
+import { currentAlert, currentProgram, programStatus } from "../store/useProgramStatus"; 
 import { useRecoilState } from "recoil";
 import { systemState } from "../store/useSystemStatus";
+import { programs } from "../constants/desktopData";
 
 interface StartProps {}
 
 function Start({}: StartProps) {
   const [, setSystemStatus] = useRecoilState(systemState);
   const [currentTime, setCurrentTime] = useState<string>(new Date().toLocaleTimeString());
-  const [programArr] = useRecoilState(programStatus);
+  const [programArr, setProgramArr] = useRecoilState(programStatus);
   const [activeProgram, setActiveProgram] = useRecoilState(currentProgram);
+  const [, setActiveAlert] = useRecoilState(currentAlert);
   const [startMenuActive, setStartMenuActive] = useState<boolean>(false);
 
-  // 시간 업데이트
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentTime(new Date().toLocaleTimeString());
@@ -23,7 +24,6 @@ function Start({}: StartProps) {
     };
   }, []);
 
-  // 시작 바에서 프로그램 클릭 시
   useEffect(() => {
     const $DeskTopScreen = document.querySelector('.DeskTopScreen');
     const $appPanel = $DeskTopScreen?.querySelector('.appPanelWrap');
@@ -54,19 +54,16 @@ function Start({}: StartProps) {
     };
   }, [activeProgram]);
 
-  // StartButton 클릭 시 active 클래스를 토글
   const toggleStartMenu = () => {
     setStartMenuActive((prevState) => !prevState);
   };
 
-  // StartButton 및 startMenu 외부 클릭 감지
   useEffect(() => {
     const handleClickOutside = (e: MouseEvent) => {
       const target = e.target as HTMLElement;
       const startButton = document.querySelector('.StartButton');
       const startMenu = document.querySelector('.startMenu');
 
-      // StartButton 또는 startMenu 외부를 클릭한 경우
       if (
         startButton && 
         startMenu && 
@@ -90,6 +87,95 @@ function Start({}: StartProps) {
     setSystemStatus('shutDown')
   }
 
+  const minimizeAllPrograms = () => {
+    const $DeskTopScreen = document.querySelector('.DeskTopScreen');
+    const $ProgramWindows = $DeskTopScreen?.querySelectorAll('.ProgramWindow');
+    setActiveProgram('');
+
+    $ProgramWindows?.forEach(prog => {
+      prog.classList.add('minimized');
+    });
+  };
+
+  const handleClickRun=()=>{
+    setActiveAlert(  prevArr => {
+      if (prevArr.some(alert => alert.id === 'run')) {
+        return prevArr;
+      }
+      return [
+        ...prevArr,
+        {
+          id: 'run',
+          name: 'run',
+          description: '달리기 별로 안 좋아함...'
+        }
+      ];
+    })
+  }
+
+  const handleClickHelp=()=>{
+    if(!programArr.some(prog => prog.program === 'about')){
+      setProgramArr([...programArr, { program: programs.ABOUT_ME.ID, name: programs.ABOUT_ME.NAME, initialSize: { width: programs.ABOUT_ME.SIZE.width, height:  programs.ABOUT_ME.SIZE.height } }]);
+    }
+    setActiveProgram(programs.ABOUT_ME.ID);
+  }
+
+  const handleClickFind=()=>{
+    setActiveAlert(  prevArr => {
+      if (prevArr.some(alert => alert.id === 'find')) {
+        return prevArr;
+      }
+      return [
+        ...prevArr,
+        {
+          id: 'find',
+          name: 'find',
+          description: '잘 찾기도 재능이더라...'
+        }
+      ];
+    })
+  }  
+
+  const handleClickSetting=()=>{
+    setActiveAlert(  prevArr => {
+      if (prevArr.some(alert => alert.id === 'setting')) {
+        return prevArr;
+      }
+      return [
+        ...prevArr,
+        {
+          id: 'setting',
+          name: 'setting',
+          description: '뭐든 초반 셋팅이 가장 중요!'
+        }
+      ];
+    })
+  }  
+
+  const handleClickDocuments=()=>{
+    if(!programArr.some(prog => prog.program === 'myDoc')){
+      setProgramArr([...programArr, { program: programs.PROJECTS.ID, name: programs.PROJECTS.NAME, initialSize: { width: programs.PROJECTS.SIZE.width, height:  programs.PROJECTS.SIZE.height } }]);
+    }
+    setActiveProgram(programs.PROJECTS.ID);
+  }  
+
+  const handleClickPrograms=()=>{
+    setActiveAlert(  prevArr => {
+      if (prevArr.some(alert => alert.id === 'programs')) {
+        return prevArr;
+      }
+      return [
+        ...prevArr,
+        {
+          id: 'programs',
+          name: 'programs',
+          description: '모든 개발자들 존경 합니다! Respect!!'
+        }
+      ];
+    })
+  }  
+
+
   return (
     <div className="StartBar">
       <div className="startWrap">
@@ -100,18 +186,18 @@ function Start({}: StartProps) {
         <div className={`startMenu ${startMenuActive ? "active" : ""}`}>
           <span className="sideLabel"><strong>Windows</strong> 91</span>
           <ul>
-            <li><button className="startpPrograms"><span>P</span>rograms</button></li>
-            <li><button className="startDocuments"><span>D</span>ocuments</button></li>
-            <li><button className="startSetting"><span>S</span>etting</button></li>
-            <li><button className="startFind"><span>F</span>ind</button></li>
-            <li><button className="startHelp"><span>H</span>elp</button></li>
-            <li><button className="startRun"><span>R</span>un...</button></li>
+            <li><button className="startpPrograms" onClick={handleClickPrograms}><span>P</span>rograms</button></li>
+            <li><button className="startDocuments" onClick={handleClickDocuments}><span>D</span>ocuments</button></li>
+            <li><button className="startSetting" onClick={handleClickSetting}><span>S</span>etting</button></li>
+            <li><button className="startFind" onClick={handleClickFind}><span>F</span>ind</button></li>
+            <li><button className="startHelp" onClick={handleClickHelp}><span>H</span>elp</button></li>
+            <li><button className="startRun" onClick={handleClickRun}><span>R</span>un...</button></li>
             <li><button className="startShutdown" onClick={hadnleShutDowunScreen}>Sh<span>u</span>t Down...</button></li>
           </ul>
         </div>
       </div>
       <div className="quickButtonWrap">
-        <button className="quickBtn"></button>
+        <button className="quickBtn" onClick={minimizeAllPrograms}></button>
       </div>
       <div className="appPanelWrap">
         {programArr.length > 0 && programArr.map((item, index) => (

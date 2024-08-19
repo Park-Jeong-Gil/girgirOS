@@ -20,7 +20,7 @@ function Profile({}: ProfileProps) {
     if(contact.SELF_INTRO.SIZE && !programArr.some(prog => prog.program === contact.SELF_INTRO.ID)){
       setProgramArr([...programArr, { 
           program: contact.SELF_INTRO.ID, 
-          name: contact.SELF_INTRO.NANE, 
+          name: contact.SELF_INTRO.NAME, 
           initialSize: { width: contact.SELF_INTRO.SIZE.width, height:  contact.SELF_INTRO.SIZE.height }
         }]);
     }
@@ -32,7 +32,7 @@ function Profile({}: ProfileProps) {
     if(!programArr.some(prog => prog.program === programs.PROJECTS.ID)){
       setProgramArr([...programArr, { 
           program: programs.PROJECTS.ID, 
-          name: programs.PROJECTS.NANE, 
+          name: programs.PROJECTS.NAME, 
           initialSize: { width: programs.PROJECTS.SIZE.width, height:  programs.PROJECTS.SIZE.height }
         }]);
     }

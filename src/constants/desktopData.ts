@@ -1,7 +1,7 @@
 const programs = {
   CONTACT: {
     ID: 'myPc',
-    NANE:'My Profile',
+    NAME:'My Profile',
     TYPE: 'folder',
     SIZE:{
       width: 840,
@@ -11,7 +11,7 @@ const programs = {
   },
   PROJECTS: {
     ID: 'myDoc',
-    NANE:'My Projects',
+    NAME:'My Projects',
     TYPE: 'folder',
     SIZE:{
       width: 840,
@@ -21,7 +21,7 @@ const programs = {
   },
   TRASHCAN: {
     ID: 'trashCan',
-    NANE:'Recycle Bin',
+    NAME:'Recycle Bin',
     TYPE: 'folder',
     SIZE:{
       width: 840,
@@ -31,7 +31,7 @@ const programs = {
   },
   INTERNET: {
     ID: 'ie',
-    NANE:'Internet\n Explorer',
+    NAME:'Internet\n Explorer',
     TYPE: 'internet',
     SIZE:{
       width: 948,
@@ -41,7 +41,7 @@ const programs = {
   },
   ABOUT_ME: {
     ID: 'about',
-    NANE:'help',
+    NAME:'help',
     TYPE: 'application',
     SIZE:{
       width: 820,
@@ -53,7 +53,7 @@ const programs = {
 
 interface itemData {
   ID: string;
-  NANE: string;
+  NAME: string;
   TYPE: string;
   DESCRIPTION: string;
   SIZE?: {
@@ -66,7 +66,7 @@ interface itemData {
 const contact: { [key: string]: itemData } = {
   PROFILE: {
     ID: 'profile',
-    NANE:'(c:)프로필',
+    NAME:'(c:)프로필',
     TYPE: 'application',
     SIZE:{
       width: 664,
@@ -76,7 +76,7 @@ const contact: { [key: string]: itemData } = {
   },
   SELF_INTRO: {
     ID: 'notepad',
-    NANE:'자기소개.txt',
+    NAME:'자기소개.txt',
     TYPE: 'application',
     SIZE:{
       width: 550,
@@ -86,7 +86,7 @@ const contact: { [key: string]: itemData } = {
   },
     WANTED: {
     ID: 'wanted',
-    NANE:'원티드',
+    NAME:'원티드',
     TYPE: 'link',
     LINK: 'https://girgir.synology.me/dev/code_grapher.pdf',
     DESCRIPTION: '새 탭으로 원티드 지원서를 엽니다.',
@@ -97,7 +97,7 @@ const contact: { [key: string]: itemData } = {
 const works: { [key: string]: itemData } = {
   WEBSITE: {
     ID: 'website',
-    NANE:'웹사이트',
+    NAME:'웹사이트',
     TYPE: 'application',
     SIZE:{
       width: 700,
@@ -107,7 +107,7 @@ const works: { [key: string]: itemData } = {
   },
   DESIGN: {
     ID: 'design',
-    NANE:'디자인',
+    NAME:'디자인',
     TYPE: 'application',
     SIZE:{
       width: 920,
@@ -120,13 +120,13 @@ const works: { [key: string]: itemData } = {
 const recycle = {
   trash: {
     ID: 'note1',
-    NANE:'TMI (흑역사.ver)',
+    NAME:'TMI (흑역사.ver)',
     TYPE: 'alert',
     DESCRIPTION: '친해지면 대방출 합니다.',
   },
   // trash2: {
   //   ID: 'note2',
-  //   NANE:'부정적 에너지',
+  //   NAME:'부정적 에너지',
   //   TYPE: 'alert',
   //   DESCRIPTION: '부정적 마인드는 과감히 버립니다.',
   // },

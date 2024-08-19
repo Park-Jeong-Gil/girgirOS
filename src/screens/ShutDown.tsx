@@ -1,11 +1,12 @@
 import { useEffect } from "react";
 import { useRecoilState } from "recoil";
 import { systemState } from "../store/useSystemStatus";
-import { programStatus } from "../store/useProgramStatus";
+import { currentAlert, programStatus } from "../store/useProgramStatus";
 
 const ShutDown = () => {
   const [, setSystemStatus] = useRecoilState(systemState);
   const [, setProgramArr] = useRecoilState(programStatus);
+  const [, setActiveAlert] = useRecoilState(currentAlert);
 
 
   function enterPress() {
@@ -14,6 +15,8 @@ const ShutDown = () => {
 
   useEffect(() => {
     setProgramArr([])
+    setActiveAlert([])
+    
     const handleKeyPress = (event: KeyboardEvent) => {
       if (event.key === 'Enter') enterPress()
     };

@@ -27,5 +27,8 @@
     padding: 0;
     background: #000eab; color: #fff;
     font-size: 22px; line-height: 1.3;
+
+    &:focus{ outline: none!important; }
+    &:active{ box-shadow: none!important; text-shadow: none!important;}
   }
 }

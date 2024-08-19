@@ -169,30 +169,9 @@ function Program({ name, programId, layer, initialSize }: ProgramProps) {
     }
   };
 
-  // const setLastProgActive = () => {
-  //   // 가장 마지막 요소의 인덱스를 계산합니다.
-  //   const lastProgIndex = programArr.length - 1;
-
-  //   // 프로그램 배열이 비어있는 경우를 처리합니다.
-  //   if (lastProgIndex < 0) {
-  //     setActiveProgram(''); // 또는 적절한 기본값
-  //     return;
-  //   }
-
-  //   // 가장 마지막 요소의 ID를 가져옵니다.
-  //   const lastProgId = programArr[lastProgIndex].program;
-
-  //   // 프로그램의 ID를 설정합니다.
-  //   lastProgId !== null && setActiveProgram(lastProgId);
-
-  //   // 디버깅을 위한 로그 출력
-  //   console.log(lastProgIndex, lastProgId, activeProgram);
-  // };
-
   const handleClose = () => {
     setProgramArr(prev => {
       const updatedProgramArr = prev.filter(prog => prog.program !== programId);
-      // setLastProgActive();
       return updatedProgramArr;
     });
   };
@@ -215,7 +194,6 @@ function Program({ name, programId, layer, initialSize }: ProgramProps) {
           left: isMaximized ? 0 : undefined,
           zIndex: layer,
         }}
-        // onClick={handleFocus}
         onFocus={handleFocus}
         tabIndex={0}
       >
