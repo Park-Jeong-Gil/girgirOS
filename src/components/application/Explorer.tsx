@@ -76,9 +76,8 @@ function Explorer({}: ExplorerProps) {
     }
   }, [activeDescription]);
 
-  // 데이터 연도별로 그룹화
   const groupedProjects = Object.values(projects).reduce((acc, project) => {
-    const year = project.DATE.split('.')[0]; // '2024.04'에서 '2024' 추출
+    const year = project.DATE.split('.')[0]; 
     if (!acc[year]) {
       acc[year] = [];
     }
@@ -90,7 +89,6 @@ function Explorer({}: ExplorerProps) {
     return acc;
   }, {} as Record<string, typeof projects[keyof typeof projects][]>);
 
-  // 연도 기준으로 내림차순 정렬
   const sortedYears = Object.keys(groupedProjects).sort((a, b) => parseInt(b) - parseInt(a));
 
   return (
@@ -160,14 +158,13 @@ function Explorer({}: ExplorerProps) {
               <button className="historyCloseBtn sideCloseBtn" onClick={closeHistory}></button>
             </div>
             <div className="description">
-              <div className="pageDesc" ref={descriptionRef}>
               { activeSrc !== '' ? 
-                <p dangerouslySetInnerHTML={{ __html: activeDescription }} /> :
-                <p className="">
+                <article className="pageDesc" ref={descriptionRef}  dangerouslySetInnerHTML={{ __html: activeDescription }} >
+                </article> :
+                <p className="pageDesc">
                   위 목록에서 선택한 웹페이지의 <br />설명글을 볼 수 있습니다.
                 </p>
               }
-              </div>
             </div>
           </div>
           <div className="moveButtonWrap">

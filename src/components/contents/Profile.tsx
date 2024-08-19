@@ -68,11 +68,11 @@ function Profile({}: ProfileProps) {
         </li>
       </menu>
       <div className="profileContainer" role="tabpanel">
-        <div className={`profileContentsWrap profileInfo ${activeTab === 'Girgir' ? 'active' : ''}`}>
-          <p className="imageWrap">
-            <strong className="secTit">Girgir</strong>
+        <section className={`profileContentsWrap profileInfo ${activeTab === 'Girgir' ? 'active' : ''}`}>
+          <div className="imageWrap">
+            <h3 className="secTit">Girgir</h3>
             <img src={selfImage} alt="profile image"/>
-          </p>
+          </div>
           <div className="specList">
             <ul>
               <li>Name : 박정길</li>
@@ -83,40 +83,40 @@ function Profile({}: ProfileProps) {
               <li>MBTI : INFJ</li>
             </ul>
           </div>
-        </div>
-        <div className={`profileContentsWrap ${activeTab === 'Skills' ? 'active' : ''}`}>
-            <strong className="secTit">Skills</strong>
-            <div className="skillWrap">
-              <ul>
-                <li>HTML</li>
-                <li>CSS / SASS</li>
-                <li>Javascript</li>
-                <li>jQuery / GSAP</li>
-                <li>WebGL / Three.js</li>
-                <li>React / Typescript</li>
-                <li>gulp / ejs</li>
-                <li>Vite</li>
-                <li>Github</li>
-              </ul>
-              <ul>
-                <li>Adobe Photoshop</li>
-                <li>Adobe Illustrator</li>
-                <li>Figma</li>
-                <li>Blender</li>
-                <li>autodesk Sketchbook</li>
-              </ul>
-            </div>
-        </div>
-        <div className={`profileContentsWrap ${activeTab === 'Education' ? 'active' : ''}`}>
-          <strong className="secTit">Education</strong>
+        </section>
+        <section className={`profileContentsWrap ${activeTab === 'Skills' ? 'active' : ''}`}>
+          <h3 className="secTit">Skills</h3>
+          <div className="skillWrap">
+            <ul>
+              <li>HTML</li>
+              <li>CSS / SASS</li>
+              <li>Javascript</li>
+              <li>jQuery / GSAP</li>
+              <li>WebGL / Three.js</li>
+              <li>React / Typescript</li>
+              <li>gulp / ejs</li>
+              <li>Vite</li>
+              <li>Github</li>
+            </ul>
+            <ul>
+              <li>Adobe Photoshop</li>
+              <li>Adobe Illustrator</li>
+              <li>Figma</li>
+              <li>Blender</li>
+              <li>autodesk Sketchbook</li>
+            </ul>
+          </div>
+        </section>
+        <section className={`profileContentsWrap ${activeTab === 'Education' ? 'active' : ''}`}>
+          <h3 className="secTit">Education</h3>
           <ul>
             <li>고려사이버대학교 디자인 공학과 (2020~재학중)</li>
             <li>한남대학고 회화과 (2009~중퇴) </li>
             <li>인하대학교 부속 고등학교 (2008) </li>
           </ul>
-        </div>
-        <div className={`profileContentsWrap ${activeTab === 'Experience' ? 'active' : ''}`}>
-          <strong className="secTit">Experience</strong>
+        </section>
+        <section className={`profileContentsWrap ${activeTab === 'Experience' ? 'active' : ''}`}>
+          <h3 className="secTit">Experience</h3>
           <ul className="experienceWrap">
             <li>
               <strong>FAVE (2020. 06 ~ 2024. 05)</strong>
@@ -140,7 +140,7 @@ function Profile({}: ProfileProps) {
               <span>퍼플리셔 겸 디자이너로 입사. 개발자가 없이 부족한 부분은 솔루션을 최대한 활용하며 다수의 홈페이지 제작 및 관리 했습니다.</span>
             </li>
           </ul>
-        </div>
+        </section>
         <div className="resumeBtnWrap">
           <button className="introBtn" onClick={runIntroProgram}>자기소개 보기 <strong>(<span>I</span>ntroduction) </strong></button>
           <button className="projectBtn" onClick={runProjectsProgram}>프로젝트 보기 <strong>(<span>P</span>rojects)</strong></button>

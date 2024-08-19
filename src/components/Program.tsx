@@ -160,7 +160,7 @@ function Program({ name, programId, layer, initialSize }: ProgramProps) {
     }
   };
 
-  const handleFocus = (e: React.SyntheticEvent<HTMLDivElement, Event>) => {
+  const handleFocus = (e: React.SyntheticEvent<HTMLElement, Event>) => {
     const target = e.currentTarget as HTMLElement;
     const $currentProgram = target.closest('.window') as HTMLElement;
 
@@ -183,7 +183,7 @@ function Program({ name, programId, layer, initialSize }: ProgramProps) {
       onDrag={(_e: DraggableEvent, data: DraggableData) => setPosition({ x: data.x, y: data.y })}
       disabled={isMaximized}
     >
-      <div
+      <section
         className={`ProgramWindow window${isMaximized ? ' maximized' : ''}`}
         id={`${programId}App` || ""}
         ref={windowRef}
@@ -198,14 +198,14 @@ function Program({ name, programId, layer, initialSize }: ProgramProps) {
         tabIndex={0}
       >
         <div className="container">
-          <div className="title-bar">
-            <h3 className="title-bar-text">{name}</h3>
+          <header className="title-bar">
+            <h2 className="title-bar-text">{name}</h2>
             <div className="title-bar-controls">
               <button aria-label="Minimize" onClick={handleMinimize}></button>
               <button aria-label={`${isMaximized ? 'Restore' : 'Maximize'}`} onClick={handleMaximize}></button>
               <button aria-label="Close" onClick={handleClose}></button>
             </div>
-          </div>
+          </header>
           <div className="window-body">
             {programId == 'about' && <About />}
             {programId == 'profile' && <Profile />}
@@ -254,7 +254,7 @@ function Program({ name, programId, layer, initialSize }: ProgramProps) {
             />
           </div>
         )}
-      </div>
+      </section>
     </Draggable>
   );
 }

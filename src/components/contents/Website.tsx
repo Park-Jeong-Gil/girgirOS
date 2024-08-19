@@ -104,9 +104,7 @@ function Website({}: WebsiteProps) {
             </ul>
           </div>
           <p className="descTit">사이트 설명 :</p>
-          <div className="websiteDesc pageDesc" ref={descriptionRef}>
-            <p dangerouslySetInnerHTML={{ __html: activeDescription }} />
-          </div>
+          <article className="websiteDesc pageDesc" ref={descriptionRef} dangerouslySetInnerHTML={{ __html: activeDescription }}></article>
         </div>
       </div>
       <div className="closeBtnWrap">

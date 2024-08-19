@@ -16,7 +16,7 @@ const ShutDown = () => {
   useEffect(() => {
     setProgramArr([])
     setActiveAlert([])
-    
+
     const handleKeyPress = (event: KeyboardEvent) => {
       if (event.key === 'Enter') enterPress()
     };
@@ -30,6 +30,7 @@ const ShutDown = () => {
 
   return (
     <section className="shutDownScreen">
+      <h1 className='blind'>girgir portfolio</h1>
       <strong>Epilogue</strong>
       <p>이 화면까지 와주셨다는건 제 포트폴리오를 디테일하게 봐주셨다는 의미군요!</p>
       <p>만약 재밌게 봐주셨다면 저에게 작게나마 관심을 표현 해주시길,</p>

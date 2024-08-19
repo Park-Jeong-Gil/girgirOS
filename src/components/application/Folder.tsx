@@ -23,7 +23,7 @@ function Folder({ id }: FolderProps) {
   }
 
   return (
-    <div className="folderContainer">
+    <section className="folderContainer">
       <TopMenu />
       <MiddleMenu type="folder" />
       <AddressMenu type={id} />
@@ -64,7 +64,7 @@ function Folder({ id }: FolderProps) {
           )}
         </div>
       </div>
-    </div>
+    </section>
   );
 }
 

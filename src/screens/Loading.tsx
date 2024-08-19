@@ -26,6 +26,7 @@ const loading = () => {
 
   return (
     <section className="loadingScreen">
+      <h1 className='blind'>girgir portfolio</h1>
       <div className="screenInner">
         <div className="splash">
           <h2 className="windowLogo">

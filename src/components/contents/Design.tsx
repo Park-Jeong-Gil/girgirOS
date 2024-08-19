@@ -28,7 +28,7 @@ function Design({}: DesignProps) {
           className={activeButton === image.id ? 'active' : ''}
           onClick={() => handleImageClick(image.src, image.id)}
         >
-          <img src={image.src} alt="" />
+          <img src={image.src} alt={image.id} />
         </button>
       </li>
     ))

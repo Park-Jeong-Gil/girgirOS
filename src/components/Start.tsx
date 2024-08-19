@@ -13,10 +13,15 @@ function Start({}: StartProps) {
   const [activeProgram, setActiveProgram] = useRecoilState(currentProgram);
   const [, setActiveAlert] = useRecoilState(currentAlert);
   const [startMenuActive, setStartMenuActive] = useState<boolean>(false);
+  const [isoTime, setIsoTime] = useState<string>(new Date().toISOString());
 
   useEffect(() => {
     const timer = setInterval(() => {
-      setCurrentTime(new Date().toLocaleTimeString());
+      const now = new Date();
+      setCurrentTime(now.toLocaleTimeString());
+
+      const isoTime = now.toISOString().split('.')[0];
+      setIsoTime(isoTime);
     }, 1000);
 
     return () => {
@@ -107,7 +112,7 @@ function Start({}: StartProps) {
         {
           id: 'run',
           name: 'run',
-          description: '달리기 별로 안 좋아함...'
+          description: 'Not supported.'
         }
       ];
     })
@@ -130,7 +135,7 @@ function Start({}: StartProps) {
         {
           id: 'find',
           name: 'find',
-          description: '잘 찾기도 재능이더라...'
+          description: 'Not supported.'
         }
       ];
     })
@@ -146,7 +151,7 @@ function Start({}: StartProps) {
         {
           id: 'setting',
           name: 'setting',
-          description: '뭐든 초반 셋팅이 가장 중요!'
+          description: 'Not supported.'
         }
       ];
     })
@@ -169,12 +174,11 @@ function Start({}: StartProps) {
         {
           id: 'programs',
           name: 'programs',
-          description: '모든 개발자들 존경 합니다! Respect!!'
+          description: 'Not supported.'
         }
       ];
     })
   }  
-
 
   return (
     <div className="StartBar">
@@ -207,7 +211,7 @@ function Start({}: StartProps) {
         ))}
       </div>
       <div className="notiWrap">
-        <time>{currentTime}</time>
+        <time dateTime={isoTime}>{currentTime}</time>
       </div>
     </div>
   )

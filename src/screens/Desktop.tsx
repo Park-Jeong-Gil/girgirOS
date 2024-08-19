@@ -25,6 +25,7 @@ function DeskTop() {
 
   return (
     <section className="DeskTopScreen">
+      <h1 className='blind'>girgir portfolio</h1>
       <div className="screenInner">
         <Background/>
         <Start />
