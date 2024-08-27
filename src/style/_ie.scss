@@ -20,6 +20,7 @@
   .homeScreen{
     @include Pretendard;
     padding: 24px;
+    overflow: auto;
 
     .homeTit{
       display: flex; align-items: flex-start;

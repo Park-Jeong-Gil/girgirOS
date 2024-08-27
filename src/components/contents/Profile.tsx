@@ -1,5 +1,6 @@
 import { useRecoilState } from "recoil";
 import selfImage from '../../assets/images/common/profile-image.jpg'
+import eduImage from '../../assets/images/common/eduScreen.png'
 import { contact, programs } from "../../constants/desktopData";
 import { currentProgram, programStatus } from "../../store/useProgramStatus";
 import { useState } from "react";
@@ -68,7 +69,7 @@ function Profile({}: ProfileProps) {
         </li>
       </menu>
       <div className="profileContainer" role="tabpanel">
-        <section className={`profileContentsWrap profileInfo ${activeTab === 'Girgir' ? 'active' : ''}`}>
+        <section className={`profileContentsWrap profileTab ${activeTab === 'Girgir' ? 'active' : ''}`}>
           <div className="imageWrap">
             <h3 className="secTit">Girgir</h3>
             <img src={selfImage} alt="profile image"/>
@@ -87,36 +88,55 @@ function Profile({}: ProfileProps) {
         <section className={`profileContentsWrap ${activeTab === 'Skills' ? 'active' : ''}`}>
           <h3 className="secTit">Skills</h3>
           <div className="skillWrap">
-            <ul>
-              <li>HTML</li>
-              <li>CSS / SASS</li>
-              <li>Javascript</li>
-              <li>jQuery / GSAP</li>
-              <li>WebGL / Three.js</li>
-              <li>React / Typescript</li>
-              <li>gulp / ejs</li>
-              <li>Vite</li>
-              <li>Github</li>
-            </ul>
-            <ul>
-              <li>Adobe Photoshop</li>
-              <li>Adobe Illustrator</li>
-              <li>Figma</li>
-              <li>Blender</li>
-              <li>autodesk Sketchbook</li>
-            </ul>
+            <dl className="develop">
+              <dt>Development</dt>
+              <dd className="html">HTML5</dd>
+              <dd className="css">CSS3</dd>
+              <dd className="scss">SCSS</dd>
+              <dd className="javascript">Javascript</dd>
+              <dd className="typescript">Typescript</dd>
+              <dd className="jquery">jQuery</dd>
+              <dd className="gsap">GSAP</dd>
+              <dd className="webgl">WebGL</dd>
+              <dd className="three">Three.js</dd>
+              <dd className="react">React</dd>
+              <dd className="recoil">Recoil</dd>
+              <dd className="gulp">Gulp</dd>
+              <dd className="vite">Vite</dd>
+              <dd className="git">Git</dd>
+            </dl>
+            <dl className="design">
+              <dt>Design tools</dt>
+              <dd className="photoshop">Adobe Photoshop</dd>
+              <dd className="illustrator">Adobe Illustrator</dd>
+              <dd className="figma">Figma</dd>
+              <dd className="blender">Blender</dd>
+              <dd className="sketchbook">Autodesk Sketchbook</dd>
+            </dl>
+            <dl className="work">
+              <dt>Work tools</dt>
+              <dd className="github">Github</dd>
+              <dd className="gitlab">Gitlab</dd>
+              <dd className="slack">Slack</dd>
+              <dd className="notion">Notion</dd>
+              <dd className="jira">Jira</dd>
+              <dd className="aem">Aem</dd>
+            </dl>
           </div>
         </section>
-        <section className={`profileContentsWrap ${activeTab === 'Education' ? 'active' : ''}`}>
+        <section className={`profileContentsWrap educationTab ${activeTab === 'Education' ? 'active' : ''}`}>
+          <div className="eduImg">
+            <img src={eduImage} alt="" />
+          </div>
           <h3 className="secTit">Education</h3>
           <ul>
-            <li>고려사이버대학교 디자인 공학과 (2020~재학중)</li>
+            <li>고려사이버대학교 디자인 공학과 (2021~재학중)</li>
             <li>한남대학고 회화과 (2009~중퇴) </li>
-            <li>인하대학교 부속 고등학교 (2008) </li>
+            <li>인하대학교 부속 고등학교 (2009) </li>
           </ul>
         </section>
         <section className={`profileContentsWrap ${activeTab === 'Experience' ? 'active' : ''}`}>
-          <h3 className="secTit">Experience</h3>
+          <h3 className="secTit">Experience (총 경력 6년 11 개월)</h3>
           <ul className="experienceWrap">
             <li>
               <strong>FAVE (2020. 06 ~ 2024. 05)</strong>
