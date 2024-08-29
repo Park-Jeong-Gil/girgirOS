@@ -1,8 +1,6 @@
 # Girgir OS
 
-<div style="background-color: #f0f0f0; padding: 10px; margin-bottom:24px;">
-  <img src="src/assets/images/common/splashImage.png" alt="My Image" width="400">
-</div>
+<img src="src/assets/images/common/splashImage.png" alt="My Image" width="600" style="margin-bottom: 24px;">
 
 - 작업 기간 : 2024년 7월 ~ 2024년 8월
 - 사용기술 : Vite, React, Typescript
