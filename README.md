@@ -1,6 +1,8 @@
 # Girgir OS
 
-![My Image](src/assets/images/common/msLogo.png)
+<div style="background-color: #f0f0f0; padding: 10px; display: inline-block;">
+  <img src="src/assets/images/common/msLogo.png" alt="My Image" width="400">
+</div>
 
 - 작업 기간 : 2024년 7월 ~ 2024년 8월
 - 사용기술 : Vite, React, Typescript
