@@ -1,5 +1,7 @@
 # Girgir OS
 
+<img src="https://girgir.synology.me/resources/images/msLogo.png" alt="My Image" width="400" style="margin-bottom: 24px;">
+
 - 작업 기간 : 2024년 7월 ~ 2024년 8월
 - 사용기술 : Vite, React, Typescript
 
