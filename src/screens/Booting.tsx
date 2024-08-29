@@ -52,7 +52,6 @@ function Booting() {
   }, [showLines]);
 
   useEffect(() => {
-    // Check if the device is mobile or not
     const userAgent = window.navigator.userAgent;
     const mobileDevices = ['Android', 'iPhone', 'iPad', 'iPod'];
     const isMobileDevice = mobileDevices.some(device => userAgent.includes(device));

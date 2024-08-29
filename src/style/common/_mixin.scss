@@ -1,15 +1,16 @@
 
-@mixin mo-over {
-  @media (min-width: 768px) {
+@mixin mo {
+  @media (max-width: 767px) {
     @content;
   }
 }
 
 @mixin tablet {
-  @media (min-width: 768px) and (max-width: 1172px) {
+  @media (min-width: 768px) and (max-width: 1023px) {
     @content;
   }
 }
+
 @mixin tablet-over {
   @media (min-width: 768px)  {
     @content;
@@ -17,7 +18,7 @@
 }
 
 @mixin pc {
-  @media (min-width: 1173px) {
+  @media (min-width: 1024px) {
     @content;
   }
 }
