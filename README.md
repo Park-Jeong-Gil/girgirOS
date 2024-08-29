@@ -1,6 +1,6 @@
 # Girgir OS
 
-<div style="background-color: #f0f0f0; padding: 10px; display: inline-block;">
+<div style="background-color: #f0f0f0; padding: 10px; display: inline-block; margin-bottom:24px">
   <img src="src/assets/images/common/msLogo.png" alt="My Image" width="400">
 </div>
 
