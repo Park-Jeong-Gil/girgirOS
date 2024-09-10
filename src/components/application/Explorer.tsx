@@ -131,23 +131,25 @@ function Explorer({}: ExplorerProps) {
             <div className="treeWrap">
               <ul className="tree-view">
                 {sortedYears.map((year) => (
-                  <details key={year}>
-                    <summary>{year}</summary>
-                    <ul>
-                      {groupedProjects[year].map((project) => (
-                        <li className='websiteList' key={project.ID}>
-                          <button
-                            id={project.ID}
-                            className={`websiteBtn ${activeProject === project.ID ? 'active' : ''}`}
-                            onClick={() => handleProjectClick(project.ID)}
-                          >
-                            <span className="websiteIcon"></span>
-                            <em className="websiteName">{project.TITLE}</em>
-                          </button>
-                        </li>
-                      ))}
-                    </ul>
-                  </details>
+                  groupedProjects[year].length > 0 && (
+                    <details key={year}>
+                      <summary>{year}</summary>
+                      <ul>
+                        {groupedProjects[year].map((project) => (
+                          <li className='websiteList' key={project.ID}>
+                            <button
+                              id={project.ID}
+                              className={`websiteBtn ${activeProject === project.ID ? 'active' : ''}`}
+                              onClick={() => handleProjectClick(project.ID)}
+                            >
+                              <span className="websiteIcon"></span>
+                              <em className="websiteName">{project.TITLE}</em>
+                            </button>
+                          </li>
+                        ))}
+                      </ul>
+                    </details>
+                  )
                 ))}
               </ul>
             </div>

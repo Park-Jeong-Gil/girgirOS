@@ -1,5 +1,3 @@
-// 내가 디테일하게 뭘 담당했고 어떤 문제가 있었고 어떻게 풀어냈고 등등 개발적인 내용은 별로 없어서
-
 const projects = {
   KG: {
     ID:'kg',
@@ -249,6 +247,437 @@ const projects = {
         <p><strong>Raving Goblins</strong> NFT 발행을 위해 개발된 웹페이지 입니다. </p>
         <p>리액트를 기반으로 프론트 엔드를 작업을 담당 했으며, 특히 css 애니메이션을 적극 사용하여 픽셀 아트 컨셉을 극대화 했습니다. MINT 영역은 가챠 머신을 통해 실제 opensea 지갑에 추가가 될 수 있도록 벡엔드와 연동이 되어있습니다. (현재는 작동x)</p>
         <p>MINT 버튼을 누름과 동시에 각 단계별로 애니메이션과 음원 소스가 게임처럼 재생 될 수 있도록 상태를 업데이트 해가면서 작업 했습니다.</p>
+      </div>
+    `,
+  },
+  JANGSU: {
+    ID:'jangsu',
+    DATE:'2021.10',
+    TITLE: '장수문화원 웹사이트',
+    SRC: 'https://jangsuculture.or.kr/',
+    DESCRIPTION: `
+      <header class="siteHeader">
+        <h3>프로젝트 : <strong>장수문화원 웹사이트 리뉴얼</strong></h3>
+        <p>
+          작업 기간 : 
+          <time datetime="2021-09">2021년 9월</time> ~ 
+          <time datetime="2021-10">2021년 10월</time>
+        </p>
+        <p class="skill">사용기술 : HTML, CSS, Javascript, React</p>
+      </header>
+      <div class="siteDesc">
+        <p>전북 장수에 있는 장수 문화원 홈페이지 리뉴얼 작업 참여 했습니다.</p>
+      </div>
+    `,
+  },
+  GALAXY_Zflip3: {
+    ID:'flip3',
+    DATE:'2021.08',
+    TITLE: 'Galaxy Z Flip3 Unpacked',
+    SRC: '#',
+    DESCRIPTION: `
+      <header class="siteHeader">
+        <h3>프로젝트 : <strong>Galaxy Z Flip3 Unpacked</strong></h3>
+        <p>
+          작업 기간 : 
+          <time datetime="2021-06">2021년 6월</time> ~ 
+          <time datetime="2021-08">2021년 8월</time>
+        </p>
+        <p class="skill">사용기술 : HTML, CSS, Javascript, three.js</p>
+      </header>
+      <div class="siteDesc">
+        <p>Galaxy Z Flip3 글로벌 페이지 개발, 삼성닷컴 80여개국 동시 언팩 프로젝트 참여</p>
+      </div>
+    `,
+  },
+  GALAXY_20211H: {
+    ID:'galaxy20211h',
+    DATE:'2021.06',
+    TITLE: 'Samsung Galaxy Global 공식 페이지 운영 (2021 1H)',
+    SRC: '#',
+    DESCRIPTION: `
+      <header class="siteHeader">
+        <h3>프로젝트 : <strong>Samsung Galaxy Global 공식 페이지 운영 (2021 1H)</strong></h3>
+        <p>
+          작업 기간 : 
+          <time datetime="2021-01">2021년 1월</time> ~ 
+          <time datetime="2021-06">2021년 6월</time>
+        </p>
+        <p class="skill">사용기술 : HTML, CSS, Javascript</p>
+      </header>
+      <div class="siteDesc">
+        <p>Samsung Galaxy Global 공식 페이지 운영 및 유지보수 작업</p>
+      </div>
+    `,
+  },
+  GALAXY_S21: {
+    ID:'galaxyS21',
+    DATE:'2021.06',
+    TITLE: 'Galaxy S21 Series Unpacked',
+    SRC: '#',
+    DESCRIPTION: `
+      <header class="siteHeader">
+        <h3>프로젝트 : <strong>Galaxy S21 Series Unpacked</strong></h3>
+        <p>
+          작업 기간 : 
+          <time datetime="2020-12">2020년 12월</time> ~ 
+          <time datetime="2021-01">2021년 1월</time>
+        </p>
+        <p class="skill">사용기술 : HTML, CSS, Javascript, Gulp</p>
+      </header>
+      <div class="siteDesc">
+        <p>Galaxy S21 Series 글로벌 페이지 개발, 삼성닷컴 80여개국 동시 언팩 프로젝트 참여</p>
+      </div>
+    `,
+  },
+  GALAXY_20202H: {
+    ID:'galaxy20202h',
+    DATE:'2020.12',
+    TITLE: 'Samsung Galaxy Global 공식 페이지 운영 (2020 2H)',
+    SRC: '#',
+    DESCRIPTION: `
+      <header class="siteHeader">
+        <h3>프로젝트 : <strong>Samsung Galaxy Global 공식 페이지 운영 (2020 2H)</strong></h3>
+        <p>
+          작업 기간 : 
+          <time datetime="2020-09">2020년 9월</time> ~ 
+          <time datetime="2020-12">2021년 1월</time>
+        </p>
+        <p class="skill">사용기술 : HTML, CSS, Javascript</p>
+      </header>
+      <div class="siteDesc">
+        <p>Samsung Galaxy Global 공식 페이지 운영 및 유지보수 작업</p>
+      </div>
+    `,
+  },
+  GALAXY_Zfold2: {
+    ID:'galaxyZfold2',
+    DATE:'2020.09',
+    TITLE: 'Galaxy Z Fold2 Unpacked',
+    SRC: '#',
+    DESCRIPTION: `
+      <header class="siteHeader">
+        <h3>프로젝트 : <strong>Galaxy Z Fold2 Unpacked</strong></h3>
+        <p>
+          작업 기간 : 
+          <time datetime="2020-08">2020년 8월</time> ~ 
+          <time datetime="2020-09">2021년 9월</time>
+        </p>
+        <p class="skill">사용기술 : HTML, CSS, Javascript</p>
+      </header>
+      <div class="siteDesc">
+        <p>Galaxy Z Fold2 글로벌 페이지 개발, 삼성닷컴 80여개국 동시 언팩 프로젝트 참여</p>
+      </div>
+    `,
+  },
+  GALAXY_note20: {
+    ID:'galaxyNote20',
+    DATE:'2020.08',
+    TITLE: 'Galaxy Note20 Unpacked',
+    SRC: '#',
+    DESCRIPTION: `
+      <header class="siteHeader">
+        <h3>프로젝트 : <strong>Galaxy Note20 Unpacked</strong></h3>
+        <p>
+          작업 기간 : 
+          <time datetime="2020-06">2020년 6월</time> ~ 
+          <time datetime="2020-08">2021년 8월</time>
+        </p>
+        <p class="skill">사용기술 : HTML, CSS, Javascript</p>
+      </header>
+      <div class="siteDesc">
+        <p>Galaxy Note20 글로벌 페이지 개발, 삼성닷컴 80여개국 동시 언팩 프로젝트 참여</p>
+      </div>
+    `,
+  },
+  ENUMNET: {
+    ID:'enumnet',
+    DATE:'2020.01',
+    TITLE: '이넘넷 홈페이지 리뉴얼 개발',
+    SRC: 'http://www.enumnet.com/',
+    DESCRIPTION: `
+      <header class="siteHeader">
+        <h3>프로젝트 : <strong>이넘넷 홈페이지 리뉴얼 개발</strong></h3>
+        <p>
+          작업 기간 : 
+          <time datetime="2019-12">2019년 12월</time> ~ 
+          <time datetime="2020-01">2020년 1월</time>
+        </p>
+        <p class="skill">사용기술 : HTML, CSS, Javascript</p>
+      </header>
+      <div class="siteDesc">
+        <p>이미지 프로세싱과 SI, 솔루션을 개발 및 제공하는 이넘넷 홈페이지 개발</p>
+        <p>직접 디자인과 개발을 진행 했으며, 서비스 영역별로 최대한 직관적인 정보 전달을 하는데에 중점을 두고 프로젝트를 진행 했습니다.</p>
+      </div>
+    `,
+  },
+  BROADCAST: {
+    ID:'broadcast',
+    DATE:'2019.10',
+    TITLE: '방통위 전자 심의 시스템 개발',
+    SRC: '#',
+    DESCRIPTION: `
+      <header class="siteHeader">
+        <h3>프로젝트 : <strong>방통위 전자 심의 시스템 개발</strong></h3>
+        <p>
+          작업 기간 : 
+          <time datetime="2019-09">2019년 9월</time> ~ 
+          <time datetime="2019-10">2019년 10월</time>
+        </p>
+        <p class="skill">사용기술 : HTML, CSS, Javascript</p>
+      </header>
+      <div class="siteDesc">
+        <p>이미지 프로세싱과 SI, 솔루션을 개발 및 제공하는 이넘넷 홈페이지 개발</p>
+        <p>직접 디자인과 개발을 진행 했으며, 서비스 영역별로 최대한 직관적인 정보 전달을 하는데에 중점을 두고 프로젝트를 진행 했습니다.</p>
+      </div>
+    `,
+  },
+  ENUMCUT: {
+    ID:'enumcut',
+    DATE:'2019.07',
+    TITLE: '이넘컷 홈페이지 리뉴얼',
+    SRC: '#',
+    DESCRIPTION: `
+      <header class="siteHeader">
+        <h3>프로젝트 : <strong>이넘컷 홈페이지 리뉴얼</strong></h3>
+        <p>
+          작업 기간 : 
+          <time datetime="2019-05">2019년 5월</time> ~ 
+          <time datetime="2019-07">2019년 7월</time>
+        </p>
+        <p class="skill">사용기술 : HTML, CSS, Javascript</p>
+      </header>
+      <div class="siteDesc">
+        <p>이미지 배경 제거 서비스 이넘컷 홈페이지의 디자인 리뉴얼 및 퍼블리싱 개발</p>
+        <p>전반적인 디자인을 수정하며 무엇보다 부족했던 동적 요소들을 추가 개발 했습니다.</p>
+      </div>
+    `,
+  },
+  LAWYER: {
+    ID:'lawyer',
+    DATE:'2019.05',
+    TITLE: '법률 사무소 웹 클라우드 개발',
+    SRC: '#',
+    DESCRIPTION: `
+      <header class="siteHeader">
+        <h3>프로젝트 : <strong>법률 사무소 웹 클라우드 개발</strong></h3>
+        <p>
+          작업 기간 : 
+          <time datetime="2019-04">2019년 4월</time> ~ 
+          <time datetime="2019-05">2019년 5월</time>
+        </p>
+        <p class="skill">사용기술 : HTML, CSS, Javascript</p>
+      </header>
+      <div class="siteDesc">
+        <p>강남 소재의 법률 사무소에서 사건 자료를 저장하고 관리하는 웹 클라우드 솔루션 개발</p>
+        <p>클라우드 서비스에 맞춘 자체 디렉토리, 확장자 별 아이콘 등 디자인 작업과 드래그 앤 드롭, 파일 등록, 검색 결과 화면 등 UI/UX 개발을 진행 했습니다.</p>
+      </div>
+    `,
+  },
+  FLOWYLINE: {
+    ID:'flowyline',
+    DATE:'2019.02',
+    TITLE: 'flowyline 홈페이지 개발',
+    SRC: '#',
+    DESCRIPTION: `
+      <header class="siteHeader">
+        <h3>프로젝트 : <strong>flowyline 홈페이지 개발</strong></h3>
+        <p>
+          작업 기간 : 
+          <time datetime="2019-02">2019년 2월</time> ~ 
+          <time datetime="2019-02">2019년 2월</time>
+        </p>
+        <p class="skill">사용기술 : HTML, CSS, Javascript, WordPress</p>
+      </header>
+      <div class="siteDesc">
+        <p>호주에서 영업 중인 수작업 가구 회사 홈페이지 개발</p>
+        <p>WordPress를 기반으로 개발 했으며, 제품 홍보용 브로셔를 홈페이지내에서 바로 볼 수 있는 뷰어를 제공하는 기능을 추가 했습니다.</p>
+      </div>
+    `,
+  },
+  HOOK: {
+    ID:'hook',
+    DATE:'2019.02',
+    TITLE: '훅깬당 홈페이지 개발',
+    SRC: '#',
+    DESCRIPTION: `
+      <header class="siteHeader">
+        <h3>프로젝트 : <strong>훅깬당 홈페이지 개발</strong></h3>
+        <p>
+          작업 기간 : 
+          <time datetime="2019-01">2019년 1월</time> ~ 
+          <time datetime="2019-02">2019년 2월</time>
+        </p>
+        <p class="skill">사용기술 : HTML, CSS, Javascript</p>
+      </header>
+      <div class="siteDesc">
+        <p>승리를 모델로 내세운 숙취 해소 제품을 소개하는 홈페이지 개발</p>
+        <p>모델 이미지 보정 부터 제품 상세 페이지 디자인 까지 패키지 디자인를 제외 거의 모든 작업 담당 했습니다.</p>
+        <p>* 작업이 끝날 쯤에 버닝썬 게이트가 점점 커지면서 결국 서비스 오픈이 무산 되었습니다. </p>
+      </div>
+    `,
+  },
+  BRANDIN: {
+    ID:'brandin',
+    DATE:'2018.12',
+    TITLE: '브랜딘 홈페이지 개발',
+    SRC: 'http://www.brand-in.kr/',
+    DESCRIPTION: `
+      <header class="siteHeader">
+        <h3>프로젝트 : <strong>브랜딘 홈페이지 개발</strong></h3>
+        <p>
+          작업 기간 : 
+          <time datetime="2018-12">2018년 12월</time> ~ 
+          <time datetime="2018-12">2018년 12월</time>
+        </p>
+        <p class="skill">사용기술 : HTML, CSS, Javascript, WordPress</p>
+      </header>
+      <div class="siteDesc">
+        <p>패키지 디자인 및 브랜딩을 전문으로 하는 Brandin' 홈페이지 개발을 진행 했습니다.</p>
+      </div>
+    `,
+  },
+  NOAH: {
+    ID:'noah',
+    DATE:'2018.12',
+    TITLE: '노아베이커리 홈페이지 개발',
+    SRC: '#',
+    DESCRIPTION: `
+      <header class="siteHeader">
+        <h3>프로젝트 : <strong>노아베이커리 홈페이지 개발</strong></h3>
+        <p>
+          작업 기간 : 
+          <time datetime="2018-11">2018년 11월</time> ~ 
+          <time datetime="2018-12">2018년 12월</time>
+        </p>
+        <p class="skill">사용기술 : HTML, CSS, Javascript</p>
+      </header>
+      <div class="siteDesc">
+        <p>압구정 3대 베이커리 중 하나인 노아 베이커리 홈페이지 개발을 진행 했습니다.</p>
+      </div>
+    `,
+  },
+  BURNINGSUN: {
+    ID:'burningsun',
+    DATE:'2018.05',
+    TITLE: '클럽 버닝썬',
+    SRC: '#',
+    DESCRIPTION: `
+      <header class="siteHeader">
+        <h3>프로젝트 : <strong>클럽 버닝썬</strong></h3>
+        <p>
+          작업 기간 : 
+          <time datetime="2018-03">2018년 3월</time> ~ 
+          <time datetime="2018-05">2018년 5월</time>
+        </p>
+        <p class="skill">사용기술 : HTML, CSS, Javascript, WordPress</p>
+      </header>
+      <div class="siteDesc">
+        <p>강남 메르디앙 호텔에 있'던' 클럽 버닝썬 홈페이지 개발</p>
+        <p>클럽 버닝썬 오픈 전 부터 홍보 포스터, 타임 테이블, 메뉴판 등 디자인 작업도 진행 했습니다.</p>
+        <p>한낱 홈페이지 작업자에 불과했던 저는 아무런 관련이 없습니다.</p>
+      </div>
+    `,
+  },
+  DCTOMENC: {
+    ID:'dctomenc',
+    DATE:'2017.12',
+    TITLE: 'DCTOM E&C 홈페이지 개발',
+    SRC: '#',
+    DESCRIPTION: `
+      <header class="siteHeader">
+        <h3>프로젝트 : <strong>DCTOM E&C 홈페이지 개발</strong></h3>
+        <p>
+          작업 기간 : 
+          <time datetime="2017-12">2017년 12월</time> ~ 
+          <time datetime="2017-12">2017년 12월</time>
+        </p>
+        <p class="skill">사용기술 : HTML, CSS, Javascript</p>
+      </header>
+      <div class="siteDesc">
+        <p>마케팅과 브랜딩, 영상 촬영 및 제작을 하는 DCTOM E&C 홈페이지 개발을 진행 했습니다.</p>
+      </div>
+    `,
+  },
+  DCTOMTOUR: {
+    ID:'dctomtour',
+    DATE:'2017.10',
+    TITLE: '디씨톰 투어 홈페이지 개발',
+    SRC: '#',
+    DESCRIPTION: `
+      <header class="siteHeader">
+        <h3>프로젝트 : <strong>디씨톰 투어 홈페이지 개발</strong></h3>
+        <p>
+          작업 기간 : 
+          <time datetime="2017-10">2017년 10월</time> ~ 
+          <time datetime="2017-10">2017년 10월</time>
+        </p>
+        <p class="skill">사용기술 : HTML, CSS, Javascript</p>
+      </header>
+      <div class="siteDesc">
+        <p>태국 바우처 판매를 전문으로 서비스 하는 홈페이지를 개발 했습니다.</p>
+        <p>바우처 상세 페이지 디자인도 겸하여 작업 했습니다.</p>
+      </div>
+    `,
+  },
+  DCTOMENT: {
+    ID:'dctoment',
+    DATE:'2017.09',
+    TITLE: 'DCTOM ENTERTAINMENT 홈페이지 개발',
+    SRC: '#',
+    DESCRIPTION: `
+      <header class="siteHeader">
+        <h3>프로젝트 : <strong>DCTOM ENTERTAINMENT 홈페이지 개발</strong></h3>
+        <p>
+          작업 기간 : 
+          <time datetime="2017-07">2017년 7월</time> ~ 
+          <time datetime="2017-09">2017년 9월</time>
+        </p>
+        <p class="skill">사용기술 : HTML, CSS, Javascript, WordPress</p>
+      </header>
+      <div class="siteDesc">
+        <p>DCTOM 아티스트 PR용 엔터테인먼트 홈페이지를 개발 했습니다.</p>
+      </div>
+    `,
+  },
+  MARKTOURCAR: {
+    ID:'marktourcar',
+    DATE:'2017.09',
+    TITLE: '마크투어카 홈페이지 개발',
+    SRC: '#',
+    DESCRIPTION: `
+      <header class="siteHeader">
+        <h3>프로젝트 : <strong>마크투어카 홈페이지 개발</strong></h3>
+        <p>
+          작업 기간 : 
+          <time datetime="2017-07">2017년 7월</time> ~ 
+          <time datetime="2017-09">2017년 9월</time>
+        </p>
+        <p class="skill">사용기술 : HTML, CSS, Javascript</p>
+      </header>
+      <div class="siteDesc">
+        <p>태국에서 정식 승인 받은 픽업 렌터카, 바우처 판매 서비스를 제공하는 홈페이지를 개발 했습니다.</p>
+        <p>바우처 상세 페이지 디자인 작업도 진행 했습니다.</p>
+      </div>
+    `,
+  },
+  EDU: {
+    ID:'edu',
+    DATE:'2017.03',
+    TITLE: '어린이 교육 학원 홈페이지 개발',
+    SRC: '#',
+    DESCRIPTION: `
+      <header class="siteHeader">
+        <h3>프로젝트 : <strong>어린이 교육 학원 홈페이지 개발</strong></h3>
+        <p>
+          작업 기간 : 
+          <time datetime="2016-08">2016년 8월</time> ~ 
+          <time datetime="2017-03">2017년 3월</time>
+        </p>
+        <p class="skill">사용기술 : HTML, CSS, Javascript</p>
+      </header>
+      <div class="siteDesc">
+        <p>여러 어린이 교육 사업자 (속셈 학원, 태권도 도장 등)에 아동 심리 테스트와 동화 서비스를 제공하는 홈페이지를 개발 했습니다.</p>
       </div>
     `,
   },
