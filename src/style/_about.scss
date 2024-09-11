@@ -34,6 +34,10 @@
       margin: vw(16) 0 vw(10);
       -webkit-font-smoothing:none; text-rendering:none;
 
+      @include pcUnder{
+        letter-spacing: -0.25vw
+      }
+
       > span{
         color:#fff;
       }
@@ -99,7 +103,20 @@
       display: flex; justify-content: flex-end; gap:vw(12);
       margin-top: auto; padding-top: vw(20); 
       border-top: vw(1) solid #fff;
-      box-shadow: 0 vw(-1) 0 rgb(128, 128, 128);
+      position: relative;
+
+      &::after{
+        content: '';
+        position: absolute; top: -2px; left: 0;
+        display: block;
+        width: 100%; height: vw(1);
+        background: rgb(128, 128, 128);
+        z-index: -1;
+
+        @include pcUnder{
+          top: -0.2vw;
+        }
+      }
 
       button{
         min-width: vw(150);

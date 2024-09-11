@@ -193,6 +193,7 @@
         width: vw(21); height: vw(23); margin-right: vw(4); 
         flex-shrink: 0;
         background: url('../assets/images/common/website-list-icon.png') no-repeat center / contain;
+        image-rendering: auto;
       }
 
       .websiteName{padding: vw(2) vw(4); font-style: normal; text-align: left;}

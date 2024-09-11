@@ -14,5 +14,18 @@
     @include parent-selector('.DeskTopScreen', '.loaded') {
       opacity: 1;
     }
+
+    .background{
+      position: absolute; top:0; left:0;
+      width: 100%; height: 100%;
+    }
+  }
+
+  .dragBox{
+    position: absolute;
+    border: 1px dashed #000;
+    background-color: rgba(0, 0, 255, 0.1);
+    pointer-events: none;
+    z-index: 0;
   }
 }

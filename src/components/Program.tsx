@@ -218,6 +218,7 @@ function Program({ name, programId, layer, initialSize }: ProgramProps) {
       position={position}
       onDrag={(_e: DraggableEvent, data: DraggableData) => setPosition({ x: data.x, y: data.y })}
       disabled={isMaximized}
+      cancel=".title-bar-controls button" 
     >
       <section
         className={`ProgramWindow window${isMaximized ? ' maximized' : ''}`}
@@ -228,7 +229,7 @@ function Program({ name, programId, layer, initialSize }: ProgramProps) {
           height: isMaximized ? "100%" : size.height,
           top: isMaximized ? 0 : undefined,
           left: isMaximized ? 0 : undefined,
-          zIndex: layer,
+          zIndex: layer + 1,
         }}
         onFocus={handleFocus}
         tabIndex={0}
@@ -237,9 +238,9 @@ function Program({ name, programId, layer, initialSize }: ProgramProps) {
           <header className="title-bar">
             <h2 className="title-bar-text">{name}</h2>
             <div className="title-bar-controls">
-              <button aria-label="Minimize" onClick={handleMinimize}></button>
-              <button aria-label={`${isMaximized ? 'Restore' : 'Maximize'}`} onClick={handleMaximize}></button>
-              <button aria-label="Close" onClick={handleClose}></button>
+              <button aria-label="Minimize" onClick={handleMinimize} onMouseDown={(e) => e.stopPropagation()} onTouchStart={(e) => e.stopPropagation()}></button>
+              <button aria-label={`${isMaximized ? 'Restore' : 'Maximize'}`} onClick={handleMaximize} onMouseDown={(e) => e.stopPropagation()} onTouchStart={(e) => e.stopPropagation()}></button>
+              <button aria-label="Close" onClick={handleClose} onMouseDown={(e) => e.stopPropagation()} onTouchStart={(e) => e.stopPropagation()}></button>
             </div>
           </header>
           <div className="window-body">

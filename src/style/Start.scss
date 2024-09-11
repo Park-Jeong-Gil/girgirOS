@@ -25,12 +25,16 @@
   @mixin startDivition {
     position: absolute;
     top: vw(3);
-    right: vw(-10);
+    right: -12.5px;
     height: calc(100% - vw(6));
     width: vw(3);
     background-color: #bbc3c4;
     content: "";
     box-shadow: inset vw(-1) vw(-1) 0 #808088, inset vw(1) vw(1) 0 #ffffff;
+
+    @include pcUnder{
+      right: -1.25vw;
+    }
   }
 
   .startWrap{
@@ -189,10 +193,15 @@
       overflow: hidden;
       white-space: nowrap;
       text-overflow: ellipsis;
+      text-shadow: none;
 
       span{
         position: relative;
-        top: vw(-4);
+        top: -4px;
+
+        @include pcUnder{
+          top: -0.4vw;
+        }
       }
 
       &:before {
@@ -212,6 +221,10 @@
         box-shadow: inset vw(-1) vw(-1) 0 #ffffff, inset vw(1) vw(1) 0 #0c0c0c, inset vw(-2) vw(-2) 0 #bbc3c4, inset vw(2) vw(2) 0 #808088;
         font-weight: 600;
 
+      }
+
+      &:active{
+        padding-top: vw(2);
       }
     }
   }

@@ -1,4 +1,5 @@
 #websiteApp{
+  height: auto !important;
   button[aria-label="Maximize"],
   .handleWrap{display: none;}
 
@@ -8,17 +9,7 @@
   }
 
   menu[role=tablist]>li{
-    &[aria-selected="true"]>span{
-      text-shadow:none;
-      color:#000;
-    }
 
-    span{
-      margin: vw(14);
-      font-size: vw(13); font-weight: 200;
-      text-shadow: vw(1) vw(1) 0 #fff;
-      color:gray;
-    }
   }
 
   .tabpanel{
@@ -41,7 +32,7 @@
         position: absolute; top: vw(24); left: vw(18);
         display: inline-block;
         width: vw(182);
-        height: vw(128);
+        height: vw(130);
         background: url('../assets/images/common/monitor-screen.png') no-repeat center / contain;
 
         &[data-screen]{ background: url('../assets/images/common/monitor-screen.png') no-repeat center / cover #000; }
@@ -184,6 +175,7 @@
         display: inline-block;
         width: vw(21); height: vw(23); margin-right: vw(4);
         background: url('../assets/images/common/website-list-icon.png') no-repeat center / contain;
+        image-rendering: auto;
       }
 
       .websiteName{padding: vw(2) vw(4); font-style: normal;}

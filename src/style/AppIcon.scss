@@ -30,7 +30,7 @@
     }
   }
 
-  &:focus{
+  &:focus, &.focused{
     outline: none;
 
     .iconImage{

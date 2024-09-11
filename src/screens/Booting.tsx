@@ -34,7 +34,7 @@ function Booting() {
     }, 1000);
 
     const autoBootingTimer = setTimeout(() => {
-      if (autoTimer && !isMobile) {
+      if (autoTimer) {
         setSystemStatus('loading');
       }
     }, 9000);
@@ -175,10 +175,7 @@ function Booting() {
               <p className='biosLine'></p>
               <p className='biosLine'></p>
               <div className='biosLine'>
-                {isMobile ? 
-                <p className=' isMobile'>모바일 페이지는 아직 준비중 입니다. PC로 확인 부탁 드리겠습니다.</p> :
                 <p className='endLine'>Press <button id='enterPortfolio' onClick={enterPress} ><strong>&lt;Enter&gt;</strong></button> Key to Continue... </p>
-                }
               </div>
             </>
           )}

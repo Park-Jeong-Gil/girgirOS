@@ -46,6 +46,11 @@ section.window {
     button[aria-label=Close]{
       margin: 0;
     }
+
+    @include pcUnder{
+      button { margin: 0.2vw;}
+      button[aria-label=Close] {margin: 0.2vw; background-position: center;}
+    }
   }
 
   .container{
@@ -77,6 +82,12 @@ section.window {
     width: 10px;
     height: 100%;
     cursor: ew-resize;
+
+    @include pcUnder{
+      top: -8px;
+      right: -8px;
+      height: calc(100% + 16px);
+    }
   }
   
   &.bottom {
@@ -85,6 +96,12 @@ section.window {
     width: 100%;
     height: 10px;
     cursor: ns-resize !important;
+
+    @include pcUnder{
+      bottom: -8px;
+      left: -8px;
+      width: calc(100% + 16px);
+    }
   }
   
   &.bottom-right {
@@ -93,6 +110,12 @@ section.window {
     width: 10px;
     height: 10px;
     cursor: nwse-resize !important;
+
+    @include pcUnder{
+      bottom: -8px;
+      right: -8px;
+      // width: calc(100% + 16px);
+    }
   }
   
   &.left {
@@ -101,6 +124,12 @@ section.window {
     width: 10px;
     height: 100%;
     cursor: ew-resize !important;
+
+    @include pcUnder{
+      top: -8px;
+      left: -8px;
+      height: calc(100% + 16px);
+    }
   }
   
   &.top {
@@ -109,6 +138,12 @@ section.window {
     width: 100%;
     height: 10px;
     cursor: ns-resize !important;
+
+    @include pcUnder{
+      top: -8px;
+      left: -8px;
+      width: calc(100% + 16px);
+    }
   }
   
   &.top-left {
@@ -117,6 +152,12 @@ section.window {
     width: 10px;
     height: 10px;
     cursor: nwse-resize !important;
+
+
+    @include pcUnder{
+      top: -8px;
+      left: -8px;
+    }
   }
   
   &.top-right {
@@ -125,6 +166,11 @@ section.window {
     width: 10px;
     height: 10px;
     cursor: nesw-resize !important;
+
+    @include pcUnder{
+      top: -8px;
+      right: -8px;
+    }
   }
   
   &.bottom-left {
@@ -133,5 +179,10 @@ section.window {
     width: 10px;
     height: 10px;
     cursor: nesw-resize !important;
+
+    @include pcUnder{
+      bottom: -8px;
+      left: -8px;
+    }
   }
 }

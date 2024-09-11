@@ -1,8 +1,9 @@
-import { useCallback, useEffect } from "react";
+import { useEffect, useCallback, forwardRef } from "react";
 import { contact, programs, works } from "../constants/desktopData";
 import { useRecoilState } from "recoil";
 import { currentAlert, currentProgram, programStatus } from "../store/useProgramStatus";
 
+// forwardRef 사용을 위해 수정
 interface IconProps {
   type: string;
   id: string;
@@ -10,7 +11,7 @@ interface IconProps {
   desc: string;
 }
 
-function Icon({ type, id, name, desc }: IconProps) {
+const Icon = forwardRef<HTMLButtonElement, IconProps>(({ type, id, name, desc }, ref) => {
   const [programArr, setProgramArr] = useRecoilState(programStatus);
   const [activeProgram, setActiveProgram] = useRecoilState(currentProgram);
   const [, setActiveAlert] = useRecoilState(currentAlert);
@@ -30,17 +31,14 @@ function Icon({ type, id, name, desc }: IconProps) {
 
         const defaultSize = { width: 840, height: 600 };
 
-        const size =  worksData?.SIZE ||
-                      contactData?.SIZE ||
-                      programData?.SIZE ||
-                      defaultSize;
+        const size = worksData?.SIZE || contactData?.SIZE || programData?.SIZE || defaultSize;
 
         if (programData || contactData || worksData) {
           setProgramArr(prevArr => [
             ...prevArr,
             { program: programKey, name: iconName, initialSize: size }
           ]);
-          
+
           setActiveProgram(programKey);
         } else {
           console.error(`Program or contact data not found for key: ${programKey}`);
@@ -48,7 +46,6 @@ function Icon({ type, id, name, desc }: IconProps) {
       }
     } else if (target.classList.contains('alert')) {
       setActiveAlert(prevArr => {
-        // Avoid duplicate alerts
         if (prevArr.some(alert => alert.id === programKey)) {
           return prevArr;
         }
@@ -75,13 +72,12 @@ function Icon({ type, id, name, desc }: IconProps) {
         console.error(`Link not found for key: ${programKey}`);
       }
     }
-    
+
     setActiveProgram(programKey);
 
-    const $progWindow = document.querySelector(`#${programKey}App`)
-
-    if($progWindow && $progWindow.classList.contains('minimized')){
-      $progWindow.classList.remove('minimized')
+    const $progWindow = document.querySelector(`#${programKey}App`);
+    if ($progWindow && $progWindow.classList.contains('minimized')) {
+      $progWindow.classList.remove('minimized');
     }
   }, [programArr, setProgramArr, setActiveProgram, setActiveAlert]);
 
@@ -112,14 +108,15 @@ function Icon({ type, id, name, desc }: IconProps) {
         activeProg?.classList.add('active');
       }
     }
+
   }, [activeProgram]);
 
   return (
-    <button id={id} className={`appIcon ${type}`} title={desc}>
+    <button ref={ref} id={id} className={`appIcon ${type}`} title={desc}>
       <span className="iconImage"></span>
       <span className="iconName">{name}</span>
     </button>
   );
-}
+});
 
 export default Icon;

@@ -43,6 +43,7 @@ function Alert({ id, name, description, layer }: AlertProps) {
       handle=".title-bar"
       position={position}
       onDrag={(_e: DraggableEvent, data: DraggableData) => setPosition({ x: data.x, y: data.y })}
+      cancel=".title-bar-controls button" 
     >
       <div
         id={`${id}Alert`}
@@ -54,7 +55,7 @@ function Alert({ id, name, description, layer }: AlertProps) {
         <div className="title-bar">
           <h2 className="title-bar-text"> {name} </h2>
           <div className="title-bar-controls">
-            <button aria-label="Close" onClick={handleClose}></button>
+            <button aria-label="Close" onClick={handleClose} onMouseDown={(e) => e.stopPropagation()} onTouchStart={(e) => e.stopPropagation()}></button>
           </div>
         </div>
         <div className="window-body">

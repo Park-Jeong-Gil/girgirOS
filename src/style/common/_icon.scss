@@ -119,7 +119,7 @@
     }
   }
 
-  &:focus{
+  &:focus, &.focused{
     &#myPc .iconImage{
       &::before{ 
         mask-image: url("../assets/images/common/my-computer-48x48.png");
