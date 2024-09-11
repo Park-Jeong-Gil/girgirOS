@@ -1,9 +1,9 @@
 .appIcon{
   position: relative;
   display: flex; flex-direction: column;
-  width: 88px; height: auto; min-width: auto;
+  width: vw(88); height: auto; min-width: auto;
   background-color: transparent;
-  margin: 18px 8px; padding: 0px;
+  margin: vw(18) vw(8); padding: 0;
   box-shadow: none;
   color: #fff;
 
@@ -15,11 +15,11 @@
   span.iconName{
     width: auto;
     align-self: center; text-align: center;
-    padding: 3px 6px 2px;
+    padding: vw(3) vw(6) vw(2);
     word-break: keep-all;
-    font-size: 15px; 
+    font-size: vw(15); 
     font-weight: 400;
-    text-shadow: 1px 1px 0 #000;
+    text-shadow: vw(1) vw(1) 0 #000;
 
     @at-root .ProgramWindow &{
       text-shadow: none;
@@ -49,8 +49,8 @@
     span.iconName {
       background-color: #0000a2;
       color: #ffffff;
-      outline: 1px dotted #ffffff;
-      outline-offset: -1px;
+      outline: vw(1) dotted #ffffff;
+      outline-offset: -vw(1);
     }
   }
 }

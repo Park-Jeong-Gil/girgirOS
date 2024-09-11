@@ -44,7 +44,7 @@
 .appIcon{
   .iconImage{
     position: relative;
-    width: 55%; height: 72px;
+    width: 55%; height: vw(72);
     margin: 0 auto;
     background-image: url("../assets/images/common/file.png");
     background-repeat: no-repeat;
@@ -54,8 +54,8 @@
     @include parent-selector('.appIcon', '.link') {
       &::after{
         content: '';
-        display: inline-block; width: 15px; height: 15px;
-        position: absolute; bottom:10px; left: 1px; z-index: 2;
+        display: inline-block; width: vw(15); height: vw(15);
+        position: absolute; bottom:vw(10); left: vw(1); z-index: 2;
         background: url('../assets/images/common/shortcut-32x32.png') no-repeat center / contain;
       }
     }

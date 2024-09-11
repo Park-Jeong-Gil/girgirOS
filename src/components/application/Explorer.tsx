@@ -105,7 +105,7 @@ function Explorer({}: ExplorerProps) {
       </div>
       <div className="bodyInner">
         { activeSrc !== '' ? 
-          <iframe src={activeSrc}></iframe> :
+          <iframe className={`${isFavoritesVisible ? 'open' : ''}`} src={activeSrc}></iframe> :
           <div className="homeScreen">
             <p className="homeTit">R.I.P Internet Explorer</p>
             <p>

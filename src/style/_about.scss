@@ -1,4 +1,5 @@
 #aboutApp{
+  height: auto !important;
   font-family: "Pretendard";
   button[aria-label="Maximize"],
   .handleWrap{display: none;}
@@ -10,11 +11,12 @@
 
   .imageBox{
     display: flex;
-    width: 50%; height: 100%;
+    width: 50%; height: auto;
     align-items: center; justify-content: center;
 
     .profile{
-      width: 80%; height: 50%;
+      width: vw(258); height: vw(313);
+      max-width: 80%; height: 50%;
       background: url('../assets/images/common/profile.png') no-repeat center / contain;
       margin-bottom: auto;
       margin-top: 24%;
@@ -23,13 +25,13 @@
 
   .descBox{
     display: flex; flex-direction: column; justify-content: center;
-    width: 75%; padding: 28px 28px 28px 0;
+    width: 75%; padding: vw(28) vw(28) vw(28) 0;
 
     > strong{
       display: block;
       font-family: 'Hahmlet';
-      font-size: 36px; font-weight: 100; letter-spacing: -2.5px;
-      margin: 16px 0 10px;
+      font-size: vw(36); font-weight: 100; letter-spacing: -2.5px;
+      margin: vw(16) 0 vw(10);
       -webkit-font-smoothing:none; text-rendering:none;
 
       > span{
@@ -38,19 +40,19 @@
     }
 
     .description{
-      display: grid; grid-template-columns: 78px 1fr;
-      padding: 30px 12px;
+      display: grid; grid-template-columns: vw(78) 1fr;
+      padding: vw(30) vw(12);
       font-weight: 600;
       background: #fcfcd5;
-      box-shadow: inset -1px -1px #fff, inset 1px 1px grey, inset -2px -2px #dfdfdf, inset 2px 2px #0a0a0a;
+      box-shadow: inset vw(-1) vw(-1) #fff, inset vw(1) vw(1) grey, inset vw(-2) vw(-2) #dfdfdf, inset vw(2) vw(2) #0a0a0a;
 
       &::before{
         content: '';
         display: inline-block;
-        width: 48px; height: 48px;
+        width: vw(48); height: vw(48);
         // margin: 0 auto;
         grid-row: 1 / span 2;
-        margin-left: 8px;
+        margin-left: vw(8);
         background: url('../assets/images/common/welcom-icon.png') no-repeat center / contain;
       }
 
@@ -59,25 +61,26 @@
       }
 
       > ul{
-        margin-top: 20px;
+        margin-top: vw(20);
         list-style: disc;
-        padding-left: 12px;
+        padding-left: vw(12);
+        font-size: vw(16);
       }
     }
 
     > ul{
-      margin: 24px 0;
-      margin-left: 8px;
+      margin: vw(24) 0;
+      margin-left: vw(8);
       
       li{
-        display: flex; align-items: center; 
-        &+li{margin-top: 4px}
+        display: flex; align-items: center; font-size: vw(16);
+        &+li{margin-top: vw(4)}
         
         &:before{
           content: '';
           display: inline-block;
-          width: 20px; height: 20px;
-          margin-right: 8px;
+          width: vw(20); height: vw(20);
+          margin-right: vw(8);
           background-repeat: no-repeat;
           background-position: center;
           background-size: contain;
@@ -93,16 +96,16 @@
     }
 
     .btnWrap{
-      display: flex; justify-content: flex-end; gap:12px;
-      margin-top: auto; padding-top: 20px; 
-      border-top: 1px solid #fff;
-      box-shadow: 0px -1px 0px rgb(128, 128, 128);
+      display: flex; justify-content: flex-end; gap:vw(12);
+      margin-top: auto; padding-top: vw(20); 
+      border-top: vw(1) solid #fff;
+      box-shadow: 0 vw(-1) 0 rgb(128, 128, 128);
 
       button{
-        min-width: 150px;
-        font-size: 16px;
+        min-width: vw(150);
+        font-size: vw(16);
         color: #000;
-        padding: 8px 20px;
+        padding: vw(8) vw(20);
         text-shadow: none;
       }
     }

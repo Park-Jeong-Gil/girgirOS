@@ -24,14 +24,16 @@ function Background() {
   }, []);
 
   return (
-    <div className="Background">
-      {Object.keys(programs).map((key) => {
-        const item = programs[key as keyof typeof programs];
-        return (
-          <Icon type="application" key={item.ID} id={item.ID} name={item.NAME} desc={item.DESCRIPTION}/>
-        );
-      })}
-
+    <>
+      <menu className="Background">
+        {Object.keys(programs).map((key) => {
+          const item = programs[key as keyof typeof programs];
+          return (
+            <Icon type="application" key={item.ID} id={item.ID} name={item.NAME} desc={item.DESCRIPTION}/>
+          );
+        })}
+      </menu>
+      
       { programArr.map((prog, index) => (
         <Program
           key={prog.program}
@@ -41,11 +43,11 @@ function Background() {
           initialSize={prog.initialSize}
         />
       ))}
-      
+          
       { activeAlert.map((data, index) => (
         <Alert key={index} id={data.id} name={data.name} description={data.description} layer={index}/> 
       ))}
-    </div>
+    </>
   );
 }
 

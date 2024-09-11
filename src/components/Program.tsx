@@ -26,32 +26,33 @@ function Program({ name, programId, layer, initialSize }: ProgramProps) {
   const [resizeDirection, setResizeDirection] = useState<null | string>(null);
   const [isMaximized, setIsMaximized] = useState(false);
   const [position, setPosition] = useState({
-    x: -(size.width / 2) + (layer * 25),
-    y: -(size.height / 2) + (layer * 25),
+    x: (window.innerWidth/2) - (size.width / 2) + (layer * 25),
+    y: (window.innerHeight/2) - (size.height / 2) + (layer * 25),
   });
 
-  useEffect(() => {
-    switch (programId) {
-      case 'profile':
-        setPosition({
-          x: -(size.width / 2) + (layer * 25),
-          y: -(size.height / 2) + (layer * 25),
-        });
-        break;
-      case 'spec':
-        setPosition({
-          x: (size.width / 2) + 60,
-          y: -(size.height / 2),
-        });
-        break;
-      default:
-        setPosition({
-          x: -(size.width / 2) + (layer * 25),
-          y: -(size.height / 2) + (layer * 25),
-        }); 
-        break;
-    }
-  }, [programId]);
+
+  // useEffect(() => {
+  //   switch (programId) {
+  //     case 'profile':
+  //       setPosition({
+  //         x: -(size.width / 2) + (layer * 25),
+  //         y: -(size.height / 2) + (layer * 25),
+  //       });
+  //       break;
+  //     case 'spec':
+  //       setPosition({
+  //         x: (size.width / 2) + 60,
+  //         y: -(size.height / 2),
+  //       });
+  //       break;
+  //     default:
+  //       setPosition({
+  //         x: -(size.width / 2) + (layer * 25),
+  //         y: -(size.height / 2) + (layer * 25),
+  //       }); 
+  //       break;
+  //   }
+  // }, [programId]);
   
   const [prevPosition, setPrevPosition] = useState(position); 
   const windowRef = useRef<HTMLDivElement>(null);
@@ -175,6 +176,41 @@ function Program({ name, programId, layer, initialSize }: ProgramProps) {
       return updatedProgramArr;
     });
   };
+
+  const handleResize = () => {
+    const windowWidth = window.innerWidth;
+    
+    if (windowWidth <= 1000) {
+      // 1000px을 기준으로 현재 컴포넌트의 사이즈 비율 계산
+      const widthRatio = windowWidth / 1000;
+  
+      // 새로운 사이즈 계산
+      const newWidth = size.width * widthRatio;
+      const newHeight = size.height * widthRatio;
+  
+      setSize({
+        width: newWidth,
+        height: newHeight,
+      });
+  
+      // 새로운 포지션 설정
+      setPosition({
+        x: (windowWidth - newWidth) / 2  + (layer * 10), // 화면 너비의 절반에서 컴포넌트 너비의 절반을 뺌
+        y: (window.innerHeight - newHeight) / 2  + (layer * 10), // 화면 높이의 절반에서 컴포넌트 높이의 절반을 뺌
+      });
+    }
+  };
+  
+  
+  
+  useEffect(() => {
+    handleResize(); // 컴포넌트 마운트 시 호출
+    window.addEventListener("resize", handleResize); // 리사이즈 이벤트 등록
+
+    return () => {
+      window.removeEventListener("resize", handleResize); // 컴포넌트 언마운트 시 리사이즈 이벤트 제거
+    };
+  }, []);
 
   return (
     <Draggable

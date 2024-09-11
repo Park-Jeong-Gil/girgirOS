@@ -18,13 +18,13 @@
       &.end{display: none;}
       
       .windowLogo{
-        width: 760px; height: 500px;
+        width: vw(760); height: vw(500);
         background: url('../assets/images/common/msLogo.png') no-repeat center / contain;
       }
 
       .loadingBar{
         width: 100%;
-        height: 30px;
+        height: vw(30);
         position: absolute; bottom: 0; left: 0;
         background-color: #ddd;
 
@@ -42,7 +42,7 @@
     .flickBar{
       position: absolute; top: 5%; left: 5%;
       animation: flickBar 1s infinite;
-      font-size: 32px;
+      font-size: vw(32);
       z-index: 1;
     }
   }

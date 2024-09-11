@@ -23,6 +23,13 @@
   }
 }
 
+
+@mixin pcUnder {
+  @media (max-width: 1000px) {
+    @content;
+  }
+}
+
 @mixin Pretendard {
 	font-family: 'Pretendard';
 	letter-spacing: -0.5px;

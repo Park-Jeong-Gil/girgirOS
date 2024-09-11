@@ -1,5 +1,7 @@
 .alertWindow {
-  min-width: 250px; min-height: auto;
+  width: vw(250); min-height: auto;
+  position: absolute;
+  top:50%; left:50%;
   z-index: 30 !important;
   
   &:not(:focus){
@@ -9,7 +11,7 @@
   .title-bar{
     background: linear-gradient(90deg, navy, #1084d0);
     .title-bar-text{
-      font-size: 11px;
+      font-size: vw(11);
 
       &::before{
         background-image: url('../assets/images/common/alert.png');
@@ -18,8 +20,8 @@
   }
 
   .window-body > p{
-    margin: 32px 16px;
-    font-size: 16px;
+    margin: vw(32) vw(16);
+    font-size: vw(16);
     font-family: "W95", "Pretendard", "Segoe UI", Tahoma, Verdana, sans-serif;
     font-weight: 500;
     -webkit-font-smoothing: antialiased;
@@ -31,5 +33,10 @@
 
   .field-row{
     justify-content: center;
+
+    button{
+      font-size: vw(12);
+      width: vw(80);height: vw(24);
+    }
   }
 }
