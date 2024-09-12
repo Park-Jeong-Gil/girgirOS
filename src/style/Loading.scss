@@ -24,9 +24,10 @@
 
       .loadingBar{
         width: 100%;
-        height: vw(30);
-        position: absolute; bottom: 0; left: 0;
-        background-color: #ddd;
+        height: 30px;
+        position: fixed; bottom: 0; left: 0;
+        padding-bottom: calc(0px + env(safe-area-inset-bottom));
+        background-color: #ddd; z-index: 3;
 
         &::after{
           content: '';

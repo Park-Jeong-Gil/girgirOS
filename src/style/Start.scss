@@ -1,15 +1,14 @@
 .StartBar{
-  width: 100%; height: vw(35);
+  width: 100%; height: calc(vw(35) + env(safe-area-inset-bottom)) ;
   position: fixed;
   bottom: 0; left: 0;
   background-color: #bbc3c4;
   z-index: 30;
   box-shadow: 0 vw(-2) 0 #ffffff;
-  padding: vw(3) vw(8);
+  padding: vw(3) vw(8) calc(0px + env(safe-area-inset-bottom));
   display: flex;
   box-sizing: border-box;
   justify-content: flex-start;
-
 
   @mixin startLine {
     position: absolute;

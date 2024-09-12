@@ -31,6 +31,9 @@ function Background() {
   }, []);
 
   const handleMouseDown = (e: React.MouseEvent) => {
+    // 드래그를 .background에서만 시작하도록 설정
+    if (e.target !== e.currentTarget) return;
+
     setDragging(true);
     setStartPos({ x: e.clientX, y: e.clientY });
     setCurrentPos({ x: e.clientX, y: e.clientY });
@@ -39,7 +42,7 @@ function Background() {
       element.classList.remove('focused');
     });
 
-    setDraggingIcons(new Set()); // 드래그 시작 시 초기화
+    setDraggingIcons(new Set());
   };
 
   const handleMouseMove = (e: React.MouseEvent) => {
@@ -81,16 +84,21 @@ function Background() {
     setStartPos({ x: 0, y: 0 });
     setCurrentPos({ x: 0, y: 0 });
 
-    setDraggingIcons(new Set()); 
+    // setDraggingIcons(new Set()); 
   };
 
   useEffect(() => {
     // 상태가 업데이트될 때마다 포커스를 설정
-    draggingIcons.forEach((iconRef) => {
+    iconRefs.current.forEach((iconRef) => {
       if (iconRef) {
+        if (draggingIcons.has(iconRef)) {
         iconRef.classList.add('focused');
+        } else {
+          iconRef.classList.remove('focused');
+        }
       }
     });
+    
   }, [draggingIcons]); // draggingIcons가 변경될 때마다 호출
 
   const getBoxStyle = () => {
