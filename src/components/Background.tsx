@@ -1,6 +1,10 @@
 import { useEffect, useState, useRef } from "react";
 import { useRecoilState } from "recoil";
-import { currentAlert, currentProgram, programStatus } from "../store/useProgramStatus";
+import {
+  currentAlert,
+  currentProgram,
+  programStatus,
+} from "../store/useProgramStatus";
 import { programs } from "../constants/desktopData";
 import Program from "./Program";
 import Alert from "./Alert";
@@ -15,13 +19,25 @@ function Background() {
   const [isDragging, setIsDragging] = useState(false);
   const [startPos, setStartPos] = useState({ x: 0, y: 0 });
   const [currentPos, setCurrentPos] = useState({ x: 0, y: 0 });
-  const [draggingIcons, setDraggingIcons] = useState<Set<HTMLButtonElement | null>>(new Set()); // Set으로 변경
+  const [draggingIcons, setDraggingIcons] = useState<
+    Set<HTMLButtonElement | null>
+  >(new Set()); // Set으로 변경
   const iconRefs = useRef<(HTMLButtonElement | null)[]>([]);
 
   useEffect(() => {
     const firstProgramTime = setTimeout(() => {
       clearTimeout(firstProgramTime);
-      setProgramArr([...programArr, { program: programs.ABOUT_ME.ID, name: programs.ABOUT_ME.NAME, initialSize: { width: programs.ABOUT_ME.SIZE.width, height: programs.ABOUT_ME.SIZE.height } }]);
+      setProgramArr([
+        ...programArr,
+        {
+          program: programs.ABOUT_ME.ID,
+          name: programs.ABOUT_ME.NAME,
+          initialSize: {
+            width: programs.ABOUT_ME.SIZE.width,
+            height: programs.ABOUT_ME.SIZE.height,
+          },
+        },
+      ]);
       setActiveProgram(programs.ABOUT_ME.ID);
     }, 2500);
 
@@ -38,8 +54,8 @@ function Background() {
     setStartPos({ x: e.clientX, y: e.clientY });
     setCurrentPos({ x: e.clientX, y: e.clientY });
 
-    document.querySelectorAll('.focused').forEach((element) => {
-      element.classList.remove('focused');
+    document.querySelectorAll(".focused").forEach((element) => {
+      element.classList.remove("focused");
     });
 
     setDraggingIcons(new Set());
@@ -58,7 +74,9 @@ function Background() {
         setIsDragging(true);
 
         const dragBox = getBoxStyle();
-        const newDraggingIcons = new Set<HTMLButtonElement | null>(draggingIcons);
+        const newDraggingIcons = new Set<HTMLButtonElement | null>(
+          draggingIcons
+        );
 
         iconRefs.current.forEach((iconRef) => {
           if (iconRef) {
@@ -84,7 +102,7 @@ function Background() {
     setStartPos({ x: 0, y: 0 });
     setCurrentPos({ x: 0, y: 0 });
 
-    // setDraggingIcons(new Set()); 
+    // setDraggingIcons(new Set());
   };
 
   useEffect(() => {
@@ -92,13 +110,12 @@ function Background() {
     iconRefs.current.forEach((iconRef) => {
       if (iconRef) {
         if (draggingIcons.has(iconRef)) {
-        iconRef.classList.add('focused');
+          iconRef.classList.add("focused");
         } else {
-          iconRef.classList.remove('focused');
+          iconRef.classList.remove("focused");
         }
       }
     });
-    
   }, [draggingIcons]); // draggingIcons가 변경될 때마다 호출
 
   const getBoxStyle = () => {
@@ -116,8 +133,10 @@ function Background() {
     };
   };
 
-
-  const isElementInDragBox = (iconRect: DOMRect, dragBox: { left: number; top: number; right: number; bottom: number }) => {
+  const isElementInDragBox = (
+    iconRect: DOMRect,
+    dragBox: { left: number; top: number; right: number; bottom: number }
+  ) => {
     return (
       dragBox.left < iconRect.right &&
       dragBox.right > iconRect.left &&
@@ -127,27 +146,29 @@ function Background() {
   };
 
   return (
-    <div className="background" 
-        onMouseDown={handleMouseDown}
-        onMouseMove={handleMouseMove}
-        onMouseUp={handleMouseUp}>
+    <div
+      className="background"
+      onMouseDown={handleMouseDown}
+      onMouseMove={handleMouseMove}
+      onMouseUp={handleMouseUp}
+    >
       <menu>
         {Object.keys(programs).map((key, index) => {
           const item = programs[key as keyof typeof programs];
           return (
-            <Icon 
-              type="application" 
-              key={item.ID} 
-              id={item.ID} 
-              name={item.NAME} 
-              desc={item.DESCRIPTION} 
-              ref={(el: HTMLButtonElement | null) => (iconRefs.current[index] = el)}
+            <Icon
+              type="application"
+              key={item.ID}
+              id={item.ID}
+              name={item.NAME}
+              desc={item.DESCRIPTION}
+              ref={(el) => (iconRefs.current[index] = el)}
             />
           );
         })}
       </menu>
-      
-      { programArr.map((prog, index) => (
+
+      {programArr.map((prog, index) => (
         <Program
           key={prog.program}
           name={prog.name}
@@ -156,12 +177,18 @@ function Background() {
           initialSize={prog.initialSize}
         />
       ))}
-          
-      { activeAlert.map((data, index) => (
-        <Alert key={index} id={data.id} name={data.name} description={data.description} layer={index}/> 
+
+      {activeAlert.map((data, index) => (
+        <Alert
+          key={index}
+          id={data.id}
+          name={data.name}
+          description={data.description}
+          layer={index}
+        />
       ))}
 
-      {isDragging && <div className="dragBox" style={getBoxStyle()} />} 
+      {isDragging && <div className="dragBox" style={getBoxStyle()} />}
     </div>
   );
 }
