@@ -46,51 +46,25 @@ jobs:
             BACKUP_ROOT="${TARGET_DIR}/../backups"
             BACKUP_DIR="${BACKUP_ROOT}/backup_${timestamp}"
             
-            # TARGET_DIR 존재 확인
-            [ ! -d "${TARGET_DIR}" ] && { echo "타겟 디렉토리 없음: ${TARGET_DIR}"; exit 1; }
-            
-            # 백업 디렉토리 생성 전 권한 확인
-            mkdir -p "${BACKUP_ROOT}" || { echo "백업 루트 디렉토리 생성 실패"; exit 1; }
-            [ ! -w "${BACKUP_ROOT}" ] && { echo "백업 디렉토리 쓰기 권한 없음"; exit 1; }
-            
             # 백업 디렉토리 생성
+            mkdir -p "${BACKUP_ROOT}" || { echo "백업 루트 디렉토리 생성 실패"; exit 1; }
             mkdir -p "${BACKUP_DIR}" || { echo "백업 디렉토리 생성 실패"; exit 1; }
             
-            # 디스크 공간 확인 (여유 공간 계산)
-            SPACE_NEEDED=$(du -s "${TARGET_DIR}" | awk '{print $1}')
-            SPACE_AVAILABLE=$(df -P "${BACKUP_ROOT}" | awk 'NR==2 {print $4}')
-            
-            if [ ${SPACE_AVAILABLE} -lt ${SPACE_NEEDED} ]; then
-              echo "디스크 공간 부족 - 정리 시도"
-              find "${BACKUP_ROOT}" -maxdepth 1 -name "backup_*" -type d -mtime +7 -exec rm -rf {} \;
-              
-              # 정리 후 재확인
-              SPACE_AVAILABLE=$(df -P "${BACKUP_ROOT}" | awk 'NR==2 {print $4}')
-              [ ${SPACE_AVAILABLE} -lt ${SPACE_NEEDED} ] && { echo "여유 공간 부족"; exit 1; }
-            fi
-            
-            # 백업 수행
+            # 타겟 디렉토리로 이동
             cd "${TARGET_DIR}" || { echo "디렉토리 이동 실패"; exit 1; }
             
+            # 파일 존재 확인 및 백업 수행
             if [ -f "index.html" ] && [ -d "resources" ]; then
               echo "백업 시작: $(date)"
-              
-              # 상세 에러 로깅과 함께 복사
-              cp -pv index.html "${BACKUP_DIR}/" 2>&1 || { 
-                echo "index.html 백업 실패"
+              cp -v index.html "${BACKUP_DIR}/" && \
+              cp -rv resources "${BACKUP_DIR}/" && \
+              echo "백업 완료: ${BACKUP_DIR}" || {
+                echo "백업 실패"
                 rm -rf "${BACKUP_DIR}"
                 exit 1
               }
-              
-              cp -rpv resources "${BACKUP_DIR}/" 2>&1 || {
-                echo "resources 백업 실패"
-                rm -rf "${BACKUP_DIR}"
-                exit 1
-              }
-              
-              echo "백업 완료: ${BACKUP_DIR}"
             else
-              echo "백업 실패: 필수 파일/폴더 없음"
+              echo "백업할 파일/폴더 없음"
               rm -rf "${BACKUP_DIR}"
               exit 1
             fi
