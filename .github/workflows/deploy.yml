@@ -54,7 +54,7 @@ jobs:
             fi
             
             # 안전한 복사 (sudo 제거)
-            rsync -av --exclude='backups' "${TARGET_DIR}/" "${BACKUP_DIR}/" || {
+            rsync -av --include='index.html' --include='resources/***' --exclude='*' "${TARGET_DIR}/" "${BACKUP_DIR}/" || {
               echo "백업 실패"
               rm -rf "${BACKUP_DIR}"
               exit 1
@@ -71,6 +71,8 @@ jobs:
           source: "build/*"
           target: ${{ secrets.TARGET_DIRECTORY }}
           strip_components: 1
+          script: |
+            tar --no-same-permissions -xf SHQKwuTSgB.tar -C ${{ secrets.TARGET_DIRECTORY }}
 
       - name: Verify deployment
         uses: appleboy/ssh-action@v1.0.0
