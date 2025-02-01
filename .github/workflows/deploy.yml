@@ -72,15 +72,18 @@ jobs:
           target: ${{ secrets.TARGET_DIRECTORY }}
           strip_components: 1
 
-      - name: Fix target directory permissions
+      # 배포 후 권한 수정
+      - name: Set permissions on NAS
         uses: appleboy/ssh-action@v1.0.0
         with:
           host: ${{ secrets.SSH_HOST }}
           port: ${{ secrets.SSH_PORT }}
-          username: ${{ secrets.SSH_USERNAME }}
-          key: ${{ secrets.DEPLOY_SSH_KEY }}
+          username: ${{ secrets.SSH_USER }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
-            chmod -R 755 ${{ secrets.TARGET_DIRECTORY }}/resources
+            chmod -R 755 ${{ secrets.TARGET_DIRECTORY }}
+            chown -R www-data:www-data ${{ secrets.TARGET_DIRECTORY }}
+            echo "Permissions updated"
 
       - name: Verify deployment
         uses: appleboy/ssh-action@v1.0.0
