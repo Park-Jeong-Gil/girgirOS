@@ -1,3 +1,23 @@
+@mixin siteHeader {
+  header.siteHeader {
+    border-bottom: vw(1) solid #c1c1c1;
+    padding-bottom: vw(12);
+    margin-bottom: vw(12);
+
+    h3 {
+      font-size: vw(16);
+      font-weight: 400;
+    }
+
+    .titItem {
+      margin-right: vw(6);
+    }
+    .emoji {
+      font-size: vw(14);
+      margin-right: vw(4);
+    }
+  }
+}
 
 @mixin mo {
   @media (max-width: 767px) {
@@ -12,7 +32,7 @@
 }
 
 @mixin tablet-over {
-  @media (min-width: 768px)  {
+  @media (min-width: 768px) {
     @content;
   }
 }
@@ -23,7 +43,6 @@
   }
 }
 
-
 @mixin pcUnder {
   @media (max-width: 1000px) {
     @content;
@@ -31,83 +50,92 @@
 }
 
 @mixin Pretendard {
-	font-family: 'Pretendard';
-	letter-spacing: -0.5px;
+  font-family: "Pretendard";
+  letter-spacing: -0.5px;
 }
 
 @mixin font($name: null, $font-size: 14px, $weight: null, $line-height: null) {
-	@if type-of($name) != null {
-		font-family: $name, sans-serif;
-	}
-	font-size: $font-size;
-	line-height: 150%;
-	@if type-of($weight) != null {
-		font-weight: $weight;
-	}
+  @if type-of($name) != null {
+    font-family: $name, sans-serif;
+  }
+  font-size: $font-size;
+  line-height: 150%;
+  @if type-of($weight) != null {
+    font-weight: $weight;
+  }
 }
 
 @mixin clearfix {
-	&::after {
-		display: block;
-		clear: both;
-		content: '';
-	}
+  &::after {
+    display: block;
+    clear: both;
+    content: "";
+  }
 }
 
 /* place holder */
 @mixin placeholder {
-	&::-webkit-input-placeholder {
-		@content;
-	}
-	&:-moz-placeholder {
-		@content;
-	}
-	&::-moz-placeholder {
-		@content;
-	}
-	&:-ms-input-placeholder {
-		@content;
-	}
+  &::-webkit-input-placeholder {
+    @content;
+  }
+  &:-moz-placeholder {
+    @content;
+  }
+  &::-moz-placeholder {
+    @content;
+  }
+  &:-ms-input-placeholder {
+    @content;
+  }
 }
 
-@mixin blind{
-	position: absolute;
-	clip: rect(0 0 0 0);
-	font-size: 1px;
-	color: transparent;
-	width: 1px;
-	height: 1px;
-	margin: -1px;
-	overflow: hidden;
+@mixin blind {
+  position: absolute;
+  clip: rect(0 0 0 0);
+  font-size: 1px;
+  color: transparent;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
 }
 
 @mixin flicker {
-	content:'';
-	display:block;
-	position:absolute;
-	top:0;
-	left:0;
-	bottom:0;
-	right:0;
-	background:transparentize($screen-background,0.9);
-	opacity:0;
-	z-index:2;
-	pointer-events:none;
-	animation: flicker 0.01s infinite;
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: transparentize($screen-background, 0.9);
+  opacity: 0;
+  z-index: 2;
+  pointer-events: none;
+  animation: flicker 0.01s infinite;
 }
 
 @mixin scanlines {
-	content:'';
-	display:block;
-	position:absolute;
-	top:0;
-	left:0;
-	bottom:0;
-	right:0;
-	background:linear-gradient(transparentize($screen-background,1) 50%, transparentize(darken($screen-background,10),0.75) 50%), linear-gradient(90deg,transparentize(#ff0000,0.94),transparentize(#00ff00,0.98),transparentize(#0000ff,0.94));
-	z-index:20;
-	background-size:100% 2px, 3px 100%;
-	pointer-events:none;
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: linear-gradient(
+      transparentize($screen-background, 1) 50%,
+      transparentize(darken($screen-background, 10), 0.75) 50%
+    ),
+    linear-gradient(
+      90deg,
+      transparentize(#ff0000, 0.94),
+      transparentize(#00ff00, 0.98),
+      transparentize(#0000ff, 0.94)
+    );
+  z-index: 20;
+  background-size: 100% 2px, 3px 100%;
+  pointer-events: none;
 }
 
 @function to-string($value) {
@@ -128,7 +156,9 @@
   $selector-str: to-string($selector);
   $search-str: to-string($search);
   $replace-str: to-string($replace);
-  @return unquote(str-replace(quote($selector-str), quote($search-str), quote($replace-str)));
+  @return unquote(
+    str-replace(quote($selector-str), quote($search-str), quote($replace-str))
+  );
 }
 
 @mixin parent-selector($parent, $value) {
@@ -138,33 +168,41 @@
 }
 
 @function str-to-list($string, $separator: " ", $startAt: 1) {
-	$workStr: str-slice($string, $startAt);
-	$list: ();
-	$indexOfFirstSpace: str-index($workStr, $separator);
-	@if $indexOfFirstSpace==null {
-		$list: ($workStr);
-	} @else {
-		$list: (str-slice($workStr, 1, $indexOfFirstSpace - 1));
-		$list: join($list, str-to-list($workStr, $startAt: $indexOfFirstSpace + 1));
-	}
-	@return $list;
+  $workStr: str-slice($string, $startAt);
+  $list: ();
+  $indexOfFirstSpace: str-index($workStr, $separator);
+  @if $indexOfFirstSpace==null {
+    $list: ($workStr);
+  } @else {
+    $list: (str-slice($workStr, 1, $indexOfFirstSpace - 1));
+    $list: join($list, str-to-list($workStr, $startAt: $indexOfFirstSpace + 1));
+  }
+  @return $list;
 }
 
 @function parent-append($appendix, $parent, $at-start) {
-	$parentSelector: str-to-list(#{&});
-	$length: length($parentSelector);
-	@if $parent >=$length or $parent < 0 {
-		@error "Index '#{$parent}' is out of range";
-	}
-	$pos: $length - $parent;
-	@if $at-start == false {
-		$selector: set-nth($parentSelector, $pos, nth($parentSelector, $pos) + $appendix);
-		@return $selector;
-	}
-	@if $at-start == true {
-		$selector: set-nth($parentSelector, $pos, $appendix + nth($parentSelector, $pos));
-		@return $selector;
-	}
+  $parentSelector: str-to-list(#{&});
+  $length: length($parentSelector);
+  @if $parent >=$length or $parent < 0 {
+    @error "Index '#{$parent}' is out of range";
+  }
+  $pos: $length - $parent;
+  @if $at-start == false {
+    $selector: set-nth(
+      $parentSelector,
+      $pos,
+      nth($parentSelector, $pos) + $appendix
+    );
+    @return $selector;
+  }
+  @if $at-start == true {
+    $selector: set-nth(
+      $parentSelector,
+      $pos,
+      $appendix + nth($parentSelector, $pos)
+    );
+    @return $selector;
+  }
 }
 
 /// Append defined string to parent selector
@@ -209,9 +247,7 @@
 /// .ancestor .grandparent .parent p.elem {background-color: green;}
 ///
 @mixin parent-append($appendix, $parent: 1, $at-start: false) {
-	@at-root #{parent-append($appendix, $parent, $at-start)} {
-		@content;
-	}
+  @at-root #{parent-append($appendix, $parent, $at-start)} {
+    @content;
+  }
 }
-
-

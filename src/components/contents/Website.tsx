@@ -8,13 +8,13 @@ interface WebsiteProps {}
 function Website({}: WebsiteProps) {
   const [, setProgramArr] = useRecoilState(programStatus);
   const [activeProject, setActiveProject] = useState<string | null>(null);
-  const [activeDescription, setActiveDescription] = useState<string>('');
-  const [activeSrc, setActiveSrc] = useState<string>('');
+  const [activeDescription, setActiveDescription] = useState<string>("");
+  const [activeSrc, setActiveSrc] = useState<string>("");
   const descriptionRef = useRef<HTMLDivElement>(null);
-  
+
   // ID로 프로젝트를 찾는 함수
   const findProjectByID = (id: string) => {
-    return Object.values(projects).find(project => project.ID === id);
+    return Object.values(projects).find((project) => project.ID === id);
   };
 
   const handleProjectClick = (projectID: string) => {
@@ -23,22 +23,22 @@ function Website({}: WebsiteProps) {
     if (selectedProject) {
       setActiveProject(projectID);
       setActiveDescription(selectedProject.DESCRIPTION);
-      setActiveSrc(selectedProject.SRC || '#');
+      setActiveSrc(selectedProject.SRC || "#");
     } else {
       console.error(`Project with ID ${projectID} not found.`);
       setActiveProject(null);
-      setActiveDescription('');
-      setActiveSrc('');
+      setActiveDescription("");
+      setActiveSrc("");
     }
   };
 
   const handleDoubleClick = (projectID: string) => {
     const selectedProject = findProjectByID(projectID);
     // && selectedProject.SRC !== '#'
-    if (selectedProject && selectedProject.SRC ) {
-      window.open(selectedProject.SRC, '_blank');
+    if (selectedProject && selectedProject.SRC) {
+      window.open(selectedProject.SRC, "_blank");
     } else {
-      console.error('No source URL available or URL is invalid');
+      console.error("No source URL available or URL is invalid");
     }
   };
 
@@ -50,8 +50,10 @@ function Website({}: WebsiteProps) {
   }, [activeDescription]);
 
   const handleClose = () => {
-    setProgramArr(prev => {
-      const updatedProgramArr = prev.filter(prog => prog.program !== 'website');
+    setProgramArr((prev) => {
+      const updatedProgramArr = prev.filter(
+        (prog) => prog.program !== "website"
+      );
       return updatedProgramArr;
     });
   };
@@ -59,12 +61,24 @@ function Website({}: WebsiteProps) {
   return (
     <div className="websiteContainer">
       <menu role="tablist">
-        <li role="tab" aria-selected="true"><span>Background</span></li>
-        <li role="tab"><span>Screen Saver</span></li>
-        <li role="tab"><span>Appearance</span></li>
-        <li role="tab"><span>Effects</span></li>
-        <li role="tab"><span>Web</span></li>
-        <li role="tab"><span>Settings</span></li>
+        <li role="tab" aria-selected="true">
+          <span>Background</span>
+        </li>
+        <li role="tab">
+          <span>Screen Saver</span>
+        </li>
+        <li role="tab">
+          <span>Appearance</span>
+        </li>
+        <li role="tab">
+          <span>Effects</span>
+        </li>
+        <li role="tab">
+          <span>Web</span>
+        </li>
+        <li role="tab">
+          <span>Settings</span>
+        </li>
       </menu>
       <div className="tabpanel" role="tabpanel">
         <div className="monitorWrap">
@@ -76,7 +90,13 @@ function Website({}: WebsiteProps) {
           <strong className="secTit">Website List</strong>
           <div className="headerWrap">
             <p>아래 목록에서 사이트를 선택 해주세요.</p>
-            <a href={activeSrc ? activeSrc : '#'} target="_blank" className="newWindowBtn">새창으로 보기</a>
+            <a
+              href={activeSrc ? activeSrc : "#"}
+              target="_blank"
+              className="newWindowBtn"
+            >
+              새창으로 보기
+            </a>
           </div>
           <div className="listInner">
             <div className="listHeader">
@@ -87,13 +107,15 @@ function Website({}: WebsiteProps) {
               {Object.keys(projects).map((key) => {
                 const item = projects[key as keyof typeof projects];
                 return (
-                  <li className='websiteList' key={item.ID}>
+                  <li className="websiteList" key={item.ID}>
                     <button
                       id={item.ID}
-                      className={`websiteBtn ${activeProject === item.ID ? 'active' : ''}`}
+                      className={`websiteBtn ${
+                        activeProject === item.ID ? "active" : ""
+                      }`}
                       onClick={() => handleProjectClick(item.ID)}
                       onDoubleClick={() => handleDoubleClick(item.ID)} // 더블 클릭 핸들러 추가
-                      >
+                    >
                       <span className="websiteIcon"></span>
                       <em className="websiteName">{item.TITLE}</em>
                       <span className="websiteDate">{item.DATE}</span>
@@ -104,29 +126,79 @@ function Website({}: WebsiteProps) {
             </ul>
           </div>
           <p className="descTit">사이트 설명 :</p>
-          {activeSrc ? 
-            <article className="websiteDesc pageDesc" ref={descriptionRef} dangerouslySetInnerHTML={{ __html: activeDescription }}></article> :
+          {activeSrc ? (
+            <article
+              className="websiteDesc pageDesc"
+              ref={descriptionRef}
+              dangerouslySetInnerHTML={{ __html: activeDescription }}
+            ></article>
+          ) : (
             <article className="websiteDesc pageDesc">
               <header className="siteHeader">
-                <h3>프로젝트 : <strong>Girgir OS</strong></h3>
+                <h3>
+                  <strong className="titItem">
+                    <span className="emoji">💾</span> 프로젝트 :
+                  </strong>
+                  Girgir OS
+                </h3>
                 <p>
-                  작업 기간 : 
-                  <time dateTime="2024-03">2024년 7월</time> ~ 
+                  <strong className="titItem">
+                    <span className="emoji">⏱️</span> 작업 기간 :
+                  </strong>
+                  <time dateTime="2024-03">2024년 7월</time> ~
                   <time dateTime="2024-04">2024년 8월</time>
                 </p>
-                <p className="skill">사용기술 : Vite, React, Typescript</p>
+                <p className="skill">
+                  <strong className="titItem">
+                    <span className="emoji">🛠️</span> 사용기술 :
+                  </strong>
+                  Vite, React, Typescript, scss, etc...
+                </p>
+                <p className="env">
+                  <strong className="titItem">
+                    <span className="emoji">⚙️</span> 환경 :
+                  </strong>
+                  Synology nas + Github Actions CI/CD
+                </p>
               </header>
               <div className="siteDesc">
-                <p>현재 포트폴리오 사이트는 <strong>90년대 Windows</strong>를 컨셉으로 작업 했습니다.</p>
-                <p>제가 레트로한 감성을 좋아하기도 하고, 호불호가 갈릴 수도 있지만 조금 더 기억에 남을 수 있게 재미있는 포트폴리오 사이트를 만들고 싶었습니다. </p>
-                <p>그동안 재직 중 제 관심 분야였던 스크롤 인터렉션을 만드는 작업과 퍼포먼스를 최적화 하는 경험은 많이 있었지만, 아쉽게도 프론트 엔드 기술을 활용 할 수 있는 프로젝트를 접할 기회가 없었습니다. 때문에 혼자서 React와 Typescript를 틈틈히 공부했고 이번 포트폴리오에서 Vite, React, Typescript를 사용하여 작업 할 수 있었습니다.</p>
+                <p>
+                  현재 포트폴리오 사이트는 <strong>90년대 Windows</strong>를
+                  컨셉으로 작업 했습니다.
+                </p>
+                <p>
+                  제가 레트로한 감성을 좋아하기도 하고, 호불호가 갈릴 수도
+                  있지만 조금 더 기억에 남을 수 있게 재미있는 포트폴리오
+                  사이트를 만들고 싶었습니다.
+                </p>
+                <p>
+                  그동안 재직 중 제 관심 분야였던 스크롤 인터렉션을 만드는
+                  작업과 퍼포먼스를 최적화 하는 경험은 많이 있었지만, 아쉽게도
+                  프론트 엔드 기술을 활용 할 수 있는 프로젝트를 접할 기회가
+                  없었습니다. 때문에 혼자서 React와 Typescript를 틈틈히 공부했고
+                  이번 포트폴리오에서 Vite, React, Typescript를 사용하여 작업 할
+                  수 있었습니다.
+                </p>
+                <p>
+                  추가로 Github Actions을 이용하여 개인 Synology Nas 서버에
+                  자동화 배포 환경을 구축 하였습니다. (
+                  <a
+                    className="pointerCursor"
+                    href="https://girgir.notion.site/Synology-Github-CI-CD-185ec283ac8680cbbc7fc6ffe88b07cf?pvs=4"
+                  >
+                    Synology Nas로 자동화 배포 환경 만들기?
+                  </a>
+                  )
+                </p>
               </div>
             </article>
-          }
+          )}
         </div>
       </div>
       <div className="closeBtnWrap">
-        <button className="closeBtn" onClick={handleClose}>닫기</button>
+        <button className="closeBtn" onClick={handleClose}>
+          닫기
+        </button>
       </div>
     </div>
   );

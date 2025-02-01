@@ -161,6 +161,7 @@ function Profile({}: ProfileProps) {
             <dl className="work">
               <dt>Work tools</dt>
               <dd className="github">Github</dd>
+              <dd className="githubActions">Github Actions</dd>
               <dd className="gitlab">Gitlab</dd>
               <dd className="slack">Slack</dd>
               <dd className="notion">Notion</dd>

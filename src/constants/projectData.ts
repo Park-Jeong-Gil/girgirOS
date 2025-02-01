@@ -1,18 +1,30 @@
 const projects = {
   KG: {
-    ID:'kg',
-    DATE:'2024.04',
-    TITLE: 'KG Mobility',
-    SRC: 'https://girgir.synology.me/dev/KG-Mobility/',
+    ID: "kg",
+    DATE: "2024.04",
+    TITLE: "KG Mobility",
+    SRC: "https://girgir.synology.me/dev/KG-Mobility/",
     DESCRIPTION: `
       <header class="siteHeader">
-        <h3>프로젝트 : <strong>KG Mobolity 3D 상세 페이지</strong></h3>
+        <h3>          
+          <strong class="titItem">
+            <span class="emoji">💾</span> 프로젝트 :
+          </strong>
+          KG Mobolity 3D 상세 페이지
+        </h3>
         <p>
-          작업 기간 : 
-          <time datetime="2024-03">2024년 3월</time> ~ 
-          <time datetime="2024-04">2024년 4월</time>
+          <strong class="titItem">
+            <span class="emoji">⏱️</span> 작업 기간 :
+          </strong>
+          <time dateTime="2024-03">2024년 3월</time> ~
+          <time dateTime="2024-04">2024년 4월</time>
         </p>
-        <p class="skill">사용기술 : HTML, CSS, Javascript, Vite, WebGL, three.js, blender</p>
+        <p class="skill">
+          <strong class="titItem">
+            <span class="emoji">🛠️</span> 사용기술 :
+          </strong>
+          HTML, CSS, Javascript, Vite, WebGL, three.js, blender
+        </p>
       </header>
       <div class="siteDesc">
         <p><strong>KG Mobolity</strong> 홈페이지의 리뉴얼 프로젝트를 위해 개발하게 된 제안용(PC only) 웹페이지 입니다. </p>
@@ -23,19 +35,31 @@ const projects = {
     `,
   },
   WINE: {
-    ID:'weeklywine',
-    DATE:'2023.10',
-    TITLE: 'Weekly wine',
-    SRC: 'https://www.weeklywine.co.kr/',
+    ID: "weeklywine",
+    DATE: "2023.10",
+    TITLE: "Weekly wine",
+    SRC: "https://www.weeklywine.co.kr/",
     DESCRIPTION: `
       <header class="siteHeader">
-        <h3>프로젝트 : <strong>Weekly wine 리뉴얼 프로젝트</strong></h3>
+        <h3>
+          <strong class="titItem">
+            <span class="emoji">💾</span> 프로젝트 :
+          </strong>
+          Weekly wine 리뉴얼 프로젝트
+        </h3>
         <p>
-          작업 기간 : 
-          <time datetime="2023-07">2023년 7월</time> ~ 
-          <time datetime="2023-10">2023년 10월</time>
+          <strong class="titItem">
+            <span class="emoji">⏱️</span> 작업 기간 :
+          </strong>
+          <time dateTime="2023-07">2023년 7월</time> ~
+          <time dateTime="2023-10">2023년 10월</time>
         </p>
-        <p class="skill">사용기술 : HTML, CSS, Javascript</p>
+        <p class="skill">
+          <strong class="titItem">
+            <span class="emoji">🛠️</span> 사용기술 :
+          </strong>
+          cafe24, HTML, CSS, Javascript
+        </p>
       </header>
       <div class="siteDesc">
         <p>
@@ -51,19 +75,31 @@ const projects = {
     `,
   },
   EASTPOLE: {
-    ID:'eastpole',
-    DATE:'2023.07',
-    TITLE: '직방 모바일 모델하우스 (롯데캐슬 이스트폴)',
-    SRC: 'https://girgir.synology.me/dev/lotte-eastpole/zigbang/',
+    ID: "eastpole",
+    DATE: "2023.07",
+    TITLE: "직방 모바일 모델하우스 (롯데캐슬 이스트폴)",
+    SRC: "https://girgir.synology.me/dev/lotte-eastpole/zigbang/",
     DESCRIPTION: `
       <header class="siteHeader">
-        <h3>프로젝트 : <strong>직방 모바일 모델하우스 개발 (롯데 이스트폴) 1차</strong></h3>
+        <h3>
+          <strong class="titItem">
+            <span class="emoji">💾</span> 프로젝트 :
+          </strong>
+          직방 모바일 모델하우스 개발 (롯데 이스트폴) 1차
+        </h3>
         <p>
-          작업 기간 : 
-          <time datetime="2023-05">2023년 5월</time> ~ 
-          <time datetime="2023-07">2023년 7월</time>
+          <strong class="titItem">
+            <span class="emoji">⏱️</span> 작업 기간 :
+          </strong>
+          <time dateTime="2023-05">2023년 5월</time> ~
+          <time dateTime="2023-07">2023년 7월</time>
         </p>
-        <p class="skill">사용기술 : HTML, CSS, Javascript, Vite, ejs</p>
+        <p class="skill">
+          <strong class="titItem">
+            <span class="emoji">🛠️</span> 사용기술 :
+          </strong>
+          HTML, CSS, Javascript, Vite, ejs
+        </p>
       </header>
       <div class="siteDesc">
         <p>직방 어플내에서 WebView로 서비스 했던 <strong>'롯데캐슬 이스트폴'의 모바일 모델하우스</strong> 페이지 입니다. </p>
@@ -73,22 +109,34 @@ const projects = {
         <p><a href="https://s.zigbang.com/campaign/97/zigbang/index.html" target="_blank">2차 컨텐츠</a>에선 내용이 정말 방대한 pdf 문서와 타입별 평면도를 노출 시켜야 하는 이슈가 있었는데, 직접 스크립트로 이미지 확대, 축소, 드래그로 이동 기능을 구현하여 이슈를 해결 했습니다. </p>
         <p>개발 작업과 동시에 PL역할로 클라이언트와 프리렌서 디자이너의 소통을 원활하게 이끌며 프로젝트가 기간내에 무사히 완료 될 수 있게 리딩 했습니다.</p>
       </div>
-    `
+    `,
   },
   SPACEHUB: {
-    ID:'spacehub',
-    DATE:'2023.05',
-    TITLE: 'Hanwha Spacehub',
-    SRC: 'https://www.hanwhaspacehub.com/media-room/',
+    ID: "spacehub",
+    DATE: "2023.05",
+    TITLE: "Hanwha Spacehub",
+    SRC: "https://www.hanwhaspacehub.com/media-room/",
     DESCRIPTION: `
       <header class="siteHeader">
-        <h3>프로젝트 : <strong>한화 스페이스 허브</strong></h3>
+        <h3>
+          <strong class="titItem">
+            <span class="emoji">💾</span> 프로젝트 :
+          </strong>
+          한화 스페이스 허브
+        </h3>
         <p>
-          작업 기간 : 
-          <time datetime="2023-03">2023년 3월</time> ~ 
-          <time datetime="2023-05">2023년 5월</time>
+          <strong class="titItem">
+            <span class="emoji">⏱️</span> 작업 기간 :
+          </strong>
+          <time dateTime="2023-03">2023년 3월</time> ~
+          <time dateTime="2023-05">2023년 5월</time>
         </p>
-        <p class="skill">사용기술 : HTML, CSS, Javascript, Vite, ejs</p>
+        <p class="skill">
+          <strong class="titItem">
+            <span class="emoji">🛠️</span> 사용기술 :
+          </strong>
+          HTML, CSS, Javascript, Vite, ejs
+        </p>
       </header>
       <div class="siteDesc">
         <p>한화 그룹의<strong>스페이스 허브</strong> 웹사이트 입니다.</p>
@@ -99,19 +147,31 @@ const projects = {
     `,
   },
   UBORA: {
-    ID:'ubora',
-    DATE:'2023.04',
-    TITLE: '직방 모바일 모델하우스 (천안 유보라)',
-    SRC: 'https://girgir.synology.me/dev/ubora-cheonan/zigbang/',
+    ID: "ubora",
+    DATE: "2023.04",
+    TITLE: "직방 모바일 모델하우스 (천안 유보라)",
+    SRC: "https://girgir.synology.me/dev/ubora-cheonan/zigbang/",
     DESCRIPTION: `
       <header class="siteHeader">
-        <h3>프로젝트 : <strong>직방 모바일 모델하우스 개발 (천안 유보라)</strong></h3>
+        <h3>
+          <strong class="titItem">
+            <span class="emoji">💾</span> 프로젝트 :
+          </strong>
+          직방 모바일 모델하우스 개발 (천안 유보라)
+        </h3>
         <p>
-          작업 기간 : 
-          <time datetime="2023-03">2023년 3월</time> ~ 
-          <time datetime="2023-04">2023년 4월</time>
+          <strong class="titItem">
+            <span class="emoji">⏱️</span> 작업 기간 :
+          </strong>
+          <time dateTime="2023-03">2023년 3월</time> ~
+          <time dateTime="2023-04">2023년 4월</time>
         </p>
-        <p class="skill">사용기술 : HTML, CSS, Javascript, Vite, ejs</p>
+        <p class="skill">
+          <strong class="titItem">
+            <span class="emoji">🛠️</span> 사용기술 :
+          </strong>
+          HTML, CSS, Javascript, Vite, ejs
+        </p>
       </header>
       <div class="siteDesc">
         <p>직방 어플내에서 WebView로 서비스 했던 <strong>'천안 유보라'의 모바일 모델하우스 </strong> 페이지 입니다. </p>
@@ -122,19 +182,31 @@ const projects = {
     `,
   },
   SEMICONDUCTOR: {
-    ID:'semiconductor',
-    DATE:'2023.02',
-    TITLE: 'samsung semiconductor 삼성 반도체 ',
-    SRC: 'https://semiconductor.samsung.com/image-sensor/mobile-image-sensor/isocell-hp2/#',
+    ID: "semiconductor",
+    DATE: "2023.02",
+    TITLE: "samsung semiconductor 삼성 반도체 ",
+    SRC: "https://semiconductor.samsung.com/image-sensor/mobile-image-sensor/isocell-hp2/#",
     DESCRIPTION: `
       <header class="siteHeader">
-        <h3>프로젝트 : <strong>삼성 반도체 다국어 웹사이트 운영 (2022 2H ~ 2023 1H)</strong></h3>
+        <h3>
+          <strong class="titItem">
+            <span class="emoji">💾</span> 프로젝트 :
+          </strong>
+          삼성 반도체 다국어 웹사이트 운영 (2022 2H ~ 2023 1H)
+        </h3>
         <p>
-          작업 기간 : 
-          <time datetime="2022-09">2022년 9월</time> ~ 
-          <time datetime="2023-02">2023년 2월</time>
+          <strong class="titItem">
+            <span class="emoji">⏱️</span> 작업 기간 :
+          </strong>
+          <time dateTime="2022-09">2022년 9월</time> ~
+          <time dateTime="2023-02">2023년 2월</time>
         </p>
-        <p class="skill">사용기술 : HTML, CSS, Javascript, AEM</p>
+        <p class="skill">
+          <strong class="titItem">
+            <span class="emoji">🛠️</span> 사용기술 :
+          </strong>
+          HTML, CSS, Javascript, AEM
+        </p>
       </header>
       <div class="siteDesc">
         <p>처음 삼성 반도체의 운영 프로젝트를 맡은 개발팀의 PL로 고객사와 소통 및 팀원들의 업무 배분을 담당 했습니다.</p>
@@ -158,19 +230,31 @@ const projects = {
     `,
   },
   GALAXY_Z_FLIP4: {
-    ID:'z-flip4',
-    DATE:'2022.08',
-    TITLE: 'Galaxy Z Flip4',
-    SRC: 'https://girgir.synology.me/global/galaxy/galaxy-z-flip4/',
+    ID: "z-flip4",
+    DATE: "2022.08",
+    TITLE: "Galaxy Z Flip4",
+    SRC: "https://girgir.synology.me/global/galaxy/galaxy-z-flip4/",
     DESCRIPTION: `
       <header class="siteHeader">
-        <h3>프로젝트 : <strong>Galaxy Z Flip4 Unpacked</strong></h3>
+        <h3>
+          <strong class="titItem">
+            <span class="emoji">💾</span> 프로젝트 :
+          </strong>
+          Galaxy Z Flip4 Unpacked
+        </h3>
         <p>
-          작업 기간 : 
-          <time datetime="2022-06">2022년 6월</time> ~ 
-          <time datetime="2022-08">2022년 8월</time>
+          <strong class="titItem">
+            <span class="emoji">⏱️</span> 작업 기간 :
+          </strong>
+          <time dateTime="2022-06">2022년 6월</time> ~
+          <time dateTime="2022-08">2022년 8월</time>
         </p>
-        <p class="skill">사용기술 : HTML, CSS, Javascript, Gulp, ejs</p>
+        <p class="skill">
+          <strong class="titItem">
+            <span class="emoji">🛠️</span> 사용기술 :
+          </strong>
+          HTML, CSS, Javascript, Gulp, ejs
+        </p>
       </header>
       <div class="siteDesc">
         <p><strong>Galaxy Z Flip4</strong>모델의 제품 페이지 입니다.</p>
@@ -182,19 +266,31 @@ const projects = {
     `,
   },
   FAVE: {
-    ID:'fave',
-    DATE:'2022.06',
-    TITLE: 'FAVE 3D 웹사이트',
-    SRC: 'https://fave.kr/',
+    ID: "fave",
+    DATE: "2022.06",
+    TITLE: "FAVE 3D 웹사이트",
+    SRC: "https://fave.kr/",
     DESCRIPTION: `
       <header class="siteHeader">
-        <h3>프로젝트 : <strong>fave 홈페이지 개발</strong></h3>
+        <h3>
+          <strong class="titItem">
+            <span class="emoji">💾</span> 프로젝트 :
+          </strong>
+          fave 홈페이지 개발
+        </h3>
         <p>
-          작업 기간 : 
-          <time datetime="2022-03">2022년 3월</time> ~ 
-          <time datetime="2022-06">2022년 6월</time>
+          <strong class="titItem">
+            <span class="emoji">⏱️</span> 작업 기간 :
+          </strong>
+          <time dateTime="2022-03">2022년 3월</time> ~
+          <time dateTime="2022-06">2022년 6월</time>
         </p>
-        <p class="skill">사용기술 : HTML, CSS, Javascript, Gulp, ejs</p>
+        <p class="skill">
+          <strong class="titItem">
+            <span class="emoji">🛠️</span> 사용기술 :
+          </strong>
+          HTML, CSS, Javascript, Gulp, ejs
+        </p>
       </header>
       <div class="siteDesc">
         <p>인터렉션을 전문적으로 연구하고 개발하는 웹에이전시 <strong>fave</strong> 홈페이지 입니다.</p>
@@ -205,19 +301,31 @@ const projects = {
     `,
   },
   GALAXY_S22: {
-    ID:'s22-ultra',
-    DATE:'2022.02',
-    TITLE: 'Galaxy S22 Ultra',
-    SRC: 'https://girgir.synology.me/global/galaxy/galaxy-s22-ultra/',
+    ID: "s22-ultra",
+    DATE: "2022.02",
+    TITLE: "Galaxy S22 Ultra",
+    SRC: "https://girgir.synology.me/global/galaxy/galaxy-s22-ultra/",
     DESCRIPTION: `
       <header class="siteHeader">
-        <h3>프로젝트 : <strong>Galaxy S22 Series Unpacked</strong></h3>
+        <h3>
+          <strong class="titItem">
+            <span class="emoji">💾</span> 프로젝트 :
+          </strong>
+          Galaxy S22 Series Unpacked
+        </h3>
         <p>
-          작업 기간 : 
-          <time datetime="2021-12">2021년 12월</time> ~ 
-          <time datetime="2022-02">2022년 2월</time>
+          <strong class="titItem">
+            <span class="emoji">⏱️</span> 작업 기간 :
+          </strong>
+          <time dateTime="2021-12">2021년 12월</time> ~
+          <time dateTime="2022-02">2022년 2월</time>
         </p>
-        <p class="skill">사용기술 : HTML, CSS, Javascript, Gulp, ejs</p>
+        <p class="skill">
+          <strong class="titItem">
+            <span class="emoji">🛠️</span> 사용기술 :
+          </strong>
+          HTML, CSS, Javascript, Gulp, ejs
+        </p>
       </header>
       <div class="siteDesc">
         <p><strong>Galaxy S22 Ultra</strong> 모델의 제품 페이지 입니다.</p>
@@ -229,19 +337,31 @@ const projects = {
     `,
   },
   GOBLINS: {
-    ID:'goblins',
-    DATE:'2022.02',
-    TITLE: 'Raving Goblins',
-    SRC: 'https://girgir.synology.me/dev/RV/',
+    ID: "goblins",
+    DATE: "2022.02",
+    TITLE: "Raving Goblins",
+    SRC: "https://girgir.synology.me/dev/RV/",
     DESCRIPTION: `
       <header class="siteHeader">
-        <h3>프로젝트 : <strong>Raving Goblins 홈페이지</strong></h3>
+        <h3>
+          <strong class="titItem">
+            <span class="emoji">💾</span> 프로젝트 :
+          </strong>
+          Raving Goblins 홈페이지
+        </h3>
         <p>
-          작업 기간 : 
-          <time datetime="2021-12">2021년 12월</time> ~ 
-          <time datetime="2022-02">2022년 2월</time>
+          <strong class="titItem">
+            <span class="emoji">⏱️</span> 작업 기간 :
+          </strong>
+          <time dateTime="2021-12">2021년 12월</time> ~
+          <time dateTime="2022-02">2022년 2월</time>
         </p>
-        <p class="skill">사용기술 : HTML, CSS, Javascript, React</p>
+        <p class="skill">
+          <strong class="titItem">
+            <span class="emoji">🛠️</span> 사용기술 :
+          </strong>
+          HTML, CSS, Javascript, React
+        </p>
       </header>
       <div class="siteDesc">
         <p><strong>Raving Goblins</strong> NFT 발행을 위해 개발된 웹페이지 입니다. </p>
@@ -251,19 +371,31 @@ const projects = {
     `,
   },
   JANGSU: {
-    ID:'jangsu',
-    DATE:'2021.10',
-    TITLE: '장수문화원 웹사이트',
-    SRC: 'https://jangsuculture.or.kr/',
+    ID: "jangsu",
+    DATE: "2021.10",
+    TITLE: "장수문화원 웹사이트",
+    SRC: "https://jangsuculture.or.kr/",
     DESCRIPTION: `
       <header class="siteHeader">
-        <h3>프로젝트 : <strong>장수문화원 웹사이트 리뉴얼</strong></h3>
+        <h3>
+          <strong class="titItem">
+            <span class="emoji">💾</span> 프로젝트 :
+          </strong>
+          장수문화원 웹사이트 리뉴얼
+        </h3>
         <p>
-          작업 기간 : 
-          <time datetime="2021-09">2021년 9월</time> ~ 
-          <time datetime="2021-10">2021년 10월</time>
+          <strong class="titItem">
+            <span class="emoji">⏱️</span> 작업 기간 :
+          </strong>
+          <time dateTime="2021-09">2021년 9월</time> ~
+          <time dateTime="2021-10">2021년 10월</time>
         </p>
-        <p class="skill">사용기술 : HTML, CSS, Javascript, React</p>
+        <p class="skill">
+          <strong class="titItem">
+            <span class="emoji">🛠️</span> 사용기술 :
+          </strong>
+          HTML, CSS, Javascript, React
+        </p>
       </header>
       <div class="siteDesc">
         <p>전북 장수에 있는 장수 문화원 홈페이지 리뉴얼 작업 참여 했습니다.</p>
@@ -271,19 +403,31 @@ const projects = {
     `,
   },
   GALAXY_Zflip3: {
-    ID:'flip3',
-    DATE:'2021.08',
-    TITLE: 'Galaxy Z Flip3 Unpacked',
-    SRC: '#',
+    ID: "flip3",
+    DATE: "2021.08",
+    TITLE: "Galaxy Z Flip3 Unpacked",
+    SRC: "#",
     DESCRIPTION: `
       <header class="siteHeader">
-        <h3>프로젝트 : <strong>Galaxy Z Flip3 Unpacked</strong></h3>
+        <h3>
+          <strong class="titItem">
+            <span class="emoji">💾</span> 프로젝트 :
+          </strong>
+          Galaxy Z Flip3 Unpacked
+        </h3>
         <p>
-          작업 기간 : 
-          <time datetime="2021-06">2021년 6월</time> ~ 
-          <time datetime="2021-08">2021년 8월</time>
+          <strong class="titItem">
+            <span class="emoji">⏱️</span> 작업 기간 :
+          </strong>
+          <time dateTime="2021-06">2021년 6월</time> ~
+          <time dateTime="2021-08">2021년 8월</time>
         </p>
-        <p class="skill">사용기술 : HTML, CSS, Javascript, three.js</p>
+        <p class="skill">
+          <strong class="titItem">
+            <span class="emoji">🛠️</span> 사용기술 :
+          </strong>
+          HTML, CSS, Javascript, three.js
+        </p>
       </header>
       <div class="siteDesc">
         <p>Galaxy Z Flip3 글로벌 페이지 개발, 삼성닷컴 80여개국 동시 언팩 프로젝트 참여</p>
@@ -291,19 +435,31 @@ const projects = {
     `,
   },
   GALAXY_20211H: {
-    ID:'galaxy20211h',
-    DATE:'2021.06',
-    TITLE: 'Samsung Galaxy Global 공식 페이지 운영 (2021 1H)',
-    SRC: '#',
+    ID: "galaxy20211h",
+    DATE: "2021.06",
+    TITLE: "Samsung Galaxy Global 공식 페이지 운영 (2021 1H)",
+    SRC: "#",
     DESCRIPTION: `
       <header class="siteHeader">
-        <h3>프로젝트 : <strong>Samsung Galaxy Global 공식 페이지 운영 (2021 1H)</strong></h3>
+        <h3>
+          <strong class="titItem">
+            <span class="emoji">💾</span> 프로젝트 :
+          </strong>
+          Samsung Galaxy Global 공식 페이지 운영 (2021 1H)
+        </h3>
         <p>
-          작업 기간 : 
-          <time datetime="2021-01">2021년 1월</time> ~ 
-          <time datetime="2021-06">2021년 6월</time>
+          <strong class="titItem">
+            <span class="emoji">⏱️</span> 작업 기간 :
+          </strong>
+          <time dateTime="2021-01">2021년 1월</time> ~
+          <time dateTime="2021-06">2021년 6월</time>
         </p>
-        <p class="skill">사용기술 : HTML, CSS, Javascript</p>
+        <p class="skill">
+          <strong class="titItem">
+            <span class="emoji">🛠️</span> 사용기술 :
+          </strong>
+          HTML, CSS, Javascript
+        </p>
       </header>
       <div class="siteDesc">
         <p>Samsung Galaxy Global 공식 페이지 운영 및 유지보수 작업</p>
@@ -311,19 +467,31 @@ const projects = {
     `,
   },
   GALAXY_S21: {
-    ID:'galaxyS21',
-    DATE:'2021.06',
-    TITLE: 'Galaxy S21 Series Unpacked',
-    SRC: '#',
+    ID: "galaxyS21",
+    DATE: "2021.06",
+    TITLE: "Galaxy S21 Series Unpacked",
+    SRC: "#",
     DESCRIPTION: `
       <header class="siteHeader">
-        <h3>프로젝트 : <strong>Galaxy S21 Series Unpacked</strong></h3>
+        <h3>
+          <strong class="titItem">
+            <span class="emoji">💾</span> 프로젝트 :
+          </strong>
+          Galaxy S21 Series Unpacked
+        </h3>
         <p>
-          작업 기간 : 
-          <time datetime="2020-12">2020년 12월</time> ~ 
-          <time datetime="2021-01">2021년 1월</time>
+          <strong class="titItem">
+            <span class="emoji">⏱️</span> 작업 기간 :
+          </strong>
+          <time dateTime="2020-12">2020년 12월</time> ~
+          <time dateTime="2021-01">2021년 1월</time>
         </p>
-        <p class="skill">사용기술 : HTML, CSS, Javascript, Gulp</p>
+        <p class="skill">
+          <strong class="titItem">
+            <span class="emoji">🛠️</span> 사용기술 :
+          </strong>
+          HTML, CSS, Javascript, Gulp
+        </p>
       </header>
       <div class="siteDesc">
         <p>Galaxy S21 Series 글로벌 페이지 개발, 삼성닷컴 80여개국 동시 언팩 프로젝트 참여</p>
@@ -331,19 +499,31 @@ const projects = {
     `,
   },
   GALAXY_20202H: {
-    ID:'galaxy20202h',
-    DATE:'2020.12',
-    TITLE: 'Samsung Galaxy Global 공식 페이지 운영 (2020 2H)',
-    SRC: '#',
+    ID: "galaxy20202h",
+    DATE: "2020.12",
+    TITLE: "Samsung Galaxy Global 공식 페이지 운영 (2020 2H)",
+    SRC: "#",
     DESCRIPTION: `
       <header class="siteHeader">
-        <h3>프로젝트 : <strong>Samsung Galaxy Global 공식 페이지 운영 (2020 2H)</strong></h3>
+        <h3>
+          <strong class="titItem">
+            <span class="emoji">💾</span> 프로젝트 :
+          </strong>
+          Samsung Galaxy Global 공식 페이지 운영 (2020 2H)
+        </h3>
         <p>
-          작업 기간 : 
-          <time datetime="2020-09">2020년 9월</time> ~ 
-          <time datetime="2020-12">2021년 1월</time>
+          <strong class="titItem">
+            <span class="emoji">⏱️</span> 작업 기간 :
+          </strong>
+          <time dateTime="2020-09">2020년 9월</time> ~
+          <time dateTime="2020-12">2021년 1월</time>
         </p>
-        <p class="skill">사용기술 : HTML, CSS, Javascript</p>
+        <p class="skill">
+          <strong class="titItem">
+            <span class="emoji">🛠️</span> 사용기술 :
+          </strong>
+          HTML, CSS, Javascript
+        </p>
       </header>
       <div class="siteDesc">
         <p>Samsung Galaxy Global 공식 페이지 운영 및 유지보수 작업</p>
@@ -351,19 +531,31 @@ const projects = {
     `,
   },
   GALAXY_Zfold2: {
-    ID:'galaxyZfold2',
-    DATE:'2020.09',
-    TITLE: 'Galaxy Z Fold2 Unpacked',
-    SRC: '#',
+    ID: "galaxyZfold2",
+    DATE: "2020.09",
+    TITLE: "Galaxy Z Fold2 Unpacked",
+    SRC: "#",
     DESCRIPTION: `
       <header class="siteHeader">
-        <h3>프로젝트 : <strong>Galaxy Z Fold2 Unpacked</strong></h3>
+        <h3>
+          <strong class="titItem">
+            <span class="emoji">💾</span> 프로젝트 :
+          </strong>
+          Galaxy Z Fold2 Unpacked
+        </h3>
         <p>
-          작업 기간 : 
-          <time datetime="2020-08">2020년 8월</time> ~ 
-          <time datetime="2020-09">2021년 9월</time>
+          <strong class="titItem">
+            <span class="emoji">⏱️</span> 작업 기간 :
+          </strong>
+          <time dateTime="2020-08">2020년 8월</time> ~
+          <time dateTime="2020-09">2021년 9월</time>
         </p>
-        <p class="skill">사용기술 : HTML, CSS, Javascript</p>
+        <p class="skill">
+          <strong class="titItem">
+            <span class="emoji">🛠️</span> 사용기술 :
+          </strong>
+          HTML, CSS, Javascript
+        </p>
       </header>
       <div class="siteDesc">
         <p>Galaxy Z Fold2 글로벌 페이지 개발, 삼성닷컴 80여개국 동시 언팩 프로젝트 참여</p>
@@ -371,19 +563,31 @@ const projects = {
     `,
   },
   GALAXY_note20: {
-    ID:'galaxyNote20',
-    DATE:'2020.08',
-    TITLE: 'Galaxy Note20 Unpacked',
-    SRC: '#',
+    ID: "galaxyNote20",
+    DATE: "2020.08",
+    TITLE: "Galaxy Note20 Unpacked",
+    SRC: "#",
     DESCRIPTION: `
       <header class="siteHeader">
-        <h3>프로젝트 : <strong>Galaxy Note20 Unpacked</strong></h3>
+        <h3>
+          <strong class="titItem">
+            <span class="emoji">💾</span> 프로젝트 :
+          </strong>
+          Galaxy Note20 Unpacked
+        </h3>
         <p>
-          작업 기간 : 
-          <time datetime="2020-06">2020년 6월</time> ~ 
-          <time datetime="2020-08">2021년 8월</time>
+          <strong class="titItem">
+            <span class="emoji">⏱️</span> 작업 기간 :
+          </strong>
+          <time dateTime="2020-06">2020년 6월</time> ~
+          <time dateTime="2020-08">2021년 8월</time>
         </p>
-        <p class="skill">사용기술 : HTML, CSS, Javascript</p>
+        <p class="skill">
+          <strong class="titItem">
+            <span class="emoji">🛠️</span> 사용기술 :
+          </strong>
+          HTML, CSS, Javascript
+        </p>
       </header>
       <div class="siteDesc">
         <p>Galaxy Note20 글로벌 페이지 개발, 삼성닷컴 80여개국 동시 언팩 프로젝트 참여</p>
@@ -391,19 +595,31 @@ const projects = {
     `,
   },
   ENUMNET: {
-    ID:'enumnet',
-    DATE:'2020.01',
-    TITLE: '이넘넷 홈페이지 리뉴얼 개발',
-    SRC: 'http://www.enumnet.com/',
+    ID: "enumnet",
+    DATE: "2020.01",
+    TITLE: "이넘넷 홈페이지 리뉴얼 개발",
+    SRC: "http://www.enumnet.com/",
     DESCRIPTION: `
       <header class="siteHeader">
-        <h3>프로젝트 : <strong>이넘넷 홈페이지 리뉴얼 개발</strong></h3>
+        <h3>
+          <strong class="titItem">
+            <span class="emoji">💾</span> 프로젝트 :
+          </strong>
+          이넘넷 홈페이지 리뉴얼 개발
+        </h3>
         <p>
-          작업 기간 : 
-          <time datetime="2019-12">2019년 12월</time> ~ 
-          <time datetime="2020-01">2020년 1월</time>
+          <strong class="titItem">
+            <span class="emoji">⏱️</span> 작업 기간 :
+          </strong>
+          <time dateTime="2019-12">2019년 12월</time> ~
+          <time dateTime="2020-01">2020년 1월</time>
         </p>
-        <p class="skill">사용기술 : HTML, CSS, Javascript</p>
+        <p class="skill">
+          <strong class="titItem">
+            <span class="emoji">🛠️</span> 사용기술 :
+          </strong>
+          HTML, CSS, Javascript
+        </p>
       </header>
       <div class="siteDesc">
         <p>이미지 프로세싱과 SI, 솔루션을 개발 및 제공하는 이넘넷 홈페이지 개발</p>
@@ -412,19 +628,31 @@ const projects = {
     `,
   },
   BROADCAST: {
-    ID:'broadcast',
-    DATE:'2019.10',
-    TITLE: '방통위 전자 심의 시스템 개발',
-    SRC: '#',
+    ID: "broadcast",
+    DATE: "2019.10",
+    TITLE: "방통위 전자 심의 시스템 개발",
+    SRC: "#",
     DESCRIPTION: `
       <header class="siteHeader">
-        <h3>프로젝트 : <strong>방통위 전자 심의 시스템 개발</strong></h3>
+        <h3>
+          <strong class="titItem">
+            <span class="emoji">💾</span> 프로젝트 :
+          </strong>
+          방통위 전자 심의 시스템 개발
+        </h3>
         <p>
-          작업 기간 : 
-          <time datetime="2019-09">2019년 9월</time> ~ 
-          <time datetime="2019-10">2019년 10월</time>
+          <strong class="titItem">
+            <span class="emoji">⏱️</span> 작업 기간 :
+          </strong>
+          <time dateTime="2019-09">2019년 9월</time> ~
+          <time dateTime="2019-10">2019년 10월</time>
         </p>
-        <p class="skill">사용기술 : HTML, CSS, Javascript</p>
+        <p class="skill">
+          <strong class="titItem">
+            <span class="emoji">🛠️</span> 사용기술 :
+          </strong>
+          HTML, CSS, Javascript
+        </p>
       </header>
       <div class="siteDesc">
         <p>이미지 프로세싱과 SI, 솔루션을 개발 및 제공하는 이넘넷 홈페이지 개발</p>
@@ -433,19 +661,31 @@ const projects = {
     `,
   },
   ENUMCUT: {
-    ID:'enumcut',
-    DATE:'2019.07',
-    TITLE: '이넘컷 홈페이지 리뉴얼',
-    SRC: '#',
+    ID: "enumcut",
+    DATE: "2019.07",
+    TITLE: "이넘컷 홈페이지 리뉴얼",
+    SRC: "#",
     DESCRIPTION: `
       <header class="siteHeader">
-        <h3>프로젝트 : <strong>이넘컷 홈페이지 리뉴얼</strong></h3>
+        <h3>
+          <strong class="titItem">
+            <span class="emoji">💾</span> 프로젝트 :
+          </strong>
+          이넘컷 홈페이지 리뉴얼
+        </h3>
         <p>
-          작업 기간 : 
-          <time datetime="2019-05">2019년 5월</time> ~ 
-          <time datetime="2019-07">2019년 7월</time>
+          <strong class="titItem">
+            <span class="emoji">⏱️</span> 작업 기간 :
+          </strong>
+          <time dateTime="2019-05">2019년 5월</time> ~
+          <time dateTime="2019-07">2019년 7월</time>
         </p>
-        <p class="skill">사용기술 : HTML, CSS, Javascript</p>
+        <p class="skill">
+          <strong class="titItem">
+            <span class="emoji">🛠️</span> 사용기술 :
+          </strong>
+          HTML, CSS, Javascript
+        </p>
       </header>
       <div class="siteDesc">
         <p>이미지 배경 제거 서비스 이넘컷 홈페이지의 디자인 리뉴얼 및 퍼블리싱 개발</p>
@@ -454,19 +694,31 @@ const projects = {
     `,
   },
   LAWYER: {
-    ID:'lawyer',
-    DATE:'2019.05',
-    TITLE: '법률 사무소 웹 클라우드 개발',
-    SRC: '#',
+    ID: "lawyer",
+    DATE: "2019.05",
+    TITLE: "법률 사무소 웹 클라우드 개발",
+    SRC: "#",
     DESCRIPTION: `
       <header class="siteHeader">
-        <h3>프로젝트 : <strong>법률 사무소 웹 클라우드 개발</strong></h3>
+        <h3>
+          <strong class="titItem">
+            <span class="emoji">💾</span> 프로젝트 :
+          </strong>
+          법률 사무소 웹 클라우드 개발
+        </h3>
         <p>
-          작업 기간 : 
-          <time datetime="2019-04">2019년 4월</time> ~ 
-          <time datetime="2019-05">2019년 5월</time>
+          <strong class="titItem">
+            <span class="emoji">⏱️</span> 작업 기간 :
+          </strong>
+          <time dateTime="2019-04">2019년 4월</time> ~
+          <time dateTime="2019-05">2019년 5월</time>
         </p>
-        <p class="skill">사용기술 : HTML, CSS, Javascript</p>
+        <p class="skill">
+          <strong class="titItem">
+            <span class="emoji">🛠️</span> 사용기술 :
+          </strong>
+          HTML, CSS, Javascript
+        </p>
       </header>
       <div class="siteDesc">
         <p>강남 소재의 법률 사무소에서 사건 자료를 저장하고 관리하는 웹 클라우드 솔루션 개발</p>
@@ -475,19 +727,31 @@ const projects = {
     `,
   },
   FLOWYLINE: {
-    ID:'flowyline',
-    DATE:'2019.02',
-    TITLE: 'flowyline 홈페이지 개발',
-    SRC: '#',
+    ID: "flowyline",
+    DATE: "2019.02",
+    TITLE: "flowyline 홈페이지 개발",
+    SRC: "#",
     DESCRIPTION: `
       <header class="siteHeader">
-        <h3>프로젝트 : <strong>flowyline 홈페이지 개발</strong></h3>
+        <h3>
+          <strong class="titItem">
+            <span class="emoji">💾</span> 프로젝트 :
+          </strong>
+          flowyline 홈페이지 개발
+        </h3>
         <p>
-          작업 기간 : 
-          <time datetime="2019-02">2019년 2월</time> ~ 
-          <time datetime="2019-02">2019년 2월</time>
+          <strong class="titItem">
+            <span class="emoji">⏱️</span> 작업 기간 :
+          </strong>
+          <time dateTime="2019-02">2019년 2월</time> ~
+          <time dateTime="2019-02">2019년 2월</time>
         </p>
-        <p class="skill">사용기술 : HTML, CSS, Javascript, WordPress</p>
+        <p class="skill">
+          <strong class="titItem">
+            <span class="emoji">🛠️</span> 사용기술 :
+          </strong>
+          HTML, CSS, Javascript, WordPress
+        </p>
       </header>
       <div class="siteDesc">
         <p>호주에서 영업 중인 수작업 가구 회사 홈페이지 개발</p>
@@ -496,19 +760,31 @@ const projects = {
     `,
   },
   HOOK: {
-    ID:'hook',
-    DATE:'2019.02',
-    TITLE: '훅깬당 홈페이지 개발',
-    SRC: '#',
+    ID: "hook",
+    DATE: "2019.02",
+    TITLE: "훅깬당 홈페이지 개발",
+    SRC: "#",
     DESCRIPTION: `
       <header class="siteHeader">
-        <h3>프로젝트 : <strong>훅깬당 홈페이지 개발</strong></h3>
+        <h3>
+          <strong class="titItem">
+            <span class="emoji">💾</span> 프로젝트 :
+          </strong>
+          훅깬당 홈페이지 개발
+        </h3>
         <p>
-          작업 기간 : 
-          <time datetime="2019-01">2019년 1월</time> ~ 
-          <time datetime="2019-02">2019년 2월</time>
+          <strong class="titItem">
+            <span class="emoji">⏱️</span> 작업 기간 :
+          </strong>
+          <time dateTime="2019-01">2019년 1월</time> ~
+          <time dateTime="2019-02">2019년 2월</time>
         </p>
-        <p class="skill">사용기술 : HTML, CSS, Javascript</p>
+        <p class="skill">
+          <strong class="titItem">
+            <span class="emoji">🛠️</span> 사용기술 :
+          </strong>
+          HTML, CSS, Javascript
+        </p>
       </header>
       <div class="siteDesc">
         <p>승리를 모델로 내세운 숙취 해소 제품을 소개하는 홈페이지 개발</p>
@@ -518,19 +794,31 @@ const projects = {
     `,
   },
   BRANDIN: {
-    ID:'brandin',
-    DATE:'2018.12',
-    TITLE: '브랜딘 홈페이지 개발',
-    SRC: 'http://www.brand-in.kr/',
+    ID: "brandin",
+    DATE: "2018.12",
+    TITLE: "브랜딘 홈페이지 개발",
+    SRC: "http://www.brand-in.kr/",
     DESCRIPTION: `
       <header class="siteHeader">
-        <h3>프로젝트 : <strong>브랜딘 홈페이지 개발</strong></h3>
+        <h3>
+          <strong class="titItem">
+            <span class="emoji">💾</span> 프로젝트 :
+          </strong>
+          브랜딘 홈페이지 개발
+        </h3>
         <p>
-          작업 기간 : 
-          <time datetime="2018-12">2018년 12월</time> ~ 
-          <time datetime="2018-12">2018년 12월</time>
+          <strong class="titItem">
+            <span class="emoji">⏱️</span> 작업 기간 :
+          </strong>
+          <time dateTime="2018-12">2018년 12월</time> ~
+          <time dateTime="2018-12">2018년 12월</time>
         </p>
-        <p class="skill">사용기술 : HTML, CSS, Javascript, WordPress</p>
+        <p class="skill">
+          <strong class="titItem">
+            <span class="emoji">🛠️</span> 사용기술 :
+          </strong>
+          HTML, CSS, Javascript, WordPress
+        </p>
       </header>
       <div class="siteDesc">
         <p>패키지 디자인 및 브랜딩을 전문으로 하는 Brandin' 홈페이지 개발을 진행 했습니다.</p>
@@ -538,19 +826,31 @@ const projects = {
     `,
   },
   NOAH: {
-    ID:'noah',
-    DATE:'2018.12',
-    TITLE: '노아베이커리 홈페이지 개발',
-    SRC: '#',
+    ID: "noah",
+    DATE: "2018.12",
+    TITLE: "노아베이커리 홈페이지 개발",
+    SRC: "#",
     DESCRIPTION: `
       <header class="siteHeader">
-        <h3>프로젝트 : <strong>노아베이커리 홈페이지 개발</strong></h3>
+        <h3>
+          <strong class="titItem">
+            <span class="emoji">💾</span> 프로젝트 :
+          </strong>
+          노아베이커리 홈페이지 개발
+        </h3>
         <p>
-          작업 기간 : 
-          <time datetime="2018-11">2018년 11월</time> ~ 
-          <time datetime="2018-12">2018년 12월</time>
+          <strong class="titItem">
+            <span class="emoji">⏱️</span> 작업 기간 :
+          </strong>
+          <time dateTime="2018-11">2018년 11월</time> ~
+          <time dateTime="2018-12">2018년 12월</time>
         </p>
-        <p class="skill">사용기술 : HTML, CSS, Javascript</p>
+        <p class="skill">
+          <strong class="titItem">
+            <span class="emoji">🛠️</span> 사용기술 :
+          </strong>
+          HTML, CSS, Javascript
+        </p>
       </header>
       <div class="siteDesc">
         <p>압구정 3대 베이커리 중 하나인 노아 베이커리 홈페이지 개발을 진행 했습니다.</p>
@@ -558,19 +858,31 @@ const projects = {
     `,
   },
   BURNINGSUN: {
-    ID:'burningsun',
-    DATE:'2018.05',
-    TITLE: '클럽 버닝썬',
-    SRC: '#',
+    ID: "burningsun",
+    DATE: "2018.05",
+    TITLE: "클럽 버닝썬",
+    SRC: "#",
     DESCRIPTION: `
       <header class="siteHeader">
-        <h3>프로젝트 : <strong>클럽 버닝썬</strong></h3>
+        <h3>
+          <strong class="titItem">
+            <span class="emoji">💾</span> 프로젝트 :
+          </strong>
+          클럽 버닝썬
+        </h3>
         <p>
-          작업 기간 : 
-          <time datetime="2018-03">2018년 3월</time> ~ 
-          <time datetime="2018-05">2018년 5월</time>
+          <strong class="titItem">
+            <span class="emoji">⏱️</span> 작업 기간 :
+          </strong>
+          <time dateTime="2018-03">2018년 3월</time> ~
+          <time dateTime="2018-05">2018년 5월</time>
         </p>
-        <p class="skill">사용기술 : HTML, CSS, Javascript, WordPress</p>
+        <p class="skill">
+          <strong class="titItem">
+            <span class="emoji">🛠️</span> 사용기술 :
+          </strong>
+          HTML, CSS, Javascript, WordPress
+        </p>
       </header>
       <div class="siteDesc">
         <p>강남 메르디앙 호텔에 있'던' 클럽 버닝썬 홈페이지 개발</p>
@@ -580,19 +892,31 @@ const projects = {
     `,
   },
   DCTOMENC: {
-    ID:'dctomenc',
-    DATE:'2017.12',
-    TITLE: 'DCTOM E&C 홈페이지 개발',
-    SRC: '#',
+    ID: "dctomenc",
+    DATE: "2017.12",
+    TITLE: "DCTOM E&C 홈페이지 개발",
+    SRC: "#",
     DESCRIPTION: `
       <header class="siteHeader">
-        <h3>프로젝트 : <strong>DCTOM E&C 홈페이지 개발</strong></h3>
+        <h3>
+          <strong class="titItem">
+            <span class="emoji">💾</span> 프로젝트 :
+          </strong>
+          DCTOM E&C 홈페이지 개발
+        </h3>
         <p>
-          작업 기간 : 
-          <time datetime="2017-12">2017년 12월</time> ~ 
-          <time datetime="2017-12">2017년 12월</time>
+          <strong class="titItem">
+            <span class="emoji">⏱️</span> 작업 기간 :
+          </strong>
+          <time dateTime="2017-12">2017년 12월</time> ~
+          <time dateTime="2017-12">2017년 12월</time>
         </p>
-        <p class="skill">사용기술 : HTML, CSS, Javascript</p>
+        <p class="skill">
+          <strong class="titItem">
+            <span class="emoji">🛠️</span> 사용기술 :
+          </strong>
+          HTML, CSS, Javascript
+        </p>
       </header>
       <div class="siteDesc">
         <p>마케팅과 브랜딩, 영상 촬영 및 제작을 하는 DCTOM E&C 홈페이지 개발을 진행 했습니다.</p>
@@ -600,19 +924,31 @@ const projects = {
     `,
   },
   DCTOMTOUR: {
-    ID:'dctomtour',
-    DATE:'2017.10',
-    TITLE: '디씨톰 투어 홈페이지 개발',
-    SRC: '#',
+    ID: "dctomtour",
+    DATE: "2017.10",
+    TITLE: "디씨톰 투어 홈페이지 개발",
+    SRC: "#",
     DESCRIPTION: `
       <header class="siteHeader">
-        <h3>프로젝트 : <strong>디씨톰 투어 홈페이지 개발</strong></h3>
+        <h3>
+          <strong class="titItem">
+            <span class="emoji">💾</span> 프로젝트 :
+          </strong>
+          디씨톰 투어 홈페이지 개발
+        </h3>
         <p>
-          작업 기간 : 
-          <time datetime="2017-10">2017년 10월</time> ~ 
-          <time datetime="2017-10">2017년 10월</time>
+          <strong class="titItem">
+            <span class="emoji">⏱️</span> 작업 기간 :
+          </strong>
+          <time dateTime="2017-10">2017년 10월</time> ~
+          <time dateTime="2017-10">2017년 10월</time>
         </p>
-        <p class="skill">사용기술 : HTML, CSS, Javascript</p>
+        <p class="skill">
+          <strong class="titItem">
+            <span class="emoji">🛠️</span> 사용기술 :
+          </strong>
+          HTML, CSS, Javascript
+        </p>
       </header>
       <div class="siteDesc">
         <p>태국 바우처 판매를 전문으로 서비스 하는 홈페이지를 개발 했습니다.</p>
@@ -621,19 +957,31 @@ const projects = {
     `,
   },
   DCTOMENT: {
-    ID:'dctoment',
-    DATE:'2017.09',
-    TITLE: 'DCTOM ENTERTAINMENT 홈페이지 개발',
-    SRC: '#',
+    ID: "dctoment",
+    DATE: "2017.09",
+    TITLE: "DCTOM ENTERTAINMENT 홈페이지 개발",
+    SRC: "#",
     DESCRIPTION: `
       <header class="siteHeader">
-        <h3>프로젝트 : <strong>DCTOM ENTERTAINMENT 홈페이지 개발</strong></h3>
+        <h3>
+          <strong class="titItem">
+            <span class="emoji">💾</span> 프로젝트 :
+          </strong>
+          DCTOM ENTERTAINMENT 홈페이지 개발
+        </h3>
         <p>
-          작업 기간 : 
-          <time datetime="2017-07">2017년 7월</time> ~ 
-          <time datetime="2017-09">2017년 9월</time>
+          <strong class="titItem">
+            <span class="emoji">⏱️</span> 작업 기간 :
+          </strong>
+          <time dateTime="2017-07">2017년 7월</time> ~
+          <time dateTime="2017-09">2017년 9월</time>
         </p>
-        <p class="skill">사용기술 : HTML, CSS, Javascript, WordPress</p>
+        <p class="skill">
+          <strong class="titItem">
+            <span class="emoji">🛠️</span> 사용기술 :
+          </strong>
+          HTML, CSS, Javascript, WordPress
+        </p>
       </header>
       <div class="siteDesc">
         <p>DCTOM 아티스트 PR용 엔터테인먼트 홈페이지를 개발 했습니다.</p>
@@ -641,19 +989,31 @@ const projects = {
     `,
   },
   MARKTOURCAR: {
-    ID:'marktourcar',
-    DATE:'2017.09',
-    TITLE: '마크투어카 홈페이지 개발',
-    SRC: '#',
+    ID: "marktourcar",
+    DATE: "2017.09",
+    TITLE: "마크투어카 홈페이지 개발",
+    SRC: "#",
     DESCRIPTION: `
       <header class="siteHeader">
-        <h3>프로젝트 : <strong>마크투어카 홈페이지 개발</strong></h3>
+        <h3>
+          <strong class="titItem">
+            <span class="emoji">💾</span> 프로젝트 :
+          </strong>
+          마크투어카 홈페이지 개발
+        </h3>
         <p>
-          작업 기간 : 
-          <time datetime="2017-07">2017년 7월</time> ~ 
-          <time datetime="2017-09">2017년 9월</time>
+          <strong class="titItem">
+            <span class="emoji">⏱️</span> 작업 기간 :
+          </strong>
+          <time dateTime="2017-07">2017년 7월</time> ~
+          <time dateTime="2017-09">2017년 9월</time>
         </p>
-        <p class="skill">사용기술 : HTML, CSS, Javascript</p>
+        <p class="skill">
+          <strong class="titItem">
+            <span class="emoji">🛠️</span> 사용기술 :
+          </strong>
+          HTML, CSS, Javascript
+        </p>
       </header>
       <div class="siteDesc">
         <p>태국에서 정식 승인 받은 픽업 렌터카, 바우처 판매 서비스를 제공하는 홈페이지를 개발 했습니다.</p>
@@ -662,19 +1022,31 @@ const projects = {
     `,
   },
   EDU: {
-    ID:'edu',
-    DATE:'2017.03',
-    TITLE: '어린이 교육 학원 홈페이지 개발',
-    SRC: '#',
+    ID: "edu",
+    DATE: "2017.03",
+    TITLE: "어린이 교육 학원 홈페이지 개발",
+    SRC: "#",
     DESCRIPTION: `
       <header class="siteHeader">
-        <h3>프로젝트 : <strong>어린이 교육 학원 홈페이지 개발</strong></h3>
+        <h3>
+          <strong class="titItem">
+            <span class="emoji">💾</span> 프로젝트 :
+          </strong>
+          어린이 교육 학원 홈페이지 개발
+        </h3>
         <p>
-          작업 기간 : 
-          <time datetime="2016-08">2016년 8월</time> ~ 
-          <time datetime="2017-03">2017년 3월</time>
+          <strong class="titItem">
+            <span class="emoji">⏱️</span> 작업 기간 :
+          </strong>
+          <time dateTime="2016-08">2016년 8월</time> ~
+          <time dateTime="2017-03">2017년 3월</time>
         </p>
-        <p class="skill">사용기술 : HTML, CSS, Javascript</p>
+        <p class="skill">
+          <strong class="titItem">
+            <span class="emoji">🛠️</span> 사용기술 :
+          </strong>
+          HTML, CSS, Javascript
+        </p>
       </header>
       <div class="siteDesc">
         <p>여러 어린이 교육 사업자 (속셈 학원, 태권도 도장 등)에 아동 심리 테스트와 동화 서비스를 제공하는 홈페이지를 개발 했습니다.</p>

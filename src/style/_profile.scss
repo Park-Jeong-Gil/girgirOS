@@ -13,11 +13,6 @@
     font-size: vw(16);
   }
 
-  // menu[role="tablist"] {
-  //   button {
-  //   }
-  // }
-
   .profileContainer {
     position: relative;
     min-height: vw(640);
@@ -238,6 +233,9 @@
 
           &.github::before {
             background-image: url("../assets/images/common/skill/github.png");
+          }
+          &.githubActions::before {
+            background-image: url("../assets/images/common/skill/actions.svg");
           }
           &.gitlab::before {
             background-image: url("../assets/images/common/skill/gitlab.png");

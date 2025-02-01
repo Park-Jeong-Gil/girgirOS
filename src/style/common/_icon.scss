@@ -1,205 +1,226 @@
-@mixin myPcImg{
-	background-image: url("../assets/images/common/my-computer-48x48.png");
+@mixin myPcImg {
+  background-image: url("../assets/images/common/my-computer-48x48.png");
 }
-@mixin myDocImg{
-	background-image: url("../assets/images/common/my-documents-48x48.png");
+@mixin myDocImg {
+  background-image: url("../assets/images/common/my-documents-48x48.png");
 }
-@mixin trashCanImg{
-	background-image: url("../assets/images/common/recycle-bin-full-48x48.png");
+@mixin trashCanImg {
+  background-image: url("../assets/images/common/recycle-bin-full-48x48.png");
 }
-@mixin ieImg{
-	background-image: url("../assets/images/common/internet-explorer-48x48.png");
+@mixin ieImg {
+  background-image: url("../assets/images/common/internet-explorer-48x48.png");
 }
-@mixin outlookImg{
-	background-image: url("../assets/images/common/outlook-express-48x48.png");
+@mixin outlookImg {
+  background-image: url("../assets/images/common/outlook-express-48x48.png");
 }
-@mixin aboutImg{
-	background-image: url("../assets/images/common/help-48x48.png");
+@mixin aboutImg {
+  background-image: url("../assets/images/common/help-48x48.png");
 }
-@mixin phoneImg{
-	background-image: url("../assets/images/common/phone.png");
+@mixin phoneImg {
+  background-image: url("../assets/images/common/phone.png");
 }
-@mixin mailImg{
-	background-image: url("../assets/images/common/mail.png");
+@mixin mailImg {
+  background-image: url("../assets/images/common/mail.png");
 }
-@mixin profileImg{
-	background-image: url("../assets/images/common/profile-icon.png");
+@mixin profileImg {
+  background-image: url("../assets/images/common/profile-icon.png");
 }
-@mixin wantedImg{
-	background-image: url("../assets/images/common/wanted-logo.png");
+@mixin wantedImg {
+  background-image: url("../assets/images/common/wanted.png");
 }
-@mixin notepadImg{
-	background-image: url("../assets/images/common/notepad-32x32.png");
+@mixin notepadImg {
+  background-image: url("../assets/images/common/introduce-icon.png");
 }
-@mixin websiteImg{
-	background-image: url("../assets/images/common/website-icon.png");
+@mixin websiteImg {
+  background-image: url("../assets/images/common/website-icon.png");
 }
-@mixin designImg{
-	background-image: url("../assets/images/common/design-icon.png");
+@mixin designImg {
+  background-image: url("../assets/images/common/design-icon.png");
 }
-@mixin noteImg{
-	background-image: url("../assets/images/common/notepad-file-32x32.png");
+@mixin noteImg {
+  background-image: url("../assets/images/common/notepad-file-32x32.png");
+}
+@mixin gitHubImg {
+  background-image: url("../assets/images/common/github-icon.png");
 }
 
-.appIcon{
-  .iconImage{
+.appIcon {
+  .iconImage {
     position: relative;
-    width: 55%; height: vw(72);
+    width: 55%;
+    height: vw(72);
     margin: 0 auto;
     background-image: url("../assets/images/common/file.png");
     background-repeat: no-repeat;
     background-position: left;
     background-size: contain;
-  
-    @include parent-selector('.appIcon', '.link') {
-      &::after{
-        content: '';
-        display: inline-block; width: vw(15); height: vw(15);
-        position: absolute; bottom:vw(10); left: vw(1); z-index: 2;
-        background: url('../assets/images/common/shortcut-32x32.png') no-repeat center / contain;
+
+    @include parent-selector(".appIcon", ".link") {
+      &::after {
+        content: "";
+        display: inline-block;
+        width: vw(15);
+        height: vw(15);
+        position: absolute;
+        bottom: vw(10);
+        left: vw(1);
+        z-index: 2;
+        background: url("../assets/images/common/shortcut-32x32.png") no-repeat
+          center / contain;
       }
     }
 
-    @include parent-selector('.appIcon', '#myPc') {
-      @include myPcImg
+    @include parent-selector(".appIcon", "#myPc") {
+      @include myPcImg;
     }
-  
-    @include parent-selector('.appIcon', '#myDoc') {
-      @include myDocImg
+
+    @include parent-selector(".appIcon", "#myDoc") {
+      @include myDocImg;
     }
-  
-    @include parent-selector('.appIcon', '#trashCan') {
-      @include trashCanImg
+
+    @include parent-selector(".appIcon", "#trashCan") {
+      @include trashCanImg;
     }
-  
-    @include parent-selector('.appIcon', '#ie') {
-      @include ieImg
+
+    @include parent-selector(".appIcon", "#ie") {
+      @include ieImg;
     }
-  
-    @include parent-selector('.appIcon', '#outlook') {
-      @include outlookImg
+
+    @include parent-selector(".appIcon", "#outlook") {
+      @include outlookImg;
     }
-  
-    @include parent-selector('.appIcon', '#about') {
-      @include aboutImg
+
+    @include parent-selector(".appIcon", "#about") {
+      @include aboutImg;
     }
-  
-    @include parent-selector('.appIcon', '#phone') {
-      @include phoneImg
+
+    @include parent-selector(".appIcon", "#phone") {
+      @include phoneImg;
     }
-  
-    @include parent-selector('.appIcon', '#email') {
-      @include mailImg
+
+    @include parent-selector(".appIcon", "#email") {
+      @include mailImg;
     }
-  
-    @include parent-selector('.appIcon', '#profile') {
+
+    @include parent-selector(".appIcon", "#profile") {
       @include profileImg;
     }
-  
-    @include parent-selector('.appIcon', '#wanted') {
-      @include wantedImg
+
+    @include parent-selector(".appIcon", "#wanted") {
+      @include wantedImg;
     }
-  
-    @include parent-selector('.appIcon', '#notepad') {
+
+    @include parent-selector(".appIcon", "#github") {
+      @include gitHubImg;
+    }
+
+    @include parent-selector(".appIcon", "#notepad") {
       @include notepadImg;
       width: 48%;
     }
-  
-    @include parent-selector('.appIcon', '#website') {
+
+    @include parent-selector(".appIcon", "#website") {
       @include websiteImg;
     }
-  
-    @include parent-selector('.appIcon', '#design') {
+
+    @include parent-selector(".appIcon", "#design") {
       @include designImg;
       width: 48%;
     }
-  
-    @include parent-selector('.appIcon', "[id*='note']") {
+
+    @include parent-selector(".appIcon", "[id*='note']") {
       @include noteImg;
     }
   }
 
-  &:focus, &.focused{
-    &#myPc .iconImage{
-      &::before{ 
+  &:focus,
+  &.focused {
+    &#myPc .iconImage {
+      &::before {
         mask-image: url("../assets/images/common/my-computer-48x48.png");
         -webkit-mask-image: url("../assets/images/common/my-computer-48x48.png");
       }
     }
-    &#myDoc .iconImage{
-      &::before{ 
+    &#myDoc .iconImage {
+      &::before {
         mask-image: url("../assets/images/common/my-documents-48x48.png");
         -webkit-mask-image: url("../assets/images/common/my-documents-48x48.png");
       }
     }
-    &#trashCan .iconImage{
-      &::before{ 
+    &#trashCan .iconImage {
+      &::before {
         mask-image: url("../assets/images/common/recycle-bin-full-48x48.png");
         -webkit-mask-image: url("../assets/images/common/recycle-bin-full-48x48.png");
       }
     }
-    &#ie .iconImage{
-      &::before{ 
+    &#ie .iconImage {
+      &::before {
         mask-image: url("../assets/images/common/internet-explorer-48x48.png");
         -webkit-mask-image: url("../assets/images/common/internet-explorer-48x48.png");
       }
     }
-    &#outlook .iconImage{
-      &::before{ 
+    &#outlook .iconImage {
+      &::before {
         mask-image: url("../assets/images/common/outlook-express-48x48.png");
         -webkit-mask-image: url("../assets/images/common/outlook-express-48x48.png");
       }
     }
-    &#about .iconImage{
-      &::before{ 
+    &#about .iconImage {
+      &::before {
         mask-image: url("../assets/images/common/help-48x48.png");
         -webkit-mask-image: url("../assets/images/common/help-48x48.png");
       }
     }
-    &#phone .iconImage{
-      &::before{ 
+    &#phone .iconImage {
+      &::before {
         mask-image: url("../assets/images/common/phone.png");
         -webkit-mask-image: url("../assets/images/common/phone.png");
       }
     }
-    &#email .iconImage{
-      &::before{ 
+    &#email .iconImage {
+      &::before {
         mask-image: url("../assets/images/common/mail.png");
         -webkit-mask-image: url("../assets/images/common/mail.png");
       }
     }
-    &#profile .iconImage{
-      &::before{ 
+    &#profile .iconImage {
+      &::before {
         mask-image: url("../assets/images/common/profile-icon.png");
         -webkit-mask-image: url("../assets/images/common/profile-icon.png");
       }
     }
-    &#wanted .iconImage{
-      &::before{ 
-        mask-image: url("../assets/images/common/wanted-logo.png");
-        -webkit-mask-image: url("../assets/images/common/wanted-logo.png");
+    &#wanted .iconImage {
+      &::before {
+        mask-image: url("../assets/images/common/wanted.png");
+        -webkit-mask-image: url("../assets/images/common/wanted.png");
       }
     }
-    &#notepad .iconImage{
-      &::before{ 
-        mask-image: url("../assets/images/common/notepad-32x32.png");
-        -webkit-mask-image: url("../assets/images/common/notepad-32x32.png");
+    &#notepad .iconImage {
+      &::before {
+        mask-image: url("../assets/images/common/introduce-icon.png");
+        -webkit-mask-image: url("../assets/images/common/introduce-icon.png");
       }
     }
-    &#website .iconImage{
-      &::before{ 
+    &#website .iconImage {
+      &::before {
         mask-image: url("../assets/images/common/website-icon.png");
         -webkit-mask-image: url("../assets/images/common/website-icon.png");
       }
     }
-    &#design .iconImage{
-      &::before{ 
+    &#design .iconImage {
+      &::before {
         mask-image: url("../assets/images/common/design-icon.png");
         -webkit-mask-image: url("../assets/images/common/design-icon.png");
       }
     }
-    &[id*='note'] .iconImage{
-      &::before{ 
+    &#github .iconImage {
+      &::before {
+        mask-image: url("../assets/images/common/github-icon.png");
+        -webkit-mask-image: url("../assets/images/common/github-icon.png");
+      }
+    }
+    &[id*="note"] .iconImage {
+      &::before {
         mask-image: url("../assets/images/common/notepad-file-32x32.png");
         -webkit-mask-image: url("../assets/images/common/notepad-file-32x32.png");
       }
@@ -208,71 +229,71 @@
 }
 
 // title bar
-.window .title-bar .title-bar-text{
-  &::before{
-    @include parent-selector('.window', '#myPcApp') {
-      @include myPcImg
+.window .title-bar .title-bar-text {
+  &::before {
+    @include parent-selector(".window", "#myPcApp") {
+      @include myPcImg;
     }
-    @include parent-selector('.window', '#myDocApp') {
-      @include myDocImg
+    @include parent-selector(".window", "#myDocApp") {
+      @include myDocImg;
     }
-    @include parent-selector('.window', '#trashCanApp') {
-      @include trashCanImg
+    @include parent-selector(".window", "#trashCanApp") {
+      @include trashCanImg;
     }
-    @include parent-selector('.window', '#ieApp') {
-      @include ieImg
+    @include parent-selector(".window", "#ieApp") {
+      @include ieImg;
     }
-    @include parent-selector('.window', '#outlookApp') {
-      @include outlookImg
+    @include parent-selector(".window", "#outlookApp") {
+      @include outlookImg;
     }
-    @include parent-selector('.window', '#aboutApp') {
-      @include aboutImg
+    @include parent-selector(".window", "#aboutApp") {
+      @include aboutImg;
     }
-    @include parent-selector('.window', '#profileApp') {
-      @include profileImg
+    @include parent-selector(".window", "#profileApp") {
+      @include profileImg;
     }
-    @include parent-selector('.window', '#notepadApp') {
-      @include notepadImg
+    @include parent-selector(".window", "#notepadApp") {
+      @include notepadImg;
     }
-    @include parent-selector('.window', '#websiteApp') {
-      @include websiteImg
+    @include parent-selector(".window", "#websiteApp") {
+      @include websiteImg;
     }
-    @include parent-selector('.window', '#designApp') {
-      @include designImg
+    @include parent-selector(".window", "#designApp") {
+      @include designImg;
     }
   }
 }
 
 // start bar
-.StartBar .appPanelWrap .runningProgram{
-  &[data-program-name=myPc]:before{
-    @include myPcImg
+.StartBar .appPanelWrap .runningProgram {
+  &[data-program-name="myPc"]:before {
+    @include myPcImg;
   }
-  &[data-program-name=myDoc]:before{
-    @include myDocImg
+  &[data-program-name="myDoc"]:before {
+    @include myDocImg;
   }
-  &[data-program-name=trashCan]:before{
-    @include trashCanImg
+  &[data-program-name="trashCan"]:before {
+    @include trashCanImg;
   }
-  &[data-program-name=ie]:before{
-    @include ieImg
+  &[data-program-name="ie"]:before {
+    @include ieImg;
   }
-  &[data-program-name=outlook]:before{
-    @include outlookImg
+  &[data-program-name="outlook"]:before {
+    @include outlookImg;
   }
-  &[data-program-name=about]:before{
-    @include aboutImg
+  &[data-program-name="about"]:before {
+    @include aboutImg;
   }
-  &[data-program-name=profile]:before{
-    @include profileImg
+  &[data-program-name="profile"]:before {
+    @include profileImg;
   }
-  &[data-program-name=notepad]:before{
-    @include notepadImg
+  &[data-program-name="notepad"]:before {
+    @include notepadImg;
   }
-  &[data-program-name=website]:before{
-    @include websiteImg
+  &[data-program-name="website"]:before {
+    @include websiteImg;
   }
-  &[data-program-name=design]:before{
-    @include designImg
+  &[data-program-name="design"]:before {
+    @include designImg;
   }
 }
