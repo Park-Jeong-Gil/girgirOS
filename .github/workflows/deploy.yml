@@ -40,28 +40,31 @@ jobs:
           username: ${{ secrets.SSH_USERNAME }}
           key: ${{ secrets.DEPLOY_SSH_KEY }}
           script: |
+            # 변수 설정
             timestamp=$(date +%Y%m%d_%H%M%S)
-            TARGET_DIR=${{ secrets.TARGET_DIRECTORY }}
-            BACKUP_DIR="${TARGET_DIR}/../backups/backup_${timestamp}"
+            TARGET_DIR="${{ secrets.TARGET_DIRECTORY }}"
+            BACKUP_ROOT="${TARGET_DIR}/../backups"
+            BACKUP_DIR="${BACKUP_ROOT}/backup_${timestamp}"
             
             # 백업 디렉토리 생성
-            mkdir -p ${BACKUP_DIR}
+            mkdir -p "${BACKUP_DIR}" || { echo "백업 디렉토리 생성 실패"; exit 1; }
             
-            # 백업 생성 전 디스크 공간 확인
-            if [ $(df -P ${TARGET_DIR} | awk 'NR==2 {print $5}' | sed 's/%//') -gt 90 ]; then
-              echo "Low disk space warning"
-              # 7일 이상 된 백업 정리
-              find ${TARGET_DIR}/../backups -name "backup_*" -type d -mtime +7 -exec rm -rf {} \;
+            # 디스크 공간 확인
+            if [ $(df -P "${BACKUP_ROOT}" | awk 'NR==2 {print $5}' | sed 's/%//') -gt 90 ]; then
+              echo "디스크 공간 부족 경고"
+              find "${BACKUP_ROOT}" -name "backup_*" -type d -mtime +7 -exec rm -rf {} \;
             fi
             
-            # 특정 파일과 폴더만 백업
-            cd ${TARGET_DIR}
-            if cp index.html ${BACKUP_DIR}/ && \
-               cp -r resources ${BACKUP_DIR}/; then
-              echo "Backup created successfully at ${BACKUP_DIR}"
+            # 백업 수행
+            cd "${TARGET_DIR}" || { echo "타겟 디렉토리 접근 실패"; exit 1; }
+            
+            if [ -f "index.html" ] && [ -d "resources" ]; then
+              cp -p index.html "${BACKUP_DIR}/" && \
+              cp -rp resources "${BACKUP_DIR}/" && \
+              echo "백업 완료: ${BACKUP_DIR}"
             else
-              echo "Backup creation failed"
-              rm -rf ${BACKUP_DIR}  # 실패 시 불완전한 백업 제거
+              echo "백업 실패: 필수 파일/폴더 없음"
+              rm -rf "${BACKUP_DIR}"
               exit 1
             fi
 
