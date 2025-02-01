@@ -90,15 +90,15 @@ jobs:
           script: |
             if [ ! -f "${{ secrets.TARGET_DIRECTORY }}/index.html" ]; then
               echo "Deployment verification failed - rolling back"
-              if [ -d "backup_$timestamp" ]; then
+              if [ -d "${{ secrets.TARGET_DIRECTORY }}/../backups/backup_$timestamp" ]; then
                 rm -rf ${{ secrets.TARGET_DIRECTORY }}/*
-                cp -r backup_$timestamp/* ${{ secrets.TARGET_DIRECTORY }}/ || {
+                cp -r ${{ secrets.TARGET_DIRECTORY }}/../backups/backup_$timestamp/* ${{ secrets.TARGET_DIRECTORY }}/ || {
                   echo "Rollback failed"
                   exit 2
                 }
                 echo "Rollback completed successfully"
                 # 오래된 백업 정리 (7일 이상)
-                find . -name "backup_*" -type d -mtime +7 -exec rm -rf {} \;
+                find ${{ secrets.TARGET_DIRECTORY }}/../backups -name "backup_*" -type d -mtime +7 -exec rm -rf {} \;
               else
                 echo "Backup not found for rollback"
                 exit 1
