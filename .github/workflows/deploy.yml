@@ -41,23 +41,27 @@ jobs:
           key: ${{ secrets.DEPLOY_SSH_KEY }}
           script: |
             timestamp=$(date +%Y%m%d_%H%M%S)
-            cd ${{ secrets.TARGET_DIRECTORY }}
-            
-            # 백업 생성 전 디스크 공간 확인
-            if [ $(df -P . | awk 'NR==2 {print $5}' | sed 's/%//') -gt 90 ]; then
-              echo "Low disk space warning"
-              # 7일 이상 된 백업 정리
-              find . -name "backup_*" -type d -mtime +7 -exec rm -rf {} \;
-            fi
+            TARGET_DIR=${{ secrets.TARGET_DIRECTORY }}
+            BACKUP_DIR="${TARGET_DIR}/../backups/backup_${timestamp}"
             
             # 백업 디렉토리 생성
-            mkdir -p backup_$timestamp
+            mkdir -p ${BACKUP_DIR}
             
-            # 현재 디렉토리의 내용을 백업 디렉토리로 복사
-            if cp -r * backup_$timestamp; then
-              echo "Backup created successfully"
+            # 백업 생성 전 디스크 공간 확인
+            if [ $(df -P ${TARGET_DIR} | awk 'NR==2 {print $5}' | sed 's/%//') -gt 90 ]; then
+              echo "Low disk space warning"
+              # 7일 이상 된 백업 정리
+              find ${TARGET_DIR}/../backups -name "backup_*" -type d -mtime +7 -exec rm -rf {} \;
+            fi
+            
+            # 특정 파일과 폴더만 백업
+            cd ${TARGET_DIR}
+            if cp index.html ${BACKUP_DIR}/ && \
+               cp -r resources ${BACKUP_DIR}/; then
+              echo "Backup created successfully at ${BACKUP_DIR}"
             else
               echo "Backup creation failed"
+              rm -rf ${BACKUP_DIR}  # 실패 시 불완전한 백업 제거
               exit 1
             fi
 
