@@ -72,7 +72,7 @@ jobs:
           target: ${{ secrets.TARGET_DIRECTORY }}
           strip_components: 1
         
-          - name: Fix target directory permissions
+        - name: Fix target directory permissions
           uses: appleboy/ssh-action@v1.0.0
           with:
             host: ${{ secrets.SSH_HOST }}
