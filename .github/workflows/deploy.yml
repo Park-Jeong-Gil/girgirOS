@@ -46,11 +46,11 @@ jobs:
             BACKUP_DIR="${BACKUP_ROOT}/backup_${timestamp}"
             
             # 디렉토리 생성
-            sudo -S mkdir -p "${BACKUP_DIR}" || exit 1
+            sudo -S -p '' mkdir -p "${BACKUP_DIR}" || exit 1
             
             # 디스크 공간 확인 및 오래된 백업 삭제
             if [ $(df -P "${BACKUP_ROOT}" | awk 'NR==2 {print $5}' | sed 's/%//') -gt 90 ]; then
-              sudo -S find "${BACKUP_ROOT}" -name "backup_*" -type d -mtime +7 -exec rm -rf {} \;
+              sudo -S -p '' find "${BACKUP_ROOT}" -name "backup_*" -type d -mtime +7 -exec rm -rf {} \;
             fi
             
             # 안전한 복사 명령어 (rsync 사용)
