@@ -70,7 +70,7 @@ jobs:
           username: ${{ secrets.SSH_USERNAME }}
           key: ${{ secrets.DEPLOY_SSH_KEY }}
           script: |
-            rsync -av --delete build/ ${{ secrets.TARGET_DIRECTORY }}
+            rsync -av --delete ./build/ ${{ secrets.SSH_USERNAME }}@localhost:${{ secrets.TARGET_DIRECTORY }}
 
       # 배포 후 권한 수정
       - name: Set permissions on NAS
