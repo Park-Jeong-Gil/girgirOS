@@ -40,30 +40,26 @@ jobs:
           username: ${{ secrets.SSH_USERNAME }}
           key: ${{ secrets.DEPLOY_SSH_KEY }}
           script: |
-            # 변수 설정
             timestamp=$(date +%Y%m%d_%H%M%S)
             TARGET_DIR="${{ secrets.TARGET_DIRECTORY }}"
             BACKUP_ROOT="${TARGET_DIR}/../backups"
             BACKUP_DIR="${BACKUP_ROOT}/backup_${timestamp}"
             
-            # 백업 디렉토리 생성
-            mkdir -p "${BACKUP_ROOT}" || { echo "백업 루트 디렉토리 생성 실패"; exit 1; }
-            mkdir -p "${BACKUP_DIR}" || { echo "백업 디렉토리 생성 실패"; exit 1; }
-      
-            # 디스크 공간 확인
+            # 디렉토리 생성
+            mkdir -p "${BACKUP_DIR}" || exit 1
+            
+            # 디스크 공간 확인 및 오래된 백업 삭제
             if [ $(df -P "${BACKUP_ROOT}" | awk 'NR==2 {print $5}' | sed 's/%//') -gt 90 ]; then
-              echo "Low disk space warning"
               find "${BACKUP_ROOT}" -name "backup_*" -type d -mtime +7 -exec rm -rf {} \;
             fi
-      
-            # 타겟 디렉토리 복사
-            echo "백업 시작: $(date)"
-            cp -rv "${TARGET_DIR}/"* "${BACKUP_DIR}/" && \
-            echo "백업 완료: ${BACKUP_DIR}" || {
+            
+            # 안전한 복사 명령어 (rsync 사용)
+            rsync -av --exclude='backups' "${TARGET_DIR}/" "${BACKUP_DIR}/" || {
               echo "백업 실패"
               rm -rf "${BACKUP_DIR}"
               exit 1
             }
+            echo "백업 완료: ${BACKUP_DIR}"
 
       - name: Deploy to NAS
         uses: appleboy/scp-action@v0.1.3
@@ -84,23 +80,21 @@ jobs:
           username: ${{ secrets.SSH_USERNAME }}
           key: ${{ secrets.DEPLOY_SSH_KEY }}
           script: |
+            # 백업 디렉토리에서 가장 최신 백업 찾기
+            BACKUP_DIR=$(ls -td ${{ secrets.TARGET_DIRECTORY }}/../backups/backup_* | head -1)
+            
             if [ ! -f "${{ secrets.TARGET_DIRECTORY }}/index.html" ]; then
               echo "Deployment verification failed - rolling back"
-              if [ -d "${{ secrets.TARGET_DIRECTORY }}/../backups/backup_$timestamp" ]; then
+              if [ -n "${BACKUP_DIR}" ] && [ -d "${BACKUP_DIR}" ]; then
                 rm -rf ${{ secrets.TARGET_DIRECTORY }}/*
-                cp -r ${{ secrets.TARGET_DIRECTORY }}/../backups/backup_$timestamp/* ${{ secrets.TARGET_DIRECTORY }}/ || {
-                  echo "Rollback failed"
-                  exit 2
-                }
-                echo "Rollback completed successfully"
-                # 오래된 백업 정리 (7일 이상)
-                find ${{ secrets.TARGET_DIRECTORY }}/../backups -name "backup_*" -type d -mtime +7 -exec rm -rf {} \;
+                cp -r "${BACKUP_DIR}/"* "${{ secrets.TARGET_DIRECTORY }}/" || exit 1
+                echo "Rollback completed using ${BACKUP_DIR}"
               else
                 echo "Backup not found for rollback"
                 exit 1
               fi
             else
               echo "Deployment verified successfully"
-              # 성공적인 배포 후 알림 (선택사항)
-              echo "::notice::Deployment completed successfully at $(date)"
             fi
+            # 오래된 백업 정리
+            find "${{ secrets.TARGET_DIRECTORY }}/../backups" -name "backup_*" -type d -mtime +7 -exec rm -rf {} \;
