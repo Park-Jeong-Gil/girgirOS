@@ -42,7 +42,7 @@ jobs:
           script: |
             timestamp=$(date +%Y%m%d_%H%M%S)
             TARGET_DIR="${{ secrets.TARGET_DIRECTORY }}"
-            BACKUP_ROOT="${TARGET_DIR}/../backups"
+            BACKUP_ROOT="${TARGET_DIR}/backups"
             BACKUP_DIR="${BACKUP_ROOT}/backup_${timestamp}"
             
             # 디렉토리 생성 (sudo 제거)
@@ -81,7 +81,7 @@ jobs:
           key: ${{ secrets.DEPLOY_SSH_KEY }}
           script: |
             # 백업 디렉토리에서 가장 최신 백업 찾기
-            BACKUP_DIR=$(ls -td ${{ secrets.TARGET_DIRECTORY }}/../backups/backup_* | head -1)
+            BACKUP_DIR=$(ls -td ${{ secrets.TARGET_DIRECTORY }}/backups/backup_* | head -1)
             
             if [ ! -f "${{ secrets.TARGET_DIRECTORY }}/index.html" ]; then
               echo "Deployment verification failed - rolling back"
@@ -97,4 +97,4 @@ jobs:
               echo "Deployment verified successfully"
             fi
             # 오래된 백업 정리
-            find "${{ secrets.TARGET_DIRECTORY }}/../backups" -name "backup_*" -type d -mtime +7 -exec rm -rf {} \;
+            find "${{ secrets.TARGET_DIRECTORY }}/backups" -name "backup_*" -type d -mtime +7 -exec rm -rf {} \;
