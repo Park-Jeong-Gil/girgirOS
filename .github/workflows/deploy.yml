@@ -69,7 +69,7 @@ jobs:
           port: ${{ secrets.SSH_PORT }}
           username: ${{ secrets.SSH_USERNAME }}
           key: ${{ secrets.DEPLOY_SSH_KEY }}
-          script: |
+          command: |
             rsync -av -e "ssh -i ~/.ssh/id_rsa -o StrictHostKeyChecking=no" --delete build/ ${{ secrets.SSH_USERNAME }}@${{ secrets.SSH_HOST }}:${{ secrets.TARGET_DIRECTORY }}
 
       # 배포 후 권한 수정
