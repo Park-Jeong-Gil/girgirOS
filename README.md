@@ -5,7 +5,7 @@
 사이트 링크 : [@girgir.dev](http://girgir.synology.me/)
 
 - 작업 기간 : 2024년 7월 ~ 2024년 8월
-- 사용기술 : Vite, React, Typescript
+- 사용기술 : Vite, React, Typescript, etc...
 
 이 포트폴리오 사이트는 90년대 Windows를 컨셉으로 작업 했습니다.
 
