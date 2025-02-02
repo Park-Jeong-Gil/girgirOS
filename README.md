@@ -2,6 +2,8 @@
 
 <img src="src/assets/images/common/splashImage.png" alt="My Image" width="400" style="margin-bottom: 24px;">
 
+사이트 링크 : [@girgir.dev](http://girgir.synology.me/)
+
 - 작업 기간 : 2024년 7월 ~ 2024년 8월
 - 사용기술 : Vite, React, Typescript
 
@@ -17,4 +19,3 @@
 
 ([Synology Nas로 자동화 배포 환경 만들기!](https://girgir.notion.site/Synology-Github-CI-CD-185ec283ac8680cbbc7fc6ffe88b07cf?pvs=4))
 
-사이트 링크 : [@girgir.dev](http://girgir.synology.me/)
