@@ -185,8 +185,9 @@ function Website({}: WebsiteProps) {
                   <a
                     className="pointerCursor"
                     href="https://girgir.notion.site/Synology-Github-CI-CD-185ec283ac8680cbbc7fc6ffe88b07cf?pvs=4"
+                    target="_blank"
                   >
-                    Synology Nas로 자동화 배포 환경 만들기?
+                    Synology Nas로 자동화 배포 환경 만들기!
                   </a>
                   )
                 </p>

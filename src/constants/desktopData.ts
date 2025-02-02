@@ -66,7 +66,7 @@ interface itemData {
 const contact: { [key: string]: itemData } = {
   PROFILE: {
     ID: "profile",
-    NAME: "(C:)프로필",
+    NAME: "프로필",
     TYPE: "application",
     SIZE: {
       width: 664,
@@ -76,7 +76,7 @@ const contact: { [key: string]: itemData } = {
   },
   SELF_INTRO: {
     ID: "notepad",
-    NAME: "(D:)자기소개",
+    NAME: "자기소개",
     TYPE: "application",
     SIZE: {
       width: 550,
@@ -93,9 +93,9 @@ const contact: { [key: string]: itemData } = {
   },
   GITHUB: {
     ID: "github",
-    NAME: "github",
+    NAME: "Github",
     TYPE: "link",
-    LINK: "https://github.com/Park-Jeong-Gil",
+    LINK: "https://github.com/Park-Jeong-Gil/girgirOS",
     DESCRIPTION: "새 탭으로 원티드 지원서를 엽니다.",
   },
 } as const;
