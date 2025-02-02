@@ -17,7 +17,6 @@
 아쉽게도 프론트 엔드 기술을 활용 할 수 있는 프로젝트를 접할 기회가 없었습니다. 
 때문에 혼자서 `React`와 `Typescript`를 틈틈히 공부했고 이번 포트폴리오에서 `Vite, React, Typescript`를 사용하여 작업할 수 있었습니다.
 
-추가로 Github Actions을 이용하여 개인 Synology Nas 서버에 자동화 배포 환경을 구축하였습니다. 
-
+추가로 Github Actions을 이용하여 개인 Synology Nas 서버에 자동화 배포 환경을 구축하였습니다.  
 ([Synology Nas로 자동화 배포 환경 만들기!](https://girgir.notion.site/Synology-Github-CI-CD-185ec283ac8680cbbc7fc6ffe88b07cf?pvs=4))
 
