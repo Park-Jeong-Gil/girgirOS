@@ -2,27 +2,27 @@ name: Deploy to Synology NAS
 
 on:
   push:
-    branches: [main]
+    branches: [main] # main 브랜치에 푸시될 때 워크플로우 실행
 
 jobs:
   build-and-deploy:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest # 최신 우분투 환경에서 실행
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v4 # 코드 체크아웃
 
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '18'
-          cache: 'npm'
+          node-version: '18' # Node.js 버전 18 설정
+          cache: 'npm' # npm 캐시 사용
 
       - name: Install dependencies
-        # run: npm install
-        run: npm ci
+        run: npm ci # 의존성 설치
         
       - name: Check build directory
+        # 기존 빌드 디렉토리 삭제
         run: |
           if [ -d "build" ]; then
             echo "Cleaning existing build directory"
@@ -30,7 +30,7 @@ jobs:
           fi
 
       - name: Build project
-        run: npm run build
+        run: npm run build # 프로젝트 빌드
         
       - name: Create backup on NAS
         uses: appleboy/ssh-action@v1.0.0
@@ -70,7 +70,6 @@ jobs:
               rm -rf "${BACKUP_DIR}"
             fi
 
-      # 타겟 디렉토리 준비
       - name: Prepare target directory
         uses: appleboy/ssh-action@v1.0.0
         with:
@@ -78,11 +77,11 @@ jobs:
           port: ${{ secrets.SSH_PORT }}
           username: ${{ secrets.SSH_USERNAME }}
           key: ${{ secrets.DEPLOY_SSH_KEY }}
+          # 타겟 디렉토리 생성 및 권한 설정
           script: |
-            mkdir -p ${{ secrets.TARGET_DIRECTORY }}
+            mkdir -p ${{ secrets.TARGET_DIRECTORY }} 
             chmod 775 ${{ secrets.TARGET_DIRECTORY }}
 
-      # 빌드된 파일 전송 (기존 파일 보존)
       - name: Deploy to NAS
         uses: appleboy/scp-action@v0.1.3
         with:
@@ -90,11 +89,11 @@ jobs:
           port: ${{ secrets.SSH_PORT }}
           username: ${{ secrets.SSH_USERNAME }}
           key: ${{ secrets.DEPLOY_SSH_KEY }}
-          source: "build/*"
-          target: ${{ secrets.TARGET_DIRECTORY }}
-          strip_components: 1
-          rm: false
-          overwrite: true
+          source: "build/*" # 빌드된 파일 소스
+          target: ${{ secrets.TARGET_DIRECTORY }} # 타겟 디렉토리
+          strip_components: 1 # 최상위 디렉토리 제거
+          rm: false # 기존 파일 삭제 안 함
+          overwrite: true # 기존 파일 덮어쓰기
 
       # 배포 후 권한 수정 (불필요한 파일 삭제 제거)
       - name: Set permissions on NAS
@@ -104,9 +103,10 @@ jobs:
           port: ${{ secrets.SSH_PORT }}
           username: ${{ secrets.SSH_USERNAME }}
           key: ${{ secrets.DEPLOY_SSH_KEY }}
+          # 디렉토리 권한 설정 (755)및 파일 권한 설정 (644)
           script: |
             cd ${{ secrets.TARGET_DIRECTORY }}
-            find . -type d -exec chmod 755 {} \;
+            find . -type d -exec chmod 755 {} \; 
             find . -type f -exec chmod 644 {} \;
             echo "Permissions updated"
 
