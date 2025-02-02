@@ -106,8 +106,8 @@ jobs:
           # 디렉토리 권한 설정 (755)및 파일 권한 설정 (644)
           script: |
             cd ${{ secrets.TARGET_DIRECTORY }}
-            find . -type d -exec chmod 755 {} \; 
-            find . -type f -exec chmod 644 {} \;
+            find . -type d \( -name "dev" -o -name "global" \) -prune -o -type d -exec chmod 755 {} \;
+            find . -type d \( -name "dev" -o -name "global" \) -prune -o -type f -exec chmod 644 {} \;
             echo "Permissions updated"
 
       - name: Verify deployment
