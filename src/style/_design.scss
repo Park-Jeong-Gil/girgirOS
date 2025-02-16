@@ -255,11 +255,13 @@
 
       > .colorBox {
         position: absolute;
-        &[data-color="rgb(255,255,255)"] {
+
+        &.bottom-right {
           bottom: vw(3);
           right: vw(3);
         }
-        &[data-color="rgb(0,0,0)"] {
+
+        &.top-left {
           top: vw(3);
           left: vw(3);
         }

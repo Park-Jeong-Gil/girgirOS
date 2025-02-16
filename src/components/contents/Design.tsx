@@ -13,6 +13,9 @@ function Design({}: DesignProps) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const imageRef = useRef<HTMLImageElement>(null);
   const contextRef = useRef<CanvasRenderingContext2D | null>(null);
+  const [activeTool, setActiveTool] = useState("pencil"); // 연필 도구 기본 활성화
+  const [foregroundColor, setForegroundColor] = useState("rgb(0,0,0)");
+  const [backgroundColor, setBackgroundColor] = useState("rgb(255,255,255)");
 
   const handleTabClick = (tab: string) => {
     setActiveTab(tab);
@@ -49,7 +52,7 @@ function Design({}: DesignProps) {
       </li>
     ));
 
-  // Canvas 초기화 함수
+  // Canvas 초기화 함수 수정
   const initializeCanvas = (imgElement: HTMLImageElement) => {
     const canvas = canvasRef.current;
     if (!canvas) return;
@@ -61,7 +64,7 @@ function Design({}: DesignProps) {
     if (!context) return;
 
     context.drawImage(imgElement, 0, 0);
-    context.strokeStyle = "black";
+    context.strokeStyle = foregroundColor; // 초기 색상을 foregroundColor로 설정
     context.lineWidth = 1;
     context.lineCap = "round";
     contextRef.current = context;
@@ -80,6 +83,7 @@ function Design({}: DesignProps) {
     if (!canvas || !contextRef.current) return;
 
     const rect = canvas.getBoundingClientRect();
+    contextRef.current.strokeStyle = foregroundColor; // 그리기 시작할 때 색상 업데이트
     contextRef.current.beginPath();
     contextRef.current.moveTo(e.clientX - rect.left, e.clientY - rect.top);
     setIsDrawing(true);
@@ -97,6 +101,29 @@ function Design({}: DesignProps) {
     if (!contextRef.current) return;
     contextRef.current.closePath();
     setIsDrawing(false);
+  };
+
+  const handleToolClick = (tool: string) => {
+    setActiveTool(tool);
+  };
+
+  // switchColors 함수 수정
+  const switchColors = () => {
+    const temp = foregroundColor;
+    setForegroundColor(backgroundColor);
+    setBackgroundColor(temp);
+
+    if (contextRef.current) {
+      contextRef.current.strokeStyle = backgroundColor; // 스위치 후 새로운 전경색으로 업데이트
+    }
+  };
+
+  // handleColorClick 함수 수정
+  const handleColorClick = (color: string) => {
+    setForegroundColor(color);
+    if (contextRef.current) {
+      contextRef.current.strokeStyle = color;
+    }
   };
 
   return (
@@ -125,7 +152,13 @@ function Design({}: DesignProps) {
                 <button className="toolBtn" title="돋보기"></button>
               </li>
               <li>
-                <button className="toolBtn active" title="연필"></button>
+                <button
+                  className={`toolBtn ${
+                    activeTool === "pencil" ? "active" : ""
+                  }`}
+                  title="연필"
+                  onClick={() => handleToolClick("pencil")}
+                ></button>
               </li>
               <li>
                 <button className="toolBtn" title="붓"></button>
@@ -167,6 +200,9 @@ function Design({}: DesignProps) {
             />
             <canvas
               ref={canvasRef}
+              className={`drawCanvas ${
+                activeTool === "pencil" ? "pencil" : ""
+              }`}
               onMouseDown={startDrawing}
               onMouseMove={draw}
               onMouseUp={stopDrawing}
@@ -221,95 +257,58 @@ function Design({}: DesignProps) {
         </div>
         <div className="footerWrap">
           <div className="pallete">
-            <p className="selectColor">
-              <span className="colorBox" data-color="rgb(255,255,255)"></span>
-              <span className="colorBox" data-color="rgb(0,0,0)"></span>
+            <p className="selectColor" onClick={switchColors}>
+              <span
+                className="colorBox bottom-right"
+                style={{ backgroundColor: backgroundColor }}
+                data-color={backgroundColor}
+              ></span>
+              <span
+                className="colorBox top-left"
+                style={{ backgroundColor: foregroundColor }}
+                data-color={foregroundColor}
+              ></span>
             </p>
-            <ul>
-              <li>
-                <span className="colorBox" data-color="rgb(0,0,0)"></span>
-              </li>
-              <li>
-                <span className="colorBox" data-color="rgb(128,128,128)"></span>
-              </li>
-              <li>
-                <span className="colorBox" data-color="rgb(128,0,0)"></span>
-              </li>
-              <li>
-                <span className="colorBox" data-color="rgb(128,128,0)"></span>
-              </li>
-              <li>
-                <span className="colorBox" data-color="rgb(0,128,0)"></span>
-              </li>
-              <li>
-                <span className="colorBox" data-color="rgb(0,128,128)"></span>
-              </li>
-              <li>
-                <span className="colorBox" data-color="rgb(0,0,128)"></span>
-              </li>
-              <li>
-                <span className="colorBox" data-color="rgb(128,0,128)"></span>
-              </li>
-              <li>
-                <span className="colorBox" data-color="rgb(128,128,64)"></span>
-              </li>
-              <li>
-                <span className="colorBox" data-color="rgb(0,64,64)"></span>
-              </li>
-              <li>
-                <span className="colorBox" data-color="rgb(0,128,255)"></span>
-              </li>
-              <li>
-                <span className="colorBox" data-color="rgb(0,64,128)"></span>
-              </li>
-              <li>
-                <span className="colorBox" data-color="rgb(64,0,255)"></span>
-              </li>
-              <li>
-                <span className="colorBox" data-color="rgb(128,64,0)"></span>
-              </li>
-              <li>
-                <span className="colorBox" data-color="rgb(255,255,255)"></span>
-              </li>
-              <li>
-                <span className="colorBox" data-color="rgb(192,192,192)"></span>
-              </li>
-              <li>
-                <span className="colorBox" data-color="rgb(255,0,0)"></span>
-              </li>
-              <li>
-                <span className="colorBox" data-color="rgb(255,255,0)"></span>
-              </li>
-              <li>
-                <span className="colorBox" data-color="rgb(0,255,0)"></span>
-              </li>
-              <li>
-                <span className="colorBox" data-color="rgb(0,255,255)"></span>
-              </li>
-              <li>
-                <span className="colorBox" data-color="rgb(0,0,255)"></span>
-              </li>
-              <li>
-                <span className="colorBox" data-color="rgb(255,0,255)"></span>
-              </li>
-              <li>
-                <span className="colorBox" data-color="rgb(255,255,128)"></span>
-              </li>
-              <li>
-                <span className="colorBox" data-color="rgb(0,255,128)"></span>
-              </li>
-              <li>
-                <span className="colorBox" data-color="rgb(128,255,255)"></span>
-              </li>
-              <li>
-                <span className="colorBox" data-color="rgb(128,128,255)"></span>
-              </li>
-              <li>
-                <span className="colorBox" data-color="rgb(255,0,128)"></span>
-              </li>
-              <li>
-                <span className="colorBox" data-color="rgb(255,128,64)"></span>
-              </li>
+            <ul className="colorList">
+              {[
+                "rgb(0,0,0)",
+                "rgb(128,128,128)",
+                "rgb(128,0,0)",
+                "rgb(128,128,0)",
+                "rgb(0,128,0)",
+                "rgb(0,128,128)",
+                "rgb(0,0,128)",
+                "rgb(128,0,128)",
+                "rgb(128,128,64)",
+                "rgb(0,64,64)",
+                "rgb(0,128,255)",
+                "rgb(0,64,128)",
+                "rgb(64,0,255)",
+                "rgb(128,64,0)",
+                "rgb(255,255,255)",
+                "rgb(192,192,192)",
+                "rgb(255,0,0)",
+                "rgb(255,255,0)",
+                "rgb(0,255,0)",
+                "rgb(0,255,255)",
+                "rgb(0,0,255)",
+                "rgb(255,0,255)",
+                "rgb(255,255,128)",
+                "rgb(0,255,128)",
+                "rgb(128,255,255)",
+                "rgb(128,128,255)",
+                "rgb(255,0,128)",
+                "rgb(255,128,64)",
+              ].map((color, index) => (
+                <li key={index}>
+                  <span
+                    className="colorBox"
+                    data-color={color}
+                    onClick={() => handleColorClick(color)}
+                    style={{ backgroundColor: color }}
+                  ></span>
+                </li>
+              ))}
             </ul>
           </div>
           <div className="status-bar">
