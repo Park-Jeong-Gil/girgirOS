@@ -1,27 +1,31 @@
-.bootScreen{
-  color:#b2b2b2;
-  font-family: 'Menlo', sans-serif;
+.bootScreen {
+  color: #b2b2b2;
+  font-family: "Menlo", sans-serif;
   font-size: vw(16);
   position: fixed;
-  top:0%; left: 0%;
-  width: 100%; height: 100%;
+  top: 0%;
+  left: 0%;
+  width: 100%;
+  height: 100%;
   display: flex;
   justify-content: center;
   overflow: hidden;
   line-height: 1.25;
 
-  &:after{
-    @include flicker
+  &:after {
+    @include flicker;
   }
 
-  strong{color:#fff;}
+  strong {
+    color: #fff;
+  }
 
-  &.loaded{
+  &.loaded {
     animation: turn-on 1.8s $ease-out-quint;
-    animation-fill-mode:forwards;
-  }  
+    animation-fill-mode: forwards;
+  }
 
-  .screenInner{
+  .screenInner {
     background-color: $screen-background;
     padding: vw(30) vw(60);
     width: 100%;
@@ -30,57 +34,70 @@
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
-  
-    .colheader{
+
+    .colheader {
       display: flex;
       justify-content: space-between;
       align-items: flex-end;
 
-      img{ width: vw(302); }
+      img {
+        width: vw(302);
+      }
     }
-  
-    .colTop{
+
+    .colTop {
       margin-top: vw(40);
     }
-  
-    .colMiddle{
+
+    .colMiddle {
       margin-top: vw(40);
-  
-      .biosLine { opacity: 0; }
-      .biosLine.show {opacity: 1; }
+
+      .biosLine {
+        opacity: 0;
+      }
+      .biosLine.show {
+        opacity: 1;
+      }
     }
-  
-    .colBottom{
+
+    .colBottom {
       margin-top: auto;
     }
-  
-    .biosLine{
-      + p{ margin-top: vw(10); }
+
+    .biosLine {
+      + p {
+        margin-top: vw(10);
+      }
     }
-  
-  
-    p.endLine{
+
+    p.endLine {
       margin-top: vw(40);
-  
-      button#enterPortfolio{
+
+      button#enterPortfolio {
         background: none;
         border: none;
         cursor: pointer;
         font-size: vw(16);
         box-shadow: none;
-        width: auto; max-width: none;
+        width: auto;
+        max-width: none;
         min-height: auto;
         min-width: auto;
         padding: 0;
 
-        &:focus{ outline: none!important; }
-        &:active{ box-shadow: none!important; text-shadow: none!important;}
+        &:focus {
+          outline: none !important;
+        }
+        &:active {
+          box-shadow: none !important;
+          text-shadow: none !important;
+        }
       }
     }
 
-    .isMobile{
+    .isMobile {
       margin-top: vw(30);
-      font-family: 'Pretendard';
+      font-family: "Pretendard";
       font-size: vw(18);
       line-height: 1.5;
     }

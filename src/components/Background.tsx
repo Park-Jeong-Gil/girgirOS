@@ -39,7 +39,7 @@ function Background() {
         },
       ]);
       setActiveProgram(programs.ABOUT_ME.ID);
-    }, 2500);
+    }, 2000);
 
     return () => {
       clearTimeout(firstProgramTime);

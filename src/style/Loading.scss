@@ -1,47 +1,65 @@
-.loadingScreen{
-  color:#fff;
-  
-  &.loaded .screenInner{
+.loadingScreen {
+  color: #fff;
+
+  &.loaded .screenInner {
     opacity: 1;
   }
-  .screenInner{
+  .screenInner {
     opacity: 0;
-    transition: opacity .5s ease-out;
-  
-  
-    .splash{
-      width: 100%; height: 100vh;
-      background: url('../assets/images/common/splashBg.jpg') no-repeat center / cover;
-      display: flex; justify-content: center; align-items: center;
-      position: relative; z-index: 2;
+    transition: opacity 0.5s ease-out;
 
-      &.end{display: none;}
-      
-      .windowLogo{
-        width: vw(760); height: vw(500);
-        background: url('../assets/images/common/msLogo.png') no-repeat center / contain;
+    .splash {
+      width: 100%;
+      height: 100vh;
+      background: url("../assets/images/common/splashBg.jpg") no-repeat center /
+        cover;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      z-index: 2;
+
+      &.end {
+        display: none;
       }
 
-      .loadingBar{
+      .windowLogo {
+        width: vw(760);
+        height: vw(500);
+        background: url("../assets/images/common/msLogo.png") no-repeat center /
+          contain;
+      }
+
+      .loadingBar {
         width: 100%;
         height: 30px;
-        position: fixed; bottom: 0; left: 0;
+        position: fixed;
+        bottom: 0;
+        left: 0;
         padding-bottom: calc(0px + env(safe-area-inset-bottom));
-        background-color: #ddd; z-index: 3;
+        background-color: #ddd;
+        z-index: 3;
 
-        &::after{
-          content: '';
+        &::after {
+          content: "";
           display: block;
           width: 100%;
           height: 100%;
-          background: linear-gradient(90deg, rgba(0, 0, 0, 0) 0%, rgb(77, 125, 188) 30%, rgba(0, 0, 0, 0) 100%);
-          animation: loadingBar 1.8s infinite;
+          background: linear-gradient(
+            90deg,
+            rgba(0, 0, 0, 0) 0%,
+            rgb(77, 125, 188) 30%,
+            rgba(0, 0, 0, 0) 100%
+          );
+          animation: loadingBar 1.4s infinite;
         }
       }
     }
-  
-    .flickBar{
-      position: absolute; top: 5%; left: 5%;
+
+    .flickBar {
+      position: absolute;
+      top: 5%;
+      left: 5%;
       animation: flickBar 1s infinite;
       font-size: vw(32);
       z-index: 1;
@@ -49,12 +67,11 @@
   }
 }
 
-
-@keyframes loadingBar{
-  0%{
+@keyframes loadingBar {
+  0% {
     transform: translate3d(-100%, 0, 0);
   }
-  100%{
+  100% {
     transform: translate3d(100%, 0, 0);
   }
 }

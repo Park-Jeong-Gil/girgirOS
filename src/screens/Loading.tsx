@@ -6,27 +6,29 @@ const loading = () => {
   const [, setSystemStatus] = useRecoilState(systemState);
 
   useEffect(() => {
-    const $loadingScreen = document.querySelector('.loadingScreen');
-    const $splashScreen = $loadingScreen?.querySelector('.splash');
-    
-    const timer = setTimeout(() => {
-      $loadingScreen?.classList.add('loaded');
+    const $loadingScreen = document.querySelector(".loadingScreen");
+    const $splashScreen = $loadingScreen?.querySelector(".splash");
 
-      setTimeout(() => {
-        $splashScreen?.classList.add('end')
+    const timerLoading = setTimeout(() => {
+      $loadingScreen?.classList.add("loaded");
+    }, 500); // 로딩 시작
+    const timerEnd = setTimeout(() => {
+      $splashScreen?.classList.add("end");
+    }, 3500); // 로딩 중
+    const timerSetDesktop = setTimeout(() => {
+      setSystemStatus("desktop");
+    }, 4500); // 깜빡
 
-        setTimeout(() => {
-          setSystemStatus('desktop')
-        }, 2500)
-      }, 3800)
-    }, 1000);
-
-    return () => clearTimeout(timer); 
+    return () => {
+      clearTimeout(timerLoading);
+      clearTimeout(timerEnd);
+      clearTimeout(timerSetDesktop);
+    };
   }, []);
 
   return (
     <section className="loadingScreen">
-      <h1 className='blind'>girgir portfolio</h1>
+      <h1 className="blind">girgir portfolio</h1>
       <div className="screenInner">
         <div className="splash">
           <h2 className="windowLogo">
@@ -37,7 +39,7 @@ const loading = () => {
         <span className="flickBar">_</span>
       </div>
     </section>
-  )
+  );
 };
 
 export default loading;

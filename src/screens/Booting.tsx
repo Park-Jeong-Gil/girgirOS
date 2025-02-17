@@ -1,7 +1,7 @@
-import { useEffect, useState } from 'react';
-import bootLogo1 from '../assets/images/common/bootLogo1.png';
-import { soundState, systemState } from '../store/useSystemStatus';
-import { useRecoilState } from 'recoil';
+import { useEffect, useState } from "react";
+import bootLogo1 from "../assets/images/common/bootLogo1.png";
+import { soundState, systemState } from "../store/useSystemStatus";
+import { useRecoilState } from "recoil";
 
 interface GPUInfo {
   vendor: string;
@@ -14,9 +14,10 @@ function Booting() {
   const [showLines, setShowLines] = useState(false);
   const [autoTimer, setAutoTimer] = useState(true);
   const [isMobile, setIsMobile] = useState(false);
-  
+
   useEffect(() => {
-    console.log(`
+    console.log(
+      `
 %c _____         _         _____                 _
 %c|     | ___  _| | ___   |   __| ___  ___  ___ | |_  ___  ___
 %c|   --|| . || . || -_|  |  |  ||  _|| .'|| . ||   || -_||  _|
@@ -24,20 +25,26 @@ function Booting() {
 %c                                         |_|
 📞 010-4468-7412
 📧 wjdrlf5986@naver.com
-`, "color:#22577A", "color:#38A3A5", "color:#57CC99", "color:#80ED99", "color:#99FFED");
-  
-    const $bootScreen = document.querySelector('.bootScreen');
-    $bootScreen?.classList.add('loaded');
+`,
+      "color:#22577A",
+      "color:#38A3A5",
+      "color:#57CC99",
+      "color:#80ED99",
+      "color:#99FFED"
+    );
+
+    const $bootScreen = document.querySelector(".bootScreen");
+    $bootScreen?.classList.add("loaded");
 
     const timer = setTimeout(() => {
       setShowLines(true);
-    }, 1000);
+    }, 600);
 
     const autoBootingTimer = setTimeout(() => {
       if (autoTimer) {
-        setSystemStatus('loading');
+        setSystemStatus("loading");
       }
-    }, 9000);
+    }, 4800);
 
     return () => {
       clearTimeout(timer);
@@ -47,49 +54,51 @@ function Booting() {
 
   useEffect(() => {
     if (showLines) {
-      linesShow(); 
+      linesShow();
     }
   }, [showLines]);
 
   useEffect(() => {
     const userAgent = window.navigator.userAgent;
-    const mobileDevices = ['Android', 'iPhone', 'iPad', 'iPod'];
-    const isMobileDevice = mobileDevices.some(device => userAgent.includes(device));
+    const mobileDevices = ["Android", "iPhone", "iPad", "iPod"];
+    const isMobileDevice = mobileDevices.some((device) =>
+      userAgent.includes(device)
+    );
     setIsMobile(isMobileDevice);
   }, []);
 
   function linesShow(): void {
-    const $colMiddle = document.querySelector('.colMiddle');
-    const $middlebiosLines = $colMiddle?.querySelectorAll('.biosLine');
+    const $colMiddle = document.querySelector(".colMiddle");
+    const $middlebiosLines = $colMiddle?.querySelectorAll(".biosLine");
 
     $middlebiosLines?.forEach((line, index) => {
       setTimeout(() => {
-        line.classList.add('show');
-      }, index * 400);
+        line.classList.add("show");
+      }, index * 300);
     });
   }
 
   function getOSInfo(): string {
     const userAgent = window.navigator.userAgent;
     const platform = window.navigator.platform;
-    const macosPlatforms = ['Macintosh', 'MacIntel', 'MacPPC', 'Mac68K'];
-    const windowsPlatforms = ['Win32', 'Win64', 'Windows', 'WinCE'];
-    const iosPlatforms = ['iPhone', 'iPad', 'iPod'];
+    const macosPlatforms = ["Macintosh", "MacIntel", "MacPPC", "Mac68K"];
+    const windowsPlatforms = ["Win32", "Win64", "Windows", "WinCE"];
+    const iosPlatforms = ["iPhone", "iPad", "iPod"];
     let os: string | null = null;
 
     if (macosPlatforms.indexOf(platform) !== -1) {
-      os = 'Mac OS';
+      os = "Mac OS";
     } else if (iosPlatforms.indexOf(platform) !== -1) {
-      os = 'iOS';
+      os = "iOS";
     } else if (windowsPlatforms.indexOf(platform) !== -1) {
-      os = 'Windows';
+      os = "Windows";
     } else if (/Android/.test(userAgent)) {
-      os = 'Android';
+      os = "Android";
     } else if (/Linux/.test(platform)) {
-      os = 'Linux';
+      os = "Linux";
     }
 
-    return os || 'Unknown';
+    return os || "Unknown";
   }
 
   function getCPUInfo(): number {
@@ -97,32 +106,37 @@ function Booting() {
   }
 
   function getRAMInfo(): string {
-    return window.navigator.deviceMemory ? `${window.navigator.deviceMemory} GB` : 'Not available';
+    return window.navigator.deviceMemory
+      ? `${window.navigator.deviceMemory} GB`
+      : "Not available";
   }
 
   function getGPUInfo(): GPUInfo | string {
-    const canvas = document.createElement('canvas');
-    const gl = canvas.getContext('webgl') as WebGLRenderingContext | null
-              || canvas.getContext('experimental-webgl') as WebGLRenderingContext | null;
+    const canvas = document.createElement("canvas");
+    const gl =
+      (canvas.getContext("webgl") as WebGLRenderingContext | null) ||
+      (canvas.getContext("experimental-webgl") as WebGLRenderingContext | null);
     if (!gl) {
-      return 'WebGL not supported';
+      return "WebGL not supported";
     }
 
-    const debugInfo = gl.getExtension('WEBGL_debug_renderer_info');
+    const debugInfo = gl.getExtension("WEBGL_debug_renderer_info");
     if (!debugInfo) {
-      return 'WEBGL_debug_renderer_info not available';
+      return "WEBGL_debug_renderer_info not available";
     }
 
     const vendor = gl.getParameter(debugInfo.UNMASKED_VENDOR_WEBGL) as string;
-    const renderer = gl.getParameter(debugInfo.UNMASKED_RENDERER_WEBGL) as string;
+    const renderer = gl.getParameter(
+      debugInfo.UNMASKED_RENDERER_WEBGL
+    ) as string;
     return { vendor, renderer };
   }
 
   const gpuInfo = getGPUInfo();
 
   function getDate() {
-    let today = new Date();   
-    let date = today.toLocaleDateString('en-US');
+    let today = new Date();
+    let date = today.toLocaleDateString("en-US");
     return date;
   }
 
@@ -130,59 +144,86 @@ function Booting() {
     document.documentElement.requestFullscreen();
     setAutoTimer(false);
     if (!isMobile) {
-      setSystemStatus('loading');
+      setSystemStatus("loading");
     }
     setsoundState(true);
   }
 
   useEffect(() => {
     const handleKeyPress = (event: KeyboardEvent) => {
-      if (event.key === 'Enter') enterPress();
+      if (event.key === "Enter") enterPress();
     };
 
-    window.addEventListener('keydown', handleKeyPress);
+    window.addEventListener("keydown", handleKeyPress);
 
     return () => {
-      window.removeEventListener('keydown', handleKeyPress);
+      window.removeEventListener("keydown", handleKeyPress);
     };
   }, [setSystemStatus]);
 
   return (
-    <section className='bootScreen'>
-      <h1 className='blind'>girgir portfolio</h1>
-      <div className='screenInner'>
-        <div className='colheader'>
+    <section className="bootScreen">
+      <h1 className="blind">girgir portfolio</h1>
+      <div className="screenInner">
+        <div className="colheader">
           <img src={bootLogo1} alt="american megatrends logo" />
         </div>
-        <div className='colTop'>
-          <p className='biosLine'>Copyright (c) 2024 GIRGIR PORTFOLIO, Released 16/7/2024</p>
+        <div className="colTop">
+          <p className="biosLine">
+            Copyright (c) 2024 GIRGIR PORTFOLIO, Released 16/7/2024
+          </p>
         </div>
-        <div className='colMiddle'>
+        <div className="colMiddle">
           {showLines && (
             <>
-              <p className='biosLine'>System initializing...</p>
-              <p className='biosLine'></p>
-              <p className='biosLine'>Operating Systems: <b>{getOSInfo()}</b></p>
-              <p className='biosLine'>Main Processor cores: <b>{getCPUInfo()} cores</b></p>
-              <p className='biosLine'>Memory Testing: <b>{getRAMInfo()} {getRAMInfo() !== 'Not available' && `OK`}</b></p>
-              {typeof gpuInfo !== 'string' && (
+              <p className="biosLine">System initializing...</p>
+              <p className="biosLine"></p>
+              <p className="biosLine">
+                Operating Systems: <b>{getOSInfo()}</b>
+              </p>
+              <p className="biosLine">
+                Main Processor cores: <b>{getCPUInfo()} cores</b>
+              </p>
+              <p className="biosLine">
+                Memory Testing:{" "}
+                <b>
+                  {getRAMInfo()} {getRAMInfo() !== "Not available" && `OK`}
+                </b>
+              </p>
+              {typeof gpuInfo !== "string" && (
                 <>
-                  <p className='biosLine'>GPU Vendor: <b>{gpuInfo.vendor}</b></p>
-                  <p className='biosLine'>GPU Renderer: <b>{gpuInfo.renderer}</b></p>
+                  <p className="biosLine">
+                    GPU Vendor: <b>{gpuInfo.vendor}</b>
+                  </p>
+                  <p className="biosLine">
+                    GPU Renderer: <b>{gpuInfo.renderer}</b>
+                  </p>
                 </>
               )}
-              <p className='biosLine'>Detecting Device...</p>
-              <p className='biosLine'></p>
-              <p className='biosLine'></p>
-              <div className='biosLine'>
-                <p className='endLine'>Press <button id='enterPortfolio' onClick={enterPress} ><strong>&lt;Enter&gt;</strong></button> Key to Continue... </p>
+              <p className="biosLine">Detecting Device...</p>
+              <p className="biosLine"></p>
+              <p className="biosLine"></p>
+              <div className="biosLine">
+                <p className="endLine">
+                  Press{" "}
+                  <button id="enterPortfolio" onClick={enterPress}>
+                    <strong>&lt;Enter&gt;</strong>
+                  </button>{" "}
+                  Key to Continue...{" "}
+                </p>
               </div>
             </>
           )}
         </div>
-        <div className='colBottom'>
-          <p className='biosLine'>Press <strong>&lt;DEL&gt;</strong> to Not enter Setup, <strong>&lt;ALT&gt;</strong> + <strong>&lt;F2&gt;</strong> to Nothing is happening.</p>
-          <p className='biosLine'>(c)GIRGIR {getDate()}-WJFMF-SHGCLWL-AKTPDY-0_0</p>
+        <div className="colBottom">
+          <p className="biosLine">
+            Press <strong>&lt;DEL&gt;</strong> to Not enter Setup,{" "}
+            <strong>&lt;ALT&gt;</strong> + <strong>&lt;F2&gt;</strong> to
+            Nothing is happening.
+          </p>
+          <p className="biosLine">
+            (c)GIRGIR {getDate()}-WJFMF-SHGCLWL-AKTPDY-0_0
+          </p>
         </div>
       </div>
     </section>
