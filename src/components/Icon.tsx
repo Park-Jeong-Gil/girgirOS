@@ -1,7 +1,11 @@
 import { useEffect, useCallback, forwardRef } from "react";
 import { contact, programs, works } from "../constants/desktopData";
 import { useRecoilState } from "recoil";
-import { currentAlert, currentProgram, programStatus } from "../store/useProgramStatus";
+import {
+  currentAlert,
+  currentProgram,
+  programStatus,
+} from "../store/useProgramStatus";
 
 // forwardRef 사용을 위해 수정
 interface IconProps {
@@ -11,112 +15,137 @@ interface IconProps {
   desc: string;
 }
 
-const Icon = forwardRef<HTMLButtonElement, IconProps>(({ type, id, name, desc }, ref) => {
-  const [programArr, setProgramArr] = useRecoilState(programStatus);
-  const [activeProgram, setActiveProgram] = useRecoilState(currentProgram);
-  const [, setActiveAlert] = useRecoilState(currentAlert);
+const Icon = forwardRef<HTMLButtonElement, IconProps>(
+  ({ type, id, name, desc }, ref) => {
+    const [programArr, setProgramArr] = useRecoilState(programStatus);
+    const [activeProgram, setActiveProgram] = useRecoilState(currentProgram);
+    const [, setActiveAlert] = useRecoilState(currentAlert);
 
-  const handleRunProgram = useCallback((e: Event) => {
-    const target = e.currentTarget as HTMLElement;
-    const iconNameElement = target.querySelector('.iconName');
-    const iconName = iconNameElement ? iconNameElement.textContent : 'Unknown';
-    const programKey = target.getAttribute('id') || '';
-    const programDesc = target.getAttribute('title') || '';
+    const handleRunProgram = useCallback(
+      (e: Event) => {
+        const target = e.currentTarget as HTMLElement;
+        const iconNameElement = target.querySelector(".iconName");
+        const iconName = iconNameElement
+          ? iconNameElement.textContent
+          : "Unknown";
+        const programKey = target.getAttribute("id") || "";
+        const programDesc = target.getAttribute("title") || "";
 
-    if (target.classList.contains('application')) {
-      if (iconName && !programArr.some(prog => prog.program === programKey)) {
-        const programData = Object.values(programs).find(program => program.ID === programKey);
-        const contactData = Object.values(contact).find(item => item.ID === programKey);
-        const worksData = Object.values(works).find(item => item.ID === programKey);
+        if (target.classList.contains("application")) {
+          if (
+            iconName &&
+            !programArr.some((prog) => prog.program === programKey)
+          ) {
+            const programData = Object.values(programs).find(
+              (program) => program.ID === programKey
+            );
+            const contactData = Object.values(contact).find(
+              (item) => item.ID === programKey
+            );
+            const worksData = Object.values(works).find(
+              (item) => item.ID === programKey
+            );
 
-        const defaultSize = { width: 840, height: 600 };
+            const defaultSize = { width: 840, height: 600 };
 
-        const size = worksData?.SIZE || contactData?.SIZE || programData?.SIZE || defaultSize;
+            const size =
+              worksData?.SIZE ||
+              contactData?.SIZE ||
+              programData?.SIZE ||
+              defaultSize;
 
-        if (programData || contactData || worksData) {
-          setProgramArr(prevArr => [
-            ...prevArr,
-            { program: programKey, name: iconName, initialSize: size }
-          ]);
+            if (programData || contactData || worksData) {
+              setProgramArr((prevArr) => [
+                ...prevArr,
+                { program: programKey, name: iconName, initialSize: size },
+              ]);
 
-          setActiveProgram(programKey);
-        } else {
-          console.error(`Program or contact data not found for key: ${programKey}`);
-        }
-      }
-    } else if (target.classList.contains('alert')) {
-      setActiveAlert(prevArr => {
-        if (prevArr.some(alert => alert.id === programKey)) {
-          return prevArr;
-        }
-        return [
-          ...prevArr,
-          {
-            id: programKey,
-            name: iconName || '',
-            description: programDesc
+              setActiveProgram(programKey);
+            } else {
+              console.error(
+                `Program or contact data not found for key: ${programKey}`
+              );
+            }
           }
-        ];
-      });
-    } else if (target.classList.contains('link')) {
-      const contactData = Object.values(contact).find(item => item.ID === programKey);
+        } else if (target.classList.contains("alert")) {
+          setActiveAlert((prevArr) => {
+            if (prevArr.some((alert) => alert.id === programKey)) {
+              return prevArr;
+            }
+            return [
+              ...prevArr,
+              {
+                id: programKey,
+                name: iconName || "",
+                description: programDesc,
+              },
+            ];
+          });
+        } else if (target.classList.contains("link")) {
+          const contactData = Object.values(contact).find(
+            (item) => item.ID === programKey
+          );
 
-      if (contactData && 'LINK' in contactData) {
-        const link = (contactData as { LINK?: string }).LINK;
-        if (link) {
-          window.open(link, '_blank');
-        } else {
-          console.error(`Link not found for key: ${programKey}`);
+          if (contactData && "LINK" in contactData) {
+            const link = (contactData as { LINK?: string }).LINK;
+            if (link) {
+              window.open(link, "_blank");
+            } else {
+              console.error(`Link not found for key: ${programKey}`);
+            }
+          } else {
+            console.error(`Link not found for key: ${programKey}`);
+          }
         }
-      } else {
-        console.error(`Link not found for key: ${programKey}`);
+
+        setActiveProgram(programKey);
+
+        const $progWindow = document.querySelector(`#${programKey}App`);
+        if ($progWindow && $progWindow.classList.contains("minimized")) {
+          $progWindow.classList.remove("minimized");
+        }
+      },
+      [programArr, setProgramArr, setActiveProgram, setActiveAlert]
+    );
+
+    useEffect(() => {
+      const appIcon = document.querySelector(`#${id}.appIcon`);
+
+      if (appIcon) {
+        appIcon.addEventListener("dblclick", handleRunProgram);
       }
-    }
 
-    setActiveProgram(programKey);
+      return () => {
+        if (appIcon) {
+          appIcon.removeEventListener("dblclick", handleRunProgram);
+        }
+      };
+    }, [handleRunProgram, id]);
 
-    const $progWindow = document.querySelector(`#${programKey}App`);
-    if ($progWindow && $progWindow.classList.contains('minimized')) {
-      $progWindow.classList.remove('minimized');
-    }
-  }, [programArr, setProgramArr, setActiveProgram, setActiveAlert]);
+    useEffect(() => {
+      const appPanel = document.querySelector(".appPanelWrap");
 
-  useEffect(() => {
-    const appIcons = document.querySelectorAll('.appIcon');
+      if (appPanel) {
+        appPanel.querySelectorAll("button").forEach((prog) => {
+          prog.classList.remove("active");
+        });
 
-    appIcons.forEach((elem) => {
-      elem.addEventListener('dblclick', handleRunProgram);
-    });
-
-    return () => {
-      appIcons.forEach((elem) => {
-        elem.removeEventListener('dblclick', handleRunProgram);
-      });
-    };
-  }, [handleRunProgram]);
-
-  useEffect(() => {
-    const appPanel = document.querySelector('.appPanelWrap');
-
-    if (appPanel) {
-      appPanel.querySelectorAll('button').forEach((prog) => {
-        prog.classList.remove('active');
-      });
-
-      if (activeProgram !== '') {
-        const activeProg = appPanel.querySelector(`[data-program-name=${activeProgram}]`);
-        activeProg?.classList.add('active');
+        if (activeProgram !== "") {
+          const activeProg = appPanel.querySelector(
+            `[data-program-name=${activeProgram}]`
+          );
+          activeProg?.classList.add("active");
+        }
       }
-    }
+    }, [activeProgram]);
 
-  }, [activeProgram]);
-
-  return (
-    <button ref={ref} id={id} className={`appIcon ${type}`} title={desc}>
-      <span className="iconImage"></span>
-      <span className="iconName">{name}</span>
-    </button>
-  );
-});
+    return (
+      <button ref={ref} id={id} className={`appIcon ${type}`} title={desc}>
+        <span className="iconImage"></span>
+        <span className="iconName">{name}</span>
+      </button>
+    );
+  }
+);
 
 export default Icon;
