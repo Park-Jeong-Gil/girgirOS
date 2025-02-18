@@ -116,7 +116,7 @@
 
     @include parent-selector(".appIcon", "#notepad") {
       @include notepadImg;
-      width: 48%;
+      width: 56%;
     }
 
     @include parent-selector(".appIcon", "#website") {
