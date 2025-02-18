@@ -88,7 +88,7 @@ const contact: { [key: string]: itemData } = {
     ID: "wanted",
     NAME: "이력서",
     TYPE: "link",
-    LINK: "https://girgir.synology.me/dev/codegrapher.pdf",
+    LINK: "https://girgir.synology.me/dev/Codegrapher.pdf",
     DESCRIPTION: "새 탭으로 원티드 지원서를 엽니다.",
   },
   GITHUB: {
