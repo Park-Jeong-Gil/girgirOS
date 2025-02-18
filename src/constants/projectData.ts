@@ -23,7 +23,7 @@ const projects = {
           <strong class="titItem">
             <span class="emoji">🛠️</span> 사용기술 :
           </strong>
-          HTML, CSS, Javascript, Vite, WebGL, three.js, blender
+          HTML, CSS, scss, Javascript, Vite, WebGL, three.js, blender
         </p>
       </header>
       <div class="siteDesc">
@@ -58,19 +58,19 @@ const projects = {
           <strong class="titItem">
             <span class="emoji">🛠️</span> 사용기술 :
           </strong>
-          cafe24, HTML, CSS, Javascript
+          cafe24, HTML, CSS, scss, Javascript
         </p>
       </header>
       <div class="siteDesc">
         <p>
           독일 프랑크푸르트에서 와인을 배송해주는 <strong>Weekly Wine</strong> 사이트를 리뉴얼 작업 했습니다. 
-          기존에 카페24를 사용중 이였기 때문에 카페24의 환경에 맞춰 인터렉션과 다양한 기능들을 구현해야 했습니다.
+          기존에 카페24를 사용중 이였기 때문에 카페24의 환경에 맞춰 인터랙션과 다양한 기능들을 구현해야 했습니다.
         </p>
         <p>
-          저는 메인 페이지와 게시판 페이지들을 맡았으며, 카페24 환경과 제품 특성상 표현 방법이 제한적이라, 인터렉션을 구상 하는데에 어려움이 있었으나 
+          저는 메인 페이지와 게시판 페이지들을 맡았으며, 카페24 환경과 제품 특성상 표현 방법이 제한적이라, 인터랙션을 구상 하는데에 어려움이 있었으나 
           관리자가 등록하는 제품의 데이터에 따라 메인 페이지에 다양한 리스트를 표현했고, 리스트의 형태 또한 옵션으로 만들어 자유롭게 추가하고 뺄 수 있게 고려하여 작업 했습니다.
         </p>
-        <p>특히 페이지 중간 <strong>조세핀 컬렉션</strong>에서 스크롤에 따라 로고에서 와인잔으로 변화하는 인터렉션으로 리스트가 나열된 정적인 페이지에 최대한 포인트를 주려고 노력 했습니다.</p>
+        <p>특히 페이지 중간 <strong>조세핀 컬렉션</strong>에서 스크롤에 따라 로고에서 와인잔으로 변화하는 인터랙션으로 리스트가 나열된 정적인 페이지에 최대한 포인트를 주려고 노력 했습니다.</p>
       </div>
     `,
   },
@@ -98,13 +98,13 @@ const projects = {
           <strong class="titItem">
             <span class="emoji">🛠️</span> 사용기술 :
           </strong>
-          HTML, CSS, Javascript, Vite, ejs
+          HTML, CSS, scss, Javascript, Vite, ejs
         </p>
       </header>
       <div class="siteDesc">
         <p>직방 어플내에서 WebView로 서비스 했던 <strong>'롯데캐슬 이스트폴'의 모바일 모델하우스</strong> 페이지 입니다. </p>
-        <p>아파트 분양 정보의 특성상 내용이 많고 복잡하기 때문에 정보 전달을 쉽고 간결하게 하기 위한 인터렉션을 고민하며 제작 했습니다. </p>
-        <p>이전 천안 유보라 프로젝트때 보다 컨텐츠의 규모가 컸기 때문에 (1-2차 나누어 오픈) 인터렉션으로 인한 퍼포먼스나 페이지 최적화를 위한 작업을 더 신중하게 했습니다.</p>
+        <p>아파트 분양 정보의 특성상 내용이 많고 복잡하기 때문에 정보 전달을 쉽고 간결하게 하기 위한 인터랙션을 고민하며 제작 했습니다. </p>
+        <p>이전 천안 유보라 프로젝트때 보다 컨텐츠의 규모가 컸기 때문에 (1-2차 나누어 오픈) 인터랙션으로 인한 퍼포먼스나 페이지 최적화를 위한 작업을 더 신중하게 했습니다.</p>
         <p>이미지 최적화는 'intersection observer'를 활용하여 모두 화면에 노출하지 않을땐 로드 되지 않도록 레이지 로드 처리를 했고, webp 확장자로 이미지 변환 및 압축 모듈을 사용하여 에셋 용량 또한 절반 이하로 줄였습니다. svg 아이콘도 dataimage로 압축하여 반영 했습니다.</p>
         <p><a href="https://s.zigbang.com/campaign/97/zigbang/index.html" target="_blank">2차 컨텐츠</a>에선 내용이 정말 방대한 pdf 문서와 타입별 평면도를 노출 시켜야 하는 이슈가 있었는데, 직접 스크립트로 이미지 확대, 축소, 드래그로 이동 기능을 구현하여 이슈를 해결 했습니다. </p>
         <p>개발 작업과 동시에 PL역할로 클라이언트와 프리렌서 디자이너의 소통을 원활하게 이끌며 프로젝트가 기간내에 무사히 완료 될 수 있게 리딩 했습니다.</p>
@@ -135,12 +135,12 @@ const projects = {
           <strong class="titItem">
             <span class="emoji">🛠️</span> 사용기술 :
           </strong>
-          HTML, CSS, Javascript, Vite, ejs
+          HTML, CSS, scss, Javascript, Vite, ejs
         </p>
       </header>
       <div class="siteDesc">
         <p>한화 그룹의<strong>스페이스 허브</strong> 웹사이트 입니다.</p>
-        <p>인터렉션이 많이 들어가는 것으로 기획되어 많은 부분을 참여하려 했으나, 이스트폴 1차 오픈 시기와 작업 기간이 겹치는 바람에 비교적 비중이 적은 게시판 리스트 페이지를 담당하게 되었습니다.</p>
+        <p>인터랙션이 많이 들어가는 것으로 기획되어 많은 부분을 참여하려 했으나, 이스트폴 1차 오픈 시기와 작업 기간이 겹치는 바람에 비교적 비중이 적은 게시판 리스트 페이지를 담당하게 되었습니다.</p>
         <p>하지만 단순한 게시판 형태여도 페이지 전체 컨셉에 맞춰 생동감을 최대한 주기 위해 고민 했으며, 'intersection observer'를 활용하여 스크롤에 따라 각 썸네일 영역의 속도를 다르게 주고 마우스 호버 위치에 따라 3D 처럼 기울이며 움직이도록 작업 했습니다.</p>
         <p>게시판 작업은 vite ejs와 json파일을 활용하여 벡엔드 작업이 붙기 전에도 최대한 데이터를 통해 게시글과 상세 페이지가 생성 되도록 고려하여 작업 했습니다.</p>
       </div>
@@ -170,7 +170,7 @@ const projects = {
           <strong class="titItem">
             <span class="emoji">🛠️</span> 사용기술 :
           </strong>
-          HTML, CSS, Javascript, Vite, ejs
+          HTML, CSS, scss, Javascript, Vite, ejs
         </p>
       </header>
       <div class="siteDesc">
@@ -205,7 +205,7 @@ const projects = {
           <strong class="titItem">
             <span class="emoji">🛠️</span> 사용기술 :
           </strong>
-          HTML, CSS, Javascript, AEM
+          HTML, CSS, scss, Javascript, AEM
         </p>
       </header>
       <div class="siteDesc">
@@ -253,13 +253,13 @@ const projects = {
           <strong class="titItem">
             <span class="emoji">🛠️</span> 사용기술 :
           </strong>
-          HTML, CSS, Javascript, Gulp, ejs
+          HTML, CSS, scss, Javascript, Gulp, ejs
         </p>
       </header>
       <div class="siteDesc">
         <p><strong>Galaxy Z Flip4</strong>모델의 제품 페이지 입니다.</p>
         <p>갤럭시 신제품 페이지를 작업 할 땐 고려해야 할 사항이 많습니다. 짧은 작업 기간과 퍼포먼스 최적화 작업, 전세계를 대상으로 하는 웹페이지인 만큼 엄격한 크로스 브라우징과 웹 접근성 준수 등 일반 웹페이지 개발보다 각별히 신경써야 하는 부분들이 많았습니다.</p>
-        <p>그렇지만 이만큼 인터렉션을 유려하게 할 수 있는 기회 또한 흔치 않기 때문에 매번 설레는 마음으로 갤럭시 프로젝트에 참여 했습니다.</p>
+        <p>그렇지만 이만큼 인터랙션을 유려하게 할 수 있는 기회 또한 흔치 않기 때문에 매번 설레는 마음으로 갤럭시 프로젝트에 참여 했습니다.</p>
         <p>모든 컨텐츠에 모션을 신경 써서 작업 했지만, VIDEO CALL 영역에서 스크롤 애니메이션으로 각 요소의 포지션을 계산하는 식을 직접 만들고, 퍼포먼스가 하락하지 않도록 각별히 주의하여 작업 했습니다.</p>
         <p class="blind">만약 보안 이슈가 발생한다면 페이지를 제거 하겠습니다.</p>
       </div>
@@ -289,11 +289,11 @@ const projects = {
           <strong class="titItem">
             <span class="emoji">🛠️</span> 사용기술 :
           </strong>
-          HTML, CSS, Javascript, Gulp, ejs
+          HTML, CSS, scss, Javascript, Gulp, ejs, three.js
         </p>
       </header>
       <div class="siteDesc">
-        <p>인터렉션을 전문적으로 연구하고 개발하는 웹에이전시 <strong>fave</strong> 홈페이지 입니다.</p>
+        <p>인터랙션을 전문적으로 연구하고 개발하는 웹에이전시 <strong>fave</strong> 홈페이지 입니다.</p>
         <p>기획자, 디자이너 없이 순수 개발자들만 모여서 진행했던 프로젝트 입니다. 때문에 여러 레퍼런스를 모아 아이디어 회의를 하며 페이지의 스토리텔링을 구상하고, 풀 3D 웹사이트로 만들기 위해 모델링 소스를 작업하며 직접 디자인을 하는 등 많은 노력이 필요 했습니다.</p>
         <p>이 웹페이지는 여러번의 반전을 보여주는 컨셉으로 제작 하였으며, 2D 페이지 에서 3D 공간으로, 사무실 공간에서 외부 전경으로, 건물에서 지도로 점점 확장하는 모습을 담았습니다. </p>
         <p>저는 프로젝트 PL로서 공통 부분을 맡아 개발하고 팀원들에게 공유하며 업무 배분과 디자이너의 공백을 채우기 위한 디자인 작업도 함께 진행 했습니다.</p>
@@ -324,12 +324,12 @@ const projects = {
           <strong class="titItem">
             <span class="emoji">🛠️</span> 사용기술 :
           </strong>
-          HTML, CSS, Javascript, Gulp, ejs
+          HTML, CSS, scss, Javascript, Gulp, ejs
         </p>
       </header>
       <div class="siteDesc">
         <p><strong>Galaxy S22 Ultra</strong> 모델의 제품 페이지 입니다.</p>
-        <p>신제품의 다양한 기능을 유려하게 인터렉션으로 표현함과 동시에 전세계를 대상으로 하는 웹페이지인 만큼 엄격한 크로스 브라우징과 웹 접근성을 준수하여 작업 했습니다.</p>
+        <p>신제품의 다양한 기능을 유려하게 인터랙션으로 표현함과 동시에 전세계를 대상으로 하는 웹페이지인 만큼 엄격한 크로스 브라우징과 웹 접근성을 준수하여 작업 했습니다.</p>
         <p>특히 PRODUCTIVITY 영역에 S pen 기능을 스크롤 애니메이션으로 보여주는 부분은 많은 요소를 스크롤 값에 따라 스크립트로 계산하여 애니메이션을 줘야 했기 때문에 페이지의 퍼포먼스가 떨어지지 않도록 각별히 주의하여 작업 했습니다.</p>
         <p>이후 언팩 행사 날에는 큐 사인에 맞춰 직접 페이지 라이브를 진행 했습니다.</p>
         <p class="blind">만약 보안 이슈가 발생한다면 페이지를 제거 하겠습니다.</p>
@@ -360,7 +360,7 @@ const projects = {
           <strong class="titItem">
             <span class="emoji">🛠️</span> 사용기술 :
           </strong>
-          HTML, CSS, Javascript, React
+          HTML, CSS, scss, Javascript, React, scss
         </p>
       </header>
       <div class="siteDesc">
@@ -394,7 +394,7 @@ const projects = {
           <strong class="titItem">
             <span class="emoji">🛠️</span> 사용기술 :
           </strong>
-          HTML, CSS, Javascript, React
+          HTML, CSS, scss, Javascript, React, scss
         </p>
       </header>
       <div class="siteDesc">
@@ -426,7 +426,7 @@ const projects = {
           <strong class="titItem">
             <span class="emoji">🛠️</span> 사용기술 :
           </strong>
-          HTML, CSS, Javascript, three.js
+          HTML, CSS, scss, Javascript, three.js, Gulp, scss
         </p>
       </header>
       <div class="siteDesc">
@@ -458,7 +458,7 @@ const projects = {
           <strong class="titItem">
             <span class="emoji">🛠️</span> 사용기술 :
           </strong>
-          HTML, CSS, Javascript
+          HTML, CSS, scss, Javascript
         </p>
       </header>
       <div class="siteDesc">
@@ -490,7 +490,7 @@ const projects = {
           <strong class="titItem">
             <span class="emoji">🛠️</span> 사용기술 :
           </strong>
-          HTML, CSS, Javascript, Gulp
+          HTML, CSS, scss, Javascript, Gulp scss
         </p>
       </header>
       <div class="siteDesc">
@@ -522,7 +522,7 @@ const projects = {
           <strong class="titItem">
             <span class="emoji">🛠️</span> 사용기술 :
           </strong>
-          HTML, CSS, Javascript
+          HTML, CSS, scss, Javascript
         </p>
       </header>
       <div class="siteDesc">
@@ -554,7 +554,7 @@ const projects = {
           <strong class="titItem">
             <span class="emoji">🛠️</span> 사용기술 :
           </strong>
-          HTML, CSS, Javascript
+          HTML, CSS, scss, Javascript
         </p>
       </header>
       <div class="siteDesc">
@@ -586,7 +586,7 @@ const projects = {
           <strong class="titItem">
             <span class="emoji">🛠️</span> 사용기술 :
           </strong>
-          HTML, CSS, Javascript
+          HTML, CSS, scss, Javascript
         </p>
       </header>
       <div class="siteDesc">
@@ -618,7 +618,7 @@ const projects = {
           <strong class="titItem">
             <span class="emoji">🛠️</span> 사용기술 :
           </strong>
-          HTML, CSS, Javascript
+          HTML, CSS, scss, Javascript
         </p>
       </header>
       <div class="siteDesc">
@@ -651,7 +651,7 @@ const projects = {
           <strong class="titItem">
             <span class="emoji">🛠️</span> 사용기술 :
           </strong>
-          HTML, CSS, Javascript
+          HTML, CSS, scss, Javascript
         </p>
       </header>
       <div class="siteDesc">
@@ -684,7 +684,7 @@ const projects = {
           <strong class="titItem">
             <span class="emoji">🛠️</span> 사용기술 :
           </strong>
-          HTML, CSS, Javascript
+          HTML, CSS, scss, Javascript
         </p>
       </header>
       <div class="siteDesc">
@@ -717,7 +717,7 @@ const projects = {
           <strong class="titItem">
             <span class="emoji">🛠️</span> 사용기술 :
           </strong>
-          HTML, CSS, Javascript
+          HTML, CSS, scss, Javascript
         </p>
       </header>
       <div class="siteDesc">
@@ -750,7 +750,7 @@ const projects = {
           <strong class="titItem">
             <span class="emoji">🛠️</span> 사용기술 :
           </strong>
-          HTML, CSS, Javascript, WordPress
+          HTML, CSS, scss, Javascript, WordPress
         </p>
       </header>
       <div class="siteDesc">
@@ -783,7 +783,7 @@ const projects = {
           <strong class="titItem">
             <span class="emoji">🛠️</span> 사용기술 :
           </strong>
-          HTML, CSS, Javascript
+          HTML, CSS, scss, Javascript, Gnuboard
         </p>
       </header>
       <div class="siteDesc">
@@ -817,7 +817,7 @@ const projects = {
           <strong class="titItem">
             <span class="emoji">🛠️</span> 사용기술 :
           </strong>
-          HTML, CSS, Javascript, WordPress
+          HTML, CSS, scss, Javascript, WordPress
         </p>
       </header>
       <div class="siteDesc">
@@ -849,7 +849,7 @@ const projects = {
           <strong class="titItem">
             <span class="emoji">🛠️</span> 사용기술 :
           </strong>
-          HTML, CSS, Javascript
+          HTML, CSS, scss, Javascript
         </p>
       </header>
       <div class="siteDesc">
@@ -881,7 +881,7 @@ const projects = {
           <strong class="titItem">
             <span class="emoji">🛠️</span> 사용기술 :
           </strong>
-          HTML, CSS, Javascript, WordPress
+          HTML, CSS, scss, Javascript, WordPress
         </p>
       </header>
       <div class="siteDesc">
@@ -915,7 +915,7 @@ const projects = {
           <strong class="titItem">
             <span class="emoji">🛠️</span> 사용기술 :
           </strong>
-          HTML, CSS, Javascript
+          HTML, CSS, scss, Javascript
         </p>
       </header>
       <div class="siteDesc">
@@ -947,7 +947,7 @@ const projects = {
           <strong class="titItem">
             <span class="emoji">🛠️</span> 사용기술 :
           </strong>
-          HTML, CSS, Javascript
+          HTML, CSS, scss, Javascript
         </p>
       </header>
       <div class="siteDesc">
@@ -980,7 +980,7 @@ const projects = {
           <strong class="titItem">
             <span class="emoji">🛠️</span> 사용기술 :
           </strong>
-          HTML, CSS, Javascript, WordPress
+          HTML, CSS, scss, Javascript, WordPress
         </p>
       </header>
       <div class="siteDesc">
@@ -1012,7 +1012,7 @@ const projects = {
           <strong class="titItem">
             <span class="emoji">🛠️</span> 사용기술 :
           </strong>
-          HTML, CSS, Javascript
+          HTML, CSS, scss, Javascript
         </p>
       </header>
       <div class="siteDesc">
@@ -1045,7 +1045,7 @@ const projects = {
           <strong class="titItem">
             <span class="emoji">🛠️</span> 사용기술 :
           </strong>
-          HTML, CSS, Javascript
+          HTML, CSS, scss, Javascript
         </p>
       </header>
       <div class="siteDesc">
