@@ -146,6 +146,9 @@ function Profile({}: ProfileProps) {
               <dd className="three">Three.js</dd>
               <dd className="react">React</dd>
               <dd className="recoil">Recoil</dd>
+              <dd className="zustand">Zustand</dd>
+              <dd className="reactQuery">React Query</dd>
+              <dd className="node">Node.js</dd>
               <dd className="gulp">Gulp</dd>
               <dd className="vite">Vite</dd>
               <dd className="git">Git</dd>
@@ -180,9 +183,9 @@ function Profile({}: ProfileProps) {
           </div>
           <h3 className="secTit">Education</h3>
           <ul>
-            <li>고려사이버대학교 디자인 공학과 (2021~2025 졸업 예정)</li>
-            <li>한남대학고 회화과 (2009~중퇴) </li>
-            <li>인하대학교 부속 고등학교 (2009) </li>
+            <li>고려사이버대학교 디자인 공학과 (2021~2025 / 졸업)</li>
+            <li>한남대학고 회화과 (2010 / 중퇴) </li>
+            <li>인하대학교 부속 고등학교 (2009 / 졸업) </li>
           </ul>
         </section>
         <section
@@ -190,10 +193,10 @@ function Profile({}: ProfileProps) {
             activeTab === "Experience" ? "active" : ""
           }`}
         >
-          <h3 className="secTit">Experience (총 경력 7년~)</h3>
+          <h3 className="secTit">Experience (총 경력 8년~)</h3>
           <ul className="experienceWrap">
             <li>
-              <strong>바른컴퍼니 (2024. 11 ~ 재직중)</strong>
+              <strong>바른컴퍼니 (2024. 11 ~ 2025. 02)</strong>
               <span>
                 사내의 첫 프론트엔드 개발자로 리뉴얼 및 신규 사업을 위해
                 프론트엔드 협업 가이드 부터 직접 작성하여 전사에 공유하는 PL을
