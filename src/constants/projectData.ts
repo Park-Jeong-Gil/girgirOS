@@ -516,7 +516,7 @@ const projects = {
             <span class="emoji">⏱️</span> 작업 기간 :
           </strong>
           <time dateTime="2020-09">2020년 9월</time> ~
-          <time dateTime="2020-12">2021년 1월</time>
+          <time dateTime="2020-12">2020년 12월</time>
         </p>
         <p class="skill">
           <strong class="titItem">
@@ -548,7 +548,7 @@ const projects = {
             <span class="emoji">⏱️</span> 작업 기간 :
           </strong>
           <time dateTime="2020-08">2020년 8월</time> ~
-          <time dateTime="2020-09">2021년 9월</time>
+          <time dateTime="2020-09">2020년 9월</time>
         </p>
         <p class="skill">
           <strong class="titItem">
@@ -580,7 +580,7 @@ const projects = {
             <span class="emoji">⏱️</span> 작업 기간 :
           </strong>
           <time dateTime="2020-06">2020년 6월</time> ~
-          <time dateTime="2020-08">2021년 8월</time>
+          <time dateTime="2020-08">2020년 8월</time>
         </p>
         <p class="skill">
           <strong class="titItem">
@@ -885,7 +885,7 @@ const projects = {
         </p>
       </header>
       <div class="siteDesc">
-        <p>강남 메르디앙 호텔에 있'던' 클럽 버닝썬 홈페이지 개발</p>
+        <p>강남 메르디앙 호텔에 있던 클럽 버닝썬 홈페이지 개발</p>
         <p>클럽 버닝썬 오픈 전 부터 홍보 포스터, 타임 테이블, 메뉴판 등 디자인 작업도 진행 했습니다.</p>
         <p>한낱 홈페이지 작업자에 불과했던 저는 아무런 관련이 없습니다.</p>
       </div>
@@ -920,6 +920,7 @@ const projects = {
       </header>
       <div class="siteDesc">
         <p>마케팅과 브랜딩, 영상 촬영 및 제작을 하는 DCTOM E&C 홈페이지 개발을 진행 했습니다.</p>
+        <p>직접 디자인과 개발을 진행 했으며, 서비스 영역별로 최대한 직관적인 정보 전달을 하는데에 중점을 두고 프로젝트를 진행 했습니다.</p>
       </div>
     `,
   },
