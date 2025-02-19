@@ -597,7 +597,7 @@ const projects = {
   ENUMNET: {
     ID: "enumnet",
     DATE: "2020.01",
-    TITLE: "이넘넷 홈페이지 리뉴얼 개발",
+    TITLE: "이넘넷 홈페이지 리뉴얼",
     SRC: "http://www.enumnet.com/",
     DESCRIPTION: `
       <header class="siteHeader">
@@ -630,7 +630,7 @@ const projects = {
   BROADCAST: {
     ID: "broadcast",
     DATE: "2019.10",
-    TITLE: "방통위 전자 심의 시스템 개발",
+    TITLE: "방통위 전자 심의 시스템",
     SRC: "#",
     DESCRIPTION: `
       <header class="siteHeader">
@@ -696,7 +696,7 @@ const projects = {
   LAWYER: {
     ID: "lawyer",
     DATE: "2019.05",
-    TITLE: "법률 사무소 웹 클라우드 개발",
+    TITLE: "법률 사무소 웹 클라우드",
     SRC: "#",
     DESCRIPTION: `
       <header class="siteHeader">
@@ -729,7 +729,7 @@ const projects = {
   FLOWYLINE: {
     ID: "flowyline",
     DATE: "2019.02",
-    TITLE: "flowyline 홈페이지 개발",
+    TITLE: "flowyline",
     SRC: "#",
     DESCRIPTION: `
       <header class="siteHeader">
@@ -762,7 +762,7 @@ const projects = {
   HOOK: {
     ID: "hook",
     DATE: "2019.02",
-    TITLE: "훅깬당 홈페이지 개발",
+    TITLE: "훅깬당",
     SRC: "#",
     DESCRIPTION: `
       <header class="siteHeader">
@@ -796,7 +796,7 @@ const projects = {
   BRANDIN: {
     ID: "brandin",
     DATE: "2018.12",
-    TITLE: "브랜딘 홈페이지 개발",
+    TITLE: "브랜딘",
     SRC: "http://www.brand-in.kr/",
     DESCRIPTION: `
       <header class="siteHeader">
@@ -828,7 +828,7 @@ const projects = {
   NOAH: {
     ID: "noah",
     DATE: "2018.12",
-    TITLE: "노아베이커리 홈페이지 개발",
+    TITLE: "노아베이커리",
     SRC: "#",
     DESCRIPTION: `
       <header class="siteHeader">
@@ -894,7 +894,7 @@ const projects = {
   DCTOMENC: {
     ID: "dctomenc",
     DATE: "2017.12",
-    TITLE: "DCTOM E&C 홈페이지 개발",
+    TITLE: "DCTOM E&C",
     SRC: "#",
     DESCRIPTION: `
       <header class="siteHeader">
@@ -927,7 +927,7 @@ const projects = {
   DCTOMTOUR: {
     ID: "dctomtour",
     DATE: "2017.10",
-    TITLE: "디씨톰 투어 홈페이지 개발",
+    TITLE: "디씨톰 투어",
     SRC: "#",
     DESCRIPTION: `
       <header class="siteHeader">
@@ -960,7 +960,7 @@ const projects = {
   DCTOMENT: {
     ID: "dctoment",
     DATE: "2017.09",
-    TITLE: "DCTOM ENTERTAINMENT 홈페이지 개발",
+    TITLE: "DCTOM ENTERTAINMENT",
     SRC: "#",
     DESCRIPTION: `
       <header class="siteHeader">
@@ -992,7 +992,7 @@ const projects = {
   MARKTOURCAR: {
     ID: "marktourcar",
     DATE: "2017.09",
-    TITLE: "마크투어카 홈페이지 개발",
+    TITLE: "마크투어카",
     SRC: "#",
     DESCRIPTION: `
       <header class="siteHeader">
@@ -1025,7 +1025,7 @@ const projects = {
   EDU: {
     ID: "edu",
     DATE: "2017.03",
-    TITLE: "어린이 교육 학원 홈페이지 개발",
+    TITLE: "어린이 교육 학원 웹사이트",
     SRC: "#",
     DESCRIPTION: `
       <header class="siteHeader">
@@ -1033,7 +1033,7 @@ const projects = {
           <strong class="titItem">
             <span class="emoji">💾</span> 프로젝트 :
           </strong>
-          어린이 교육 학원 홈페이지 개발
+          어린이 교육 학원 웹사이트
         </h3>
         <p>
           <strong class="titItem">
