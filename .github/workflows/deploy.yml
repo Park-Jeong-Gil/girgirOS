@@ -40,13 +40,31 @@ jobs:
           username: ${{ secrets.SSH_USERNAME }}
           key: ${{ secrets.DEPLOY_SSH_KEY }}
           script: |
+            # 백업 디렉토리 생성
+            BACKUP_ROOT="${{ secrets.TARGET_DIRECTORY }}/backups"
+            mkdir -p "$BACKUP_ROOT"
+            
             timestamp=$(date +%Y%m%d_%H%M%S)
+            BACKUP_DIR="$BACKUP_ROOT/backup_$timestamp"
+            
             cd ${{ secrets.TARGET_DIRECTORY }}
-            if [ -d "backup" ]; then
-              rm -rf backup_old
-              mv backup backup_old
+            
+            # 이전 백업 정리
+            if [ -d "$BACKUP_ROOT/backup_old" ]; then
+              rm -rf "$BACKUP_ROOT/backup_old"
             fi
-            cp -r . backup_$timestamp
+            
+            # 최신 백업 생성
+            if [ -d "$BACKUP_ROOT/backup_latest" ]; then
+              mv "$BACKUP_ROOT/backup_latest" "$BACKUP_ROOT/backup_old"
+            fi
+            
+            # 새로운 백업 생성
+            mkdir -p "$BACKUP_DIR"
+            cp -r ./* "$BACKUP_DIR/"
+            
+            # 최신 백업 심볼릭 링크 업데이트
+            ln -sf "$BACKUP_DIR" "$BACKUP_ROOT/backup_latest"
 
       - name: Deploy to NAS
         uses: appleboy/scp-action@v0.1.3
