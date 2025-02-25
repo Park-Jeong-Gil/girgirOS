@@ -40,31 +40,21 @@ jobs:
           username: ${{ secrets.SSH_USERNAME }}
           key: ${{ secrets.DEPLOY_SSH_KEY }}
           script: |
-            # 백업 디렉토리 생성
-            BACKUP_ROOT="${{ secrets.TARGET_DIRECTORY }}/backups"
-            mkdir -p "$BACKUP_ROOT"
-            
+            # timestamp 생성
             timestamp=$(date +%Y%m%d_%H%M%S)
-            BACKUP_DIR="$BACKUP_ROOT/backup_$timestamp"
             
-            cd ${{ secrets.TARGET_DIRECTORY }}
+            # backups 디렉토리 생성
+            mkdir -p "${{ secrets.TARGET_DIRECTORY }}/backups"
             
-            # 이전 백업 정리
-            if [ -d "$BACKUP_ROOT/backup_old" ]; then
-              rm -rf "$BACKUP_ROOT/backup_old"
+            # 현재 운영중인 파일들 백업
+            if [ -f "${{ secrets.TARGET_DIRECTORY }}/index.html" ]; then
+              mkdir -p "${{ secrets.TARGET_DIRECTORY }}/backups/backup_${timestamp}"
+              cp "${{ secrets.TARGET_DIRECTORY }}/index.html" "${{ secrets.TARGET_DIRECTORY }}/backups/backup_${timestamp}/"
+              
+              if [ -d "${{ secrets.TARGET_DIRECTORY }}/resources" ]; then
+                cp -r "${{ secrets.TARGET_DIRECTORY }}/resources" "${{ secrets.TARGET_DIRECTORY }}/backups/backup_${timestamp}/"
+              fi
             fi
-            
-            # 최신 백업 생성
-            if [ -d "$BACKUP_ROOT/backup_latest" ]; then
-              mv "$BACKUP_ROOT/backup_latest" "$BACKUP_ROOT/backup_old"
-            fi
-            
-            # 새로운 백업 생성
-            mkdir -p "$BACKUP_DIR"
-            cp -r ./* "$BACKUP_DIR/"
-            
-            # 최신 백업 심볼릭 링크 업데이트
-            ln -sf "$BACKUP_DIR" "$BACKUP_ROOT/backup_latest"
 
       - name: Deploy to NAS
         uses: appleboy/scp-action@v0.1.3
@@ -85,25 +75,30 @@ jobs:
           username: ${{ secrets.SSH_USERNAME }}
           key: ${{ secrets.DEPLOY_SSH_KEY }}
           script: |
-            # 백업 디렉토리 확인
-            if [ -d "${{ secrets.TARGET_DIRECTORY }}/backups" ]; then
-              BACKUP_DIR=$(ls -td ${{ secrets.TARGET_DIRECTORY }}/backups/backup_* 2>/dev/null | head -1)
-            fi
-            
-            # 배포 확인
             if [ ! -f "${{ secrets.TARGET_DIRECTORY }}/index.html" ]; then
               echo "Deployment verification failed - rolling back"
-              if [ -n "${BACKUP_DIR}" ] && [ -d "${BACKUP_DIR}" ]; then
-                sudo rm -rf ${{ secrets.TARGET_DIRECTORY }}/* 2>/dev/null || true
-                sudo cp -r "${BACKUP_DIR}/"* "${{ secrets.TARGET_DIRECTORY }}/" 2>/dev/null || exit 1
-                echo "Rollback completed using ${BACKUP_DIR}"
+              
+              # 가장 최신 백업 찾기
+              LATEST_BACKUP=$(ls -td ${{ secrets.TARGET_DIRECTORY }}/backups/backup_* | head -1)
+              
+              if [ -n "$LATEST_BACKUP" ]; then
+                # index.html 복원
+                cp "$LATEST_BACKUP/index.html" "${{ secrets.TARGET_DIRECTORY }}/"
+                
+                # resources 폴더 복원
+                if [ -d "$LATEST_BACKUP/resources" ]; then
+                  rm -rf "${{ secrets.TARGET_DIRECTORY }}/resources"
+                  cp -r "$LATEST_BACKUP/resources" "${{ secrets.TARGET_DIRECTORY }}/"
+                fi
+                
+                echo "Rollback completed using $LATEST_BACKUP"
               else
-                echo "Backup not found for rollback"
+                echo "No backup found for rollback"
                 exit 1
               fi
             else
               echo "Deployment verified successfully"
             fi
             
-            # 오래된 백업 정리 (에러 무시)
+            # 7일 이상된 백업 삭제
             find "${{ secrets.TARGET_DIRECTORY }}/backups" -name "backup_*" -type d -mtime +7 -exec rm -rf {} \; 2>/dev/null || true
