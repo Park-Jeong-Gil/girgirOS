@@ -2,27 +2,27 @@ name: Deploy to Synology NAS
 
 on:
   push:
-    branches: [main] # main 브랜치에 푸시될 때 워크플로우 실행
+    branches: [main]
 
 jobs:
   build-and-deploy:
-    runs-on: ubuntu-latest # 최신 우분투 환경에서 실행
+    runs-on: ubuntu-latest
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4 # 코드 체크아웃
+        uses: actions/checkout@v4
 
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '18' # Node.js 버전 18 설정
-          cache: 'npm' # npm 캐시 사용
+          node-version: '18'
+          cache: 'npm'
 
       - name: Install dependencies
-        run: npm ci # 의존성 설치
+        # run: npm install
+        run: npm ci
         
       - name: Check build directory
-        # 기존 빌드 디렉토리 삭제
         run: |
           if [ -d "build" ]; then
             echo "Cleaning existing build directory"
@@ -30,7 +30,7 @@ jobs:
           fi
 
       - name: Build project
-        run: npm run build # 프로젝트 빌드
+        run: npm run build
         
       - name: Create backup on NAS
         uses: appleboy/ssh-action@v1.0.0
@@ -41,46 +41,12 @@ jobs:
           key: ${{ secrets.DEPLOY_SSH_KEY }}
           script: |
             timestamp=$(date +%Y%m%d_%H%M%S)
-            TARGET_DIR="${{ secrets.TARGET_DIRECTORY }}"
-            BACKUP_ROOT="${TARGET_DIR}/backups"
-            BACKUP_DIR="${BACKUP_ROOT}/backup_${timestamp}"
-            
-            # 디렉토리 생성
-            mkdir -p "${BACKUP_DIR}"
-            
-            # 디스크 공간 확인
-            if [ $(df -P "${BACKUP_ROOT}" | awk 'NR==2 {print $5}' | sed 's/%//') -gt 90 ]; then
-              find "${BACKUP_ROOT}" -name "backup_*" -type d -mtime +7 -exec rm -rf {} \;
+            cd ${{ secrets.TARGET_DIRECTORY }}
+            if [ -d "backup" ]; then
+              rm -rf backup_old
+              mv backup backup_old
             fi
-            
-            # index.html과 resources 폴더가 존재하는지 확인
-            if [ -f "${TARGET_DIR}/index.html" ] || [ -d "${TARGET_DIR}/resources" ]; then
-              # 백업 수행
-              cp -p "${TARGET_DIR}/index.html" "${BACKUP_DIR}/" 2>/dev/null || true
-              if [ -d "${TARGET_DIR}/resources" ]; then
-                cp -rp "${TARGET_DIR}/resources" "${BACKUP_DIR}/" || {
-                  echo "resources 백업 실패"
-                  rm -rf "${BACKUP_DIR}"
-                  exit 1
-                }
-              fi
-              echo "백업 완료: ${BACKUP_DIR}"
-            else
-              echo "백업할 파일이 없습니다."
-              rm -rf "${BACKUP_DIR}"
-            fi
-
-      - name: Prepare target directory
-        uses: appleboy/ssh-action@v1.0.0
-        with:
-          host: ${{ secrets.SSH_HOST }}
-          port: ${{ secrets.SSH_PORT }}
-          username: ${{ secrets.SSH_USERNAME }}
-          key: ${{ secrets.DEPLOY_SSH_KEY }}
-          # 타겟 디렉토리 생성 및 권한 설정
-          script: |
-            mkdir -p ${{ secrets.TARGET_DIRECTORY }} 
-            chmod 775 ${{ secrets.TARGET_DIRECTORY }}
+            cp -r . backup_$timestamp
 
       - name: Deploy to NAS
         uses: appleboy/scp-action@v0.1.3
@@ -89,26 +55,9 @@ jobs:
           port: ${{ secrets.SSH_PORT }}
           username: ${{ secrets.SSH_USERNAME }}
           key: ${{ secrets.DEPLOY_SSH_KEY }}
-          source: "build/*" # 빌드된 파일 소스
-          target: ${{ secrets.TARGET_DIRECTORY }} # 타겟 디렉토리
-          strip_components: 1 # 최상위 디렉토리 제거
-          rm: false # 기존 파일 삭제 안 함
-          overwrite: true # 기존 파일 덮어쓰기
-
-      # 배포 후 권한 수정 (불필요한 파일 삭제 제거)
-      - name: Set permissions on NAS
-        uses: appleboy/ssh-action@v1.0.0
-        with:
-          host: ${{ secrets.SSH_HOST }}
-          port: ${{ secrets.SSH_PORT }}
-          username: ${{ secrets.SSH_USERNAME }}
-          key: ${{ secrets.DEPLOY_SSH_KEY }}
-          # 디렉토리 권한 설정 (755)및 파일 권한 설정 (644)
-          script: |
-            cd ${{ secrets.TARGET_DIRECTORY }}
-            find . -type d \( -name "dev" -o -name "global" \) -prune -o -type d -exec chmod 755 {} \;
-            find . -type d \( -name "dev" -o -name "global" \) -prune -o -type f -exec chmod 644 {} \;
-            echo "Permissions updated"
+          source: "build/*"
+          target: ${{ secrets.TARGET_DIRECTORY }}
+          strip_components: 1
 
       - name: Verify deployment
         uses: appleboy/ssh-action@v1.0.0
@@ -118,14 +67,17 @@ jobs:
           username: ${{ secrets.SSH_USERNAME }}
           key: ${{ secrets.DEPLOY_SSH_KEY }}
           script: |
-            # 백업 디렉토리에서 가장 최신 백업 찾기
-            BACKUP_DIR=$(ls -td ${{ secrets.TARGET_DIRECTORY }}/backups/backup_* | head -1)
+            # 백업 디렉토리 확인
+            if [ -d "${{ secrets.TARGET_DIRECTORY }}/backups" ]; then
+              BACKUP_DIR=$(ls -td ${{ secrets.TARGET_DIRECTORY }}/backups/backup_* 2>/dev/null | head -1)
+            fi
             
+            # 배포 확인
             if [ ! -f "${{ secrets.TARGET_DIRECTORY }}/index.html" ]; then
               echo "Deployment verification failed - rolling back"
               if [ -n "${BACKUP_DIR}" ] && [ -d "${BACKUP_DIR}" ]; then
-                rm -rf ${{ secrets.TARGET_DIRECTORY }}/*
-                cp -r "${BACKUP_DIR}/"* "${{ secrets.TARGET_DIRECTORY }}/" || exit 1
+                sudo rm -rf ${{ secrets.TARGET_DIRECTORY }}/* 2>/dev/null || true
+                sudo cp -r "${BACKUP_DIR}/"* "${{ secrets.TARGET_DIRECTORY }}/" 2>/dev/null || exit 1
                 echo "Rollback completed using ${BACKUP_DIR}"
               else
                 echo "Backup not found for rollback"
@@ -134,5 +86,6 @@ jobs:
             else
               echo "Deployment verified successfully"
             fi
-            # 오래된 백업 정리
-            find "${{ secrets.TARGET_DIRECTORY }}/backups" -name "backup_*" -type d -mtime +7 -exec rm -rf {} \;
+            
+            # 오래된 백업 정리 (에러 무시)
+            find "${{ secrets.TARGET_DIRECTORY }}/backups" -name "backup_*" -type d -mtime +7 -exec rm -rf {} \; 2>/dev/null || true
