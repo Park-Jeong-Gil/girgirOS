@@ -1,4 +1,50 @@
 const projects = {
+  cosmofy: {
+    ID: "cosmofy",
+    DATE: "2025.03",
+    TITLE: "Cosmofy App",
+    SRC: "https://cosmofy.vercel.app/#",
+    DESCRIPTION: `
+<header class="siteHeader">
+  <h3>          
+    <strong class="titItem">
+      <span class="emoji">💾</span> 프로젝트 :
+    </strong>
+    Cosmofy App (Next.js)
+  </h3>
+  <p>
+    <strong class="titItem">
+      <span class="emoji">⏱️</span> 작업 기간 :
+    </strong>
+    <time dateTime="2025-03">2025년 2월</time> ~
+    <time dateTime="2025-04">2025년 3월</time>
+  </p>
+  <p class="skill">
+    <p class="skill"><strong class="titItem"><span class="emoji">🖥️</span> 프론트엔드 : </strong> Next.js, React.js, TypeScript / @tanstack/react-query, zustand, axios, NextAuth / CSS Module</p>
+    <p class="skill"><strong class="titItem"><span class="emoji">🛰️</span> API 서버 : </strong> Node.js, Express.js, TypeScript/ MongoDB(mongoose), JWT, Passport.js, bcryptjs / PM2, nodemon / GitHub Actions</p>
+    <p class="skill"><strong class="titItem"><span class="emoji">🗄️</span> DB 서버 : </strong> Synology NAS, Docker, MongoDB, MongoDB Express</p>
+    <p class="skill"><strong class="titItem"><span class="emoji">🎨</span> 디자인 : </strong> Figma, Adobe Photoshop, Adobe Illustrator </p>
+  </p>
+</header>
+<div class="siteDesc">
+  <p><strong>아이디어 기획 부터, 로고와 UI 디자인, 프론트엔드 개발, API, DB 서버 셋팅 까지. </strong><br>
+  <strong>처음으로 1인 개발이란걸 경험 해보았습니다.</strong></p>
+  <p><strong>Cosmofy</strong>는 'cosmos(우주)' + 'comfy(편안함)'의 합성어로<br> 온전히 개인을 위한 프라이빗 SNS 입니다.</p> 
+  <p>저는 현재 SNS들이 사용자들에게 소통의 즐거움을 주는 반면, 피로감도 동반 할 수 밖에 없다고 생각 했습니다. 
+  알고리즘에 의한 광고도 그렇고, 사적인 기록마저 익명의 불특정 다수에게 노출되어야 하는 구조니까요.</p>
+  <p>저는 이것이 현재 SNS의 양면이라 생각해서 그럼 반대로 완전 개인적인 공간에 게시글을 올리면서도
+  경우에 따라 제한적인 공유와 소통이 가능한, 그런 SNS를 만들어보고 싶단 생각을 했습니다.</p>
+  <p>무려 <strong>2016년</strong> 부터 말이죠! 🤔</p> 
+  <p>처음엔 실력도 부족한게 큰 이유였지만, 연차와 경험이 쌓인 이후로도
+  이런 저런 이유로 미루고 미루다, 이제서야 작고 소중한 프로토 타입을 만들어보았습니다.</p>
+  <p>참 시대를 잘 타고 난 것 같습니다. 많은 종류의 AI가 큰 도움이 되었으니까요.<br>
+  아직 정식 서비스라 부르기 민망한, 아직은 지극히 개인적인 토이 프로젝트이지만.
+  그래서 더욱 어설픈 부분도 많고, 에러도 있지만, <br>
+  언젠간 정식 서비스가 되어 저 처럼 현재의 SNS에 피로감을 느끼는 사람들에게
+  편안함과 도움이 되는, 그런 서비스가 되도록 꾸준히 업데이트 해볼 예정 입니다.</p>
+</div>
+    `,
+  },
   KG: {
     ID: "kg",
     DATE: "2024.04",

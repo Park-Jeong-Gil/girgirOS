@@ -45,6 +45,9 @@
             no-repeat center / cover #000;
         }
 
+        &[data-screen="cosmofy"] {
+          background-image: url("../assets/images/website/cosmofy.jpg");
+        }
         &[data-screen="kg"] {
           background-image: url("../assets/images/website/kg.jpg");
         }
