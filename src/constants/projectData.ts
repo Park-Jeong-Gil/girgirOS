@@ -3,7 +3,7 @@ const projects = {
     ID: "cosmofy",
     DATE: "2025.03",
     TITLE: "Cosmofy App",
-    SRC: "https://cosmofy.vercel.app/official",
+    SRC: "https://cosmofy.app/official",
     DESCRIPTION: `
 <header class="siteHeader">
   <h3>          
