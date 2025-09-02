@@ -1,4 +1,75 @@
 const projects = {
+  rhythmtube: {
+    ID: "rhythmtube",
+    DATE: "2025.08",
+    TITLE: "Rhythm Tube",
+    SRC: "https://rhythmtube.vercel.app/",
+    DESCRIPTION: `
+<header class="siteHeader">
+  <h3>          
+    <strong class="titItem">
+      <span class="emoji">💾</span> 프로젝트 :
+    </strong>
+    Rhythm Tube
+  </h3>
+  <p>
+    <strong class="titItem">
+      <span class="emoji">⏱️</span> 작업 기간 :
+    </strong>
+    <time dateTime="2025-08">2025년 8월</time> ~
+    <time dateTime="2025-08">2025년 8월</time>
+  </p>
+  <p class="skill">
+    <strong class="titItem">
+      <span class="emoji">🛠️</span> 사용기술 :
+    </strong>
+    Next.js, TypeScript, tailwind, scss, Docker, python, vercel, Github Actions
+  </p>
+</header>
+<div class="siteDesc">
+  <p>1인 토이 프로젝트인 <strong>Rhythm Tube</strong> 입니다. 기획, 디자인, 프론트엔드, API, CI/CD 모든 부분을 맡아 직접 개발 했습니다.</p>
+  <p>시중에 나와있는 리듬 게임의 노래는 제한적이고 유튜브에 많은 노래들이 있으니, 유튜브에 있는 노래를 활용해서 리듬 게임을 만들 수 있다면? 하는 생각으로 시작했습니다.</p>
+  <p>입력란에 유튜브 공유 링크를 입력하게 되면, Nas에 구축한 API 서버(python)가 음원을 추출합니다(yt-dlp). 추출된 음원은 곧바로 분석 데이터(파형, 스펙트럼, 주파수 분석 등)화 하고(ffmpeg) 클라이언트(Next.js)로 이 분석 데이터 전달하여 노트를 생성 합니다. 다시 API 서버로 부터 추출된 음원을 받아 모든 준비가 끝나면, 플레이 가능한 상태가 되어 유튜브의 음원을 통한 리듬 게임이 가능해집니다.</p>
+  <p>처음엔 OpenAI를 활용하여 보다 리듬 게임스러운 고품질의 노트를 생성하려 시도했으나, 아직은 AI의 성능이 만족스럽지 못하여, 추출된 음원의 분석 데이터를 통한 노트 생성으로 최적화 하였습니다.</p>
+  <p>결정적으로 유튜브의 음원 추출은 합법이 아니기 때문에 퍼블릭하게 노출 할 수 없는 아쉬움이 있습니다. 🥲</p>
+</div>
+    `,
+  },
+  gesesis: {
+    ID: "gesesis",
+    DATE: "2025.06",
+    TITLE: "Gesesis brand Home Renewal",
+    SRC: "#",
+    DESCRIPTION: `
+<header class="siteHeader">
+  <h3>          
+    <strong class="titItem">
+      <span class="emoji">💾</span> 프로젝트 :
+    </strong>
+    현대 제네시스 브랜드 페이지 리뉴얼
+  </h3>
+  <p>
+    <strong class="titItem">
+      <span class="emoji">⏱️</span> 작업 기간 :
+    </strong>
+    <time dateTime="2025-06">2025년 6월</time> ~
+    <time dateTime="2025-08">2025년 8월</time>
+  </p>
+  <p class="skill">
+    <strong class="titItem">
+      <span class="emoji">🛠️</span> 사용기술 :
+    </strong>
+    Vite, React, TypeScript, scss, Axios, tanstack/react-query, Express.js
+  </p>
+</header>
+<div class="siteDesc">
+  <p><strong>현대 제네시스 브랜드 (관리자) 리뉴얼 프로젝트</strong>입니다. 일반 사용자가 아닌 제네시스의 직원들이 사용하는 관리자 페이지이기 때문에 직관적이고 편리한 페이지를 구축하는 것이 중요했습니다.</p>
+  <p>기존의 JSP로 구축된 제네시스 브랜드 페이지를 리뉴얼하면서, 리액트로 제작 된 일부 페이지의 UI/UX 개선과 신규 페이지 추가 및 기능 개발을 맡았습니다.</p>
+  <p>레거시 코드를 파악하여 최대한 기존 구조에 맞춰 작업하면서도 새로운 기능 추가와 최적화 작업을 통해 기존 페이지의 효율성을 높였습니다.</p>
+  <p>i18n 국/영문 작업을 통해 다국어 지원을 추가했습니다.</p>
+</div>
+    `,
+  },
   cosmofy: {
     ID: "cosmofy",
     DATE: "2025.03",
@@ -16,8 +87,8 @@ const projects = {
     <strong class="titItem">
       <span class="emoji">⏱️</span> 작업 기간 :
     </strong>
-    <time dateTime="2025-03">2025년 2월</time> ~
-    <time dateTime="2025-04">2025년 3월</time>
+    <time dateTime="2025-02">2025년 2월</time> ~
+    <time dateTime="2025-03">2025년 3월</time>
   </p>
   <p class="skill">
     <p class="skill"><strong class="titItem"><span class="emoji">🖥️</span> 프론트엔드 : </strong> Next.js, React.js, TypeScript / @tanstack/react-query, zustand, axios, NextAuth / CSS Module</p>

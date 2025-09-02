@@ -45,6 +45,13 @@
             no-repeat center / cover #000;
         }
 
+        &[data-screen="rhythmtube"] {
+          background-image: url("../assets/images/website/rhythmtube.jpg");
+        }
+        &[data-screen="gesesis"] {
+          background-image: url("../assets/images/website/gesesis.jpg");
+        }
+
         &[data-screen="cosmofy"] {
           background-image: url("../assets/images/website/cosmofy.jpg");
         }
