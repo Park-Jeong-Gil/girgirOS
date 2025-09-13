@@ -737,7 +737,7 @@ const projects = {
     ID: "broadcast",
     DATE: "2019.10",
     TITLE: "방통위 전자 심의 시스템",
-    SRC: "#",
+    SRC: "https://girgir.notion.site/26bec283ac8680b4bbdbd8a47f948df6?source=copy_link/#",
     DESCRIPTION: `
       <header class="siteHeader">
         <h3>
@@ -803,7 +803,7 @@ const projects = {
     ID: "lawyer",
     DATE: "2019.05",
     TITLE: "법률 사무소 웹 클라우드",
-    SRC: "#",
+    SRC: "https://girgir.notion.site/26bec283ac86809f947ee336c6d9113c?source=copy_link/#",
     DESCRIPTION: `
       <header class="siteHeader">
         <h3>
