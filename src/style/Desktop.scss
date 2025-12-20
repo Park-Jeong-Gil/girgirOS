@@ -18,6 +18,32 @@
       &.pencil {
         cursor: url("../assets/images/design/pencil.png") 13 23, crosshair !important;
       }
+
+      &.eraser {
+        &.eraser-size-4 {
+          cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4'%3E%3Crect width='4' height='4' fill='white'/%3E%3C/svg%3E")
+              2 2,
+            crosshair !important;
+        }
+
+        &.eraser-size-7 {
+          cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='7' height='7'%3E%3Crect width='7' height='7' fill='white'/%3E%3C/svg%3E")
+              3 3,
+            crosshair !important;
+        }
+
+        &.eraser-size-10 {
+          cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10'%3E%3Crect width='10' height='10' fill='white'/%3E%3C/svg%3E")
+              5 5,
+            crosshair !important;
+        }
+
+        &.eraser-size-14 {
+          cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14'%3E%3Crect width='14' height='14' fill='white'/%3E%3C/svg%3E")
+              7 7,
+            crosshair !important;
+        }
+      }
     }
   }
 

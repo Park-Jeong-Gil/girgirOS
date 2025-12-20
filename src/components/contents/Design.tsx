@@ -16,6 +16,7 @@ function Design({}: DesignProps) {
   const [activeTool, setActiveTool] = useState("pencil"); // 연필 도구 기본 활성화
   const [foregroundColor, setForegroundColor] = useState("rgb(0,0,0)");
   const [backgroundColor, setBackgroundColor] = useState("rgb(255,255,255)");
+  const [eraserSize, setEraserSize] = useState(7); // 지우개 크기 (기본: 보통 크기)
 
   const handleTabClick = (tab: string) => {
     setActiveTab(tab);
@@ -67,6 +68,7 @@ function Design({}: DesignProps) {
     context.strokeStyle = foregroundColor; // 초기 색상을 foregroundColor로 설정
     context.lineWidth = 1;
     context.lineCap = "round";
+    context.globalCompositeOperation = "source-over"; // 기본 합성 모드
     contextRef.current = context;
   };
 
@@ -83,7 +85,18 @@ function Design({}: DesignProps) {
     if (!canvas || !contextRef.current) return;
 
     const rect = canvas.getBoundingClientRect();
-    contextRef.current.strokeStyle = foregroundColor; // 그리기 시작할 때 색상 업데이트
+
+    // 도구별 설정
+    if (activeTool === "eraser") {
+      contextRef.current.globalCompositeOperation = "destination-out";
+      contextRef.current.lineWidth = eraserSize; // 선택한 지우개 크기 사용
+      contextRef.current.strokeStyle = "rgba(0,0,0,1)"; // 투명도 값
+    } else if (activeTool === "pencil") {
+      contextRef.current.globalCompositeOperation = "source-over";
+      contextRef.current.strokeStyle = foregroundColor;
+      contextRef.current.lineWidth = 1;
+    }
+
     contextRef.current.beginPath();
     contextRef.current.moveTo(e.clientX - rect.left, e.clientY - rect.top);
     setIsDrawing(true);
@@ -95,6 +108,11 @@ function Design({}: DesignProps) {
     const rect = canvasRef.current.getBoundingClientRect();
     contextRef.current.lineTo(e.clientX - rect.left, e.clientY - rect.top);
     contextRef.current.stroke();
+  };
+
+  // 마우스 움직임 추적
+  const handleMouseMove = (e: React.MouseEvent) => {
+    draw(e);
   };
 
   const stopDrawing = () => {
@@ -121,7 +139,8 @@ function Design({}: DesignProps) {
   // handleColorClick 함수 수정
   const handleColorClick = (color: string) => {
     setForegroundColor(color);
-    if (contextRef.current) {
+    // 연필 도구일 때만 즉시 색상 변경
+    if (contextRef.current && activeTool === "pencil") {
       contextRef.current.strokeStyle = color;
     }
   };
@@ -140,7 +159,13 @@ function Design({}: DesignProps) {
                 <button className="toolBtn" title="선택"></button>
               </li>
               <li>
-                <button className="toolBtn" title="지우개/색 지우개"></button>
+                <button
+                  className={`toolBtn ${
+                    activeTool === "eraser" ? "active" : ""
+                  }`}
+                  title="지우개/색 지우개"
+                  onClick={() => handleToolClick("eraser")}
+                ></button>
               </li>
               <li>
                 <button className="toolBtn" title="색 칠하기"></button>
@@ -188,7 +213,40 @@ function Design({}: DesignProps) {
                 <button className="toolBtn" title="둥근 직사각형"></button>
               </li>
             </ul>
-            <p className="optionBox"></p>
+            <div className="optionBox">
+              {activeTool === "eraser" && (
+                <div className="eraserSizes">
+                  <button
+                    className={eraserSize === 4 ? "active" : ""}
+                    onClick={() => setEraserSize(4)}
+                    title="작은 크기"
+                  >
+                    <span className="size-small"></span>
+                  </button>
+                  <button
+                    className={eraserSize === 7 ? "active" : ""}
+                    onClick={() => setEraserSize(7)}
+                    title="보통 크기"
+                  >
+                    <span className="size-medium"></span>
+                  </button>
+                  <button
+                    className={eraserSize === 10 ? "active" : ""}
+                    onClick={() => setEraserSize(10)}
+                    title="중간 크기"
+                  >
+                    <span className="size-large"></span>
+                  </button>
+                  <button
+                    className={eraserSize === 14 ? "active" : ""}
+                    onClick={() => setEraserSize(14)}
+                    title="큰 크기"
+                  >
+                    <span className="size-xlarge"></span>
+                  </button>
+                </div>
+              )}
+            </div>
           </div>
           <div className="drawField">
             <img
@@ -202,9 +260,9 @@ function Design({}: DesignProps) {
               ref={canvasRef}
               className={`drawCanvas ${
                 activeTool === "pencil" ? "pencil" : ""
-              }`}
+              } ${activeTool === "eraser" ? `eraser eraser-size-${eraserSize}` : ""}`}
               onMouseDown={startDrawing}
-              onMouseMove={draw}
+              onMouseMove={handleMouseMove}
               onMouseUp={stopDrawing}
               onMouseLeave={stopDrawing}
             />
