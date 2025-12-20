@@ -196,6 +196,16 @@ function Profile({}: ProfileProps) {
           <h3 className="secTit">Experience (총 경력 8년~)</h3>
           <ul className="experienceWrap">
             <li>
+              <strong>렌트리주식회사 (2025. 09 ~ 2025. 12)</strong>
+              <span>
+                가전 제품 , 인터넷, 타이어 등의 렌탈 가격을 한눈에 비교하고,
+                최저가 견적을 제공하는 플랫폼에서 프론트엔드 개발자로
+                일했습니다. 변화가 빠르고 체계적인 개발 프로세스를 갖춘 조직에서
+                능동적인 팔로우를 통해 신규 이벤트 페이지 작업, SEO 최적화 작업,
+                백오피 스의 CS 개선 작업 등을 진행했습니다.
+              </span>
+            </li>
+            <li>
               <strong>바른컴퍼니 (2024. 11 ~ 2025. 02)</strong>
               <span>
                 사내의 첫 프론트엔드 개발자로 리뉴얼 및 신규 사업을 위해
