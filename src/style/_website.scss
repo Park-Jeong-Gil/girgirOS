@@ -13,8 +13,11 @@
   .tabpanel {
     position: relative;
     z-index: 2;
-    box-shadow: inset vw(-1) vw(-1) #0a0a0a, inset vw(1) vw(1) #dfdfdf,
-      inset vw(-1) vw(-1) grey, inset vw(2) vw(2) #fff;
+    box-shadow:
+      inset vw(-1) vw(-1) #0a0a0a,
+      inset vw(1) vw(1) #dfdfdf,
+      inset vw(-1) vw(-1) grey,
+      inset vw(2) vw(2) #fff;
     padding: vw(24);
   }
 
@@ -43,6 +46,10 @@
         &[data-screen] {
           background: url("../assets/images/common/monitor-screen.png")
             no-repeat center / cover #000;
+        }
+
+        &[data-screen="goatBackHome"] {
+          background-image: url("../assets/images/website/goatBackHome.jpg");
         }
 
         &[data-screen="rhythmtube"] {
@@ -148,7 +155,9 @@
     position: relative;
     border: vw(1) solid #8c8c8c;
     padding: vw(26);
-    box-shadow: vw(1) vw(1) 0 #e9e9e9, vw(1) vw(1) 0 #e9e9e9 inset;
+    box-shadow:
+      vw(1) vw(1) 0 #e9e9e9,
+      vw(1) vw(1) 0 #e9e9e9 inset;
 
     .secTit {
       font-family: "W95", "Pretendard", "Segoe UI", Tahoma, Verdana, sans-serif;
@@ -186,8 +195,11 @@
         text-shadow: none;
         outline: none;
         background: silver;
-        box-shadow: inset vw(-1) vw(-1) #0a0a0a, inset vw(1) vw(1) #fff,
-          inset vw(-1) vw(-1) grey, inset vw(2) vw(2) #dfdfdf;
+        box-shadow:
+          inset vw(-1) vw(-1) #0a0a0a,
+          inset vw(1) vw(1) #fff,
+          inset vw(-1) vw(-1) grey,
+          inset vw(2) vw(2) #dfdfdf;
 
         &[href="#"] {
           text-shadow: vw(1) vw(1) 0 #fff;
@@ -203,8 +215,11 @@
             outline-offset: vw(-4);
           }
           &:active {
-            box-shadow: inset vw(-1) vw(-1) #ffffff, inset vw(1) vw(1) #0a0a0a,
-              inset vw(-2) vw(-2) #dfdfdf, inset vw(2) vw(2) #808080;
+            box-shadow:
+              inset vw(-1) vw(-1) #ffffff,
+              inset vw(1) vw(1) #0a0a0a,
+              inset vw(-2) vw(-2) #dfdfdf,
+              inset vw(2) vw(2) #808080;
           }
         }
 
@@ -247,8 +262,11 @@
 
       span {
         background: silver;
-        box-shadow: inset vw(-1) vw(-1) #0a0a0a, inset vw(1) vw(1) #fff,
-          inset vw(-1) vw(-1) grey, inset vw(2) vw(2) #dfdfdf;
+        box-shadow:
+          inset vw(-1) vw(-1) #0a0a0a,
+          inset vw(1) vw(1) #fff,
+          inset vw(-1) vw(-1) grey,
+          inset vw(2) vw(2) #dfdfdf;
         box-sizing: border-box;
         @include Pretendard;
         font-size: vw(14);

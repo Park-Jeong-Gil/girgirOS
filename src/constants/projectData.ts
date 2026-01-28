@@ -1,4 +1,38 @@
 const projects = {
+  goatBackHome: {
+    ID: "goatBackHome",
+    DATE: "2026.01",
+    TITLE: "Goat Back Home",
+    SRC: "https://goat-back-home.vercel.app/",
+    DESCRIPTION: `
+<header class="siteHeader">
+  <h3>          
+    <strong class="titItem">
+      <span class="emoji">💾</span> 프로젝트 :
+    </strong>
+    Goat Back Home
+  </h3>
+  <p>
+    <strong class="titItem">
+      <span class="emoji">⏱️</span> 작업 기간 :
+    </strong>
+    <time dateTime="2026-01">2026년 1월</time> ~
+    <time dateTime="2026-01">2026년 1월</time>
+  </p>
+  <p class="skill">
+    <strong class="titItem">
+      <span class="emoji">🛠️</span> 사용기술 :
+    </strong>
+    Next.js, TypeScript, tailwind, scss, supabase, vercel, Github Actions
+  </p>
+</header>
+<div class="siteDesc">
+  <p>'점프킹' 이라는 게임에서 영감받아 만든 웹 게임 <strong>Goat Back Home</strong> 입니다. 기획, 디자인, 프론트엔드, API, CI/CD 등 모두 직접 개발 했습니다.</p>
+  <p>모든 이동을 점프만으로 골인 지점까지 이동해야 하고 골인 지점에 도달하면 클리어 되는 간단한 웹 게임입니다.</p>
+  <p>배경과 캐릭터 등은 AI를 활용하여 제작했고, Next.js로 프론트를 개발하고, 클리어 시간을 기록하고 공유하기 위해 supabase를 활용했습니다.</p>
+</div>
+    `,
+  },
   rhythmtube: {
     ID: "rhythmtube",
     DATE: "2025.08",
