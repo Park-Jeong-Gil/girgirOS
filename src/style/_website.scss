@@ -48,6 +48,10 @@
             no-repeat center / cover #000;
         }
 
+        &[data-screen="ddatge"] {
+          background-image: url("../assets/images/website/ddatge.jpg");
+        }
+
         &[data-screen="goatBackHome"] {
           background-image: url("../assets/images/website/goatBackHome.jpg");
         }

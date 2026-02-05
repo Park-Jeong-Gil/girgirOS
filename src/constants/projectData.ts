@@ -1,4 +1,38 @@
 const projects = {
+  ddatge: {
+    ID: "ddatge",
+    DATE: "2026.02",
+    TITLE: "DDatge Survival",
+    SRC: "https://ddatge-survival.vercel.app/",
+    DESCRIPTION: `
+<header class="siteHeader">
+  <h3>          
+    <strong class="titItem">
+      <span class="emoji">💾</span> 프로젝트 :
+    </strong>
+    DDatge Survival
+  </h3>
+  <p>
+    <strong class="titItem">
+      <span class="emoji">⏱️</span> 작업 기간 :
+    </strong>
+    <time dateTime="2026-02">2026년 2월</time> ~
+    <time dateTime="2026-02">2026년 2월</time>
+  </p>
+  <p class="skill">
+    <strong class="titItem">
+      <span class="emoji">🛠️</span> 사용기술 :
+    </strong>
+    Next.js, TypeScript, tailwind, scss, supabase, vercel, Github Actions
+  </p>
+</header>
+<div class="siteDesc">
+  <p><strong>DDatge Survival</strong>은 빠른 시간 안에 먹이를 사냥하지 못하면 죽을 수 밖에 없는, 가혹한 운명을 타고난 땃쥐의 삶을 체험 해보는 컨셉의 웹 게임 입니다.</p>
+  <p>기획, 디자인, 프론트엔드, API, CI/CD 등 모두 직접 개발 했습니다.</p>
+  <p>배경과 캐릭터 등은 AI를 활용하여 에셋을 제작했고, Next.js로 프론트를 개발하고, 클리어 시간을 기록하고 공유하기 위해 supabase를 활용했습니다.</p>
+</div>
+    `,
+  },
   goatBackHome: {
     ID: "goatBackHome",
     DATE: "2026.01",
