@@ -1,4 +1,40 @@
 const projects = {
+  taptapburger: {
+    ID: "taptapburger",
+    DATE: "2026.02",
+    TITLE: "Tap Tap Burger",
+    SRC: "https://tabtab-burger.vercel.app/",
+    DESCRIPTION: `
+<header class="siteHeader">
+  <h3>          
+    <strong class="titItem">
+      <span class="emoji">💾</span> 프로젝트 :
+    </strong>
+    Tap Tap Burger
+  </h3>
+  <p>
+    <strong class="titItem">
+      <span class="emoji">⏱️</span> 작업 기간 :
+    </strong>
+    <time dateTime="2026-02">2026년 2월</time> ~
+    <time dateTime="2026-02">2026년 2월</time>
+  </p>
+  <p class="skill">
+    <strong class="titItem">
+      <span class="emoji">🛠️</span> 사용기술 :
+    </strong>
+    Next.js, TypeScript, scss, framer motion, supabase, vercel, Github Actions
+  </p>
+</header>
+<div class="siteDesc">
+  <p><strong>Tap Tap Burger</strong>는 순발력을 발휘하여 시간내에 주문서에 맞춰 아래에서 부터 위로 재료를 쌓고 번을 덮는 아주 단순한 게임 입니다.</p>
+  <p>주문서를 많이 쳐낼 수록 주어진 시간이 짧아지며 난이도가 올라가서 플레이 타임은 빠르면서, 높은 스코어를 기록하기도 쉽지 않은 게임을 계획 했습니다.</p>
+  <p>이번엔 게임 자체가 단순한 구조와 목표를 가졌다보니, 이전작들과 달리 ‘2인 멀티 플레이’ 를 시도 했습니다.</p>
+  <p>기획, 디자인, 프론트엔드, API, CI/CD 등 모두 직접 개발 했습니다.</p>
+  <p>햄버거 이미지 에셋은 AI를 활용하여 제작했고, Next.js로 프론트를 개발하고, 멀티 플레이에서 실시간 통신을 위해 supabase realtime을 활용했습니다.</p>
+</div>
+    `,
+  },
   ddatge: {
     ID: "ddatge",
     DATE: "2026.02",

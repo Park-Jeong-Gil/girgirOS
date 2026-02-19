@@ -48,6 +48,10 @@
             no-repeat center / cover #000;
         }
 
+        &[data-screen="taptapburger"] {
+          background-image: url("../assets/images/website/taptapburger.jpg");
+        }
+
         &[data-screen="ddatge"] {
           background-image: url("../assets/images/website/ddatge.jpg");
         }
