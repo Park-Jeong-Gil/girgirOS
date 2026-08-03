@@ -7,7 +7,7 @@ export interface Career {
 
 const careers: Career[] = [
   {
-    COMPANY: "넥슨 코리아",
+    COMPANY: "넥슨코리아",
     START: "2026.03",
     END: null,
     DESCRIPTION:
