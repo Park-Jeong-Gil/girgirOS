@@ -178,7 +178,7 @@ const projects = {
     ID: "cosmofy",
     DATE: "2025.03",
     TITLE: "Cosmofy App",
-    SRC: "https://cosmofy.app/official",
+    SRC: "https://cosmofy.app/",
     DESCRIPTION: `
 <header class="siteHeader">
   <h3>          
