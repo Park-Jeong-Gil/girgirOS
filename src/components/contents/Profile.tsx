@@ -176,6 +176,7 @@ function Profile({}: ProfileProps) {
               <dd className="slack">Slack</dd>
               <dd className="notion">Notion</dd>
               <dd className="jira">Jira</dd>
+              <dd className="confluence">Confluence</dd>
               <dd className="aem">Aem</dd>
             </dl>
           </div>
