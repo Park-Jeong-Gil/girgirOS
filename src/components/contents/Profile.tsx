@@ -2,8 +2,13 @@ import { useRecoilState } from "recoil";
 import selfImage from "../../assets/images/common/profile-image.jpg";
 import eduImage from "../../assets/images/common/eduScreen.png";
 import { contact, programs } from "../../constants/desktopData";
+import { careers } from "../../constants/careerData";
+import {
+  getCareerPeriodText,
+  getTotalCareerText,
+} from "../../utils/careerHelper";
 import { currentProgram, programStatus } from "../../store/useProgramStatus";
-import { useState } from "react";
+import { useMemo, useState } from "react";
 
 interface ProfileProps {}
 
@@ -12,6 +17,8 @@ function Profile({}: ProfileProps) {
   const [, setActiveProgram] = useRecoilState(currentProgram);
   // 상태 관리 추가
   const [activeTab, setActiveTab] = useState("Girgir"); // 기본적으로 'Girgir' 탭이 활성화됨
+  // 경력 데이터를 합산해서 총 경력을 자동 계산
+  const totalCareerText = useMemo(() => getTotalCareerText(careers), []);
 
   const handleTabClick = (tab: string) => {
     setActiveTab(tab); // 클릭한 탭으로 상태 업데이트
@@ -193,67 +200,16 @@ function Profile({}: ProfileProps) {
             activeTab === "Experience" ? "active" : ""
           }`}
         >
-          <h3 className="secTit">Experience (총 경력 8년~)</h3>
+          <h3 className="secTit">Experience (총 경력 {totalCareerText})</h3>
           <ul className="experienceWrap">
-            <li>
-              <strong>렌트리주식회사 (2025. 09 ~ 2025. 12)</strong>
-              <span>
-                가전 제품 , 인터넷, 타이어 등의 렌탈 가격을 한눈에 비교하고,
-                최저가 견적을 제공하는 플랫폼에서 프론트엔드 개발자로
-                일했습니다. 변화가 빠르고 체계적인 개발 프로세스를 갖춘 조직에서
-                능동적인 팔로우를 통해 신규 이벤트 페이지 작업, SEO 최적화 작업,
-                백오피 스의 CS 개선 작업 등을 진행했습니다.
-              </span>
-            </li>
-            <li>
-              <strong>바른컴퍼니 (2024. 11 ~ 2025. 02)</strong>
-              <span>
-                사내의 첫 프론트엔드 개발자로 리뉴얼 및 신규 사업을 위해
-                프론트엔드 협업 가이드 부터 직접 작성하여 전사에 공유하는 PL을
-                담당하고 있으며, 리액트를 활용한 화면 개발, 사용자 경험 개선,
-                클라이언트 단 데이터 처리 등 프론트엔드 개발자로서의 실무 개발도
-                담당하고 있습니다.
-              </span>
-            </li>
-            <li>
-              <strong>FAVE (2020. 06 ~ 2024. 05)</strong>
-              <span>
-                인터렉션에 특화된 웹에이전시에서 감각적인 모션을 작업하며 다양한
-                프로모션 페이지들을 개발 하였습니다. 특히 Samsung Galaxy Global,
-                Samsung Semiconductor, 한화, 직방 등의 대기업 클라이언트를
-                대상으로 엄격한 크로스 브라우징과 웹 접근성을 충족하는
-                웹사이트를 다수 개발 했습니다.
-              </span>
-            </li>
-            <li>
-              <strong>이넘넷 (2019. 03 ~ 2020. 06)</strong>
-              <span>
-                UI/UX 파트를 맡은 웹 퍼블리셔로, 다수의 프로젝트에서
-                자바스크립트 및 제이쿼리를 활용하여 인터렉션 UX 개발을 진행
-                했습니다.
-              </span>
-            </li>
-            <li>
-              <strong>프리랜서 (2018. 09 ~ 2019. 03)</strong>
-              <span>
-                재취업 전 프리랜서로 다수의 홈페이지 디자인 및 개발을 했습니다.
-              </span>
-            </li>
-            <li>
-              <strong>DCTOM (2017. 07 ~ 2018. 09)</strong>
-              <span>
-                엔터테인먼트, 마케팅, 여행사, 스트리밍 서비스 등 회사에서
-                추진하는 다양한 사업분야에 따라 다수의 홈페이지를 디자인 및 개발
-                했습니다.
-              </span>
-            </li>
-            <li>
-              <strong>로뎀코퍼레이션 (2016. 08 ~ 2017. 03)</strong>
-              <span>
-                퍼플리셔 겸 디자이너로 입사. 개발자가 없이 부족한 부분은
-                솔루션을 최대한 활용하며 다수의 홈페이지 제작 및 관리 했습니다.
-              </span>
-            </li>
+            {careers.map((career) => (
+              <li key={career.COMPANY}>
+                <strong>
+                  {career.COMPANY} ({getCareerPeriodText(career)})
+                </strong>
+                <span>{career.DESCRIPTION}</span>
+              </li>
+            ))}
           </ul>
         </section>
         <div className="resumeBtnWrap">
