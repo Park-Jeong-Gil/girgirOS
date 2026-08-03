@@ -203,7 +203,7 @@ function Profile({}: ProfileProps) {
           <h3 className="secTit">Experience (총 경력 {totalCareerText})</h3>
           <ul className="experienceWrap">
             {careers.map((career) => (
-              <li key={career.COMPANY}>
+              <li key={`${career.COMPANY}-${career.START}`}>
                 <strong>
                   {career.COMPANY} ({getCareerPeriodText(career)})
                 </strong>
