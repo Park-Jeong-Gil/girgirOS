@@ -3,6 +3,8 @@ import TopMenu from "../toolBar/TopMenu";
 import MiddleMenu from "../toolBar/MiddleMenu";
 import AddressMenu from "../toolBar/AddressMenu";
 import { projects } from "../../constants/projectData";
+import type { Project } from "../../constants/projectData";
+import { sortedProjects } from "../../utils/projectHelper";
 import zone from '../../assets/images/common/zone-internet-16x16.png'
 
 interface ExplorerProps {}
@@ -76,7 +78,7 @@ function Explorer({}: ExplorerProps) {
     }
   }, [activeDescription]);
 
-  const groupedProjects = Object.values(projects).reduce((acc, project) => {
+  const groupedProjects = sortedProjects.reduce((acc, project) => {
     const year = project.DATE.split('.')[0]; 
     if (!acc[year]) {
       acc[year] = [];
@@ -87,7 +89,7 @@ function Explorer({}: ExplorerProps) {
       acc[year].push(project);
     }
     return acc;
-  }, {} as Record<string, typeof projects[keyof typeof projects][]>);
+  }, {} as Record<string, Project[]>);
 
   const sortedYears = Object.keys(groupedProjects).sort((a, b) => parseInt(b) - parseInt(a));
 

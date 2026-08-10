@@ -1,7 +1,18 @@
-const projects = {
+export interface Project {
+  ID: string;
+  DATE: string; // "YYYY.MM" 형식의 시작 시점
+  TITLE: string;
+  SRC: string;
+  DESCRIPTION: string;
+  // 종료 시점. null 이면 진행중, 생략하면 DATE 를 종료 시점으로 본다
+  END?: string | null;
+}
+
+const projects: Record<string, Project> = {
   mapleisland: {
     ID: "mapleisland",
     DATE: "2026.06",
+    END: "2026.07",
     TITLE: "메이플아일랜드 애니메이션 페이지 운영",
     SRC: "https://mapleisland.nexon.com/animation",
     DESCRIPTION: `
@@ -36,6 +47,7 @@ const projects = {
   maplelog: {
     ID: "maplelog",
     DATE: "2026.05",
+    END: "2026.07",
     TITLE: "메이플로그(MapleLog) 리뉴얼",
     SRC: "https://blog.maplestory.nexon.com/",
     DESCRIPTION: `
@@ -71,6 +83,7 @@ const projects = {
   liedetector: {
     ID: "liedetector",
     DATE: "2026.04",
+    END: null,
     TITLE: "AI 거짓말 탐지기 (Lie Detector)",
     SRC: "#",
     DESCRIPTION: `
@@ -105,6 +118,7 @@ const projects = {
   mapleevent: {
     ID: "mapleevent",
     DATE: "2026.04",
+    END: "2026.07",
     TITLE: "메이플스토리 이벤트 페이지 제작 및 운영",
     SRC: "https://maplestory.nexon.com/promotion/event/2026/20260416/event01",
     DESCRIPTION: `
@@ -143,6 +157,7 @@ const projects = {
   figmatocode: {
     ID: "figmatocode",
     DATE: "2026.04",
+    END: null,
     TITLE: "업무 효율화 (Figma → 코드 자동화)",
     SRC: "#",
     DESCRIPTION: `
@@ -177,6 +192,7 @@ const projects = {
   workautomation: {
     ID: "workautomation",
     DATE: "2026.04",
+    END: "2026.07",
     TITLE: "업무 자동화 & 생산성 도구 구축",
     SRC: "#",
     DESCRIPTION: `

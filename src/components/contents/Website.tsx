@@ -3,6 +3,7 @@ import { useRecoilState } from "recoil";
 import { programStatus } from "../../store/useProgramStatus";
 import { projects } from "../../constants/projectData";
 import { getWebsiteThumbnail } from "../../utils/thumbnailHelper";
+import { getProjectDateText, sortedProjects } from "../../utils/projectHelper";
 
 interface WebsiteProps {}
 
@@ -115,8 +116,7 @@ function Website({}: WebsiteProps) {
               <span>Date</span>
             </div>
             <ul>
-              {Object.keys(projects).map((key) => {
-                const item = projects[key as keyof typeof projects];
+              {sortedProjects.map((item) => {
                 return (
                   <li className="websiteList" key={item.ID}>
                     <button
@@ -129,7 +129,9 @@ function Website({}: WebsiteProps) {
                     >
                       <span className="websiteIcon"></span>
                       <em className="websiteName">{item.TITLE}</em>
-                      <span className="websiteDate">{item.DATE}</span>
+                      <span className="websiteDate">
+                        {getProjectDateText(item)}
+                      </span>
                     </button>
                   </li>
                 );
