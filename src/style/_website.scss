@@ -43,116 +43,11 @@
         background: url("../assets/images/common/monitor-screen.png") no-repeat
           center / contain;
 
+        // 썸네일 이미지는 프로젝트 ID 와 같은 이름의 파일을 찾아
+        // background-image 로 직접 넣어준다. (utils/thumbnailHelper.ts)
         &[data-screen] {
           background: url("../assets/images/common/monitor-screen.png")
             no-repeat center / cover #000;
-        }
-
-        &[data-screen="taptapburger"] {
-          background-image: url("../assets/images/website/taptapburger.jpg");
-        }
-
-        &[data-screen="ddatge"] {
-          background-image: url("../assets/images/website/ddatge.jpg");
-        }
-
-        &[data-screen="goatBackHome"] {
-          background-image: url("../assets/images/website/goatBackHome.jpg");
-        }
-
-        &[data-screen="rhythmtube"] {
-          background-image: url("../assets/images/website/rhythmtube.jpg");
-        }
-        &[data-screen="gesesis"] {
-          background-image: url("../assets/images/website/gesesis.jpg");
-        }
-
-        &[data-screen="cosmofy"] {
-          background-image: url("../assets/images/website/cosmofy.jpg");
-        }
-        &[data-screen="kg"] {
-          background-image: url("../assets/images/website/kg.jpg");
-        }
-        &[data-screen="weeklywine"] {
-          background-image: url("../assets/images/website/weeklywine.jpg");
-        }
-        &[data-screen="eastpole"] {
-          background-image: url("../assets/images/website/eastpole.jpg");
-        }
-        &[data-screen="spacehub"] {
-          background-image: url("../assets/images/website/spacehub.jpg");
-        }
-        &[data-screen="ubora"] {
-          background-image: url("../assets/images/website/ubora.jpg");
-        }
-        &[data-screen="semiconductor"] {
-          background-image: url("../assets/images/website/semiconductor.jpg");
-        }
-        &[data-screen="z-flip4"] {
-          background-image: url("../assets/images/website/z-flip4.jpg");
-        }
-        &[data-screen="fave"] {
-          background-image: url("../assets/images/website/fave.jpg");
-        }
-        &[data-screen="s22-ultra"] {
-          background-image: url("../assets/images/website/s22-ultra.jpg");
-        }
-        &[data-screen="goblins"] {
-          background-image: url("../assets/images/website/ravinggoblins.jpg");
-        }
-        &[data-screen="jangsu"] {
-          background-image: url("../assets/images/website/jangsu.jpg");
-        }
-        &[data-screen="flip3"] {
-          background-image: url("../assets/images/website/flip3.jpg");
-        }
-        &[data-screen="galaxy20211h"] {
-          background-image: url("../assets/images/website/galaxy20211h.jpg");
-        }
-        &[data-screen="galaxyS21"] {
-          background-image: url("../assets/images/website/s21.jpg");
-        }
-        &[data-screen="galaxy20202h"] {
-          background-image: url("../assets/images/website/galaxy20202h.jpg");
-        }
-        &[data-screen="galaxyZfold2"] {
-          background-image: url("../assets/images/website/fold2.jpg");
-        }
-        &[data-screen="galaxyNote20"] {
-          background-image: url("../assets/images/website/note20.jpg");
-        }
-        &[data-screen="enumnet"] {
-          background-image: url("../assets/images/website/enumnet.jpg");
-        }
-        &[data-screen="enumcut"] {
-          background-image: url("../assets/images/website/enumcut.jpg");
-        }
-        &[data-screen="broadcast"] {
-          background-image: url("../assets/images/website/broadcast.jpg");
-        }
-        &[data-screen="lawyer"] {
-          background-image: url("../assets/images/website/lawyer.jpg");
-        }
-        &[data-screen="flowyline"] {
-          background-image: url("../assets/images/website/flowyline.jpg");
-        }
-        &[data-screen="hook"] {
-          background-image: url("../assets/images/website/hook.jpg");
-        }
-        &[data-screen="brandin"] {
-          background-image: url("../assets/images/website/brandin.jpg");
-        }
-        &[data-screen="noah"] {
-          background-image: url("../assets/images/website/noah.jpg");
-        }
-        &[data-screen="burningsun"] {
-          background-image: url("../assets/images/website/burningsun.jpg");
-        }
-        &[data-screen="dctomenc"] {
-          background-image: url("../assets/images/website/dctomenc.jpg");
-        }
-        &[data-screen="dctoment"] {
-          background-image: url("../assets/images/website/dctoment.jpg");
         }
       }
     }

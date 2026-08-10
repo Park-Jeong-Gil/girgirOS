@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { useRecoilState } from "recoil";
 import { programStatus } from "../../store/useProgramStatus";
 import { projects } from "../../constants/projectData";
+import { getWebsiteThumbnail } from "../../utils/thumbnailHelper";
 
 interface WebsiteProps {}
 
@@ -11,6 +12,8 @@ function Website({}: WebsiteProps) {
   const [activeDescription, setActiveDescription] = useState<string>("");
   const [activeSrc, setActiveSrc] = useState<string>("");
   const descriptionRef = useRef<HTMLDivElement>(null);
+  // 선택한 프로젝트의 모니터 썸네일
+  const activeThumbnail = getWebsiteThumbnail(activeProject);
 
   // ID로 프로젝트를 찾는 함수
   const findProjectByID = (id: string) => {
@@ -83,7 +86,15 @@ function Website({}: WebsiteProps) {
       <div className="tabpanel" role="tabpanel">
         <div className="monitorWrap">
           <p className="monitor">
-            <span className="monitorScreen" data-screen={activeProject}></span>
+            <span
+              className="monitorScreen"
+              data-screen={activeProject}
+              style={
+                activeThumbnail
+                  ? { backgroundImage: `url(${activeThumbnail})` }
+                  : undefined
+              }
+            ></span>
           </p>
         </div>
         <div className="listWrap">

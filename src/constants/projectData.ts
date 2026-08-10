@@ -1,4 +1,213 @@
 const projects = {
+  mapleisland: {
+    ID: "mapleisland",
+    DATE: "2026.06",
+    TITLE: "메이플아일랜드 애니메이션 페이지 운영",
+    SRC: "https://mapleisland.nexon.com/animation",
+    DESCRIPTION: `
+<header class="siteHeader">
+  <h3>
+    <strong class="titItem">
+      <span class="emoji">💾</span> 프로젝트 :
+    </strong>
+    메이플아일랜드 애니메이션 페이지 운영
+  </h3>
+  <p>
+    <strong class="titItem">
+      <span class="emoji">⏱️</span> 작업 기간 :
+    </strong>
+    <time dateTime="2026-06">2026년 6월</time> ~
+    <time dateTime="2026-07">2026년 7월</time>
+  </p>
+  <p class="skill">
+    <strong class="titItem">
+      <span class="emoji">🛠️</span> 사용기술 :
+    </strong>
+    React, scss, webpack, GitLab
+  </p>
+</header>
+<div class="siteDesc">
+  <p>메이플스토리의 오리지널 애니메이션 <strong>디어 마이 히어로</strong> 페이지를 운영한 프로젝트입니다.</p>
+  <p>매주 업데이트 되는 신규 굿즈에 맞춰 이미지와 콘텐츠를 업데이트하고 라이브 배포까지 진행하는 운영성 업무를 담당 했습니다.</p>
+  <p>정해진 주기 안에서 실수 없이 반복되어야 하는 작업인 만큼, 콘텐츠 교체 지점을 일정한 구조로 정리해 매주 동일한 흐름으로 배포할 수 있도록 관리 했습니다.</p>
+</div>
+    `,
+  },
+  maplelog: {
+    ID: "maplelog",
+    DATE: "2026.05",
+    TITLE: "메이플로그(MapleLog) 리뉴얼",
+    SRC: "https://blog.maplestory.nexon.com/",
+    DESCRIPTION: `
+<header class="siteHeader">
+  <h3>
+    <strong class="titItem">
+      <span class="emoji">💾</span> 프로젝트 :
+    </strong>
+    메이플로그(MapleLog) 리뉴얼
+  </h3>
+  <p>
+    <strong class="titItem">
+      <span class="emoji">⏱️</span> 작업 기간 :
+    </strong>
+    <time dateTime="2026-05">2026년 5월</time> ~
+    <time dateTime="2026-07">2026년 7월</time>
+  </p>
+  <p class="skill">
+    <strong class="titItem">
+      <span class="emoji">🛠️</span> 사용기술 :
+    </strong>
+    Next.js, TypeScript, scss, Figma, GitLab
+  </p>
+</header>
+<div class="siteDesc">
+  <p>메이플스토리의 공식 블로그인 <strong>메이플로그</strong> 개편 프로젝트의 프론트엔드 개발을 담당 했습니다.</p>
+  <p>성격이 다른 3종류의 관리자 페이지를 하나의 서비스에 연동해야 했기 때문에, 각 관리자에서 내려오는 데이터의 형태를 파악하고 화면에서 일관되게 다룰 수 있는 구조로 정리하는 것이 핵심이었습니다.</p>
+  <p>퍼블릭 API 키를 코드에서 분리해 GitLab 시크릿 변수로 관리하는 등 배포 환경의 보안 조치를 함께 진행 했으며, 개발부터 라이브 배포까지 전체 사이클을 반복 수행 했습니다.</p>
+  <p>7월 21일 최종 라이브와 QA 대응을 마지막으로, 로컬 실행부터 배포까지의 방법과 인수인계 히스토리를 정리한 개발 가이드를 작성하며 프로젝트를 마무리 했습니다.</p>
+</div>
+    `,
+  },
+  liedetector: {
+    ID: "liedetector",
+    DATE: "2026.04",
+    TITLE: "AI 거짓말 탐지기 (Lie Detector)",
+    SRC: "#",
+    DESCRIPTION: `
+<header class="siteHeader">
+  <h3>
+    <strong class="titItem">
+      <span class="emoji">💾</span> 프로젝트 :
+    </strong>
+    AI 거짓말 탐지기(Lie Detector) 프론트엔드 개발
+  </h3>
+  <p>
+    <strong class="titItem">
+      <span class="emoji">⏱️</span> 작업 기간 :
+    </strong>
+    <time dateTime="2026-04">2026년 4월</time> ~ 진행중
+  </p>
+  <p class="skill">
+    <strong class="titItem">
+      <span class="emoji">🛠️</span> 사용기술 :
+    </strong>
+    Next.js, TypeScript, scss, GitLab, k6
+  </p>
+</header>
+<div class="siteDesc">
+  <p>게임 중 이상 유저와 봇, 매크로가 감지되면 발동하는 <strong>AI 거짓말 탐지기</strong> 서비스의 프론트엔드를 담당하고 있습니다.</p>
+  <p>이미 운영 중인 서비스에 중간 투입된 만큼 인프라 구조와 개발 플로우를 파악하는 것에서 시작해, 신규 게임으로의 추가 도입과 신규 문제 유형 개발을 진행 했습니다.</p>
+  <p>SSR hydrate 실패로 발생하는 타임아웃 이슈는 CloudFront 로그와 next.config.ts 설정, 청크 로딩 과정을 차례로 분석하며 근본 원인까지 추적하는 심층 디버깅으로 해결 했습니다.</p>
+  <p>최근에는 k6를 활용해 프론트 인프라 부하 테스트를 진행하며 pod 당 처리 가능한 RPS를 산정 했습니다.</p>
+</div>
+    `,
+  },
+  mapleevent: {
+    ID: "mapleevent",
+    DATE: "2026.04",
+    TITLE: "메이플스토리 이벤트 페이지 제작 및 운영",
+    SRC: "https://maplestory.nexon.com/promotion/event/2026/20260416/event01",
+    DESCRIPTION: `
+<header class="siteHeader">
+  <h3>
+    <strong class="titItem">
+      <span class="emoji">💾</span> 프로젝트 :
+    </strong>
+    메이플스토리 이벤트 페이지 제작 및 운영
+  </h3>
+  <p>
+    <strong class="titItem">
+      <span class="emoji">⏱️</span> 작업 기간 :
+    </strong>
+    <time dateTime="2026-04">2026년 4월</time> ~
+    <time dateTime="2026-07">2026년 7월</time>
+  </p>
+  <p class="skill">
+    <strong class="titItem">
+      <span class="emoji">🛠️</span> 사용기술 :
+    </strong>
+    Next.js, TypeScript, scss, Figma, GitLab
+  </p>
+</header>
+<div class="siteDesc">
+  <p>메이플스토리와 메이플M 등 국내 서비스의 이벤트 페이지(0416, 0618, 0723, 0730 등)를 정기적으로 제작하고 배포하는 프로덕션 업무입니다.</p>
+  <p>PC와 Mobile 화면에 맞춘 개발부터 라이브 배포까지 이벤트 페이지 운영 사이클 전반을 담당 했으며, 인터랙션 요소가 많은 화려한 페이지를 정해진 오픈 일정에 맞춰 안정적으로 내보내는 것이 가장 중요한 과제였습니다.</p>
+  <p>
+    다른 작업물은 아래에서 확인하실 수 있습니다.<br />
+    <a href="https://maplestory.nexon.com/promotion/event/2026/20260618/event02" target="_blank">메이플스토리 0618 이벤트</a><br />
+    <a href="https://maplestorym.nexon.com/event/2026/0716_reboost" target="_blank">메이플M 리부스트 이벤트</a>
+  </p>
+</div>
+    `,
+  },
+  figmatocode: {
+    ID: "figmatocode",
+    DATE: "2026.04",
+    TITLE: "업무 효율화 (Figma → 코드 자동화)",
+    SRC: "#",
+    DESCRIPTION: `
+<header class="siteHeader">
+  <h3>
+    <strong class="titItem">
+      <span class="emoji">💾</span> 프로젝트 :
+    </strong>
+    업무 효율화 (Figma → 코드 자동화 테스트)
+  </h3>
+  <p>
+    <strong class="titItem">
+      <span class="emoji">⏱️</span> 작업 기간 :
+    </strong>
+    <time dateTime="2026-04">2026년 4월</time> ~ 진행중
+  </p>
+  <p class="skill">
+    <strong class="titItem">
+      <span class="emoji">🛠️</span> 사용기술 :
+    </strong>
+    Figma, Claude(MCP), React, CSS Modules
+  </p>
+</header>
+<div class="siteDesc">
+  <p>Figma 시안을 Claude로 변환해 코드를 자동으로 추출하는 파이프라인을 실험한 프로젝트입니다.</p>
+  <p>처음부터 모든 화면을 자동화하기보다, 반복적이고 패턴화하기 쉬운 구조부터 접근해 시안이 코드로 얼마나 정확하게 옮겨지는지를 검증해 나갔습니다.</p>
+  <p>변환 품질을 끌어올리기 위해 SKILL.md 작성과 레이어 네이밍 컨벤션 정리를 함께 진행 했으며, 결국 시안 자체가 규칙적으로 그려져야 자동화의 정확도가 올라간다는 점을 확인할 수 있었습니다.</p>
+  <p>현재는 피그마 플러그인 형태의 코드 제너레이터로 발전시켜 디자인팀에 공유하고, 실제 업무에서 활용하고 있습니다.</p>
+</div>
+    `,
+  },
+  workautomation: {
+    ID: "workautomation",
+    DATE: "2026.04",
+    TITLE: "업무 자동화 & 생산성 도구 구축",
+    SRC: "#",
+    DESCRIPTION: `
+<header class="siteHeader">
+  <h3>
+    <strong class="titItem">
+      <span class="emoji">💾</span> 프로젝트 :
+    </strong>
+    업무 자동화 & 생산성 도구 구축
+  </h3>
+  <p>
+    <strong class="titItem">
+      <span class="emoji">⏱️</span> 작업 기간 :
+    </strong>
+    <time dateTime="2026-04">2026년 4월</time> ~
+    <time dateTime="2026-07">2026년 7월</time>
+  </p>
+  <p class="skill">
+    <strong class="titItem">
+      <span class="emoji">🛠️</span> 사용기술 :
+    </strong>
+    Notion API, n8n, Slack, Claude(MCP)
+  </p>
+</header>
+<div class="siteDesc">
+  <p>반복적으로 발생하는 업무를 도구로 대신하기 위해 사내 자동화 환경을 구축한 프로젝트입니다.</p>
+  <p>Notion API를 활용해 주간 업무 보고서가 자동으로 작성되도록 만들고, n8n을 기반으로 업무 플로우를 자동화 했으며, Slack과 Notion을 연동해 흩어져 있던 기록이 한 곳에 모이도록 정리 했습니다.</p>
+  <p>Claude MCP 앱 세팅을 진행하면서 사내에 Claude 활용 가이드를 작성·공유해, 팀 전체의 AI 도구 활용도를 높이는 역할도 함께 맡았습니다.</p>
+</div>
+    `,
+  },
   taptapburger: {
     ID: "taptapburger",
     DATE: "2026.02",
