@@ -95,8 +95,8 @@ const contact: { [key: string]: itemData } = {
     ID: "github",
     NAME: "Github",
     TYPE: "link",
-    LINK: "https://github.com/Park-Jeong-Gil/girgirOS",
-    DESCRIPTION: "새 탭으로 원티드 지원서를 엽니다.",
+    LINK: "https://github.com/Park-Jeong-Gil/",
+    DESCRIPTION: "새 탭으로 Github를 엽니다.",
   },
 } as const;
 
